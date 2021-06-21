@@ -3,3 +3,4 @@ Disciplina de DS - Desenvolvimento de Software - Desenvolvimento do software Sis
 ## Equipe de Desenvolvimento:
 - Viny Bonim Scaldelai
 - Gustavo dos Anjos Neri 
+- Gabriel André Estevam Gross
