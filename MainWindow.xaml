@@ -10,7 +10,7 @@
         ResizeMode="NoResize"
         
         Title="Login" Height="350" Width="600">
-    <Grid Background="#FFC1C1C1">
+    <Grid Background="#b5b5b5">
         <StackPanel >
             <Label Foreground="#FF06AEAE" Margin="0 45 0 0" FontSize="35" HorizontalContentAlignment="Center">
                 Login
