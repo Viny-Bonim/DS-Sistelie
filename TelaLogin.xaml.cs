@@ -18,11 +18,11 @@ using System.Windows.Navigation;
 namespace DS_Sistelie
 {
     /// <summary>
-    /// Interação lógica para MainWindow.xam
+    /// Interação lógica para TelaLogin.xam
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TelaLogin : Window
     {
-        public MainWindow()
+        public TelaLogin()
         {
             InitializeComponent();
         }
