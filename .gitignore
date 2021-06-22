@@ -95,7 +95,10 @@ StyleCopReport.xml
 *.tmp_proj
 *_wpftmp.csproj
 *.log
+<<<<<<< HEAD
 *.tlog
+=======
+>>>>>>> main
 *.vspscc
 *.vssscc
 .builds
@@ -148,9 +151,14 @@ _TeamCity*
 !.axoCover/settings.json
 
 # Coverlet is a free, cross platform Code Coverage Tool
+<<<<<<< HEAD
 coverage*.json
 coverage*.xml
 coverage*.info
+=======
+coverage*.[ji][sn][of][no]
+coverage*.xml
+>>>>>>> main
 
 # Visual Studio code coverage results
 *.coverage
@@ -211,9 +219,12 @@ PublishScripts/
 *.nuget.props
 *.nuget.targets
 
+<<<<<<< HEAD
 # Nuget personal access tokens and Credentials
 nuget.config
 
+=======
+>>>>>>> main
 # Microsoft Azure Build Output
 csx/
 *.build.csdef
@@ -370,6 +381,7 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
+<<<<<<< HEAD
 # VS Code files for those working on multiple tools
 .vscode/*
 !.vscode/settings.json
@@ -394,5 +406,10 @@ FodyWeavers.xsd
 
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
+=======
+### VisualStudio Patch ###
+# Additional files built by Visual Studio
+*.tlog
+>>>>>>> main
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio

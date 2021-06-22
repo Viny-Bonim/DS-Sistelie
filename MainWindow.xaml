@@ -49,7 +49,7 @@
             <TextBlock HorizontalAlignment="Center" Margin="170 0 0 0">
                 Quer se cadastrar?
                 <Hyperlink x:Name="Hyperlink1" Foreground="Salmon" NavigateUri="https://youtu.be/dQw4w9WgXcQ" RequestNavigate="Hyperlink_RequestNavigate">       
-                    Clique aqui
+                    Clique aqui.
                 </Hyperlink>
             </TextBlock>
         </StackPanel>
