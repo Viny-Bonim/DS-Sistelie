@@ -5,8 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DS_Sistelie"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Login" Height="350" Width="600">
+    <Grid Background="#FFC1C1C1">
+
+        <StackPanel >
+            <Label Foreground="#FF06AEAE" Margin="0 45 0 0" FontSize="35" HorizontalContentAlignment="Center">
+                Login
+            </Label>
+
+        </StackPanel>
+
+        <StackPanel>
+            <Label Foreground="#FF06AEAE" Margin="0 65 0 0" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="25">
+                _____________________________________________________________________________
+            </Label>
+        </StackPanel>
+
+        <StackPanel Margin="0,100,0,0" Width="242">
+            <Label>
+                Digite o usuario
+            </Label>
+            <TextBox Cursor="IBeam">
+                galindoaaaaaaaaaaaa
+            </TextBox>
+            <Label>
+                Digite a senha
+            </Label>
+            <TextBox Cursor="IBeam">
+                ******
+            </TextBox>
+        </StackPanel>
+
+        <StackPanel Margin="0,210,0,0">
+            <Button Background="#FF06AEAE" Height="30" Cursor="Hand" Margin="130 0 130 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}">
+                Zap login
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>
