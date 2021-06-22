@@ -29,7 +29,9 @@ namespace DS_Sistelie
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            MenuInicial menu_inicial = new MenuInicial();
+            menu_inicial.Show();
+            this.Close();
         }
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
