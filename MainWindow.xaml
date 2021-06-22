@@ -5,6 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DS_Sistelie"
         mc:Ignorable="d"
+        FontFamily="Corbel"
+        
+        ResizeMode="NoResize"
+        
         Title="Login" Height="350" Width="600">
     <Grid Background="#FFC1C1C1">
         <StackPanel >
@@ -16,7 +20,7 @@
 
         <StackPanel>
             <Label Foreground="#FF06AEAE" Margin="0 65 0 0" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="25">
-                _____________________________________________________________________________
+                ____________________________________________________________________
             </Label>
         </StackPanel>
 
@@ -25,20 +29,29 @@
                 Digite o usuario
             </Label>
             <TextBox Cursor="IBeam">
-                galindoaaaaaaaaaaaa
+
             </TextBox>
             <Label>
                 Digite a senha
             </Label>
             <TextBox Cursor="IBeam">
-                ******
+                
             </TextBox>
+            <CheckBox Margin="0 4 0 0">
+                Lembrar usuario?
+            </CheckBox>
         </StackPanel>
 
         <StackPanel Margin="0,210,0,0">
-            <Button Background="#FF06AEAE" Height="30" Cursor="Hand" Margin="130 0 130 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}">
+            <Button Background="#FF06AEAE" Height="30" Cursor="Hand" Margin="130 0 130 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Click="Button_Click">
                 Login
             </Button>
+            <TextBlock HorizontalAlignment="Center" Margin="150 0 0 0">
+                Esquece sua senha?
+                <Hyperlink x:Name="Hyperlink1" Foreground="Salmon" NavigateUri="https://youtu.be/dQw4w9WgXcQ" RequestNavigate="Hyperlink_RequestNavigate">       
+                    Clique aqui
+                </Hyperlink>
+            </TextBlock>
         </StackPanel>
     </Grid>
 </Window>
