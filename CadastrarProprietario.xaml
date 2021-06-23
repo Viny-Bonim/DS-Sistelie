@@ -17,7 +17,7 @@
                 Nome*
             </Label>
 
-            <TextBox Margin="0 35 0 35" Width="230">
+            <TextBox x:Name="txtNome" Margin="0 35 0 35" Width="230">
 
             </TextBox>
         </StackPanel>
@@ -27,7 +27,7 @@
                 CPF*
             </Label>
 
-            <TextBox Margin="0 35 0 35" Width="230">
+            <TextBox x:Name="txtCpf" Margin="0 35 0 35" Width="230">
 
             </TextBox>
         </StackPanel>
@@ -37,7 +37,7 @@
                 RG*
             </Label>
 
-            <TextBox Margin="0 35 0 35" Width="230">
+            <TextBox x:Name="txtRg" Margin="0 35 0 35" Width="230">
 
             </TextBox>
         </StackPanel>
@@ -47,7 +47,7 @@
                 Email*
             </Label>
 
-            <TextBox Margin="0 35 0 35" Width="230">
+            <TextBox x:Name="txtEmail" Margin="0 35 0 35" Width="230">
 
             </TextBox>
         </StackPanel>
@@ -57,8 +57,8 @@
                 Senha*
             </Label>
 
-            <TextBox Margin="0 35 0 35" Width="230">
-
+            <TextBox x:Name="txtSenha" Margin="0 35 0 35" Width="230">
+ 
             </TextBox>
         </StackPanel>
 
@@ -67,19 +67,19 @@
                 Confirme a senha*
             </Label>
 
-            <TextBox Margin="0 35 0 35" Width="230">
+            <TextBox x:Name="txtConfsenha" Margin="0 35 0 35" Width="230">
 
             </TextBox>
 
         </StackPanel>
         <StackPanel Margin="700 365 0 0">
-            <Button Width="160" Height="80" HorizontalAlignment="Center" Margin="90 0 0 0" Background="#FFBB0707">
+            <Button x:Name="Cancelar" Width="160" Height="80" HorizontalAlignment="Center" Margin="90 0 0 0" Background="#FFBB0707" Click="BtCancelar_Click">
                 Cancelar
             </Button>
         </StackPanel>
 
         <StackPanel Margin="700 465 0 15">
-            <Button Width="200" Height="80" HorizontalAlignment="Center" Margin="50 0 0 0" Background="#FF06AEAE">
+            <Button x:Name="Salvar" Width="200" Height="80" HorizontalAlignment="Center" Margin="50 0 0 0" Background="#FF06AEAE" Click="BtSalvar_Click">
                 Salvar
             </Button>
         </StackPanel>

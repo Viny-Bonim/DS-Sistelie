@@ -23,5 +23,92 @@ namespace DS_Sistelie
         {
             InitializeComponent();
         }
+
+        private void BtCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Deseja Cancelar o Cadastro desse Fornecedor?", "Cadastrar Fornecedor", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void BtSalvar_Click(object sender, RoutedEventArgs e)
+        {
+            string nome = txtNome.Text;
+            string cpf = txtCpf.Text;
+            string rg = txtRg.Text;
+            string email = txtEmail.Text;
+            string senha = txtSenha.Text;
+            string confsenha = txtConfsenha.Text;
+
+            bool validacao = false;
+
+            if(nome.Equals(""))
+            {
+                MessageBox.Show("O campo 'Nome' é obrigatorio, preencha-o");
+                validacao = false;
+            }
+            else
+            {
+                validacao = true;
+            }
+
+            if (cpf.Equals(""))
+            {
+                MessageBox.Show("O campo 'CPF' é obrigatorio, preencha-o");
+                validacao = false;
+            }
+            else
+            {
+                validacao = true;
+            }
+
+            if (rg.Equals(""))
+            {
+                MessageBox.Show("O campo 'RG' é obrigatorio, preencha-o");
+                validacao = false;
+            }
+            else
+            {
+                validacao = true;
+            }
+
+            if (email.Equals(""))
+            {
+                MessageBox.Show("O campo 'Email' é obrigatorio, preencha-o");
+                validacao = false;
+            }
+            else
+            {
+                validacao = true;
+            }
+
+            if (senha.Equals(""))
+            {
+                MessageBox.Show("O campo 'Senha' é obrigatorio, preencha-o");
+                validacao = false;
+            }
+            else
+            {
+                validacao = true;
+
+            }
+
+            if (confsenha.Equals(""))
+            {
+                MessageBox.Show("O campo 'Confirmar senha' é obrigatorio, preencha-o");
+                validacao = false;
+            }
+            else
+            {
+                validacao = true;
+            }
+
+            if(validacao == true)
+            {
+
+            }
+        }
     }
 }
