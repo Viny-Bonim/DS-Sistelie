@@ -92,12 +92,22 @@ namespace DS_Sistelie
             else
             {
                 validacao = true;
-
             }
 
             if (confsenha.Equals(""))
             {
                 MessageBox.Show("O campo 'Confirmar senha' é obrigatorio, preencha-o");
+                validacao = false;
+
+            }
+            else
+            {
+                validacao = true;
+            }
+
+            if (senha.Length < 6)
+            {
+                MessageBox.Show("A senha precisa ter pelo menos de 6 caracteres");
                 validacao = false;
             }
             else
@@ -105,9 +115,30 @@ namespace DS_Sistelie
                 validacao = true;
             }
 
-            if(validacao == true)
+            if (senha != confsenha)
             {
+                MessageBox.Show("As senhas não coincidem");
+                validacao = false;
+            }
+            else
+            {
+                validacao = true;
+            }
 
+            if (validacao == true)
+            {
+                MessageBox.Show("Proprietario cadastrado com sucesso, veja as informações abaixo:\n" +
+                    $"Nome: {nome}\n" +
+                    $"CPF: {cpf}\n" +
+                    $"RG: {rg}\n" +
+                    $"Email: {email}\n" +
+                    $"Senha: {senha}"
+                    );
+    
+            }
+            else
+            {
+                MessageBox.Show("Revise as informações!");
             }
         }
     }
