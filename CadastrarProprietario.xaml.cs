@@ -36,7 +36,7 @@ namespace DS_Sistelie
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
             string nome = txtNome.Text;
-            string cpf = txtCpf.Text;
+            string cpf = txtCpf.Text; 
             string rg = txtRg.Text;
             string email = txtEmail.Text;
             string senha = txtSenha.Text;
