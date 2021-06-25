@@ -46,16 +46,18 @@ namespace DS_Sistelie
             string rg = txtRg.Text;
             string nascimento = PickNascimento.Text;
             string sexo = CbSexo.Text;
-            string renda = txtRenda.Text;
+            string telefone = txtTelefone.Text;
+            string email = txtEmail.Text;
             string bairro = txtBairro.Text;
             string rua = txtRua.Text;
             string numero = txtNumero.Text;
+            string estado = txtEstado.Text;
             string cidade = txtCidade.Text;
-            string email = txtEmail.Text;
+
 
             bool validacao = false;
 
-            if (nome.Equals("") || cpf.Equals("") || rg.Equals("") || nascimento.Equals("") || sexo.Equals("") || renda.Equals("") || bairro.Equals("") || rua.Equals("") || numero.Equals("") || cidade.Equals("") || email.Equals(""))
+            if (nome.Equals("") || cpf.Equals("") || rg.Equals("") || nascimento.Equals("") || sexo.Equals("") || telefone.Equals("") || bairro.Equals("") || rua.Equals("") || numero.Equals("") || estado.Equals("") || cidade.Equals("") )
             {
                 MessageBox.Show($"Os campos marcados com \"*\" são obrigatorios, preencha-os");
                 validacao = false;
@@ -65,7 +67,7 @@ namespace DS_Sistelie
                 validacao = true;
             }
 
-            if (validacao.Equals(true))
+            if (validacao.Equals(true) && email.Equals(""))
             {
                 MessageBox.Show("Cliente cadastrado com sucesso, veja as informações abaixo:\n" +
                     $"Nome: {nome}\n" +
@@ -73,17 +75,33 @@ namespace DS_Sistelie
                     $"RG: {rg}\n" +
                     $"Nascimento: {nascimento}\n" +
                     $"Sexo: {sexo}\n" +
-                    $"Renda: {renda}\n" +
+                    $"Telefone: {telefone}\n" +
                     $"Bairro: {bairro}\n" +
                     $"Rua: {rua}\n" +
                     $"Numero: {numero}\n" +
-                    $"Cidade: {cidade}\n" +
-                    $"Email: {email}\n"
+                    $"Estado: {estado}\n" +
+                    $"Cidade: {cidade}\n"
                     );
                 LimparTextBox();
             }
-            else
+            else if(validacao.Equals(true))
             {
+                MessageBox.Show("Cliente cadastrado com sucesso, veja as informações abaixo:\n" +
+                    $"Nome: {nome}\n" +
+                    $"CPF: {cpf}\n" +
+                    $"RG: {rg}\n" +
+                    $"Nascimento: {nascimento}\n" +
+                    $"Sexo: {sexo}\n" +
+                    $"Telefone: {telefone}\n" +
+                    $"Email: {email}\n" +
+                    $"Bairro: {bairro}\n" +
+                    $"Rua: {rua}\n" +
+                    $"Numero: {numero}\n" +
+                    $"Estado: {estado}\n" +
+                    $"Cidade: {cidade}\n"
+                    );
+                LimparTextBox();
+
                 MessageBox.Show("Revise as informações!");
             }
         }
@@ -94,12 +112,14 @@ namespace DS_Sistelie
             txtRg.Text = "";
             PickNascimento.Text = "";
             CbSexo.Text = "";
-            txtRenda.Text = "";
+            txtTelefone.Text = "";
+            txtEmail.Text = "";
             txtBairro.Text = "";
             txtRua.Text = "";
             txtNumero.Text = "";
             txtCidade.Text = "";
-            txtEmail.Text = "";
+            txtEstado.Text = "";
+
         }
     }
 }

@@ -12,7 +12,7 @@
         FontFamily="Corbel"
         FontWeight="Bold"
         
-        Title="Cadastrar Cliente" Height="600" Width="1000">
+        Title="Cadastrar Proprietario" Height="600" Width="1000">
     <Grid Background="#FFC1C1C1">
 
         <StackPanel Height="100" VerticalAlignment="Top" Orientation="Horizontal">
@@ -30,7 +30,7 @@
                 CPF*
             </Label>
 
-            <wpfTool:MaskedTextBox Width="150" x:Name="txtCpf" Mask="000\.000\.000-00" Margin="0 35 0 35" Background="White" FontSize="21"/>
+            <wpfTool:MaskedTextBox Width="150" x:Name="txtCpf" Mask="000\.000\.000-00" Margin="0 35 0 35" Background="White" FontSize="20"/>
 
         </StackPanel>
 
@@ -39,9 +39,8 @@
                 RG*
             </Label>
 
-            <TextBox x:Name="txtRg" Margin="0 35 0 35" Width="230">
+            <wpfTool:MaskedTextBox Width="100" x:Name="txtRg" Mask="000\.000\.0" Margin="0 35 0 35" Background="White" FontSize="20"/>
 
-            </TextBox>
         </StackPanel>
 
         <StackPanel Height="100" Margin="0 280 0 0" VerticalAlignment="Top" Orientation="Horizontal">

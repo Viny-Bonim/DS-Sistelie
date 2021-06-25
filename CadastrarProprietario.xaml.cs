@@ -24,8 +24,6 @@ namespace DS_Sistelie
         public CadastrarProprietario()
         {
             InitializeComponent();
-
-
         }
 
         private void BtCancelar_Click(object sender, RoutedEventArgs e)

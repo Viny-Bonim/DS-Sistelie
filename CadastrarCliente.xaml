@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:DS_Sistelie"
         mc:Ignorable="d"
         
+        xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
         WindowStartupLocation="CenterScreen"
         FontSize="20"
         FontFamily="Corbel"
@@ -40,9 +41,8 @@
                 CPF*
             </Label>
 
-            <TextBox x:Name="txtCpf" Margin="0 36 0 30" Width="230">
+            <wpfTool:MaskedTextBox Width="150" x:Name="txtCpf" Mask="000\.000\.000-00" Margin="0 36 0 30" Background="White" FontSize="20"/>
 
-            </TextBox>
         </StackPanel>
 
         <StackPanel Height="90" Margin="0 198 0 0" VerticalAlignment="Top" Orientation="Horizontal">
@@ -50,9 +50,8 @@
                 RG*
             </Label>
 
-            <TextBox x:Name="txtRg" Margin="0 36 0 30" Width="230">
+            <wpfTool:MaskedTextBox Width="100" x:Name="txtRg" Mask="000\.000\.0" Margin="0 36 0 30" Background="White" FontSize="20"/>
 
-            </TextBox>
         </StackPanel>
 
         <StackPanel Height="90" Margin="0 264 0 0" VerticalAlignment="Top" Orientation="Horizontal">
@@ -75,10 +74,18 @@
 
         <StackPanel Height="90" Margin="0 396 0 0" VerticalAlignment="Top" Orientation="Horizontal">
             <Label Margin="0 33 0 0">
-                Renda familiar*
+                Telefone*
             </Label>
 
-            <TextBox x:Name="txtRenda" Margin="0 36 0 30" Width="150">
+            <TextBox x:Name="txtTelefone" Margin="0 36 0 30" Width="150">
+
+            </TextBox>
+
+            <Label Margin="10 33 0 0">
+                Email
+            </Label>
+
+            <TextBox x:Name="txtEmail" Margin="0 36 0 30" Width="230">
 
             </TextBox>
         </StackPanel>
@@ -111,6 +118,14 @@
 
         <StackPanel Height="90" Margin="0 528 0 0" VerticalAlignment="Top" Orientation="Horizontal">
             <Label Margin="0 33 0 0">
+                Estado*
+            </Label>
+
+            <TextBox x:Name="txtEstado" Margin="0 36 0 30" Width="130">
+
+            </TextBox>
+
+            <Label Margin="0 33 0 0">
                 Cidade*
             </Label>
 
@@ -118,13 +133,6 @@
 
             </TextBox>
 
-            <Label Margin="10 33 0 0">
-                Email*
-            </Label>
-
-            <TextBox x:Name="txtEmail" Margin="0 36 0 30" Width="230">
-
-            </TextBox>
         </StackPanel>
 
         <StackPanel Margin="700 385 0 30">
