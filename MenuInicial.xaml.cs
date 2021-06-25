@@ -30,5 +30,18 @@ namespace DS_Sistelie
             cad_fornecedor.Show();
             this.Close();
         }
+        private void btnCadCliente_Click(object sender, RoutedEventArgs e)
+        {
+            CadastrarCliente cad_cliente = new CadastrarCliente();
+            cad_cliente.Show();
+            this.Close();
+        }
+
+        private void btnCadProprietario_Click(object sender, RoutedEventArgs e)
+        {
+            CadastrarProprietario cad_proprietario = new CadastrarProprietario();
+            cad_proprietario.Show();
+            this.Close();
+        }
     }
 }

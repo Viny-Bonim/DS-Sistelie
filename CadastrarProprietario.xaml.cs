@@ -19,6 +19,8 @@ namespace DS_Sistelie
     /// </summary>
     public partial class CadastrarProprietario : Window
     {
+        bool validacao = false;
+
         public CadastrarProprietario()
         {
             InitializeComponent();
@@ -26,9 +28,11 @@ namespace DS_Sistelie
 
         private void BtCancelar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Deseja Cancelar o Cadastro desse Fornecedor?", "Cadastrar Fornecedor", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show("Deseja Cancelar o Cadastro desse Proprietario?", "Cadastrar Proprietario", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
+                MenuInicial menuInicial = new MenuInicial();
+                menuInicial.Show();
                 this.Close();
             }
         }
@@ -36,67 +40,20 @@ namespace DS_Sistelie
         private void BtSalvar_Click(object sender, RoutedEventArgs e)
         {
             string nome = txtNome.Text;
-            string cpf = txtCpf.Text; 
+            string cpf = txtCpf.Text;
             string rg = txtRg.Text;
             string email = txtEmail.Text;
             string senha = txtSenha.Text;
             string confsenha = txtConfsenha.Text;
 
             bool validacao = false;
+            bool validacaosenha = false;
+            bool validacaoconfsenha = false;
 
-            if(nome.Equals(""))
-            {
-                MessageBox.Show("O campo 'Nome' é obrigatorio, preencha-o");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
 
-            if (cpf.Equals(""))
+            if (nome.Equals("") || cpf.Equals("") || rg.Equals("") || email.Equals("") || senha.Equals("") || confsenha.Equals(""))
             {
-                MessageBox.Show("O campo 'CPF' é obrigatorio, preencha-o");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (rg.Equals(""))
-            {
-                MessageBox.Show("O campo 'RG' é obrigatorio, preencha-o");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (email.Equals(""))
-            {
-                MessageBox.Show("O campo 'Email' é obrigatorio, preencha-o");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (senha.Equals(""))
-            {
-                MessageBox.Show("O campo 'Senha' é obrigatorio, preencha-o");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (confsenha.Equals(""))
-            {
-                MessageBox.Show("O campo 'Confirmar senha' é obrigatorio, preencha-o");
+                MessageBox.Show($"Os campos marcados com \"*\" são obrigatorios, preencha-os");
                 validacao = false;
 
             }
@@ -105,27 +62,28 @@ namespace DS_Sistelie
                 validacao = true;
             }
 
-            if (senha.Length < 6)
+            if (senha.Length < 8)
             {
-                MessageBox.Show("A senha precisa ter pelo menos de 6 caracteres");
-                validacao = false;
+                MessageBox.Show("A senha precisa ter pelo menos 8 caracteres");
+                validacaosenha = false;
+
             }
             else
             {
-                validacao = true;
+                validacaosenha = true;
             }
 
-            if (senha != confsenha)
+            if(senha != confsenha)
             {
                 MessageBox.Show("As senhas não coincidem");
-                validacao = false;
+                validacaoconfsenha = false;
             }
             else
             {
-                validacao = true;
+                validacaoconfsenha = true;
             }
 
-            if (validacao == true)
+            if (validacao == true && validacaosenha == true && validacaoconfsenha == true )
             {
                 MessageBox.Show("Proprietario cadastrado com sucesso, veja as informações abaixo:\n" +
                     $"Nome: {nome}\n" +
@@ -134,12 +92,28 @@ namespace DS_Sistelie
                     $"Email: {email}\n" +
                     $"Senha: {senha}"
                     );
-    
+                LimparTextBox();
+
             }
             else
             {
                 MessageBox.Show("Revise as informações!");
             }
+        }
+
+        private void LimparTextBox()
+        {
+            txtNome.Text = "";
+            txtCpf.Text = "";
+            txtRg.Text = "";
+            txtEmail.Text = "";
+            txtSenha.Text = "";
+            txtConfsenha.Text = "";
+        }
+
+        private void txtSenha_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
