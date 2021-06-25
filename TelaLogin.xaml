@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DS_Sistelie"
         mc:Ignorable="d"
-        FontFamily="Corbel"
         
+        WindowStartupLocation="CenterScreen" 
+        FontFamily="Corbel" 
         ResizeMode="NoResize"
         
         Title="Login" Height="350" Width="600">
