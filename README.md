@@ -5,3 +5,4 @@ Disciplina de DS - Desenvolvimento de Software - Desenvolvimento do software Sis
 - Gustavo dos Anjos Neri
 - Gabriel André Estevam Gross
 - Carolaine Aparecida de Souza Barros
+- Hiago Santana Benitez
