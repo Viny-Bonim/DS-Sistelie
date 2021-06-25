@@ -19,9 +19,24 @@ namespace DS_Sistelie
     /// </summary>
     public partial class CadastrarFornecedor : Window
     {
+        bool validacao = false;
+        Fornecedor fornecedor = new Fornecedor();
+        private List<string> tipoFornecedor;
+
         public CadastrarFornecedor()
         {
             InitializeComponent();
+            Loaded += CadastrarFornecedor_Loaded;
+        }
+
+        private void CadastrarFornecedor_Loaded(object sender, RoutedEventArgs e)
+        {
+            tipoFornecedor = new List<string>();
+
+            tipoFornecedor.Add("Pessoa Física");
+            tipoFornecedor.Add("Pessoa Jurídica");
+
+            cmbxTipo.ItemsSource = tipoFornecedor;
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
@@ -29,164 +44,43 @@ namespace DS_Sistelie
             MessageBoxResult result = MessageBox.Show("Deseja Cancelar o Cadastro desse Fornecedor?", "Cadastrar Fornecedor", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if(result == MessageBoxResult.Yes)
             {
+                MenuInicial menuInicial = new MenuInicial();
+                menuInicial.Show();
                 this.Close();
             }
         }
 
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
-            string codigo = txtCodigo.Text;
-            string tipo = cmbxTipo.Text;
-            string data_cad = dtCadastro.Text;
-            string rg_ie = txtRGIE.Text;
-            string cpf_cnpj = txtCPFCNPJ.Text;
-            string nome_fantasia = txtNomeFantasia.Text;
-            string razao_social = txtRazaoSocial.Text;
-            string telefone = txtTelefone.Text;
-            string email = txtEmail.Text;
-            string cep = txtCEP.Text;
-            string logradouro = txtLogradouro.Text;
-            string numero = txtNumero.Text;
-            string pais = txtPais.Text;
-            string uf = txtUF.Text;
-            string cidade = txtCidade.Text;
-
-            bool validacao = false;
-
-            if (tipo.Equals(""))
-            {
-                MessageBox.Show("Preencha o campo TIPO");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (data_cad.Equals(""))
-            {
-                MessageBox.Show("Preencha o campo DATA DO CADASTRO");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (rg_ie.Equals(""))
-            {
-                MessageBox.Show("Preencha o campo RG/IE");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (cpf_cnpj.Equals(""))
-            {
-                MessageBox.Show("Preencha o campo CPF/CNPJ");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
+            fornecedor.CodigoFornecedor = txtCodigo.Text;
+            fornecedor.TipoFornecedor = cmbxTipo.Text;
+            fornecedor.DataCadastroFornecedor = dtCadastro.Text;
+            fornecedor.RgIe = txtRGIE.Text;
+            fornecedor.Cpf = txtCpf.Text;
+            fornecedor.Cnpj = txtCnpj.Text;
+            fornecedor.NomeFantasia = txtNomeFantasia.Text;
+            fornecedor.RazaoSocial = txtRazaoSocial.Text;
+            fornecedor.Telefone = txtTelefone.Text;
+            fornecedor.Email = txtEmail.Text;
+            fornecedor.Cep = txtCEP.Text;
+            fornecedor.Logradouro = txtLogradouro.Text;
+            fornecedor.Numero = txtNumero.Text;
+            fornecedor.Pais = txtPais.Text;
+            fornecedor.Uf = txtUF.Text;
+            fornecedor.Cidade = txtCidade.Text;
 
 
-            if (nome_fantasia.Equals(""))
-            {
-                MessageBox.Show("Preencha o campo NOME FANTASIA");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (razao_social.Equals(""))
-            {
-                MessageBox.Show("Preencha o campo RAZÃO SOCIAL");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (telefone.Equals(""))
-            {
-                MessageBox.Show("Preencha o campo TELEFONE");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (email.Equals(""))
-            {
-                MessageBox.Show("Preencha o campo EMAIL");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (cep.Equals(""))
-            {
-                MessageBox.Show("Preencha o campo CEP");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (logradouro.Equals(""))
-            {
-                MessageBox.Show("Preencha o campo LOGRADOURO");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (numero.Equals(""))
-            {
-                MessageBox.Show("Preencha o campo NUMERO");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (pais.Equals(""))
-            {
-                MessageBox.Show("Preencha o campo PAÍS");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (uf.Equals(""))
-            {
-                MessageBox.Show("Preencha o campo UF");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (cidade.Equals(""))
-            {
-                MessageBox.Show("Preencha o campo CIDADE");
+            if (fornecedor.CodigoFornecedor.Equals("") || fornecedor.TipoFornecedor.Equals("") 
+                || fornecedor.DataCadastroFornecedor.Equals("") 
+                || fornecedor.RgIe.Equals("") || fornecedor.Cpf.Equals("") || fornecedor.Cnpj.Equals("")
+                || fornecedor.NomeFantasia.Equals("")
+                || fornecedor.RazaoSocial.Equals("") || fornecedor.Telefone.Equals("") 
+                || fornecedor.Email.Equals("") || fornecedor.Cep.Equals("") 
+                || fornecedor.Logradouro.Equals("") || fornecedor.Numero.Equals("") 
+                || fornecedor.Pais.Equals("") || fornecedor.Uf.Equals("")
+                || fornecedor.Cidade.Equals("")) { 
+            
+                MessageBox.Show("Preencha todos os campos com *");
                 validacao = false;
             }
             else
@@ -197,22 +91,45 @@ namespace DS_Sistelie
             if (validacao == true)
             {
                 MessageBox.Show("Fornecedor cadastrado com sucesso!\n" +
-                $"Código: {codigo}\n" +
-                $"Tipo: {tipo}\n" +
-                $"Data do Cadastro: {data_cad}\n" +
-                $"RG/IE: {rg_ie}\n" +
-                $"CPF/CNPJ: {cpf_cnpj}\n" +
-                $"Nome Fantasia: {nome_fantasia}\n" +
-                $"Razão Social: {razao_social}\n" +
-                $"Telefone: {telefone}\n" +
-                $"E-mail: {email}\n" +
-                $"CEP: {cep}\n" +
-                $"Logradouro: {logradouro}\n" +
-                $"Número: {numero}\n" +
-                $"País: {pais}\n" +
-                $"UF: {uf}\n" +
-                $"Cidade: {cidade}");
+                $"Código: {fornecedor.CodigoFornecedor}\n" +
+                $"Tipo: {fornecedor.TipoFornecedor}\n" +
+                $"Data do Cadastro: {fornecedor.DataCadastroFornecedor}\n" +
+                $"RG/IE: {fornecedor.RgIe}\n" +
+                $"CPF: {fornecedor.Cpf}\n" +
+                $"CNPJ: {fornecedor.Cnpj}\n" +
+                $"Nome Fantasia: {fornecedor.NomeFantasia}\n" +
+                $"Razão Social: {fornecedor.RazaoSocial}\n" +
+                $"Telefone: {fornecedor.Telefone}\n" +
+                $"E-mail: {fornecedor.Email}\n" +
+                $"CEP: {fornecedor.Cep}\n" +
+                $"Logradouro: {fornecedor.Logradouro}\n" +
+                $"Número: {fornecedor.Numero}\n" +
+                $"País: {fornecedor.Pais}\n" +
+                $"UF: {fornecedor.Uf}\n" +
+                $"Cidade: {fornecedor.Cidade}");
+                LimparTextBox();
             }
+            
+        }
+
+        private void LimparTextBox()
+        {
+            txtCodigo.Text = "";
+            cmbxTipo.Text = "";
+            dtCadastro.Text = "";
+            txtRGIE.Text = "";
+            txtCpf.Text = "";
+            txtCnpj.Text = "";
+            txtNomeFantasia.Text = "";
+            txtRazaoSocial.Text = "";
+            txtTelefone.Text = "";
+            txtEmail.Text = "";
+            txtCEP.Text = "";
+            txtLogradouro.Text = "";
+            txtNumero.Text = "";
+            txtPais.Text = "";
+            txtUF.Text = "";
+            txtCidade.Text = "";
         }
     }
 }
