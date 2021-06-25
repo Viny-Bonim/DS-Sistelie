@@ -82,6 +82,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ConsultarFornecedores\ConsultarFornecedoresWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TelaLogin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -98,6 +102,9 @@
     </Compile>
     <Compile Include="CadastrarProprietario.xaml.cs">
       <DependentUpon>CadastrarProprietario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarFornecedores\ConsultarFornecedoresWindow.xaml.cs">
+      <DependentUpon>ConsultarFornecedoresWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Fornecedor.cs" />
     <Compile Include="TelaLogin.xaml.cs">

@@ -30,12 +30,12 @@
             <Label Content="CNJP" FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="10 20 5 5"/>
             <Label Content="Nome Fantasia*" FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="10 20 5 5"/>
             <Label Content="Razão Social*" FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="10 20 5 5"/>
-            <Label Content="Telefone" FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="10 20 5 5"/>
-            <Label Content="E-mail" FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="10 20 5 5"/>
+            <Label Content="Telefone*" FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="10 20 5 5"/>
+            <Label Content="E-mail*" FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="10 20 5 5"/>
         </StackPanel>
 
         <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2">
-            <TextBox x:Name="txtCodigo" Margin="110 22 150 5" Background="White" FontSize="20"/>
+            <TextBox x:Name="txtCodigo" Margin="110 22 180 5" Background="White" FontSize="20" IsEnabled="False">1</TextBox>
             <ComboBox x:Name="cmbxTipo" Margin="80 22 120 5" FontSize="20"/>
             <DatePicker x:Name="dtCadastro" Margin="200 22 5 5" Background="White" FontSize="20"/>
             <TextBox x:Name="txtRGIE" Margin="110 22 5 5" Background="White" FontSize="20"/>
