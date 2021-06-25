@@ -99,6 +99,7 @@
     <Compile Include="CadastrarProprietario.xaml.cs">
       <DependentUpon>CadastrarProprietario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Fornecedor.cs" />
     <Compile Include="TelaLogin.xaml.cs">
       <DependentUpon>TelaLogin.xaml</DependentUpon>
       <SubType>Code</SubType>
