@@ -132,5 +132,19 @@ namespace DS_Sistelie
             txtUF.Text = "";
             txtCidade.Text = "";
         }
+
+        private void txtEmail_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            string email = txtEmail.Text.Trim();
+
+            if (!Validacao.IsEmail(email))
+            {
+                e.Handled = true;
+                txtEmail_error.Visibility = Visibility.Visible;
+                txtEmail.Focus();
+            }
+            else
+                txtEmail_error.Visibility = Visibility.Collapsed;
+        }
     }
 }
