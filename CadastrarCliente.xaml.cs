@@ -22,18 +22,11 @@ namespace DS_Sistelie
         public CadastrarCliente()
         {
             InitializeComponent();
-
-            CbSexo.Items.Add("Masculino");
-            CbSexo.Items.Add("Feminino");
         }
 
         private void Cancelar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Deseja Cancelar o Cadastro desse Cliente", "Cadastrar Cliente", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
-            {
-                this.Close();
-            }
+
         }
 
         private void Salvar_Click(object sender, RoutedEventArgs e)

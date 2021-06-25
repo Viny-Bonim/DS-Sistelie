@@ -69,7 +69,7 @@
                 Sexo*
             </Label>
 
-            <ComboBox FontSize="15" x:Name="CbSexo" Margin="0 36 0 30" Width="120" HorizontalAlignment="Center"/>
+            <ComboBox x:Name="CbSexo" Margin="0 36 0 30" Width="120" HorizontalAlignment="Center"/>
         </StackPanel>
 
         <StackPanel Height="90" Margin="0 396 0 0" VerticalAlignment="Top" Orientation="Horizontal">
