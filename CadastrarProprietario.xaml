@@ -9,7 +9,7 @@
         FontFamily="Corbel"
         FontWeight="Bold"
         
-        Title="Cadastrar Funcionario" Height="600" Width="1000">
+        Title="Cadastrar Cliente" Height="600" Width="1000">
     <Grid Background="#FFC1C1C1">
 
         <StackPanel Height="100" VerticalAlignment="Top" Orientation="Horizontal">
