@@ -22,11 +22,21 @@ namespace DS_Sistelie
         public CadastrarCliente()
         {
             InitializeComponent();
+
+            CbSexo.Items.Add("Masculino");
+            CbSexo.Items.Add("Feminino");
+            CbSexo.Items.Add("Não Binario");
         }
 
         private void Cancelar_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBoxResult result = MessageBox.Show("Deseja Cancelar o Cadastro desse Cliente?", "Cadastrar Cliente", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                MenuInicial menuInicial = new MenuInicial();
+                menuInicial.Show();
+                this.Close();
+            }
         }
 
         private void Salvar_Click(object sender, RoutedEventArgs e)
@@ -45,111 +55,9 @@ namespace DS_Sistelie
 
             bool validacao = false;
 
-            if (nome.Equals(""))
+            if (nome.Equals("") || cpf.Equals("") || rg.Equals("") || nascimento.Equals("") || sexo.Equals("") || renda.Equals("") || bairro.Equals("") || rua.Equals("") || numero.Equals("") || cidade.Equals("") || email.Equals(""))
             {
-                MessageBox.Show("O campo 'Nome' é obrigatorio, preencha-o");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (cpf.Equals(""))
-            {
-                MessageBox.Show("O campo 'CPF' é obrigatorio, preencha-o");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (rg.Equals(""))
-            {
-                MessageBox.Show("O campo 'RG' é obrigatorio, preencha-o");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (nascimento.Equals(""))
-            {
-                MessageBox.Show("O campo 'Nascimento' é obrigatorio, selecione-o");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (sexo.Equals(""))
-            {
-                MessageBox.Show("O campo 'Sexo' é obrigatorio, selecione-o");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (renda.Equals(""))
-            {
-                MessageBox.Show("O campo 'Renda familiar' é obrigatorio, preencha-o");
-                validacao = false;
-
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (bairro.Equals(""))
-            {
-                MessageBox.Show("O campo 'Bairro' é obrigatorio, preencha-o");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (rua.Equals(""))
-            {
-                MessageBox.Show("O campo 'Rua' é obrigatorio, preencha-o");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (numero.Equals(""))
-            {
-                MessageBox.Show("O campo 'Numero' é obrigatorio, preencha-o");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-            }
-
-            if (cidade.Equals(""))
-            {
-                MessageBox.Show("O campo 'Cidade' é obrigatorio, preencha-o");
-                validacao = false;
-            }
-            else
-            {
-                validacao = true;
-
-            }
-
-            if (email.Equals(""))
-            {
-                MessageBox.Show("O campo 'Email' é obrigatorio, preencha-o");
+                MessageBox.Show($"Os campos marcados com \"*\" são obrigatorios, preencha-os");
                 validacao = false;
             }
             else
@@ -172,11 +80,26 @@ namespace DS_Sistelie
                     $"Cidade: {cidade}\n" +
                     $"Email: {email}\n"
                     );
+                LimparTextBox();
             }
             else
             {
                 MessageBox.Show("Revise as informações!");
             }
+        }
+        private void LimparTextBox()
+        {
+            txtNome.Text = "";
+            txtCpf.Text = "";
+            txtRg.Text = "";
+            PickNascimento.Text = "";
+            CbSexo.Text = "";
+            txtRenda.Text = "";
+            txtBairro.Text = "";
+            txtRua.Text = "";
+            txtNumero.Text = "";
+            txtCidade.Text = "";
+            txtEmail.Text = "";
         }
     }
 }

@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:DS_Sistelie"
         mc:Ignorable="d"
         
+        WindowStartupLocation="CenterScreen"
         FontSize="20"
         FontFamily="Corbel"
         FontWeight="Bold"
@@ -69,7 +70,7 @@
                 Sexo*
             </Label>
 
-            <ComboBox x:Name="CbSexo" Margin="0 36 0 30" Width="120" HorizontalAlignment="Center"/>
+            <ComboBox FontSize="17" x:Name="CbSexo" Margin="0 36 0 30" Width="120" HorizontalAlignment="Center"/>
         </StackPanel>
 
         <StackPanel Height="90" Margin="0 396 0 0" VerticalAlignment="Top" Orientation="Horizontal">
@@ -126,15 +127,21 @@
             </TextBox>
         </StackPanel>
 
-        <StackPanel Margin="700 415 0 0">
-            <Button x:Name="Cancelar" Width="160" Height="80" HorizontalAlignment="Center" Margin="90 0 0 0" Background="#FFBB0707" Click="Cancelar_Click">
-                Cancelar
+        <StackPanel Margin="700 385 0 30">
+            <Button x:Name="Cancelar" Width="160" Height="100" HorizontalAlignment="Center" Margin="90 0 0 0" Background="#FFBB0707" Click="Cancelar_Click">
+                <StackPanel>
+                    <Image Source="/imagensBotoes/Cancelar.png" Margin="0 10 0 5" Height="50" Width="70"></Image>
+                    <TextBlock Margin="0 0 0 10" HorizontalAlignment="Center">Cancelar</TextBlock>
+                </StackPanel>
             </Button>
         </StackPanel>
 
-        <StackPanel Margin="700 515 0 15">
-            <Button x:Name="Salvar" Width="200" Height="80" HorizontalAlignment="Center" Margin="50 0 0 0" Background="#FF06AEAE" Click="Salvar_Click">
-                Salvar
+        <StackPanel Margin="700 500 0 0">
+            <Button x:Name="Salvar" Width="200" Height="90" HorizontalAlignment="Center" Margin="50 0 0 30" Background="#FF06AEAE" Click="Salvar_Click">
+                <StackPanel>
+                    <Image Source="/imagensBotoes/Salvar.png" Margin="0 5 0 5" Height="50" Width="70"></Image>
+                    <TextBlock Margin="0 0 0 10" HorizontalAlignment="Center">Salvar</TextBlock>
+                </StackPanel>
             </Button>
         </StackPanel>
 
