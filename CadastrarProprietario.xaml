@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:DS_Sistelie"
         mc:Ignorable="d"
         
+        xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
         WindowStartupLocation="CenterScreen"
         FontSize="20"
         FontFamily="Corbel"
@@ -29,9 +30,8 @@
                 CPF*
             </Label>
 
-            <TextBox x:Name="txtCpf" Margin="0 35 0 35" Width="230">
+            <wpfTool:MaskedTextBox Width="150" x:Name="txtCpf" Mask="000\.000\.000-00" Margin="0 35 0 35" Background="White" FontSize="21"/>
 
-            </TextBox>
         </StackPanel>
 
         <StackPanel Height="100" Margin="0 180 0 0" VerticalAlignment="Top" Orientation="Horizontal">
@@ -59,7 +59,7 @@
                 Senha*
             </Label>
 
-            <TextBox x:Name="txtSenha" Margin="0 35 0 35" Width="230">
+            <TextBox x:Name="txtSenha" Margin="0 35 0 35" Width="230" TextChanged="txtSenha_TextChanged">
  
             </TextBox>
         </StackPanel>

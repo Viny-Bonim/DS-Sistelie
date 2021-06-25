@@ -49,18 +49,43 @@ namespace DS_Sistelie
             string confsenha = txtConfsenha.Text;
 
             bool validacao = false;
+            bool validacaosenha = false;
+            bool validacaoconfsenha = false;
+
 
             if (nome.Equals("") || cpf.Equals("") || rg.Equals("") || email.Equals("") || senha.Equals("") || confsenha.Equals(""))
             {
                 MessageBox.Show($"Os campos marcados com \"*\" são obrigatorios, preencha-os");
                 validacao = false;
+
             }
             else
             {
                 validacao = true;
             }
 
-            if (validacao == true)
+            if (senha.Length < 8)
+            {
+                MessageBox.Show("A senha precisa ter pelo menos 8 caracteres");
+                validacaosenha = false;
+
+            }
+            else
+            {
+                validacaosenha = true;
+            }
+
+            if(senha != confsenha)
+            {
+                MessageBox.Show("As senhas não coincidem");
+                validacaoconfsenha = false;
+            }
+            else
+            {
+                validacaoconfsenha = true;
+            }
+
+            if (validacao == true && validacaosenha == true && validacaoconfsenha == true )
             {
                 MessageBox.Show("Proprietario cadastrado com sucesso, veja as informações abaixo:\n" +
                     $"Nome: {nome}\n" +
@@ -86,6 +111,11 @@ namespace DS_Sistelie
             txtEmail.Text = "";
             txtSenha.Text = "";
             txtConfsenha.Text = "";
+        }
+
+        private void txtSenha_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
