@@ -57,5 +57,26 @@ namespace DS_Sistelie
             cad_CastrarMateria.Show();
             this.Close();
         }
+
+        private void btnRegSaidaMateriaPrima_Click(object sender, RoutedEventArgs e)
+        {
+            SaidaMateriaPrima Reg_saidaMateriaPrima = new SaidaMateriaPrima();
+            Reg_saidaMateriaPrima.Show();
+            this.Close();
+        }
+
+        private void btnRegVendas_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrarVendas Reg_Vendas = new RegistrarVendas();
+            Reg_Vendas.Show();
+            this.Close();
+        }
+
+        private void btnExibVendas_Click(object sender, RoutedEventArgs e)
+        {
+            ExibirVendas Exib_Vendas = new ExibirVendas();
+            Exib_Vendas.Show();
+            this.Close();
+        }
     }
 }

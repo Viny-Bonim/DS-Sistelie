@@ -73,7 +73,16 @@
     <Compile Include="CadastrarMateriaPrima.xaml.cs">
       <DependentUpon>CadastrarMateriaPrima.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ExibirVendas.xaml.cs">
+      <DependentUpon>ExibirVendas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MateriaPrima.cs" />
+    <Compile Include="RegistrarVendas.xaml.cs">
+      <DependentUpon>RegistrarVendas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SaidaMateriaPrima.xaml.cs">
+      <DependentUpon>SaidaMateriaPrima.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Validacao.cs" />
     <Page Include="CadastrarCliente.xaml">
       <SubType>Designer</SubType>
@@ -92,6 +101,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ConsultarFornecedores\ConsultarFornecedoresWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExibirVendas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistrarVendas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SaidaMateriaPrima.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
