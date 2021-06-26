@@ -50,5 +50,12 @@ namespace DS_Sistelie
             consultarFornecedores.Show();
             this.Close();
         }
+
+        private void btnCadmateriaPrima_Click(object sender, RoutedEventArgs e)
+        {
+            CadastrarMateriaPrima cad_CastrarMateria = new CadastrarMateriaPrima();
+            cad_CastrarMateria.Show();
+            this.Close();
+        }
     }
 }

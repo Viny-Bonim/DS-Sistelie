@@ -5,8 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DS_Sistelie"
         mc:Ignorable="d"
-        Title="CadastrarMateriaPrima" Height="450" Width="800">
+        Title="CadastrarMateriaPrima" Height="750" Width="1000" Background="#FFB5B5B5">
     <Grid>
-        
+        <Label Content="Código" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <Label Content="Data de cadastro*" HorizontalAlignment="Left" Margin="10,183,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <Label Content="Valor unitário*  R$" HorizontalAlignment="Left" Margin="7,328,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <Label Content="Quantidade de unidades*" HorizontalAlignment="Left" Margin="10,464,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <Label Content="Nome da matéria - Prima*" HorizontalAlignment="Left" Margin="497,49,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <Label Content="Fornecedor" HorizontalAlignment="Left" Margin="507,185,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <Label Content="Valor total  R$" HorizontalAlignment="Left" Margin="507,328,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="1.58,0.5"/>
+        <GridSplitter HorizontalAlignment="Left" Height="6" Margin="0,552,0,0" VerticalAlignment="Top" Width="992"/>
+        <GridSplitter HorizontalAlignment="Left" Height="6" Margin="202,273,0,0" VerticalAlignment="Top" Width="553" RenderTransformOrigin="0.5,0.5">
+            <GridSplitter.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.319"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </GridSplitter.RenderTransform>
+        </GridSplitter>
+        <Button x:Name="btnCancelar" Margin="300,0,0,13" FontSize="17" FontWeight="Bold" Background="Red" VerticalContentAlignment="Bottom" Width="100" Height="85" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="btnCancelar_Click">
+            <StackPanel>
+                <Image Source="/imagensBotoes/Cancelar.png" Width="50" Margin="8 5 5 0" RenderTransformOrigin="1.78,0.34"/>
+                <TextBlock FontSize="17" Margin="10 0 5 0"><Run Text="C" TextDecorations="Underline"/><Run Text="ancelar"/></TextBlock>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btnSalvar" HorizontalAlignment="Left" Margin="600,0,0,13" VerticalAlignment="Bottom" Width="100" Height="85" FontWeight="Bold" FontSize="17" VerticalContentAlignment="Bottom" Background="#FF06AEAE" Click="btnSalvar_Click">
+            <StackPanel>
+                <Image Source="/imagensBotoes/Salvar.png" Width="50" Margin="7 5 5 1"/>
+                <TextBlock FontSize="17" Margin="10 0 5 25"><Run Text="S" TextDecorations="Underline"/><Run Text="alvar"/></TextBlock>
+            </StackPanel>
+        </Button>
+        <TextBox x:Name="TxtCodigo" HorizontalAlignment="Left" Height="28" Margin="99,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" IsEnabled="False" Text="1" FontSize="20" TextChanged="TxtCodigo_TextChanged"/>
+        <TextBox x:Name="TxtValorUnitario" HorizontalAlignment="Left" Height="28" Margin="194,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" FontSize="20" FontFamily="Arial"/>
+        <TextBox x:Name="TxtQtd" HorizontalAlignment="Left" Height="28" Margin="265,469,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" FontSize="20" FontFamily="Arial"/>
+        <TextBox x:Name="TxtFornecedor" HorizontalAlignment="Left" Height="28" Margin="636,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" FontSize="20" FontFamily="Arial"/>
+        <TextBox x:Name="TxtValorTotal" HorizontalAlignment="Left" Height="28" Margin="662,328,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" FontSize="20" FontFamily="Arial"/>
+        <DatePicker x:Name="DataCad" HorizontalAlignment="Left" Margin="194,183,0,0" VerticalAlignment="Top" FontSize="20" Height="34" FontFamily="Arial"/>
+        <ComboBox x:Name="ComboNomeMateriaPrima" HorizontalAlignment="Left" Margin="754,54,0,0" VerticalAlignment="Top" Width="228" Height="28" FontSize="20" FontFamily="Arial" SelectionChanged="ComboBox_SelectionChanged"/>
+
     </Grid>
 </Window>

@@ -33,5 +33,11 @@
                     FontWeight="Bold" Background="#91c4c0" Click="btnConsultarFornecedor_Click" >Consultar Fornecedor</Button>
         </StackPanel>
 
+        <StackPanel>
+            <Button x:Name="btnCadastrarMateriaPrima" Margin="20 290 0 0" Height="50" Width="230" 
+                    HorizontalAlignment="Center" FontSize="18" 
+                    FontWeight="Bold" Background="#91c4c0" Click="btnCadmateriaPrima_Click" >Cadastrar Matéria - Prima</Button>
+        </StackPanel>
+
     </Grid>
 </Window>
