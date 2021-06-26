@@ -23,5 +23,12 @@ namespace DS_Sistelie.ConsultarFornecedores
         {
             InitializeComponent();
         }
+
+        private void btnInicioFornecedor_Click(object sender, RoutedEventArgs e)
+        {
+            MenuInicial menuInicial = new MenuInicial();
+            menuInicial.Show();
+            this.Close();
+        }
     }
 }

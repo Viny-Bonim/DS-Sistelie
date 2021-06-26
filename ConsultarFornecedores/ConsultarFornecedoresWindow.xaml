@@ -74,7 +74,7 @@
 
         <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Bottom">
             <Button x:Name="btnInicioFornecedor" Width="80" Height="65" Margin="0 0 0 20"  
-                    Background="#FF06AEAE" FontWeight="Bold" Foreground="White">
+                    Background="#FF06AEAE" FontWeight="Bold" Foreground="White" Click="btnInicioFornecedor_Click">
                 <StackPanel>
                     <Image Source="/imagensBotoes/Inicio.png" Width="39" Margin="2 3 0 0"/>
                     <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold">Excluir</TextBlock>
