@@ -27,5 +27,11 @@
                     FontWeight="Bold" Background="#91c4c0" Click="btnCadProprietario_Click" >Cadastrar Proprietario</Button>
         </StackPanel>
 
+        <StackPanel>
+            <Button x:Name="btnConsultarFornecedor" Margin="20 20 0 0" Height="50" Width="230" 
+                    HorizontalAlignment="Center" FontSize="20" 
+                    FontWeight="Bold" Background="#91c4c0" Click="btnConsultarFornecedor_Click" >Consultar Fornecedor</Button>
+        </StackPanel>
+
     </Grid>
 </Window>

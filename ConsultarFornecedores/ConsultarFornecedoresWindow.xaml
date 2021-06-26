@@ -8,6 +8,78 @@
         Title="Consultar Fornecedores" Height="630" Width="1000" Background="#b5b5b5" 
         MinWidth="1000" MinHeight="630" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="250"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="240"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <Label Content="Código" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10,10,411,5"/>
+            <Label Content="Razão Social" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10 7 5 5"/>
+            <Label Content="Nome Fantasia" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10 5 5 5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+            <TextBox x:Name="txtConsultarCodigo" Margin="100 14 250 5" Background="White" FontSize="19"/>
+            <Button x:Name="btnPesquisarFornecedor" Width="90" Height="47" Margin="385,-40,15,0"  
+                    Background="#bf0000" FontWeight="Bold" Foreground="White">
+                <StackPanel>
+                    <Image Source="/imagensBotoes/Pesquisar.png" Width="25" Margin="2 0 0 0"/>
+                    <TextBlock Margin="3 -1 1 0" FontSize="13" FontWeight="Bold">Pesquisar</TextBlock>
+                </StackPanel>
+            </Button>
+            <TextBox x:Name="txtConsultarRazaoSocial" Margin="150 3 10 5" Background="White" FontSize="19"/>
+            <TextBox x:Name="txtConsultarNomeFantasia" Margin="170 10 10 5" Background="White" FontSize="19"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <Label Content="Data" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10 10 4 5"/>
+            <Label Content="CPF" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10 10 4 5"/>
+            <Label Content="CNPJ" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10 10 4 5"/>
+            <Label Content="Cidade" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10 10 4 5"/>
+            <Label Content="UF" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10 10 4 5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <DatePicker x:Name="dtpkConsultarFornecedor" FontSize="15" Margin="63 12 0 0"/>
+            <TextBox x:Name="txtConsultarCpfFornecedor" Margin="65 17 10 5" Background="White" FontSize="19"/>
+            <TextBox x:Name="txtConsultarCnpjFornecedor" Margin="75 16 10 5" Background="White" FontSize="19"/>
+            <TextBox x:Name="txtConsultarCidadeFornecedor" Margin="88 15 10 5" Background="White" FontSize="19"/>
+            <TextBox x:Name="txtConsultarUfFornecedor" Margin="53 15 60 5" Background="White" FontSize="19"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
+            <Button x:Name="btnEditarFornecedor" Width="80" Height="65" Margin="40 -130 20 0"  
+                    Background="#bf0000" FontWeight="Bold" Foreground="White">
+                <StackPanel>
+                    <Image Source="/imagensBotoes/Editar.png" Width="35" Margin="2 3 0 0"/>
+                    <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold">Editar</TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="btnExcluirFornecedor" Width="80" Height="65" Margin="0 -130 0 0"  
+                    Background="#bf0000" FontWeight="Bold" Foreground="White">
+                <StackPanel>
+                    <Image Source="/imagensBotoes/Excluir.png" Width="30" Margin="2 3 0 0"/>
+                    <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold">Excluir</TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Bottom">
+            <Button x:Name="btnInicioFornecedor" Width="80" Height="65" Margin="0 0 0 20"  
+                    Background="#FF06AEAE" FontWeight="Bold" Foreground="White">
+                <StackPanel>
+                    <Image Source="/imagensBotoes/Inicio.png" Width="39" Margin="2 3 0 0"/>
+                    <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold">Excluir</TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>

@@ -43,5 +43,12 @@ namespace DS_Sistelie
             cad_proprietario.Show();
             this.Close();
         }
+
+        private void btnConsultarFornecedor_Click(object sender, RoutedEventArgs e)
+        {
+            ConsultarFornecedores.ConsultarFornecedoresWindow consultarFornecedores = new ConsultarFornecedores.ConsultarFornecedoresWindow();
+            consultarFornecedores.Show();
+            this.Close();
+        }
     }
 }
