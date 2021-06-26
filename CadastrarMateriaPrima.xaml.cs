@@ -42,6 +42,8 @@ namespace DS_Sistelie
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
+
+
             MessageBoxResult result = MessageBox.Show("Deseja Cancelar o Cadastro de matéria - prima?", "Cadastrar matéria - prima", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
@@ -49,6 +51,8 @@ namespace DS_Sistelie
                 menuInicial.Show();
                 this.Close();
             }
+
+            
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -81,13 +85,13 @@ namespace DS_Sistelie
 
             if (validacao == true)
             {
-                MessageBox.Show("Matéria - prima cadastrado com sucesso!\n" +
-                $"Código: {materiPrima.DataCadastroMateriaprima}\n" +
-                $"Tipo: {materiPrima.ValorUnitarioMateriaPrima}\n" +
-                $"Data do Cadastro: {materiPrima.QuantidadeUnidadesMateriaPrima}\n" +
-                $"RG/IE: {materiPrima.NomeMateriPrima}\n" +
-                $"RG/IE: {materiPrima.FornecedorMateriaPrima}\n" +
-                $"CPF: {materiPrima.ValorTotalMateriaPrima}");
+                MessageBox.Show("Matéria - prima cadastrada com sucesso!\n" +
+                $"Data: {materiPrima.DataCadastroMateriaprima}\n" +
+                $"Valor Unitário: {materiPrima.ValorUnitarioMateriaPrima}\n" +
+                $"Quantidade: {materiPrima.QuantidadeUnidadesMateriaPrima}\n" +
+                $"Nome: {materiPrima.NomeMateriPrima}\n" +
+                $"Fornecedor: {materiPrima.FornecedorMateriaPrima}\n" +
+                $"Valor total: {materiPrima.ValorTotalMateriaPrima}");
                 LimparTextBox();
             }
 

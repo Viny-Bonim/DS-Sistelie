@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DS_Sistelie"
         mc:Ignorable="d"
-        Title="Registrar Saída de Matéria - Prima" Height="450" Width="800" Background="#FFB5B5B5">
+        Title="Registrar Saída de Matéria - Prima" Height="400" Width="1000" Background="#FFB5B5B5" MinWidth="1000" MinHeight="400" MaxWidth="1000" MaxHeight="400" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Label Content="Código" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <TextBox x:Name="txtCodigo" HorizontalAlignment="Left" Height="28" Margin="94,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" IsEnabled="False" Text="1" FontSize="20" TextChanged="TxtCodigo_TextChanged"/>
+        <Label Content="Nome da matéria - prima*" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <ComboBox x:Name="ComboNomeMateriaPrima" HorizontalAlignment="Left" Margin="266,162,0,0" VerticalAlignment="Top" Width="228" Height="28" FontSize="20" FontFamily="Arial" SelectionChanged="ComboBox_SelectionChanged"/>
+        <Label Content="Quantidade de matéria - Prima Utilizada*" HorizontalAlignment="Left" Margin="10,256,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <TextBox x:Name="txtQtdMateriaPrimaUtilizada" HorizontalAlignment="Left" Height="28" Margin="410,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" FontSize="20" FontFamily="Arial"/>
+        <Button x:Name="btnCancelar" Margin="0,162,246,0" FontSize="17" FontWeight="Bold" Background="Red" VerticalContentAlignment="Bottom" Width="100" Height="85" VerticalAlignment="Top" HorizontalAlignment="Right" Click="btnCancelar_Click">
+            <StackPanel>
+                <Image Source="imagensBotoes/Cancelar.png" Width="50" Margin="8 5 5 0" RenderTransformOrigin="1.78,0.34"/>
+                <TextBlock FontSize="17" Margin="10 0 5 0"><Run Text="C" TextDecorations="Underline"/><Run Text="ancelar"/></TextBlock>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btnSalvar" HorizontalAlignment="Right" Margin="0,162,76,0" VerticalAlignment="Top" Width="100" Height="85" FontWeight="Bold" FontSize="17" VerticalContentAlignment="Bottom" Background="#FF06AEAE" Click="btnSalvar_Click">
+            <StackPanel>
+                <Image Source="imagensBotoes/Salvar.png" Width="50" Margin="7 5 5 1"/>
+                <TextBlock FontSize="17" Margin="10 0 5 25"><Run Text="S" TextDecorations="Underline"/><Run Text="alvar"/></TextBlock>
+            </StackPanel>
+        </Button>
+
     </Grid>
 </Window>
