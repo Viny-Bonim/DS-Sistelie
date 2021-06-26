@@ -77,7 +77,7 @@
                     Background="#FF06AEAE" FontWeight="Bold" Foreground="White" Click="btnInicioFornecedor_Click">
                 <StackPanel>
                     <Image Source="/imagensBotoes/Inicio.png" Width="39" Margin="2 3 0 0"/>
-                    <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold">Excluir</TextBlock>
+                    <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold">Início</TextBlock>
                 </StackPanel>
             </Button>
         </StackPanel>

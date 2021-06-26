@@ -20,7 +20,7 @@
             <RowDefinition Height="390"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
             <Label Content="Código*" FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="10 20 5 5"/>
             <Label Content="Tipo*" FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="10 20 5 5"/>
@@ -55,6 +55,17 @@
             <Label Content="País*" FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="50 20 5 5"/>
             <Label Content="UF*" FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="50 20 5 5"/>
             <Label Content="Cidade*" FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="50 20 5 5"/>
+            
+            <GridSplitter HorizontalAlignment="Left" Height="6" Margin="-340,0,-228,0" VerticalAlignment="Top" Width="713" RenderTransformOrigin="0.5,0.5">
+                <GridSplitter.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90.319"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </GridSplitter.RenderTransform>
+            </GridSplitter>
         </StackPanel>
 
         <StackPanel Grid.Column="3" Grid.Row="0">
@@ -66,6 +77,10 @@
             <TextBox x:Name="txtCidade" Margin="1 25 50 5" Background="White" FontSize="20"/>
         </StackPanel>
 
+        <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4">
+            <GridSplitter HorizontalAlignment="Right" Height="8" Margin="0 0 0 0" VerticalAlignment="Top" Width="483"/>
+        </StackPanel>
+        
         <StackPanel Grid.Column="2" Grid.Row="1">
             <Button x:Name="btnCancelar" Width="100" Height="85" Margin="80 110 10 0" 
                     Background="#bf0000" FontWeight="Bold" Click="btnCancelar_Click" Foreground="White">
@@ -81,7 +96,7 @@
                     Background="#FF06AEAE" FontWeight="Bold" Click="btnSalvar_Click" Foreground="White">
                 <StackPanel>
                     <Image Source="/imagensBotoes/Salvar.png" Width="50" Margin="7 5 5 1"/>
-                    <TextBlock FontSize="17" Margin="10 0 5 25">Salvar</TextBlock>
+                    <TextBlock FontSize="17" Margin="10 0 5 25"><Run Text="Salvar"/></TextBlock>
                 </StackPanel>
             </Button>
         </StackPanel>
