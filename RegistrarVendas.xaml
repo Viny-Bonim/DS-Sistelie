@@ -5,8 +5,85 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DS_Sistelie"
         mc:Ignorable="d"
-        Title="Registrar Vendas" Height="450" Width="800" Background="#FFB5B5B5" WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Title="Registrar Vendas" Height="750" Width="1000" Background="#FFB5B5B5" MinWidth="1000" MinHeight="750" MaxWidth="1000" MaxHeight="750">
     <Grid>
-        
+        <Label Content="Código da venda" HorizontalAlignment="Left" Margin="24,10,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <TextBox x:Name="TxtCodigo" HorizontalAlignment="Left" Height="28" Margin="28,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" IsEnabled="False" Text="1" FontSize="20" TextChanged="TxtCodigo_TextChanged"/>
+        <Label Content="Data da venda*" HorizontalAlignment="Left" Margin="226,10,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <Label Content="Forma de pagamento*" HorizontalAlignment="Left" Margin="417,10,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <ComboBox x:Name="ComboFormaPagamento" HorizontalAlignment="Left" Margin="422,53,0,0" VerticalAlignment="Top" Width="215" Height="28" FontSize="20" FontFamily="Arial" SelectionChanged="ComboBox_SelectionChanged"/>
+        <DatePicker x:Name="DataVenda" HorizontalAlignment="Left" Margin="231,53,0,0" VerticalAlignment="Top" FontSize="20" Height="28" Width="148" Background="White"/>
+        <Label Content="Nome do Cliente*" HorizontalAlignment="Left" Margin="24,121,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <ComboBox x:Name="ComboNomeCliente" HorizontalAlignment="Left" Margin="28,159,0,0" VerticalAlignment="Top" Width="280" Height="28" FontSize="20" FontFamily="Arial" SelectionChanged="ComboBox_SelectionChanged"/>
+        <ComboBox x:Name="ComboNomeVendedor" HorizontalAlignment="Left" Margin="357,159,0,0" VerticalAlignment="Top" Width="280" Height="28" FontSize="20" FontFamily="Arial" SelectionChanged="ComboBox_SelectionChanged"/>
+        <Label Content="Nome Vendedor*" HorizontalAlignment="Left" Margin="357,121,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <Button x:Name="btnSalvar" HorizontalAlignment="Left" Margin="862,0,0,565" VerticalAlignment="Bottom" Width="100" Height="85" FontWeight="Bold" FontSize="17" VerticalContentAlignment="Bottom" Background="#FF06AEAE" Click="btnSalvar_Click">
+            <StackPanel>
+                <Image Source="imagensBotoes/Salvar.png" Width="50" Margin="7 5 5 1"/>
+                <TextBlock FontSize="17" Margin="10 0 5 25" Foreground="White"><Run Text="S" TextDecorations="Underline"/><Run Text="alvar"/></TextBlock>
+            </StackPanel>
+        </Button>
+        <GridSplitter HorizontalAlignment="Left" Height="992" Margin="493,-296,0,0" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+            <GridSplitter.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.001"/>
+                    <RotateTransform Angle="89.939"/>
+                    <TranslateTransform Y="-0.008"/>
+                </TransformGroup>
+            </GridSplitter.RenderTransform>
+        </GridSplitter>
+        <Label Content="Descrição da venda*" HorizontalAlignment="Left" Margin="28,220,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <Label Content="Quantidade*" HorizontalAlignment="Left" Margin="357,220,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <Label Content="Valor da Unidade" HorizontalAlignment="Left" Margin="528,220,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <Label Content="Unidade de venda" HorizontalAlignment="Left" Margin="720,220,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <DataGrid HorizontalAlignment="Left" Height="218" Margin="24,422,0,0" VerticalAlignment="Top" Width="859"/>
+        <GridSplitter HorizontalAlignment="Left" Height="992" Margin="493,-92,0,-181" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+            <GridSplitter.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.001"/>
+                    <RotateTransform Angle="89.939"/>
+                    <TranslateTransform Y="-0.008"/>
+                </TransformGroup>
+            </GridSplitter.RenderTransform>
+        </GridSplitter>
+        <TextBox x:Name="TxtDescricaoVenda" HorizontalAlignment="Left" Height="134" Margin="28,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" FontSize="20" FontFamily="Arial" TextChanged="TxtDescricaoVenda_TextChanged" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TxtQuantidade" HorizontalAlignment="Left" Height="28" Margin="357,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" FontSize="20" FontFamily="Arial"/>
+        <TextBox x:Name="TxtValorUnidade" HorizontalAlignment="Left" Height="28" Margin="551,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" FontSize="20" FontFamily="Arial"/>
+        <TextBox x:Name="TxtUnidadedeVenda" HorizontalAlignment="Left" Height="28" Margin="734,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" FontSize="20" FontFamily="Arial"/>
+        <Button x:Name="btnInserirRegistro" Height="65" Margin="492,320,420,0"  
+            Background="#FF06AEAE" FontWeight="Bold" Foreground="White" Click="btnInserirRegistro_Click" VerticalAlignment="Top">
+            <StackPanel>
+                <Image Source="imagensBotoes/Editar.png" Width="35" Margin="2 3 0 0"/>
+                <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold" Text="Inserir"/>
+            </StackPanel>
+        </Button>
+        <StackPanel HorizontalAlignment="Left" Height="32" Margin="25,423,0,0" VerticalAlignment="Top" Width="857" Background="#FFD6D6D6"/>
+        <ScrollBar HorizontalAlignment="Left" Margin="883,422,0,0" VerticalAlignment="Top" Height="218"/>
+        <TextBox x:Name="TxtValorTotalVenda" HorizontalAlignment="Left" Height="28" Margin="734,661,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" IsEnabled="False" FontSize="20" TextChanged="TxtCodigo_TextChanged"/>
+        <Label Content="Valor total da venda: R$" HorizontalAlignment="Left" Margin="492,658,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <Label Content="Valor de desconto: R$" HorizontalAlignment="Left" Margin="28,658,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <TextBox x:Name="TxtValorDesconto" HorizontalAlignment="Left" Height="28" Margin="253,661,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontSize="20" FontFamily="Arial"/>
+        <Button x:Name="btnExcluirFornecedor" Height="65" Margin="680,320,232,0"  
+            Background="#bf0000" FontWeight="Bold" Foreground="White" VerticalAlignment="Top">
+            <StackPanel>
+                <Image Source="imagensBotoes/Excluir.png" Width="30" Margin="2 3 0 0"/>
+                <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold"><Run Text="Excluir"/></TextBlock>
+            </StackPanel>
+        </Button>
+        <CheckBox x:Name="checkVendas" Content="" HorizontalAlignment="Left" Margin="915,467,0,0" VerticalAlignment="Top" Checked="checkVendas_Checked" RenderTransformOrigin="0.45,0.2"/>
+        <CheckBox x:Name="checkVendas_Copy" Content="" HorizontalAlignment="Left" Margin="915,506,0,0" VerticalAlignment="Top" Checked="checkVendas_Checked" RenderTransformOrigin="0.45,0.2"/>
+        <CheckBox x:Name="checkVendas_Copy1" Content="" HorizontalAlignment="Left" Margin="915,539,0,0" VerticalAlignment="Top" Checked="checkVendas_Checked" RenderTransformOrigin="0.45,0.2"/>
+        <CheckBox x:Name="checkVendas_Copy2" Content="" HorizontalAlignment="Left" Margin="915,573,0,0" VerticalAlignment="Top" Checked="checkVendas_Checked" RenderTransformOrigin="0.45,0.2"/>
+        <CheckBox x:Name="checkVendas_Copy3" Content="" HorizontalAlignment="Left" Margin="915,609,0,0" VerticalAlignment="Top" Checked="checkVendas_Checked" RenderTransformOrigin="0.45,0.2"/>
+        <Button x:Name="btnSalvar_Copy" HorizontalAlignment="Left" Margin="720,0,0,565" VerticalAlignment="Bottom" Width="100" Height="85" FontWeight="Bold" FontSize="17" VerticalContentAlignment="Bottom" Background="#FF06AEAE" Click="btnSalvar_Click">
+            <StackPanel>
+                <Image Source="imagensBotoes/Editar.png" Width="50" Margin="7 5 5 1"/>
+                <TextBlock FontSize="14" Margin="10 0 5 25" Text="Nova Venda" Foreground="White"/>
+            </StackPanel>
+        </Button>
+
     </Grid>
 </Window>

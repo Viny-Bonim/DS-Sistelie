@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DS_Sistelie"
         mc:Ignorable="d"
-        Title="CadastrarMateriaPrima" Height="750" Width="1000" Background="#FFB5B5B5" MaxWidth="1000" MaxHeight="750" MinWidth="1000" MinHeight="750" WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Title="CadastrarMateriaPrima" Height="750" Width="1000" Background="#FFB5B5B5" MaxWidth="1000" MaxHeight="750" MinWidth="1000" MinHeight="750">
     <Grid>
         <Label Content="Código" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
         <Label Content="Data de cadastro*" HorizontalAlignment="Left" Margin="10,183,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
@@ -45,8 +46,8 @@
         <TextBox x:Name="TxtQtd" HorizontalAlignment="Left" Height="28" Margin="265,469,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" FontSize="20" FontFamily="Arial"/>
         <TextBox x:Name="TxtFornecedor" HorizontalAlignment="Left" Height="28" Margin="636,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" FontSize="20" FontFamily="Arial"/>
         <TextBox x:Name="TxtValorTotal" HorizontalAlignment="Left" Height="28" Margin="662,328,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" FontSize="20" FontFamily="Arial"/>
-        <DatePicker x:Name="DataCad" HorizontalAlignment="Left" Margin="194,183,0,0" VerticalAlignment="Top" FontSize="20" Height="34" FontFamily="Arial"/>
         <ComboBox x:Name="ComboNomeMateriaPrima" HorizontalAlignment="Left" Margin="754,54,0,0" VerticalAlignment="Top" Width="228" Height="28" FontSize="20" FontFamily="Arial" SelectionChanged="ComboBox_SelectionChanged"/>
+        <DatePicker x:Name="DataCad" HorizontalAlignment="Left" Margin="194,183,0,0" VerticalAlignment="Top" FontSize="20" Height="33" Padding="2" Background="White"/>
 
     </Grid>
 </Window>

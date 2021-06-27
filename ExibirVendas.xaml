@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DS_Sistelie"
         mc:Ignorable="d"
-        Title="Exibir Vendas" Height="450" Width="800" Background="#FFB5B5B5" WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Title="Exibir Vendas" Height="450" Width="800" Background="#FFB5B5B5" MinWidth="1000" MinHeight="750" MaxWidth="1000" MaxHeight="750">
     <Grid>
         
     </Grid>
