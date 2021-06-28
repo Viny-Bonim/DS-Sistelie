@@ -23,6 +23,8 @@ namespace DS_Sistelie.Despesas
 
         private List<string> grupoDespesa;
 
+        bool verifica_txtbox = false;
+
         public CadastrarDespesaWindow()
         {
             InitializeComponent();
@@ -52,21 +54,22 @@ namespace DS_Sistelie.Despesas
 
         private void btnSalvarDespesa_Click(object sender, RoutedEventArgs e)
         {
-            despesas.ValorDespesa = double.Parse(txtValorDespesa.Text);
-            despesas.dataDespesa = dtpkDataDespesa.Text;
-            despesas.CodigoFornecedorCadDespesa = int.Parse(txtCodigoFornecedorDespesa.Text);
-            despesas.DescricaoDespesa = txtDescricaoDespesa.Text;
-            despesas.IdDespesa = int.Parse(txtIdDespesa.Text);
-            despesas.GrupoDespesa = cmbxGrupoDespesa.Text;
 
-
-            if (despesas.ValorDespesa.Equals("") || despesas.dataDespesa.Equals("")
-                || despesas.DescricaoDespesa.Equals("") || despesas.GrupoDespesa.Equals(""))
+            if (txtValorDespesa.Text == "" || dtpkDataDespesa.Text == ""
+                || dtpkDataDespesa.Text == "" || cmbxGrupoDespesa.Text == ""
+                || txtCodigoFornecedorDespesa.Text == "")
             {
                 MessageBox.Show("Preencha todos os campos com *");
             }
             else
             {
+                despesas.ValorDespesa = double.Parse(txtValorDespesa.Text);
+                despesas.dataDespesa = dtpkDataDespesa.Text;
+                despesas.CodigoFornecedorCadDespesa = int.Parse(txtCodigoFornecedorDespesa.Text);
+                despesas.DescricaoDespesa = txtDescricaoDespesa.Text;
+                despesas.IdDespesa = int.Parse(txtIdDespesa.Text);
+                despesas.GrupoDespesa = cmbxGrupoDespesa.Text;
+
                 MessageBox.Show("Despesa cadastrada com sucesso!\n" +
                     $"Valor da Despesa: {despesas.ValorDespesa}\n" +
                     $"Data de Cadastro: {despesas.dataDespesa}\n" +
@@ -109,9 +112,11 @@ namespace DS_Sistelie.Despesas
                 e.Handled = true;
                 MessageBox.Show("Preencha sem letras e separando o número por vígula!");
                 txtValorDespesa.Focus();
+                verifica_txtbox = false;
             }
             else
             {
+                verifica_txtbox = true;
             }
         }
 
@@ -125,9 +130,11 @@ namespace DS_Sistelie.Despesas
                 e.Handled = true;
                 MessageBox.Show("Preencha apenas com números!");
                 txtCodigoFornecedorDespesa.Focus();
+                verifica_txtbox = false;
             }
             else
             {
+                verifica_txtbox = true;
             }
         }
     }

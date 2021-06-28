@@ -21,7 +21,7 @@
         <StackPanel Grid.Column="0" Grid.Row="0">
             <Label Content="Insira o valor da despesa*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 20 5 5"/>
             <Label Content="Insira a data da despesa*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 20 5 5"/>
-            <Label Content="Código do Fornecedor" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 20 5 5"/>
+            <Label Content="Código do Fornecedor*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 23 5 5"/>
             <Label Content="Insira a descrição da despesa*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 120 5 5"/>
         </StackPanel>
 
@@ -33,7 +33,7 @@
         <StackPanel>
             <TextBox x:Name="txtValorDespesa" Margin="245 22 40 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtValorDespesa_PreviewLostKeyboardFocus"/>
             <DatePicker x:Name="dtpkDataDespesa" Margin="245 25 40 5" Background="White" FontSize="20"/>
-            <TextBox x:Name="txtCodigoFornecedorDespesa" Margin="215 25 40 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtCodigoFornecedorDespesa_PreviewLostKeyboardFocus"/>
+            <TextBox x:Name="txtCodigoFornecedorDespesa" Margin="225 25 40 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtCodigoFornecedorDespesa_PreviewLostKeyboardFocus"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="0">
