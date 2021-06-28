@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LiveCharts;
+using LiveCharts.Wpf;
 
 namespace DS_Sistelie.Despesas
 {
@@ -29,7 +31,13 @@ namespace DS_Sistelie.Despesas
         {
             InitializeComponent();
             Loaded += ConsultarDespesasWindow_Loaded;
+
+            PointLabel = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+
+            DataContext = this;
         }
+
+        public Func<ChartPoint, string> PointLabel { get; set; }
 
         private void ConsultarDespesasWindow_Loaded(object sender, RoutedEventArgs e)
         {
@@ -75,6 +83,70 @@ namespace DS_Sistelie.Despesas
             }
             DataGridEntradaSaidaDespesas.ItemsSource = ListaEntradaSaidaDespesas;
 
+        }
+
+        private void btnEditarDespesa_Click(object sender, RoutedEventArgs e)
+        {
+            if (rdbtConsultarDespesas1.IsChecked == false && rdbtConsultarDespesas2.IsChecked == false
+                && rdbtConsultarDespesas3.IsChecked == false)
+            {
+                MessageBox.Show("Selecione uma Despesa para Editar!");
+            }
+            else
+            {
+                if (rdbtConsultarDespesas1.IsChecked == true)
+                {
+                    CadastrarDespesaWindow cadastrarDespesa = new CadastrarDespesaWindow();
+                    cadastrarDespesa.Show();
+                    this.Close();
+                }
+
+                if (rdbtConsultarDespesas2.IsChecked == true)
+                {
+                    CadastrarDespesaWindow cadastrarDespesa = new CadastrarDespesaWindow();
+                    cadastrarDespesa.Show();
+                    this.Close();
+                }
+
+                if (rdbtConsultarDespesas3.IsChecked == true)
+                {
+                    CadastrarDespesaWindow cadastrarDespesa = new CadastrarDespesaWindow();
+                    cadastrarDespesa.Show();
+                    this.Close();
+                }
+            }
+        }
+
+        private void btnExcluirDespesa_Click(object sender, RoutedEventArgs e)
+        {
+            if (rdbtConsultarDespesas1.IsChecked == false && rdbtConsultarDespesas2.IsChecked == false
+                && rdbtConsultarDespesas3.IsChecked == false)
+            {
+                MessageBox.Show("Selecione uma Despesa para Excluir!");
+            }
+            else
+            {
+                MessageBox.Show("Despesa Excluída com Sucesso!");
+            }
+        }
+
+        private void btnInicioConsultarDespesa_Click(object sender, RoutedEventArgs e)
+        {
+            MenuInicial menuInicial = new MenuInicial();
+            menuInicial.Show();
+            this.Close();
+        }
+
+        private void Chart_OnDataClick(object sender, ChartPoint chartpoint)
+        {
+            var chart = (LiveCharts.Wpf.PieChart)chartpoint.ChartView;
+
+            //limpa a fatia selecionada.
+            foreach (PieSeries series in chart.Series)
+                series.PushOut = 0;
+
+            var selectedSeries = (PieSeries)chartpoint.SeriesView;
+            selectedSeries.PushOut = 8;
         }
     }
 }

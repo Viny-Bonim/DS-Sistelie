@@ -57,7 +57,7 @@ namespace DS_Sistelie.Despesas
 
             if (txtValorDespesa.Text == "" || dtpkDataDespesa.Text == ""
                 || dtpkDataDespesa.Text == "" || cmbxGrupoDespesa.Text == ""
-                || txtCodigoFornecedorDespesa.Text == "")
+                || txtCodigoFornecedorDespesa.Text == "" || txtDescricaoDespesa.Text == "")
             {
                 MessageBox.Show("Preencha todos os campos com *");
             }
@@ -77,6 +77,8 @@ namespace DS_Sistelie.Despesas
                     $"Descrição da Despesa: {despesas.DescricaoDespesa}\n" +
                     $"ID da Despesa: {despesas.IdDespesa}\n" +
                     $"Grupo da Despesa: {despesas.GrupoDespesa}");
+                
+                LimparTextBox();
             }
         }
 
@@ -136,6 +138,16 @@ namespace DS_Sistelie.Despesas
             {
                 verifica_txtbox = true;
             }
+        }
+
+        private void LimparTextBox()
+        {
+            txtValorDespesa.Text = "";
+            dtpkDataDespesa.Text = "";
+            dtpkDataDespesa.Text = "";
+            cmbxGrupoDespesa.Text = "";
+            txtCodigoFornecedorDespesa.Text = "";
+            txtDescricaoDespesa.Text = "";
         }
     }
 }

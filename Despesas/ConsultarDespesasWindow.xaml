@@ -4,7 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DS_Sistelie.Despesas"
+        xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance local:ConsultarDespesasWindow}"
         Title="Consultar Despesas" Height="700" Width="1000" Background="#b5b5b5" 
         MinWidth="1000" MinHeight="630" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
@@ -67,7 +70,7 @@
             </GridSplitter.RenderTransform>
         </GridSplitter>
 
-        <DataGrid x:Name="DataGridEntradaSaidaDespesas" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Margin="400 18 200 10" 
+        <DataGrid x:Name="DataGridEntradaSaidaDespesas" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Margin="420 18 160 10" 
                   IsReadOnly="True" AutoGenerateColumns="False" AlternatingRowBackground="#d3e0f5" AlternationCount="2" 
                   FontFamily="Corbel" FontSize="20">
             <DataGrid.Columns>
@@ -80,6 +83,41 @@
             </DataGrid.Columns>
         </DataGrid>
 
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <Button x:Name="btnEditarDespesa" Width="80" FontFamily="Corbel" Height="65" Margin="380 40 0 0"  
+                    Background="#bf0000" FontWeight="Bold" Foreground="White" Click="btnEditarDespesa_Click">
+                <StackPanel>
+                    <Image Source="/imagensBotoes/Editar.png" Width="35" Margin="2 3 0 0"/>
+                    <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold">Editar</TextBlock>
+                </StackPanel>
+            </Button>
 
+            <Button x:Name="btnExcluirDespesa" Width="80" FontFamily="Corbel" Height="65" Margin="380 30 0 0"  
+                    Background="#bf0000" FontWeight="Bold" Foreground="White" Click="btnExcluirDespesa_Click">
+                <StackPanel>
+                    <Image Source="/imagensBotoes/Excluir.png" Width="30" Margin="2 3 0 0"/>
+                    <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold">Excluir</TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="btnInicioConsultarDespesa" FontFamily="Corbel" Width="80" Height="65" Margin="380 30 0 20"  
+                    Background="#FF06AEAE" FontWeight="Bold" Foreground="White" Click="btnInicioConsultarDespesa_Click">
+                <StackPanel>
+                    <Image Source="/imagensBotoes/Inicio.png" Width="39" Margin="2 3 0 0"/>
+                    <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold">Início</TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <lvc:PieChart LegendLocation="Bottom" DataClick="Chart_OnDataClick" Hoverable="True" DataTooltip="{x:Null}" Margin="0,10,86,15" Grid.Row="1">
+            <lvc:PieChart.Series>
+                <lvc:PieSeries Title="Internet" Values="15.25" DataLabels="True"
+                               LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries Title="Água" Values="16.25" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries Title="Energia" Values="17.25" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+            </lvc:PieChart.Series>
+        </lvc:PieChart>
     </Grid>
 </Window>
