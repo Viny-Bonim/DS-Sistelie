@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DS_Sistelie.ConsultarFornecedores"
         mc:Ignorable="d"
-        Title="Consultar Fornecedores" Height="630" Width="1000" Background="#b5b5b5" 
-        MinWidth="1000" MinHeight="630" WindowStartupLocation="CenterScreen">
+        Title="Consultar Fornecedores" Height="700" Width="1000" Background="#b5b5b5" 
+        MinWidth="1000" MinHeight="630" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500"/>
@@ -19,10 +19,12 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="0" Grid.Row="0">
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
             <Label Content="Código" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10,10,411,5"/>
             <Label Content="Razão Social" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10 7 5 5"/>
             <Label Content="Nome Fantasia" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10 5 5 5"/>
+            <Label Content="Ordenar por:" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="60 30 5 5"/>
+            <Label Content="Fornecedores totais:" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="60 30 5 5"/>
         </StackPanel>
 
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
@@ -36,6 +38,23 @@
             </Button>
             <TextBox x:Name="txtConsultarRazaoSocial" Margin="150 3 10 5" Background="White" FontSize="19"/>
             <TextBox x:Name="txtConsultarNomeFantasia" Margin="170 10 10 5" Background="White" FontSize="19"/>
+            <GridSplitter HorizontalAlignment="Stretch" Height="5" Margin="0 12 0 0"/>
+            <ComboBox x:Name="cmbxFiltroConsultaFornecedores" Margin="190 17 100 50" FontSize="20"/>
+            <TextBox x:Name="txtFornecedoresTotais" Margin="260 -14 100 5" Background="White" FontSize="19" IsEnabled="False"/>
+            <GridSplitter HorizontalAlignment="Stretch" Height="5" Margin="0 3 -490 0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <GridSplitter HorizontalAlignment="Stretch" Height="5" Margin="248,12,244,0" RenderTransformOrigin="0.5,0.5">
+                <GridSplitter.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-89.414"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </GridSplitter.RenderTransform>
+            </GridSplitter>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="0">
@@ -52,6 +71,19 @@
             <TextBox x:Name="txtConsultarCnpjFornecedor" Margin="75 16 10 5" Background="White" FontSize="19"/>
             <TextBox x:Name="txtConsultarCidadeFornecedor" Margin="88 15 10 5" Background="White" FontSize="19"/>
             <TextBox x:Name="txtConsultarUfFornecedor" Margin="53 15 60 5" Background="White" FontSize="19"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <GridSplitter HorizontalAlignment="Stretch" Height="5" Margin="519,12,-26,0" RenderTransformOrigin="0.5,0.5">
+                <GridSplitter.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-89.414"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </GridSplitter.RenderTransform>
+            </GridSplitter>
         </StackPanel>
 
         <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
@@ -81,5 +113,7 @@
                 </StackPanel>
             </Button>
         </StackPanel>
+
+        <DataGrid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"/>
     </Grid>
 </Window>
