@@ -31,9 +31,9 @@
         </StackPanel>
 
         <StackPanel>
-            <TextBox x:Name="txtValorDespesa" Margin="245 22 40 5" Background="White" FontSize="20"/>
+            <TextBox x:Name="txtValorDespesa" Margin="245 22 40 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtValorDespesa_PreviewLostKeyboardFocus"/>
             <DatePicker x:Name="dtpkDataDespesa" Margin="245 25 40 5" Background="White" FontSize="20"/>
-            <TextBox x:Name="txtCodigoFornecedorDespesa" Margin="215 25 40 5" Background="White" FontSize="20"/>
+            <TextBox x:Name="txtCodigoFornecedorDespesa" Margin="215 25 40 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtCodigoFornecedorDespesa_PreviewLostKeyboardFocus"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="0">

@@ -53,14 +53,15 @@ namespace DS_Sistelie.Despesas
         private void btnSalvarDespesa_Click(object sender, RoutedEventArgs e)
         {
             despesas.ValorDespesa = double.Parse(txtValorDespesa.Text);
-            despesas.dataDespesa = DateTime.Parse(dtpkDataDespesa.Text);
+            despesas.dataDespesa = dtpkDataDespesa.Text;
             despesas.CodigoFornecedorCadDespesa = int.Parse(txtCodigoFornecedorDespesa.Text);
             despesas.DescricaoDespesa = txtDescricaoDespesa.Text;
             despesas.IdDespesa = int.Parse(txtIdDespesa.Text);
             despesas.GrupoDespesa = cmbxGrupoDespesa.Text;
 
-            if (despesas.ValorDespesa.Equals("") && despesas.dataDespesa.Equals("")
-                && despesas.DescricaoDespesa.Equals("") && despesas.GrupoDespesa.Equals(""))
+
+            if (despesas.ValorDespesa.Equals("") || despesas.dataDespesa.Equals("")
+                || despesas.DescricaoDespesa.Equals("") || despesas.GrupoDespesa.Equals(""))
             {
                 MessageBox.Show("Preencha todos os campos com *");
             }
@@ -73,6 +74,60 @@ namespace DS_Sistelie.Despesas
                     $"Descrição da Despesa: {despesas.DescricaoDespesa}\n" +
                     $"ID da Despesa: {despesas.IdDespesa}\n" +
                     $"Grupo da Despesa: {despesas.GrupoDespesa}");
+            }
+        }
+
+
+        
+        public static bool LetrasEVirgulas(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!Char.IsDigit(c) && c != ',')
+                    return false;
+            }
+            return true;
+        }
+
+        public static bool SemLetras(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!Char.IsDigit(c))
+                    return false;
+            }
+            return true;
+        }
+
+        private void txtValorDespesa_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            
+            string valor = txtValorDespesa.Text.Trim();
+
+            if (LetrasEVirgulas(valor) == false)
+            {
+                e.Handled = true;
+                MessageBox.Show("Preencha sem letras e separando o número por vígula!");
+                txtValorDespesa.Focus();
+            }
+            else
+            {
+            }
+        }
+
+        private void txtCodigoFornecedorDespesa_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            
+            string codigo_fornecedor = txtCodigoFornecedorDespesa.Text.Trim();
+
+            if (SemLetras(codigo_fornecedor) == false)
+            {
+                e.Handled = true;
+                MessageBox.Show("Preencha apenas com números!");
+                txtCodigoFornecedorDespesa.Focus();
+            }
+            else
+            {
             }
         }
     }
