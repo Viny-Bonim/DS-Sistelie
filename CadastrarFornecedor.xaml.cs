@@ -53,7 +53,7 @@ namespace DS_Sistelie
 
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
-            fornecedor.CodigoFornecedor = txtCodigo.Text;
+            fornecedor.CodigoFornecedor = int.Parse(txtCodigo.Text);
             fornecedor.TipoFornecedor = cmbxTipo.Text;
             fornecedor.DataCadastroFornecedor = dtCadastro.Text;
             fornecedor.RgIe = txtRGIE.Text;

@@ -20,16 +20,16 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
-            <Label Content="Código" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10,10,411,5"/>
-            <Label Content="Razão Social" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10 7 5 5"/>
-            <Label Content="Nome Fantasia" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10 5 5 5"/>
-            <Label Content="Ordenar por:" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="60 30 5 5"/>
-            <Label Content="Fornecedores totais:" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="60 30 5 5"/>
+            <Label Content="Código" FontSize="19" FontWeight="Bold" Margin="10,10,411,5" FontFamily="Corbel"/>
+            <Label Content="Razão Social" FontSize="19" FontFamily="Corbel" FontWeight="Bold" Margin="10 3 5 5" />
+            <Label Content="Nome Fantasia" FontSize="19" FontFamily="Corbel" FontWeight="Bold" Margin="10 5 5 5"/>
+            <Label Content="Ordenar por:" FontSize="19" FontFamily="Corbel" FontWeight="Bold" Margin="60 30 5 5"/>
+            <Label Content="Fornecedores totais:" FontSize="19" FontFamily="Corbel" FontWeight="Bold" Margin="60 30 5 5"/>
         </StackPanel>
 
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
-            <TextBox x:Name="txtConsultarCodigo" Margin="100 14 250 5" Background="White" FontSize="19"/>
-            <Button x:Name="btnPesquisarFornecedor" Width="90" Height="47" Margin="385,-40,15,0"  
+            <TextBox x:Name="txtConsultarCodigo" Margin="100 14 250 5" Background="White" FontSize="19" IsEnabled="False">1</TextBox>
+            <Button x:Name="btnPesquisarFornecedor" FontFamily="Corbel" Width="90" Height="47" Margin="385,-40,15,0"  
                     Background="#bf0000" FontWeight="Bold" Foreground="White">
                 <StackPanel>
                     <Image Source="/imagensBotoes/Pesquisar.png" Width="25" Margin="2 0 0 0"/>
@@ -40,7 +40,7 @@
             <TextBox x:Name="txtConsultarNomeFantasia" Margin="170 10 10 5" Background="White" FontSize="19"/>
             <GridSplitter HorizontalAlignment="Stretch" Height="5" Margin="0 12 0 0"/>
             <ComboBox x:Name="cmbxFiltroConsultaFornecedores" Margin="190 17 100 50" FontSize="20"/>
-            <TextBox x:Name="txtFornecedoresTotais" Margin="260 -14 100 5" Background="White" FontSize="19" IsEnabled="False"/>
+            <TextBox x:Name="txtFornecedoresTotais" Text="3" Margin="260 -14 100 5" Background="White" FontSize="19" IsEnabled="False"/>
             <GridSplitter HorizontalAlignment="Stretch" Height="5" Margin="0 3 -490 0"/>
         </StackPanel>
 
@@ -57,20 +57,20 @@
             </GridSplitter>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Grid.Row="0">
-            <Label Content="Data" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10 10 4 5"/>
-            <Label Content="CPF" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10 10 4 5"/>
-            <Label Content="CNPJ" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10 10 4 5"/>
-            <Label Content="Cidade" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10 10 4 5"/>
-            <Label Content="UF" FontSize="19" FontFamily="Arial" FontWeight="Bold" Margin="10 10 4 5"/>
+        <StackPanel Grid.Column="1" Grid.Row="0" >
+            <Label Content="Data" FontSize="19"  FontFamily="Corbel" FontWeight="Bold" Margin="10 5 4 5"/>
+            <Label Content="CPF" FontSize="19"  FontFamily="Corbel" FontWeight="Bold" Margin="10 8 4 5"/>
+            <Label Content="CNPJ" FontSize="19"  FontFamily="Corbel" FontWeight="Bold" Margin="10 8 4 5"/>
+            <Label Content="Cidade" FontSize="19"  FontFamily="Corbel" FontWeight="Bold" Margin="10 5 4 5"/>
+            <Label Content="UF" FontSize="19" FontFamily="Corbel" FontWeight="Bold" Margin="10 10 4 5"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="0">
-            <DatePicker x:Name="dtpkConsultarFornecedor" FontSize="15" Margin="63 12 0 0"/>
-            <TextBox x:Name="txtConsultarCpfFornecedor" Margin="65 17 10 5" Background="White" FontSize="19"/>
-            <TextBox x:Name="txtConsultarCnpjFornecedor" Margin="75 16 10 5" Background="White" FontSize="19"/>
-            <TextBox x:Name="txtConsultarCidadeFornecedor" Margin="88 15 10 5" Background="White" FontSize="19"/>
-            <TextBox x:Name="txtConsultarUfFornecedor" Margin="53 15 60 5" Background="White" FontSize="19"/>
+            <DatePicker x:Name="dtpkConsultarFornecedor" FontFamily="Corbel" FontSize="15" Margin="63 12 0 0"/>
+            <TextBox x:Name="txtConsultarCpfFornecedor" FontFamily="Corbel" Margin="65 17 10 5" Background="White" FontSize="19"/>
+            <TextBox x:Name="txtConsultarCnpjFornecedor" FontFamily="Corbel" Margin="75 16 10 5" Background="White" FontSize="19"/>
+            <TextBox x:Name="txtConsultarCidadeFornecedor" FontFamily="Corbel" Margin="88 15 10 5" Background="White" FontSize="19"/>
+            <TextBox x:Name="txtConsultarUfFornecedor" FontFamily="Corbel" Margin="53 15 60 5" Background="White" FontSize="19"/>
         </StackPanel>
 
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
@@ -87,15 +87,15 @@
         </StackPanel>
 
         <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
-            <Button x:Name="btnEditarFornecedor" Width="80" Height="65" Margin="40 -130 20 0"  
-                    Background="#bf0000" FontWeight="Bold" Foreground="White">
+            <Button x:Name="btnEditarFornecedor" Width="80" FontFamily="Corbel" Height="65" Margin="40 -130 20 0"  
+                    Background="#bf0000" FontWeight="Bold" Foreground="White" Click="btnEditarFornecedor_Click">
                 <StackPanel>
                     <Image Source="/imagensBotoes/Editar.png" Width="35" Margin="2 3 0 0"/>
                     <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold">Editar</TextBlock>
                 </StackPanel>
             </Button>
 
-            <Button x:Name="btnExcluirFornecedor" Width="80" Height="65" Margin="0 -130 0 0"  
+            <Button x:Name="btnExcluirFornecedor" Width="80" FontFamily="Corbel" Height="65" Margin="0 -130 0 0"  
                     Background="#bf0000" FontWeight="Bold" Foreground="White" Click="btnExcluirFornecedor_Click">
                 <StackPanel>
                     <Image Source="/imagensBotoes/Excluir.png" Width="30" Margin="2 3 0 0"/>
@@ -105,7 +105,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Bottom">
-            <Button x:Name="btnInicioFornecedor" Width="80" Height="65" Margin="0 0 0 20"  
+            <Button x:Name="btnInicioFornecedor" FontFamily="Corbel" Width="80" Height="65" Margin="0 0 0 20"  
                     Background="#FF06AEAE" FontWeight="Bold" Foreground="White" Click="btnInicioFornecedor_Click">
                 <StackPanel>
                     <Image Source="/imagensBotoes/Inicio.png" Width="39" Margin="2 3 0 0"/>
@@ -114,6 +114,34 @@
             </Button>
         </StackPanel>
 
-        <DataGrid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"/>
+        <DataGrid x:Name="DataGridConsultarFornecedor" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="10 45 50 10" 
+                  IsReadOnly="True" AutoGenerateColumns="False" AlternatingRowBackground="#d3e0f5" AlternationCount="2" 
+                  FontFamily="Corbel">
+          
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" FontSize="17" Binding="{Binding CodigoFornecedor, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Categoria" FontSize="17" Binding="{Binding TipoFornecedor, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Data do Cadastro" FontSize="17" Binding="{Binding DataCadastroFornecedor, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Rg/Ie" FontSize="17" Binding="{Binding RgIe, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="CPF" FontSize="17" Binding="{Binding Cpf, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="CNPJ" FontSize="17" Binding="{Binding Cnpj, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Nome Fantasia" FontSize="17" Binding="{Binding NomeFantasia, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Razão Social" FontSize="17" Binding="{Binding RazaoSocial, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Telefone" FontSize="17" Binding="{Binding Telefone, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="E-mail" FontSize="17" Binding="{Binding Email, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="CEP" FontSize="17" Binding="{Binding Cep, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Logradouro" FontSize="17" Binding="{Binding Logradouro, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Número" FontSize="17" Binding="{Binding Numero, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="País" FontSize="17" Binding="{Binding Pais, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="UF" FontSize="17" Binding="{Binding Uf, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Cidade" FontSize="17" Binding="{Binding Cidade, ConverterCulture='pt-BR'}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Column="3" Grid.Row="1">
+            <RadioButton x:Name="rdbtConsultarFornecedores1" GroupName="rdbtConsultarFornecedores" Margin="206 73 0 0"/>
+            <RadioButton x:Name="rdbtConsultarFornecedores2"  GroupName="rdbtConsultarFornecedores" Margin="206 10 0 0"/>
+            <RadioButton x:Name="rdbtConsultarFornecedores3"  GroupName="rdbtConsultarFornecedores" Margin="206 10 0 0"/>
+        </StackPanel>
     </Grid>
 </Window>

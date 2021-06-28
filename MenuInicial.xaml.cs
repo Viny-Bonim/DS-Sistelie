@@ -78,5 +78,12 @@ namespace DS_Sistelie
             Exib_Vendas.Show();
             this.Close();
         }
+
+        private void btnCadastrarDespesa_Click(object sender, RoutedEventArgs e)
+        {
+            Despesas.CadastrarDespesaWindow cadastrarDespesa = new Despesas.CadastrarDespesaWindow();
+            cadastrarDespesa.Show();
+            this.Close();
+        }
     }
 }
