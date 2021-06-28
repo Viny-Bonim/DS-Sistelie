@@ -8,6 +8,78 @@
         Title="Consultar Despesas" Height="700" Width="1000" Background="#b5b5b5" 
         MinWidth="1000" MinHeight="630" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="350"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <Label Content="Ordenar por:" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="70 0 5 5"/>
+            <Button x:Name="btnPesquisarDespesa" FontFamily="Corbel" Width="90" Height="43" Margin="385,-36,15,0"  
+                    Background="#bf0000" FontWeight="Bold" Foreground="White">
+                <StackPanel>
+                    <Image Source="/imagensBotoes/Pesquisar.png" Width="25" Margin="2 0 0 0"/>
+                    <TextBlock Margin="3 -1 1 0" FontSize="13" FontWeight="Bold">Pesquisar</TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <Label Content="Total de despesas" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="70 0 5 5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <ComboBox x:Name="cmbxOrdenarConsultaDespesa" Margin="195 4 130 0" FontSize="20"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <TextBox x:Name="txtTotalDespesas" Padding="0 0 0 3" FontFamily="Corbel" Margin="240 4 120 5" Background="White" FontSize="20" IsEnabled="False">3</TextBox>
+            <RadioButton x:Name="rdbtConsultarDespesas1" Margin="441 44 0 0"/>
+            <RadioButton x:Name="rdbtConsultarDespesas2" Margin="441 10 0 0"/>
+            <RadioButton x:Name="rdbtConsultarDespesas3" Margin="441 10 0 0"/>
+        </StackPanel>
+
+        <DataGrid x:Name="DataGridConsultarDespesas" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Margin="10 48 50 10" 
+                  IsReadOnly="True" AutoGenerateColumns="False" AlternatingRowBackground="#d3e0f5" AlternationCount="2" 
+                  FontFamily="Corbel" FontSize="17">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" FontSize="17" Binding="{Binding IdDespesa, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Código do Fornecedor" FontSize="17" Binding="{Binding CodigoFornecedorCadDespesa, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Descrição da Despesa" FontSize="17" Binding="{Binding DescricaoDespesa, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Valor da Despesa" FontSize="17" Binding="{Binding ValorDespesa, ConverterCulture='pt-BR', StringFormat=C}"/>
+                <DataGridTextColumn Header="Data da Despesa" FontSize="17" Binding="{Binding dataDespesa, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Grupo de Despesa" FontSize="17" Binding="{Binding GrupoDespesa, ConverterCulture='pt-BR'}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <GridSplitter HorizontalAlignment="Left" Height="1003" Margin="488,-150,0,-182" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
+            <GridSplitter.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="89.99"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </GridSplitter.RenderTransform>
+        </GridSplitter>
+
+        <DataGrid x:Name="DataGridEntradaSaidaDespesas" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Margin="400 18 200 10" 
+                  IsReadOnly="True" AutoGenerateColumns="False" AlternatingRowBackground="#d3e0f5" AlternationCount="2" 
+                  FontFamily="Corbel" FontSize="20">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ano" FontSize="17" Binding="{Binding Ano, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Mês" FontSize="17" Binding="{Binding Mes, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Entrada Total" FontSize="17" Binding="{Binding Entrada, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Saída Total" FontSize="17" Binding="{Binding Saida, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Saldo Final" FontSize="17" Binding="{Binding Saldo, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Situação" FontSize="17" Binding="{Binding Final, ConverterCulture='pt-BR'}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
     </Grid>
 </Window>

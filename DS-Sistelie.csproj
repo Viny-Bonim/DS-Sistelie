@@ -80,6 +80,7 @@
       <DependentUpon>ConsultarDespesasWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Despesas\Despesas.cs" />
+    <Compile Include="Despesas\EntradaSaidaDespesa.cs" />
     <Compile Include="ExibirVendas.xaml.cs">
       <DependentUpon>ExibirVendas.xaml</DependentUpon>
     </Compile>
