@@ -22,6 +22,17 @@ namespace DS_Sistelie.ConsultarFornecedores
         public ConsultarFornecedoresWindow()
         {
             InitializeComponent();
+            Loaded += ConsultarFornecedoresWindow_Loaded;
+        }
+
+        private void ConsultarFornecedoresWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<Fornecedor> ListaFornecedor = new List<Fornecedor>();
+
+            ListaFornecedor.Add(new Fornecedor()
+            {             
+
+            });
         }
 
         private void btnInicioFornecedor_Click(object sender, RoutedEventArgs e)

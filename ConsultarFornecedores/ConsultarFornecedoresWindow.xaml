@@ -114,6 +114,6 @@
             </Button>
         </StackPanel>
 
-        <DataGrid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"/>
+        <DataGrid x:Name="DataGridConsultarFornecedor" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="10 45 50 10"/>
     </Grid>
 </Window>
