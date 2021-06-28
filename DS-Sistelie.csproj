@@ -76,6 +76,7 @@
     <Compile Include="Despesas\CadastrarDespesaWindow.xaml.cs">
       <DependentUpon>CadastrarDespesaWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Despesas\Despesas.cs" />
     <Compile Include="ExibirVendas.xaml.cs">
       <DependentUpon>ExibirVendas.xaml</DependentUpon>
     </Compile>
