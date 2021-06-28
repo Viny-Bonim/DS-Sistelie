@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DS_Sistelie.Despesas"
         mc:Ignorable="d"
-        Title="ConsultarDespesasWindow" Height="450" Width="800">
+        Title="Consultar Despesas" Height="700" Width="1000" Background="#b5b5b5" 
+        MinWidth="1000" MinHeight="630" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         
     </Grid>

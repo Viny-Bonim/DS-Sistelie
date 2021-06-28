@@ -85,5 +85,12 @@ namespace DS_Sistelie
             cadastrarDespesa.Show();
             this.Close();
         }
+
+        private void btnConsultarDespesa_Click(object sender, RoutedEventArgs e)
+        {
+            Despesas.ConsultarDespesasWindow consultarDespesas = new Despesas.ConsultarDespesasWindow();
+            consultarDespesas.Show();
+            this.Close();
+        }
     }
 }
