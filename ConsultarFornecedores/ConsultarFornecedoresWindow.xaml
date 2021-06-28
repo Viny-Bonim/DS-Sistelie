@@ -96,7 +96,7 @@
             </Button>
 
             <Button x:Name="btnExcluirFornecedor" Width="80" Height="65" Margin="0 -130 0 0"  
-                    Background="#bf0000" FontWeight="Bold" Foreground="White">
+                    Background="#bf0000" FontWeight="Bold" Foreground="White" Click="btnExcluirFornecedor_Click">
                 <StackPanel>
                     <Image Source="/imagensBotoes/Excluir.png" Width="30" Margin="2 3 0 0"/>
                     <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold">Excluir</TextBlock>

@@ -80,7 +80,7 @@
         <CheckBox x:Name="checkVendas_Copy3" Content="" HorizontalAlignment="Left" Margin="915,609,0,0" VerticalAlignment="Top" Checked="checkVendas_Checked" RenderTransformOrigin="0.45,0.2"/>
         <Button x:Name="btnSalvar_Copy" HorizontalAlignment="Left" Margin="720,0,0,565" VerticalAlignment="Bottom" Width="100" Height="85" FontWeight="Bold" FontSize="17" VerticalContentAlignment="Bottom" Background="#FF06AEAE" Click="btnSalvar_Click">
             <StackPanel>
-                <Image Source="imagensBotoes/Editar.png" Width="50" Margin="7 5 5 1"/>
+                <Image Source="imagensBotoes/Novo.png" Width="50" Margin="7 5 5 1"/>
                 <TextBlock FontSize="14" Margin="10 0 5 25" Text="Nova Venda" Foreground="White"/>
             </StackPanel>
         </Button>

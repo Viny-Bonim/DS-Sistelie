@@ -30,5 +30,10 @@ namespace DS_Sistelie.ConsultarFornecedores
             menuInicial.Show();
             this.Close();
         }
+
+        private void btnExcluirFornecedor_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
