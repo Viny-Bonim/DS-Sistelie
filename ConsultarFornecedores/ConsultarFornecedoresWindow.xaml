@@ -40,7 +40,7 @@
             <TextBox x:Name="txtConsultarNomeFantasia" Margin="170 10 10 5" Background="White" FontSize="19"/>
             <GridSplitter HorizontalAlignment="Stretch" Height="5" Margin="0 12 0 0"/>
             <ComboBox x:Name="cmbxFiltroConsultaFornecedores" Margin="190 17 100 50" FontSize="20"/>
-            <TextBox x:Name="txtFornecedoresTotais" Text="41" Margin="260 -14 100 5" Background="White" FontSize="19" IsEnabled="False"/>
+            <TextBox x:Name="txtFornecedoresTotais" Text="3" Margin="260 -14 100 5" Background="White" FontSize="19" IsEnabled="False"/>
             <GridSplitter HorizontalAlignment="Stretch" Height="5" Margin="0 3 -490 0"/>
         </StackPanel>
 
@@ -88,7 +88,7 @@
 
         <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
             <Button x:Name="btnEditarFornecedor" Width="80" FontFamily="Corbel" Height="65" Margin="40 -130 20 0"  
-                    Background="#bf0000" FontWeight="Bold" Foreground="White">
+                    Background="#bf0000" FontWeight="Bold" Foreground="White" Click="btnEditarFornecedor_Click">
                 <StackPanel>
                     <Image Source="/imagensBotoes/Editar.png" Width="35" Margin="2 3 0 0"/>
                     <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold">Editar</TextBlock>
@@ -96,7 +96,7 @@
             </Button>
 
             <Button x:Name="btnExcluirFornecedor" Width="80" FontFamily="Corbel" Height="65" Margin="0 -130 0 0"  
-                    Background="#bf0000" FontWeight="Bold" Foreground="White">
+                    Background="#bf0000" FontWeight="Bold" Foreground="White" Click="btnExcluirFornecedor_Click">
                 <StackPanel>
                     <Image Source="/imagensBotoes/Excluir.png" Width="30" Margin="2 3 0 0"/>
                     <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold">Excluir</TextBlock>
@@ -117,7 +117,7 @@
         <DataGrid x:Name="DataGridConsultarFornecedor" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="10 45 50 10" 
                   IsReadOnly="True" AutoGenerateColumns="False" AlternatingRowBackground="#d3e0f5" AlternationCount="2" 
                   FontFamily="Corbel">
-
+          
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" FontSize="17" Binding="{Binding CodigoFornecedor, ConverterCulture='pt-BR'}"/>
                 <DataGridTextColumn Header="Categoria" FontSize="17" Binding="{Binding TipoFornecedor, ConverterCulture='pt-BR'}"/>
@@ -137,5 +137,11 @@
                 <DataGridTextColumn Header="Cidade" FontSize="17" Binding="{Binding Cidade, ConverterCulture='pt-BR'}"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <StackPanel Grid.Column="3" Grid.Row="1">
+            <RadioButton x:Name="rdbtConsultarFornecedores1" GroupName="rdbtConsultarFornecedores" Margin="206 73 0 0"/>
+            <RadioButton x:Name="rdbtConsultarFornecedores2"  GroupName="rdbtConsultarFornecedores" Margin="206 10 0 0"/>
+            <RadioButton x:Name="rdbtConsultarFornecedores3"  GroupName="rdbtConsultarFornecedores" Margin="206 10 0 0"/>
+        </StackPanel>
     </Grid>
 </Window>

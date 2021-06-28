@@ -20,6 +20,7 @@ namespace DS_Sistelie.ConsultarFornecedores
     public partial class ConsultarFornecedoresWindow : Window
     {
         private List<string> ordemConsultaForncedores;
+        List<Fornecedor> ListaFornecedor = new List<Fornecedor>();
 
         public ConsultarFornecedoresWindow()
         {
@@ -29,9 +30,9 @@ namespace DS_Sistelie.ConsultarFornecedores
 
         private void ConsultarFornecedoresWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            List<Fornecedor> ListaFornecedor = new List<Fornecedor>();         
+                    
 
-            for (int i = 0; i < 41; i++)
+            for (int i = 0; i < 3; i++)
             {
                 ListaFornecedor.Add(new Fornecedor()
                 {
@@ -75,6 +76,51 @@ namespace DS_Sistelie.ConsultarFornecedores
             MenuInicial menuInicial = new MenuInicial();
             menuInicial.Show();
             this.Close();
+        }
+
+        private void btnEditarFornecedor_Click(object sender, RoutedEventArgs e)
+        {
+            if (rdbtConsultarFornecedores1.IsChecked == false && rdbtConsultarFornecedores2.IsChecked == false
+                && rdbtConsultarFornecedores3.IsChecked == false)
+            {
+                MessageBox.Show("Selecione um Fornecedor para Editar!");
+            }
+            else
+            {
+                if (rdbtConsultarFornecedores1.IsChecked == true)
+                {
+                    CadastrarFornecedor cadastrarFornecedor = new CadastrarFornecedor();
+                    cadastrarFornecedor.Show();
+                    this.Close();
+                }
+
+                if (rdbtConsultarFornecedores2.IsChecked == true)
+                {
+                    CadastrarFornecedor cadastrarFornecedor = new CadastrarFornecedor();
+                    cadastrarFornecedor.Show();
+                    this.Close();
+                }
+
+                if (rdbtConsultarFornecedores3.IsChecked == true)
+                {
+                    CadastrarFornecedor cadastrarFornecedor = new CadastrarFornecedor();
+                    cadastrarFornecedor.Show();
+                    this.Close();
+                }
+            }       
+        }
+
+        private void btnExcluirFornecedor_Click(object sender, RoutedEventArgs e)
+        {
+            if (rdbtConsultarFornecedores1.IsChecked == false && rdbtConsultarFornecedores2.IsChecked == false
+                && rdbtConsultarFornecedores3.IsChecked == false)
+            {
+                MessageBox.Show("Selecione um Fornecedor para Excluir!");
+            }
+            else
+            {
+                MessageBox.Show("Fornecedor Excluído com Sucesso!");
+            }
         }
     }
 }
