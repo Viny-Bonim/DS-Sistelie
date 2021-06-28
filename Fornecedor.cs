@@ -8,7 +8,7 @@ namespace DS_Sistelie
 {
     class Fornecedor
     {
-        public string CodigoFornecedor { get; set; }
+        public int CodigoFornecedor { get; set; }
 
         public string TipoFornecedor { get; set; }
 
