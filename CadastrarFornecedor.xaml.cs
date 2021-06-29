@@ -146,5 +146,10 @@ namespace DS_Sistelie
             else
                 txtEmail_error.Visibility = Visibility.Collapsed;
         }
+
+        private void txtEmail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

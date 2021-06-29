@@ -19,7 +19,6 @@ namespace DS_Sistelie
     /// </summary>
     public partial class CadastrarProprietario : Window
     {
-        bool validacao = false;
 
         public CadastrarProprietario()
         {
@@ -112,6 +111,25 @@ namespace DS_Sistelie
         }
 
         private void txtSenha_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtEmail_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            string email = txtEmail.Text.Trim();
+
+            if (!Validacao.IsEmail(email))
+            {
+                e.Handled = true;
+                txtEmail_error.Visibility = Visibility.Visible;
+                txtEmail.Focus();
+            }
+            else
+                txtEmail_error.Visibility = Visibility.Collapsed;
+        }
+
+        private void txtEmail_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

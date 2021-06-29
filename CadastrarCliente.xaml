@@ -85,9 +85,13 @@
                 Email
             </Label>
 
-            <TextBox x:Name="txtEmail" Margin="0 36 0 30" Width="230">
+            <TextBox x:Name="txtEmail" Margin="0 36 0 30" Width="230" PreviewLostKeyboardFocus="txtEmail_PreviewLostKeyboardFocus" TextChanged="txtEmail_TextChanged">
 
             </TextBox>
+        </StackPanel>
+
+        <StackPanel Margin="315,465,315,81">
+            <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Left" x:Name="txtEmail_error" Text="E-mail inválido" Foreground="Red" FontWeight="Bold" Margin="0 00 0 0" FontSize="14" Height="38" Visibility="Collapsed"/>
         </StackPanel>
 
         <StackPanel Height="90" Margin="0 465 0 0" VerticalAlignment="Top" Orientation="Horizontal">

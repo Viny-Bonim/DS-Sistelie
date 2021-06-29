@@ -44,7 +44,7 @@
             <TextBox x:Name="txtNomeFantasia" Margin="180 25 5 5" Background="White" FontSize="20"/>
             <TextBox x:Name="txtRazaoSocial" Margin="160 25 5 5" Background="White" FontSize="20"/>
             <wpfTool:MaskedTextBox Mask="(00) 0 0000-0000" x:Name="txtTelefone" Margin="110 25 5 5" Background="White" FontSize="20"/>
-            <TextBox x:Name="txtEmail" Margin="110 25 5 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtEmail_PreviewLostKeyboardFocus"/>
+            <TextBox x:Name="txtEmail" Margin="110 25 5 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtEmail_PreviewLostKeyboardFocus" TextChanged="txtEmail_TextChanged"/>
             <TextBlock x:Name="txtEmail_error" Text="E-mail inválido" Foreground="Red" FontWeight="Bold" Margin="15 -5 0 0" FontSize="14" Visibility="Collapsed"/>
         </StackPanel>
 
