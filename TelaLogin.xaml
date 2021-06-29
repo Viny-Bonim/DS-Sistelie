@@ -29,19 +29,21 @@
             <Label>
                 Digite o usuario
             </Label>
-            <TextBox Cursor="IBeam">
+            <TextBox x:Name="txtusuario" Cursor="IBeam">
 
             </TextBox>
             <Label>
                 Digite a senha
             </Label>
-            <TextBox Cursor="IBeam">
-                
+            <TextBox x:Name="txtsenha" Cursor="IBeam">
+
             </TextBox>
             <CheckBox Margin="0 4 0 0">
                 Lembrar usuario?
             </CheckBox>
         </StackPanel>
+
+        <StackPanel Margin="70,350,560,189"/>
 
         <StackPanel Margin="0,210,0,0">
             <Button Background="#FF06AEAE" Height="30" Cursor="Hand" Margin="130 0 130 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Click="Button_Click">

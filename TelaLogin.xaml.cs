@@ -21,6 +21,7 @@ namespace DS_Sistelie
     /// </summary>
     public partial class TelaLogin : Window
     {
+
         public TelaLogin()
         {
             InitializeComponent();
@@ -28,14 +29,38 @@ namespace DS_Sistelie
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MenuInicial menu_inicial = new MenuInicial();
-            menu_inicial.Show();
-            this.Close();
+            bool validacao = false;
+
+            string usuario = txtusuario.Text;
+            string senha = txtsenha.Text;
+
+            if(usuario.Equals("") || senha.Equals(""))
+            {
+                MessageBox.Show("Verifique se os campos estão preenchidos!");
+                validacao = true;
+            }
+            else
+            {
+                validacao = false;
+            }
+
+            if (validacao == false)
+            {
+                MenuInicial menu_inicial = new MenuInicial();
+                menu_inicial.Show();
+                this.Close();
+            }
         }
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
         }
+
+        private void txtEmail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
     }
 }
