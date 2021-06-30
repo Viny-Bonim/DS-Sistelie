@@ -9,6 +9,7 @@
         WindowStartupLocation="CenterScreen"
         Title="Menu Inicial" Height="650" Width="1000" ResizeMode="NoResize">
     <Grid>
+<<<<<<< Updated upstream
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
@@ -17,6 +18,26 @@
             <Label Content="Acessar Telas" HorizontalAlignment="Left" Margin="66,10,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold"/>
             <ScrollViewer Height="550" VerticalAlignment="Top" >
                 <StackPanel >
+=======
+        <ScrollBar HorizontalAlignment="Left" Margin="284,70,0,0" VerticalAlignment="Top" Height="539"/>
+        <Button x:Name="btnConsultarFornecedor" Content="Consultar Fornecedor" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="274" Height="60" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="btnConsultarFornecedor_Click"/>
+        <Button x:Name="btnCadastrarFornecedor" Content="Cadastrar Fornecedor" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Width="274" Height="60" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="btnCadastrarFornecedor_Click"/>
+        <Button Content="Cadastrar Cliente" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Width="274" Height="60" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="Button_Click_3"/>
+        <Button Content="Cadastrar Proprietário" HorizontalAlignment="Left" Margin="10,265,0,0" VerticalAlignment="Top" Width="274" Height="60" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="Button_Click_4"/>
+        <Button Content="Cadastrar Matéria Prima" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top" Width="274" Height="60" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="Button_Click_5"/>
+        <Button Content="Registrar Saída de Material" HorizontalAlignment="Left" Margin="10,395,0,0" VerticalAlignment="Top" Width="274" Height="60" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="Button_Click_6"/>
+        <Button Content="Registrar Vendas" HorizontalAlignment="Left" Margin="10,460,0,0" VerticalAlignment="Top" Width="274" Height="60" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="Button_Click_7"/>
+        <Button Content="Exibir Vendas" HorizontalAlignment="Left" Margin="10,525,0,0" VerticalAlignment="Top" Width="274" Height="60" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="Button_Click_8"/>
+        <Button Content="Cadastrar Despesas" HorizontalAlignment="Left" Margin="10,590,0,-31" VerticalAlignment="Top" Width="274" Height="60" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="Button_Click_9"/>
+        <Button Content="Consultar Despesas" HorizontalAlignment="Left" Margin="10,655,0,-96" VerticalAlignment="Top" Width="274" Height="60" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="Button_Click_10"/>
+        <Label Content="Acessar Telas" HorizontalAlignment="Left" Margin="66,10,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold"/>
+        <Image HorizontalAlignment="Left" Height="376" Margin="444,118,0,0" VerticalAlignment="Top" Width="376" Source="logoINICIAL.png"/>
+        <Label Content="Papelaria artesanal para casamento" HorizontalAlignment="Left" Margin="461,512,0,0" VerticalAlignment="Top" Width="346" FontSize="20" FontWeight="Bold"/>
+        <Label Content="e peças exclusivas, autorais, feitas" HorizontalAlignment="Left" Margin="468,530,0,0" VerticalAlignment="Top" Width="331" FontSize="20" FontWeight="Bold"/>
+        <Label Content="a mão para presentear." HorizontalAlignment="Left" Margin="518,548,0,0" VerticalAlignment="Top" Width="225" FontSize="20" FontWeight="Bold"/>
+        <Label Content="ATELIÊ LUCI BONIM" HorizontalAlignment="Left" Margin="461,10,0,0" VerticalAlignment="Top" FontSize="35" FontWeight="Bold"/>
+        <Button Content="Cadastrar Funcionário" HorizontalAlignment="Left" Margin="10,720,0,-161" VerticalAlignment="Top" Width="274" Height="60" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="Button_Click_10"/>
+>>>>>>> Stashed changes
 
                     <Button x:Name="ConsultarFornecedor" Content="Consultar Fornecedor" Height="60" Margin=" 0 0 0 9" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="ConsultarFornecedor_Click"/>
                     <Button Content="Cadastrar Fornecedor"  Height="60" Margin=" 0 0 0 9" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="Button_Click_2"/>

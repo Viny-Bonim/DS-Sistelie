@@ -24,6 +24,7 @@ namespace DS_Sistelie
             InitializeComponent();
         }
 
+<<<<<<< Updated upstream
 
         private void ConsultarFornecedor_Click(object sender, RoutedEventArgs e)
         {
@@ -40,6 +41,10 @@ namespace DS_Sistelie
         }
 
         private void CadastrarCliente_Click(object sender, RoutedEventArgs e)
+=======
+            
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+>>>>>>> Stashed changes
         {
             CadastrarCliente cad_cliente = new CadastrarCliente();
             cad_cliente.Show();
@@ -95,10 +100,24 @@ namespace DS_Sistelie
             this.Close();
         }
 
+<<<<<<< Updated upstream
         private void ConsultarDespesas_Click(object sender, RoutedEventArgs e)
         {
             Despesas.ConsultarDespesasWindow ConsulDesp = new Despesas.ConsultarDespesasWindow();
             ConsulDesp.Show();
+=======
+        private void btnCadastrarFornecedor_Click(object sender, RoutedEventArgs e)
+        {
+            CadastrarFornecedor cadastrarFornecedor = new CadastrarFornecedor();
+            cadastrarFornecedor.Show();
+            this.Close();
+        }
+
+        private void btnConsultarFornecedor_Click(object sender, RoutedEventArgs e)
+        {
+            ConsultarFornecedores.ConsultarFornecedoresWindow consultarFornecedores = new ConsultarFornecedores.ConsultarFornecedoresWindow();
+            consultarFornecedores.Show();
+>>>>>>> Stashed changes
             this.Close();
         }
     }
