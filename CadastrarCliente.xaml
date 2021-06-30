@@ -13,7 +13,7 @@
         FontWeight="Bold"
         
         Title="Cadastrar Cliente" Height="650" Width="1000">
-    <Grid Background="#FFC1C1C1">
+    <Grid Background="#FFC1C1C1" MinWidth="1000" MinHeight="650" MaxWidth="1000" MaxHeight="650">
 
         <StackPanel Height="90" Margin="0 0 0 30" VerticalAlignment="Top" Orientation="Horizontal">
             <Label Margin="0 33 0 0">
@@ -41,7 +41,7 @@
                 CPF*
             </Label>
 
-            <wpfTool:MaskedTextBox Width="150" x:Name="txtCpf" Mask="000\.000\.000-00" Margin="0 36 0 30" Background="White" FontSize="20"/>
+            <wpfTool:MaskedTextBox Width="150" x:Name="txtCpf" Mask="000\.000\.000-00" Margin="0 36 0 30" Background="White" FontSize="20" TextChanged="txtCpf_TextChanged"/>
 
         </StackPanel>
 
@@ -69,7 +69,7 @@
                 Telefone*
             </Label>
 
-            <TextBox x:Name="txtTelefone" Margin="0 36 0 30" Width="150">
+            <TextBox x:Name="txtTelefone" Margin="0 36 0 30" Width="150" TextChanged="txtTelefone_TextChanged">
 
             </TextBox>
 
@@ -149,7 +149,7 @@
             </Button>
         </StackPanel>
         <Label Margin="0,356,937,206" Content="Sexo*"/>
-        <ComboBox FontSize="17" x:Name="CbSexo" Margin="60,363,812,232" Width="120" HorizontalAlignment="Center" SelectionChanged="CbSexo_SelectionChanged"/>
+        <ComboBox FontSize="17" x:Name="CbSexo" Margin="64,363,816,259" Width="120" HorizontalAlignment="Center" SelectionChanged="CbSexo_SelectionChanged"/>
 
 
     </Grid>

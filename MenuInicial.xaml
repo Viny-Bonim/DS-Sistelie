@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         
         WindowStartupLocation="CenterScreen"
-        Title="Menu Inicial" Height="650" Width="1000" MinWidth="1000" MinHeight="650" MaxWidth="1000" MaxHeight="650">
+        Title="Menu Inicial" Height="648" Width="1000" MinWidth="1000" MinHeight="650" MaxWidth="1000" MaxHeight="1000">
     <Grid>
         <ScrollBar HorizontalAlignment="Left" Margin="284,70,0,0" VerticalAlignment="Top" Height="539"/>
         <Button Content="Consultar Fornecedor" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="274" Height="60" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="Button_Click_1"/>

@@ -22,15 +22,11 @@ namespace DS_Sistelie
         public CadastroFuncionario()
         {
             InitializeComponent();
-        }
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            InitializeComponent();
-
             CbSexo.Items.Add("Masculino");
             CbSexo.Items.Add("Feminino");
             CbSexo.Items.Add("Não Binario");
         }
+       
         private void Salvar_Click(object sender, RoutedEventArgs e)
         {
             string nome = txtNome.Text;
@@ -222,6 +218,9 @@ namespace DS_Sistelie
                 txtEmail_error.Visibility = Visibility.Collapsed;
         }
 
-       
+        private void txtBairro_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

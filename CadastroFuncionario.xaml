@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DS_Sistelie"
         mc:Ignorable="d"
-        Title="CadastroFuncionario" Height="650" Width="1000">
+        Title="Cadastro Funcionario" Height="650" Width="1000">
     <Grid Background="#B5B5B5">
 
 
@@ -14,7 +14,7 @@
                 ID
 
             </Label>
-            <TextBox TextWrapping="Wrap" Width="183" Margin="0,36,0,30"/>
+            <TextBox TextWrapping="Wrap" Width="183" Margin="0,36,0,30" IsEnabled="False"/>      
         </StackPanel>
 
         <StackPanel Height="90" Margin="0 66 0 30" VerticalAlignment="Top" Orientation="Horizontal">
@@ -79,7 +79,7 @@
                 Bairro*
             </Label>
 
-            <TextBox x:Name="txtBairro" Margin="0 36 0 30" Width="100">
+            <TextBox x:Name="txtBairro" Margin="0 36 0 30" Width="100" TextChanged="txtBairro_TextChanged">
 
             </TextBox>
 
@@ -136,6 +136,6 @@
                 <TextBlock Margin="0 0 0 10" HorizontalAlignment="Center">Salvar</TextBlock>
             </StackPanel>
         </Button>
-        <ComboBox FontSize="17" x:Name="CbSexo" Margin="60,363,812,232" Width="120" HorizontalAlignment="Center" SelectionChanged="CbSexo_SelectionChanged"/>
+        <ComboBox FontSize="17" x:Name="CbSexo" Margin="64,363,808,228" Width="120" HorizontalAlignment="Center" SelectionChanged="CbSexo_SelectionChanged"/>
     </Grid>
 </Window>

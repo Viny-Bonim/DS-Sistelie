@@ -148,5 +148,15 @@ namespace DS_Sistelie
         {
 
         }
+
+        private void txtTelefone_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtCpf_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
