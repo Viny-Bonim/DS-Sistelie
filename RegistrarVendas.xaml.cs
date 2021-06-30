@@ -200,7 +200,7 @@ namespace DS_Sistelie
 
         }
 
-        private void btnInicioFornecedor_Click(object sender, RoutedEventArgs e)
+        private void btnInicioRegistrarVenda_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Deseja voltar ao inicio?", "Registrar Vendas", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
@@ -209,6 +209,7 @@ namespace DS_Sistelie
                 menuInicial.Show();
                 this.Close();
             }
+
         }
     }
 }
