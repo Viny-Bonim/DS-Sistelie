@@ -78,7 +78,7 @@ namespace DS_Sistelie
 
         private void btnInicioFornecedor_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Deseja voltar ao inicio?", "Cadastrar Cliente", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show("Deseja voltar ao inicio?", "Exibir Vendas", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
                 MenuInicial menuInicial = new MenuInicial();

@@ -9,13 +9,13 @@
         Title="Exibir Vendas" Height="750" Width="1000" Background="#FFB5B5B5" MinWidth="1000" MinHeight="750" MaxWidth="1000" MaxHeight="750">
     <Grid>
         <Label Content="Nome do(a) Cliente" HorizontalAlignment="Left" Margin="20,14,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
-        <ComboBox x:Name="ComboNomeCliente" HorizontalAlignment="Left" Margin="225,19,0,0" VerticalAlignment="Top" Width="280" Height="28" FontSize="20" FontFamily="Arial" SelectionChanged="ComboBox_SelectionChanged"/>
-        <Label Content="Data da venda" HorizontalAlignment="Left" Margin="15,72,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
-        <DatePicker x:Name="DataVenda" HorizontalAlignment="Left" Margin="173,77,0,0" VerticalAlignment="Top" FontSize="20" Height="28" Width="148" Background="White"/>
-        <TextBox x:Name="TxtDescricaoVenda" HorizontalAlignment="Left" Height="122" Margin="129,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="376" FontSize="20" FontFamily="Arial" TextChanged="TxtDescricaoVenda_TextChanged" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Label Content="Descrição " HorizontalAlignment="Left" Margin="20,220,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold" Width="104"/>
+        <ComboBox x:Name="ComboNomeCliente" HorizontalAlignment="Left" Margin="217,17,0,0" VerticalAlignment="Top" Width="280" Height="28" FontSize="20" FontFamily="Arial" SelectionChanged="ComboBox_SelectionChanged"/>
+        <Label Content="Data da venda" HorizontalAlignment="Left" Margin="20,72,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
+        <DatePicker x:Name="DataVenda" HorizontalAlignment="Left" Margin="171,76,0,0" VerticalAlignment="Top" FontSize="18" Height="28" Width="189" Background="White"/>
+        <TextBox x:Name="TxtDescricaoVenda" HorizontalAlignment="Left" Height="122" Margin="129,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="376" FontSize="20" FontFamily="Arial" TextChanged="TxtDescricaoVenda_TextChanged" HorizontalContentAlignment="Left" VerticalContentAlignment="Top"/>
+        <Label Content="Descrição " HorizontalAlignment="Left" Margin="20,199,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold" Width="104"/>
         <Label Content="Total de Vendas" HorizontalAlignment="Left" Margin="20,142,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
-        <TextBox x:Name="TxtCodigo" HorizontalAlignment="Left" Height="28" Margin="186,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" IsEnabled="False" Text="1" FontSize="20" TextChanged="TxtCodigo_TextChanged"/>
+        <TextBox x:Name="TxtCodigo" HorizontalAlignment="Left" Height="28" Margin="186,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" IsEnabled="False" Text="1" FontSize="20" TextChanged="TxtCodigo_TextChanged"/>
         <Button x:Name="btnInicioFornecedor" FontFamily="Corbel" Width="80" Margin="605,0,0,10"  
             Background="#FF06AEAE" FontWeight="Bold" Foreground="White" Click="btnInicioFornecedor_Click" Height="65" VerticalAlignment="Bottom" HorizontalAlignment="Left">
             <StackPanel>
@@ -37,11 +37,11 @@
                 <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold"><Run Text="Editar"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnPesquisarFornecedor" FontFamily="Corbel" Margin="776,143,108,497"  
+        <Button x:Name="btnPesquisarFornecedor" FontFamily="Corbel" Margin="779,90,57,496"  
             Background="#bf0000" FontWeight="Bold" Foreground="White" Click="btnPesquisarFornecedor_Click">
             <StackPanel>
-                <Image Source="imagensBotoes/Pesquisar.png" Width="38" Margin="2 0 0 0" Height="35"/>
-                <TextBlock Margin="3 -1 1 0" FontSize="20" FontWeight="Bold"><Run Text="Pesquisar"/></TextBlock>
+                <Image Source="imagensBotoes/Pesquisar.png" Width="67" Margin="2 0 0 0" Height="68"/>
+                <TextBlock Margin="3 -1 1 0" FontSize="25" FontWeight="Bold" Width="105"><Run Text="Pesquisar"/></TextBlock>
             </StackPanel>
         </Button>
         <DataGrid x:Name="DataGridVendas" HorizontalAlignment="Left" Height="237" Margin="20,369,0,0" VerticalAlignment="Top" Width="915"
@@ -55,7 +55,7 @@
                 <DataGridTextColumn Header="Forma de Pagamento" Binding="{Binding FormaPagamento}"/>
                 <DataGridTextColumn Header="Valor de desconto" Binding="{Binding ValorDesconto}"/>
                 <DataGridTextColumn Header="Valor Total" Binding="{Binding ValorTotal, ConverterCulture=pt-BR, StringFormat=C}"/>
-                
+
             </DataGrid.Columns>
         </DataGrid>
         <RadioButton x:Name="Radio1" Content="" HorizontalAlignment="Left" Margin="949,397,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.511" Checked="Radio1_Checked"/>
