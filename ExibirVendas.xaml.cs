@@ -76,18 +76,20 @@ namespace DS_Sistelie
             
         }
 
-        private void btnInicioFornecedor_Click(object sender, RoutedEventArgs e)
+        private void btnInicioExibirVendas_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Deseja voltar ao inicio?", "Cadastrar Cliente", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
-            {
-                MenuInicial menuInicial = new MenuInicial();
-                menuInicial.Show();
-                this.Close();
-            }
-        }
+           MessageBoxResult result = MessageBox.Show("Deseja voltar ao inicio?", "Exibir Vendas", MessageBoxButton.YesNo, MessageBoxImage.Question);
+           if (result == MessageBoxResult.Yes)
+           {
+               MenuInicial menuInicial = new MenuInicial();
+               menuInicial.Show();
+               this.Close();
+           }
 
-        private void btnEditarFornecedor_Click(object sender, RoutedEventArgs e)
+        }
+ 
+        
+        private void btnEditarVenda_Click(object sender, RoutedEventArgs e)
         {
             if (Radio1.IsChecked == false && Radio2.IsChecked == false && Radio3.IsChecked == false)
             {
@@ -157,5 +159,12 @@ namespace DS_Sistelie
         {
 
         }
+
+        private void btnPesquisarVenda_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+       
     }
 }
