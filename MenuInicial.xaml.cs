@@ -80,12 +80,13 @@ namespace DS_Sistelie
             this.Close();
         }
 
-<<<<<<< HEAD
+
         private void ConsultarCliente_Click(object sender, RoutedEventArgs e)
         {
             Consultar_Cliente consultarCliente = new Consultar_Cliente();
             consultarCliente.Show();
-=======
+        }
+
         private void CadastrarFornecedor_Click(object sender, RoutedEventArgs e)
         {
             CadastrarFornecedor cadastrarFornecedor = new CadastrarFornecedor();
@@ -104,7 +105,6 @@ namespace DS_Sistelie
         {
             CadastrarCliente cadastrarCliente = new CadastrarCliente();
             cadastrarCliente.Show();
->>>>>>> main
             this.Close();
         }
     }
