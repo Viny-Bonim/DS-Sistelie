@@ -91,7 +91,7 @@
             <Button x:Name="Salvar" Width="200" Height="100" HorizontalAlignment="Center" Margin="50 0 0 30" Background="#FF06AEAE" Click="BtSalvar_Click">
                 <StackPanel>
                     <Image Source="/imagensBotoes/Salvar.png" Margin="0 0 0 5" Height="50" Width="70"></Image>
-                    <TextBlock Margin="0 0 0 0" HorizontalAlignment="Center">Salvar</TextBlock>
+                    <TextBlock Margin="0 0 0 0" HorizontalAlignment="Center"><Run Text="Salvar"/></TextBlock>
                 </StackPanel>
             </Button>
 

@@ -143,5 +143,10 @@ namespace DS_Sistelie
         {
 
         }
+
+        private void CbSexo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

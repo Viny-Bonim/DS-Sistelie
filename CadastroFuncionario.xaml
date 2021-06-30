@@ -1,34 +1,27 @@
-﻿<Window x:Class="DS_Sistelie.CadastrarCliente"
+﻿<Window x:Class="DS_Sistelie.CadastroFuncionario"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DS_Sistelie"
         mc:Ignorable="d"
-        
-        xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
-        WindowStartupLocation="CenterScreen"
-        FontSize="20"
-        FontFamily="Corbel"
-        FontWeight="Bold"
-        
-        Title="Cadastrar Cliente" Height="650" Width="1000">
-    <Grid Background="#FFC1C1C1">
+        Title="CadastroFuncionario" Height="650" Width="1000">
+    <Grid Background="#B5B5B5">
+
 
         <StackPanel Height="90" Margin="0 0 0 30" VerticalAlignment="Top" Orientation="Horizontal">
             <Label Margin="0 33 0 0">
                 ID
+
             </Label>
-
-            <TextBox x:Name="txtId" Margin="0 36 0 30" Width="70" IsEnabled="False">
-
-            </TextBox>
+            <TextBox TextWrapping="Wrap" Width="183" Margin="0,36,0,30"/>
         </StackPanel>
 
         <StackPanel Height="90" Margin="0 66 0 30" VerticalAlignment="Top" Orientation="Horizontal">
             <Label Margin="0 33 0 0">
                 Nome*
             </Label>
+
 
             <TextBox x:Name="txtNome" Margin="0 36 0 30" Width="230">
 
@@ -41,8 +34,9 @@
                 CPF*
             </Label>
 
-            <wpfTool:MaskedTextBox Width="150" x:Name="txtCpf" Mask="000\.000\.000-00" Margin="0 36 0 30" Background="White" FontSize="20"/>
+            <TextBox x:Name="txtCpf" Margin="0 36 0 30" Width="230">
 
+            </TextBox>
         </StackPanel>
 
         <StackPanel Height="90" Margin="0 198 0 0" VerticalAlignment="Top" Orientation="Horizontal">
@@ -50,8 +44,9 @@
                 RG*
             </Label>
 
-            <wpfTool:MaskedTextBox Width="100" x:Name="txtRg" Mask="000\.000\.0" Margin="0 36 0 30" Background="White" FontSize="20"/>
+            <TextBox x:Name="txtRg" Margin="0 36 0 30" Width="230">
 
+            </TextBox>
         </StackPanel>
 
         <StackPanel Height="90" Margin="0 264 0 0" VerticalAlignment="Top" Orientation="Horizontal">
@@ -74,24 +69,12 @@
 
         <StackPanel Height="90" Margin="0 396 0 0" VerticalAlignment="Top" Orientation="Horizontal">
             <Label Margin="0 33 0 0">
-                Telefone*
+                Renda familiar*
             </Label>
 
-            <TextBox x:Name="txtTelefone" Margin="0 36 0 30" Width="150">
+            <TextBox x:Name="txtRenda" Margin="0 36 0 30" Width="150">
 
             </TextBox>
-
-            <Label Margin="10 33 0 0">
-                Email
-            </Label>
-
-            <TextBox x:Name="txtEmail" Margin="0 36 0 30" Width="230" PreviewLostKeyboardFocus="txtEmail_PreviewLostKeyboardFocus" TextChanged="txtEmail_TextChanged">
-
-            </TextBox>
-        </StackPanel>
-
-        <StackPanel Margin="315,465,315,81">
-            <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Left" x:Name="txtEmail_error" Text="E-mail inválido" Foreground="Red" FontWeight="Bold" Margin="0 00 0 0" FontSize="14" Height="38" Visibility="Collapsed"/>
         </StackPanel>
 
         <StackPanel Height="90" Margin="0 465 0 0" VerticalAlignment="Top" Orientation="Horizontal">
@@ -122,14 +105,6 @@
 
         <StackPanel Height="90" Margin="0 528 0 0" VerticalAlignment="Top" Orientation="Horizontal">
             <Label Margin="0 33 0 0">
-                Estado*
-            </Label>
-
-            <TextBox x:Name="txtEstado" Margin="0 36 0 30" Width="130">
-
-            </TextBox>
-
-            <Label Margin="0 33 0 0">
                 Cidade*
             </Label>
 
@@ -137,26 +112,29 @@
 
             </TextBox>
 
+            <Label Margin="10 33 0 0">
+                Email*
+            </Label>
+
+            <TextBox x:Name="txtEmail" Margin="0 36 0 30" Width="230">
+
+            </TextBox>
         </StackPanel>
 
-        <StackPanel Margin="700 385 0 30">
-            <Button x:Name="Cancelar" Width="160" Height="100" HorizontalAlignment="Center" Margin="90 0 0 0" Background="#FFBB0707" Click="Cancelar_Click">
-                <StackPanel>
-                    <Image Source="/imagensBotoes/Cancelar.png" Margin="0 10 0 5" Height="50" Width="70"></Image>
-                    <TextBlock Margin="0 0 0 10" HorizontalAlignment="Center">Cancelar</TextBlock>
-                </StackPanel>
-            </Button>
-        </StackPanel>
+        <StackPanel Margin="700 415 0 0"/>
 
-        <StackPanel Margin="700 500 0 0">
-            <Button x:Name="Salvar" Width="200" Height="90" HorizontalAlignment="Center" Margin="50 0 0 30" Background="#FF06AEAE" Click="Salvar_Click">
-                <StackPanel>
-                    <Image Source="/imagensBotoes/Salvar.png" Margin="0 5 0 5" Height="50" Width="70"></Image>
-                    <TextBlock Margin="0 0 0 10" HorizontalAlignment="Center">Salvar</TextBlock>
-                </StackPanel>
-            </Button>
-        </StackPanel>
-
-
+        <StackPanel Margin="700 515 0 15"/>
+        <Button x:Name="Cancelar" Width="160" Height="100" HorizontalAlignment="Center" Margin="812,396,20,123" Background="#FFBB0707" Click="Cancelar_Click">
+            <StackPanel>
+                <Image Source="/imagensBotoes/Cancelar.png" Margin="0 10 0 5" Height="50" Width="70"></Image>
+                <TextBlock Margin="0 0 0 10" HorizontalAlignment="Center">Cancelar</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button x:Name="Salvar" Width="200" Height="90" HorizontalAlignment="Center" Margin="772,514,20,15" Background="#FF06AEAE" Click="Salvar_Click">
+            <StackPanel>
+                <Image Source="/imagensBotoes/Salvar.png" Margin="0 5 0 5" Height="50" Width="70"></Image>
+                <TextBlock Margin="0 0 0 10" HorizontalAlignment="Center">Salvar</TextBlock>
+            </StackPanel>
+        </Button>
     </Grid>
 </Window>

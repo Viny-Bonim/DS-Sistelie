@@ -79,6 +79,9 @@
     <Compile Include="CadastrarMateriaPrima.xaml.cs">
       <DependentUpon>CadastrarMateriaPrima.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CadastroFuncionario.xaml.cs">
+      <DependentUpon>CadastroFuncionario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Despesas\CadastrarDespesaWindow.xaml.cs">
       <DependentUpon>CadastrarDespesaWindow.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CadastrarProprietario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CadastroFuncionario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -204,6 +211,7 @@
     <Content Include="imagensBotoes\Cancelar.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="logoINICIAL.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="imagensBotoes\Editar.png">

@@ -24,72 +24,74 @@ namespace DS_Sistelie
             InitializeComponent();
         }
 
-        private void btnFornecedor_Click(object sender, RoutedEventArgs e)
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             CadastrarFornecedor cad_fornecedor = new CadastrarFornecedor();
             cad_fornecedor.Show();
             this.Close();
         }
-        private void btnCadCliente_Click(object sender, RoutedEventArgs e)
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            CadastrarFornecedor cad_fornecedor = new CadastrarFornecedor();
+            cad_fornecedor.Show();
+            this.Close();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             CadastrarCliente cad_cliente = new CadastrarCliente();
             cad_cliente.Show();
             this.Close();
         }
 
-        private void btnCadProprietario_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             CadastrarProprietario cad_proprietario = new CadastrarProprietario();
             cad_proprietario.Show();
             this.Close();
         }
 
-        private void btnConsultarFornecedor_Click(object sender, RoutedEventArgs e)
-        {
-            ConsultarFornecedores.ConsultarFornecedoresWindow consultarFornecedores = new ConsultarFornecedores.ConsultarFornecedoresWindow();
-            consultarFornecedores.Show();
-            this.Close();
-        }
-
-        private void btnCadmateriaPrima_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_5(object sender, RoutedEventArgs e)
         {
             CadastrarMateriaPrima cad_CastrarMateria = new CadastrarMateriaPrima();
             cad_CastrarMateria.Show();
             this.Close();
         }
 
-        private void btnRegSaidaMateriaPrima_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_6(object sender, RoutedEventArgs e)
         {
             SaidaMateriaPrima Reg_saidaMateriaPrima = new SaidaMateriaPrima();
             Reg_saidaMateriaPrima.Show();
             this.Close();
         }
 
-        private void btnRegVendas_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_7(object sender, RoutedEventArgs e)
         {
             RegistrarVendas Reg_Vendas = new RegistrarVendas();
             Reg_Vendas.Show();
             this.Close();
         }
 
-        private void btnExibVendas_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_8(object sender, RoutedEventArgs e)
         {
             ExibirVendas Exib_Vendas = new ExibirVendas();
             Exib_Vendas.Show();
             this.Close();
         }
 
-        private void btnCadastrarDespesa_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_9(object sender, RoutedEventArgs e)
         {
             Despesas.CadastrarDespesaWindow cadastrarDespesa = new Despesas.CadastrarDespesaWindow();
             cadastrarDespesa.Show();
             this.Close();
         }
 
-        private void btnConsultarDespesa_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_10(object sender, RoutedEventArgs e)
         {
-            Despesas.ConsultarDespesasWindow consultarDespesas = new Despesas.ConsultarDespesasWindow();
-            consultarDespesas.Show();
+            CadastroFuncionario CadFuncionario = new CadastroFuncionario();
+            CadFuncionario.Show();
             this.Close();
         }
     }
