@@ -23,7 +23,14 @@ namespace DS_Sistelie
         {
             InitializeComponent();
         }
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            InitializeComponent();
 
+            CbSexo.Items.Add("Masculino");
+            CbSexo.Items.Add("Feminino");
+            CbSexo.Items.Add("Não Binario");
+        }
         private void Salvar_Click(object sender, RoutedEventArgs e)
         {
             string nome = txtNome.Text;
@@ -82,7 +89,7 @@ namespace DS_Sistelie
 
             if (sexo.Equals(""))
             {
-                MessageBox.Show("O campo 'Sexo' é obrigatorio, selecione-o");
+                MessageBox.Show("O campo 'Sexo' é obrigatorio, preencha-o");
                 validacao = false;
             }
             else
@@ -189,5 +196,32 @@ namespace DS_Sistelie
         {
              
         }
+
+        private void txtEmail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void rbSEXO_Checked(object sender, RoutedEventArgs e)
+        {
+            RadioButton rb = (sender as RadioButton);
+            MessageBox.Show("Sexo Selecionado: " + rb.Content.ToString());
+        }
+
+        private void txtEmail_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            string email = txtEmail.Text.Trim();
+
+            if (!Validacao.IsEmail(email))
+            {
+                e.Handled = true;
+                txtEmail_error.Visibility = Visibility.Visible;
+                txtEmail.Focus();
+            }
+            else
+                txtEmail_error.Visibility = Visibility.Collapsed;
+        }
+
+       
     }
 }

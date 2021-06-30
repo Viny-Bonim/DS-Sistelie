@@ -64,14 +64,6 @@
             </DatePicker>
         </StackPanel>
 
-        <StackPanel Height="90" Margin="0 330 0 0" VerticalAlignment="Top" Orientation="Horizontal">
-            <Label Margin="0 33 0 0">
-                Sexo*
-            </Label>
-
-            <ComboBox FontSize="17" x:Name="CbSexo" Margin="0 36 0 30" Width="120" HorizontalAlignment="Center" SelectionChanged="CbSexo_SelectionChanged"/>
-        </StackPanel>
-
         <StackPanel Height="90" Margin="0 396 0 0" VerticalAlignment="Top" Orientation="Horizontal">
             <Label Margin="0 33 0 0">
                 Telefone*
@@ -156,6 +148,8 @@
                 </StackPanel>
             </Button>
         </StackPanel>
+        <Label Margin="0,356,937,206" Content="Sexo*"/>
+        <ComboBox FontSize="17" x:Name="CbSexo" Margin="60,363,812,232" Width="120" HorizontalAlignment="Center" SelectionChanged="CbSexo_SelectionChanged"/>
 
 
     </Grid>

@@ -83,6 +83,13 @@
         <Label Content="Valor total da venda: R$" HorizontalAlignment="Left" Margin="492,658,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
         <Label Content="Valor de desconto: R$" HorizontalAlignment="Left" Margin="28,658,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
         <TextBox x:Name="TxtValorDesconto" HorizontalAlignment="Left" Height="28" Margin="253,661,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontSize="20" FontFamily="Arial"/>
+        <Button x:Name="btnInicioFornecedor" FontFamily="Corbel" Width="80" Margin="849,0,0,334"  
+            Background="#FF06AEAE" FontWeight="Bold" Foreground="White" Click="btnInicioFornecedor_Click" Height="65" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+            <StackPanel>
+                <Image Source="imagensBotoes/Inicio.png" Width="39" Margin="2 3 0 0"/>
+                <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold"><Run Text="Início"/></TextBlock>
+            </StackPanel>
+        </Button>
         <Button x:Name="btnExcluirRegistro" Height="65" Margin="680,320,232,0"  
             Background="#bf0000" FontWeight="Bold" Foreground="White" VerticalAlignment="Top" Click="btnExcluirRegistror_Click">
             <StackPanel>

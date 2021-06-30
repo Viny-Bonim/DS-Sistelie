@@ -59,12 +59,9 @@
             </DatePicker>
         </StackPanel>
 
-        <StackPanel Height="90" Margin="0 330 0 0" VerticalAlignment="Top" Orientation="Horizontal">
-            <Label Margin="0 33 0 0">
-                Sexo*
-            </Label>
+        <StackPanel x:Name="BOX" Height="90" Margin="0 330 0 0"  Orientation="Horizontal">
+            <Label Content="Sexo*" Margin="0,-70,0,117"/>
 
-            <ComboBox FontSize="17" x:Name="CbSexo" Margin="0 36 0 30" Width="120" HorizontalAlignment="Center" SelectionChanged="CbSexo_SelectionChanged"/>
         </StackPanel>
 
         <StackPanel Height="90" Margin="0 396 0 0" VerticalAlignment="Top" Orientation="Horizontal">
@@ -116,25 +113,29 @@
                 Email*
             </Label>
 
-            <TextBox x:Name="txtEmail" Margin="0 36 0 30" Width="230">
+            <TextBox x:Name="txtEmail" Margin="0 36 0 30" Width="230" TextChanged="txtEmail_TextChanged_1">
 
             </TextBox>
+        </StackPanel>
+        <StackPanel Margin="238,589,392,-43">
+            <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Left" x:Name="txtEmail_error" Text="E-mail inválido" Foreground="Red" FontWeight="Bold" Margin="0 00 0 0" FontSize="14" Height="38" Visibility="Collapsed"/>
         </StackPanel>
 
         <StackPanel Margin="700 415 0 0"/>
 
         <StackPanel Margin="700 515 0 15"/>
-        <Button x:Name="Cancelar" Width="160" Height="100" HorizontalAlignment="Center" Margin="812,396,20,123" Background="#FFBB0707" Click="Cancelar_Click">
+        <Button x:Name="Cancelar" Width="160" Height="100" HorizontalAlignment="Center" Margin="812,404,20,115" Background="#FFBB0707" Click="Cancelar_Click">
             <StackPanel>
                 <Image Source="/imagensBotoes/Cancelar.png" Margin="0 10 0 5" Height="50" Width="70"></Image>
                 <TextBlock Margin="0 0 0 10" HorizontalAlignment="Center">Cancelar</TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="Salvar" Width="200" Height="90" HorizontalAlignment="Center" Margin="772,514,20,15" Background="#FF06AEAE" Click="Salvar_Click">
+        <Button x:Name="Salvar" Width="200" Height="90" HorizontalAlignment="Center" Margin="772,519,20,10" Background="#FF06AEAE" Click="Salvar_Click">
             <StackPanel>
                 <Image Source="/imagensBotoes/Salvar.png" Margin="0 5 0 5" Height="50" Width="70"></Image>
                 <TextBlock Margin="0 0 0 10" HorizontalAlignment="Center">Salvar</TextBlock>
             </StackPanel>
         </Button>
+        <ComboBox FontSize="17" x:Name="CbSexo" Margin="60,363,812,232" Width="120" HorizontalAlignment="Center" SelectionChanged="CbSexo_SelectionChanged"/>
     </Grid>
 </Window>

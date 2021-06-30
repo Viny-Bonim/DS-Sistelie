@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         
         WindowStartupLocation="CenterScreen"
-        Title="Menu Inicial" Height="650" Width="1000">
+        Title="Menu Inicial" Height="650" Width="1000" MinWidth="1000" MinHeight="650" MaxWidth="1000" MaxHeight="650">
     <Grid>
+        <ScrollBar HorizontalAlignment="Left" Margin="284,70,0,0" VerticalAlignment="Top" Height="539"/>
         <Button Content="Consultar Fornecedor" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="274" Height="60" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="Button_Click_1"/>
         <Button Content="Cadastrar Fornecedor" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Width="274" Height="60" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="Button_Click_2"/>
         <Button Content="Cadastrar Cliente" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Width="274" Height="60" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="Button_Click_3"/>
@@ -21,7 +22,6 @@
         <Button Content="Consultar Despesas" HorizontalAlignment="Left" Margin="10,655,0,-96" VerticalAlignment="Top" Width="274" Height="60" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="Button_Click_10"/>
         <Label Content="Acessar Telas" HorizontalAlignment="Left" Margin="66,10,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold"/>
         <Image HorizontalAlignment="Left" Height="376" Margin="444,118,0,0" VerticalAlignment="Top" Width="376" Source="logoINICIAL.png"/>
-        <ScrollBar HorizontalAlignment="Left" Margin="289,70,0,0" VerticalAlignment="Top" Height="549" Width="22"/>
         <Label Content="Papelaria artesanal para casamento" HorizontalAlignment="Left" Margin="461,512,0,0" VerticalAlignment="Top" Width="346" FontSize="20" FontWeight="Bold"/>
         <Label Content="e peças exclusivas, autorais, feitas" HorizontalAlignment="Left" Margin="468,530,0,0" VerticalAlignment="Top" Width="331" FontSize="20" FontWeight="Bold"/>
         <Label Content="a mão para presentear." HorizontalAlignment="Left" Margin="518,548,0,0" VerticalAlignment="Top" Width="225" FontSize="20" FontWeight="Bold"/>
@@ -29,5 +29,5 @@
         <Button Content="Cadastrar Funcionário" HorizontalAlignment="Left" Margin="10,720,0,-161" VerticalAlignment="Top" Width="274" Height="60" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="Button_Click_10"/>
 
 
-    </Grid> 
+    </Grid>
 </Window>
