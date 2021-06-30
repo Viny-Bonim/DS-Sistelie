@@ -19,7 +19,7 @@
         <TextBox HorizontalAlignment="Left" Height="30" Margin="127,41,0,0" TextWrapping="Wrap" 
                  Text="" VerticalAlignment="Top" Width="320" FontSize="15" Grid.Column="1"/>
 
-        <DataGrid Margin="74,119,74,120" x:Name="DataGridConsulClien" Grid.ColumnSpan="2"/>
+        <DataGrid Margin="10,119,138,120" x:Name="DataGridConsulClien" Grid.ColumnSpan="2" SelectionChanged="DataGridConsulClien_SelectionChanged"/>
         <Button x:Name="ButtonSalvar" HorizontalAlignment="Left" Margin="773,540,0,0" VerticalAlignment="Top" Width="97" Background="#FF06AEAE" Height="71" Grid.Column="1">
             <Image Height="61" Width="87" Source="imagensBotoes/Salvar.png"/>
         </Button>

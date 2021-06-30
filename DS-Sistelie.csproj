@@ -94,9 +94,11 @@
     <Compile Include="Despesas\Despesas.cs" />
     <Compile Include="Despesas\EntradaSaidaDespesa.cs" />
     <Compile Include="Dominio\ConsulCliente\ConsulCliente.cs" />
+    <Compile Include="Dominio\ExibTarefas\ExibTarefas.cs" />
     <Compile Include="ExibirVendas.xaml.cs">
       <DependentUpon>ExibirVendas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ExibTarefas.cs" />
     <Compile Include="MateriaPrima.cs" />
     <Compile Include="RegistrarVenda.cs" />
     <Compile Include="RegistrarVendas.xaml.cs">

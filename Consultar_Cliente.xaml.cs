@@ -20,14 +20,16 @@ namespace DS_Sistelie
     /// </summary>
     public partial class Consultar_Cliente : Window
     {
+        List<ConsulCliente> listaConsulta = new List<ConsulCliente>();
         public Consultar_Cliente()
         {
             InitializeComponent();
+            Loaded += Consultar_Cliente_Loaded;
         }
 
-        private void DataGridConsulClien_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        private void Consultar_Cliente_Loaded(object sender, RoutedEventArgs e)
         {
-            List<ConsulCliente> listaConsulta = new List<ConsulCliente>();
+            
 
             listaConsulta.Add(new ConsulCliente()
             {
@@ -44,6 +46,9 @@ namespace DS_Sistelie
             DataGridConsulClien.ItemsSource = listaConsulta;
         }
 
+        private void DataGridConsulClien_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
     }
 }
