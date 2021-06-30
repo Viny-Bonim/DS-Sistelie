@@ -101,5 +101,12 @@ namespace DS_Sistelie
             ConsulDesp.Show();
             this.Close();
         }
+
+        private void ConsultarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            Consultar_Cliente consultarCliente = new Consultar_Cliente();
+            consultarCliente.Show();
+            this.Close();
+        }
     }
 }
