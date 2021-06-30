@@ -40,11 +40,11 @@
 >>>>>>> Stashed changes
 
                     <Button x:Name="ConsultarFornecedor" Content="Consultar Fornecedor" Height="60" Margin=" 0 0 0 9" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="ConsultarFornecedor_Click"/>
-                    <Button Content="Cadastrar Fornecedor"  Height="60" Margin=" 0 0 0 9" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="Button_Click_2"/>
+                    <Button x:Name="CadastrarFornecedor" Content="Cadastrar Fornecedor"  Height="60" Margin=" 0 0 0 9" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="Button_Click_2"/>
                     <Button x:Name="CadastrarCliente" Content="Cadastrar Cliente" Height="60" Margin=" 0 0 0 9" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="CadastrarCliente_Click"/>
                     <Button x:Name="CadastrarProprietario" Content="Cadastrar Proprietário" Height="60" Margin=" 0 0 0 9" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="CadastrarProprietario_Click"/>
                     <Button x:Name="CadastrarMateriaPrima" Content="Cadastrar Matéria Prima" Height="60" Margin=" 0 0 0 9" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="CadastrarMateriaPrima_Click"/>
-                    <Button Content="Registrar Saída de Material" Height="60" Margin=" 0 0 0 9" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="SaidaDeMateriaPrima_Click"/>
+                    <Button x:Name="RegistrarSaídaDeMaterial" Content="Registrar Saída de Material" Height="60" Margin=" 0 0 0 9" FontSize="20" FontWeight="Bold" Background="#FF06AEAE" Click="SaidaDeMateriaPrima_Click"/>
                     <Button x:Name="RegistrarVendas" Content="Registrar Vendas" Height="60" FontSize="20" Margin=" 0 0 0 9" FontWeight="Bold" Background="#FF06AEAE" Click="RegistarVendas_Click"/>
                     <Button x:Name="ExibirVendas" Content="Exibir Vendas" Height="60" FontSize="20" Margin=" 0 0 0 9" FontWeight="Bold" Background="#FF06AEAE" Click="ExibirVendas_Click"/>
                     <Button x:Name="CadastrarDespesas" Content="Cadastrar Despesas" Height="60" FontSize="20" Margin=" 0 0 0 9" FontWeight="Bold" Background="#FF06AEAE" Click="CadastrarDespesas_Click"/>
