@@ -22,29 +22,7 @@ namespace DS_Sistelie
         public MenuInicial()
         {
             InitializeComponent();
-        }
-
-
-        private void ConsultarFornecedor_Click(object sender, RoutedEventArgs e)
-        {
-            ConsultarFornecedores.ConsultarFornecedoresWindow consul_fornecedor = new ConsultarFornecedores.ConsultarFornecedoresWindow();
-            consul_fornecedor.Show();
-            this.Close();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            CadastrarFornecedor cad_fornecedor = new CadastrarFornecedor();
-            cad_fornecedor.Show();
-            this.Close();
-        }
-
-        private void CadastrarCliente_Click(object sender, RoutedEventArgs e)
-        {
-            CadastrarCliente cad_cliente = new CadastrarCliente();
-            cad_cliente.Show();
-            this.Close();
-        }
+        }             
 
         private void CadastrarProprietario_Click(object sender, RoutedEventArgs e)
         {
@@ -102,10 +80,31 @@ namespace DS_Sistelie
             this.Close();
         }
 
+<<<<<<< HEAD
         private void ConsultarCliente_Click(object sender, RoutedEventArgs e)
         {
             Consultar_Cliente consultarCliente = new Consultar_Cliente();
             consultarCliente.Show();
+=======
+        private void CadastrarFornecedor_Click(object sender, RoutedEventArgs e)
+        {
+            CadastrarFornecedor cadastrarFornecedor = new CadastrarFornecedor();
+            cadastrarFornecedor.Show();
+            this.Close();
+        }
+
+        private void ConsultarFornecedor_Click(object sender, RoutedEventArgs e)
+        {
+            ConsultarFornecedores.ConsultarFornecedoresWindow consultarFornecedores = new ConsultarFornecedores.ConsultarFornecedoresWindow();
+            consultarFornecedores.Show();
+            this.Close();
+        }
+
+        private void CadastrarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            CadastrarCliente cadastrarCliente = new CadastrarCliente();
+            cadastrarCliente.Show();
+>>>>>>> main
             this.Close();
         }
     }
