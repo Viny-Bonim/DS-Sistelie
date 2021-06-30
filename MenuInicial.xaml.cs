@@ -25,10 +25,10 @@ namespace DS_Sistelie
         }
 
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void ConsultarFornecedor_Click(object sender, RoutedEventArgs e)
         {
-            CadastrarFornecedor cad_fornecedor = new CadastrarFornecedor();
-            cad_fornecedor.Show();
+            ConsultarFornecedores.ConsultarFornecedoresWindow consul_fornecedor = new ConsultarFornecedores.ConsultarFornecedoresWindow();
+            consul_fornecedor.Show();
             this.Close();
         }
 
@@ -39,59 +39,66 @@ namespace DS_Sistelie
             this.Close();
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void CadastrarCliente_Click(object sender, RoutedEventArgs e)
         {
             CadastrarCliente cad_cliente = new CadastrarCliente();
             cad_cliente.Show();
             this.Close();
         }
 
-        private void Button_Click_4(object sender, RoutedEventArgs e)
+        private void CadastrarProprietario_Click(object sender, RoutedEventArgs e)
         {
             CadastrarProprietario cad_proprietario = new CadastrarProprietario();
             cad_proprietario.Show();
             this.Close();
         }
 
-        private void Button_Click_5(object sender, RoutedEventArgs e)
+        private void CadastrarMateriaPrima_Click(object sender, RoutedEventArgs e)
         {
             CadastrarMateriaPrima cad_CastrarMateria = new CadastrarMateriaPrima();
             cad_CastrarMateria.Show();
             this.Close();
         }
 
-        private void Button_Click_6(object sender, RoutedEventArgs e)
+        private void SaidaDeMateriaPrima_Click(object sender, RoutedEventArgs e)
         {
             SaidaMateriaPrima Reg_saidaMateriaPrima = new SaidaMateriaPrima();
             Reg_saidaMateriaPrima.Show();
             this.Close();
         }
 
-        private void Button_Click_7(object sender, RoutedEventArgs e)
+        private void RegistarVendas_Click(object sender, RoutedEventArgs e)
         {
             RegistrarVendas Reg_Vendas = new RegistrarVendas();
             Reg_Vendas.Show();
             this.Close();
         }
 
-        private void Button_Click_8(object sender, RoutedEventArgs e)
+        private void ExibirVendas_Click(object sender, RoutedEventArgs e)
         {
             ExibirVendas Exib_Vendas = new ExibirVendas();
             Exib_Vendas.Show();
             this.Close();
         }
 
-        private void Button_Click_9(object sender, RoutedEventArgs e)
+        private void CadastrarDespesas_Click(object sender, RoutedEventArgs e)
         {
             Despesas.CadastrarDespesaWindow cadastrarDespesa = new Despesas.CadastrarDespesaWindow();
             cadastrarDespesa.Show();
             this.Close();
         }
 
-        private void Button_Click_10(object sender, RoutedEventArgs e)
+        private void CadastrarFuncionario_Click(object sender, RoutedEventArgs e)
         {
             CadastroFuncionario CadFuncionario = new CadastroFuncionario();
             CadFuncionario.Show();
+            this.Close();
+        }
+
+        private void ConsultarDespesas_Click(object sender, RoutedEventArgs e)
+        {
+            Despesas.ConsultarDespesasWindow ConsulDesp = new Despesas.ConsultarDespesasWindow();
+            ConsulDesp.Show();
             this.Close();
         }
     }
