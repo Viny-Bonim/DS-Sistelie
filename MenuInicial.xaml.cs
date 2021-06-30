@@ -22,34 +22,7 @@ namespace DS_Sistelie
         public MenuInicial()
         {
             InitializeComponent();
-        }
-
-<<<<<<< Updated upstream
-
-        private void ConsultarFornecedor_Click(object sender, RoutedEventArgs e)
-        {
-            ConsultarFornecedores.ConsultarFornecedoresWindow consul_fornecedor = new ConsultarFornecedores.ConsultarFornecedoresWindow();
-            consul_fornecedor.Show();
-            this.Close();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            CadastrarFornecedor cad_fornecedor = new CadastrarFornecedor();
-            cad_fornecedor.Show();
-            this.Close();
-        }
-
-        private void CadastrarCliente_Click(object sender, RoutedEventArgs e)
-=======
-            
-        private void Button_Click_3(object sender, RoutedEventArgs e)
->>>>>>> Stashed changes
-        {
-            CadastrarCliente cad_cliente = new CadastrarCliente();
-            cad_cliente.Show();
-            this.Close();
-        }
+        }             
 
         private void CadastrarProprietario_Click(object sender, RoutedEventArgs e)
         {
@@ -100,24 +73,31 @@ namespace DS_Sistelie
             this.Close();
         }
 
-<<<<<<< Updated upstream
         private void ConsultarDespesas_Click(object sender, RoutedEventArgs e)
         {
             Despesas.ConsultarDespesasWindow ConsulDesp = new Despesas.ConsultarDespesasWindow();
             ConsulDesp.Show();
-=======
-        private void btnCadastrarFornecedor_Click(object sender, RoutedEventArgs e)
+            this.Close();
+        }
+
+        private void CadastrarFornecedor_Click(object sender, RoutedEventArgs e)
         {
             CadastrarFornecedor cadastrarFornecedor = new CadastrarFornecedor();
             cadastrarFornecedor.Show();
             this.Close();
         }
 
-        private void btnConsultarFornecedor_Click(object sender, RoutedEventArgs e)
+        private void ConsultarFornecedor_Click(object sender, RoutedEventArgs e)
         {
             ConsultarFornecedores.ConsultarFornecedoresWindow consultarFornecedores = new ConsultarFornecedores.ConsultarFornecedoresWindow();
             consultarFornecedores.Show();
->>>>>>> Stashed changes
+            this.Close();
+        }
+
+        private void CadastrarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            CadastrarCliente cadastrarCliente = new CadastrarCliente();
+            cadastrarCliente.Show();
             this.Close();
         }
     }
