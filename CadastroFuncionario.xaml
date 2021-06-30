@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DS_Sistelie"
         mc:Ignorable="d"
-        Title="Cadastro Funcionario" Height="650" Width="1000">
+        Title="Cadastro Funcionario" Height="650" Width="1000" ResizeMode="NoResize">
     <Grid Background="#B5B5B5">
 
 
