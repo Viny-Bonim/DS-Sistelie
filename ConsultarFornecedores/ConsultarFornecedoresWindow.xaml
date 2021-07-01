@@ -116,7 +116,7 @@
 
         <DataGrid x:Name="DataGridConsultarFornecedor" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="10 45 50 10" 
                   IsReadOnly="True" AutoGenerateColumns="False" AlternatingRowBackground="#d3e0f5" AlternationCount="2" 
-                  FontFamily="Corbel">
+                  FontFamily="Corbel" SelectionChanged="DataGridConsultarFornecedor_SelectionChanged">
           
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" FontSize="17" Binding="{Binding CodigoFornecedor, ConverterCulture='pt-BR'}"/>

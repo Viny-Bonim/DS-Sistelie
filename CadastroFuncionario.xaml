@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Cadastro Funcionario" Height="650" Width="1000" ResizeMode="NoResize">
     <Grid Background="#B5B5B5">
-
+ 
 
         <StackPanel Height="90" Margin="0 0 0 30" VerticalAlignment="Top" Orientation="Horizontal">
             <Label Margin="0 33 0 0">
