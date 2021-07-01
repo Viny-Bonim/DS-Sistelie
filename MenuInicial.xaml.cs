@@ -114,5 +114,12 @@ namespace DS_Sistelie
             cad_proprietario.Show();
             this.Close();
         }
+
+        private void ExibirTarefas_Click(object sender, RoutedEventArgs e)
+        {
+            Exibir_Tarefas exibirtar = new Exibir_Tarefas();
+            exibirtar.Show();
+            this.Close();
+        }
     }
 }
