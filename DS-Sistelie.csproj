@@ -94,9 +94,12 @@
     <Compile Include="Despesas\Despesas.cs" />
     <Compile Include="Despesas\EntradaSaidaDespesa.cs" />
     <Compile Include="Dominio\ConsulCliente\ConsulCliente.cs" />
-    <Compile Include="Dominio\ExibTarefas\ExibTarefas.cs" />
+    <Compile Include="Dominio\ExibTarefas\ExibTaref.cs" />
     <Compile Include="ExibirVendas.xaml.cs">
       <DependentUpon>ExibirVendas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Exibir_Tarefas.xaml.cs">
+      <DependentUpon>Exibir_Tarefas.xaml</DependentUpon>
     </Compile>
     <Compile Include="ExibTarefas.cs" />
     <Compile Include="MateriaPrima.cs" />
@@ -146,6 +149,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ExibirVendas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Exibir_Tarefas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

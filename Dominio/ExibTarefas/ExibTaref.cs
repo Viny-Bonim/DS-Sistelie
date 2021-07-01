@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DS_Sistelie.Dominio.ExibTarefas
 {
-    class ExibTarefas
+    class ExibTaref
     {
         public string DataInicio { get; set; }
 
