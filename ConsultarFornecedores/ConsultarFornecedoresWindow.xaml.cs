@@ -30,7 +30,7 @@ namespace DS_Sistelie.ConsultarFornecedores
 
         private void ConsultarFornecedoresWindow_Loaded(object sender, RoutedEventArgs e)
         {
-                    
+
 
             for (int i = 0; i < 3; i++)
             {
@@ -53,23 +53,11 @@ namespace DS_Sistelie.ConsultarFornecedores
                     Uf = "RO",
                     Cidade = "Ji-Paraná"
                 });
-            }           
+            }
             DataGridConsultarFornecedor.ItemsSource = ListaFornecedor;
+        } 
 
-            /*ComboBox ordem de consulta de fornecedores*/
-            ordemConsultaForncedores = new List<string>();
-
-            ordemConsultaForncedores.Add("ID");
-            ordemConsultaForncedores.Add("Nome Fantasia");
-            ordemConsultaForncedores.Add("Razão Social");
-            ordemConsultaForncedores.Add("Data de Cadastro");
-            ordemConsultaForncedores.Add("Categoria");
-            ordemConsultaForncedores.Add("País");
-            ordemConsultaForncedores.Add("Cidade");
-            ordemConsultaForncedores.Add("UF");
-
-            cmbxFiltroConsultaFornecedores.ItemsSource = ordemConsultaForncedores;
-        }
+          
 
         private void btnInicioFornecedor_Click(object sender, RoutedEventArgs e)
         {
@@ -121,6 +109,11 @@ namespace DS_Sistelie.ConsultarFornecedores
             {
                 MessageBox.Show("Fornecedor Excluído com Sucesso!");
             }
+        }
+
+        private void DataGridConsultarFornecedor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

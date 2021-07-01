@@ -44,6 +44,9 @@ namespace DS_Sistelie
             DataGridConsulClien.ItemsSource = listaConsulta;
         }
 
+        private void DataGridConsulClien_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
     }
 }

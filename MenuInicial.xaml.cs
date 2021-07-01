@@ -107,5 +107,12 @@ namespace DS_Sistelie
             cadastrarCliente.Show();
             this.Close();
         }
+
+        private void ConsultarFuncionario_Click(object sender, RoutedEventArgs e)
+        {
+            ConsultarFuncionario cad_proprietario = new ConsultarFuncionario();
+            cad_proprietario.Show();
+            this.Close();
+        }
     }
 }
