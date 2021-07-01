@@ -157,7 +157,7 @@ namespace DS_Sistelie
 
             if (validacao.Equals(true))
             {
-                MessageBox.Show("Cliente cadastrado com sucesso, veja as informações abaixo:\n" +
+                MessageBox.Show("Funcionário cadastrado com sucesso, veja as informações abaixo:\n" +
                     $"Nome: {nome}\n" +
                     $"CPF: {cpf}\n" +
                     $"RG: {rg}\n" +
@@ -179,7 +179,7 @@ namespace DS_Sistelie
 
         private void Cancelar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Deseja Cancelar o Cadastro desse Funcionario?", "Cadastrar Cliente", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show("Deseja Cancelar o Cadastro desse Funcionario?", "Cadastrar Funcionário", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
                 MenuInicial menuInicial = new MenuInicial();

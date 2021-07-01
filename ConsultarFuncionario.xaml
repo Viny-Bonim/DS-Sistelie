@@ -8,12 +8,12 @@
         Title="Consultar Funcionario" Height="650" Width="1000" ResizeMode="NoResize">
     <Grid Background="#B5B5B5">
 
-        <Button x:Name="EditarFuncio" FontFamily="Corbel" Margin="334,490,502,31"  Background="#bf0000" FontWeight="Bold" Foreground="White" Click="EditarFuncio_Click" RenderTransformOrigin="0.5,0.5"/>
-        <Button x:Name="Cancelar" Width="160" Height="100" HorizontalAlignment="Center" Margin="518,490,316,31" Background="#FFBB0707" Click="Cancelar_Click"/>
-        <Image Source="/imagensBotoes/Cancelar.png" Margin="566,498,358,71" Width="70" RenderTransformOrigin="0.5,0.5"/>
-        <Image Source="/imagensBotoes/Editar.png" Margin="372,498,537,71"/>
-        <Label Content="Cancelar" HorizontalAlignment="Left" Margin="562,552,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Label Content="Editar" HorizontalAlignment="Left" Margin="384,552,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="EditarFuncio" FontFamily="Corbel" Margin="334,493,502,28"  Background="#bf0000" FontWeight="Bold" Foreground="White" Click="EditarFuncio_Click" RenderTransformOrigin="0.5,0.5"/>
+        <Button x:Name="Cancelar" Width="160" Height="100" HorizontalAlignment="Center" Margin="518,493,316,28" Background="#FFBB0707" Click="Cancelar_Click"/>
+        <Image Source="/imagensBotoes/Cancelar.png" Margin="566,501,358,68" Width="70" RenderTransformOrigin="0.5,0.5"/>
+        <Image Source="/imagensBotoes/Editar.png" Margin="372,501,537,68"/>
+        <Label Content="Cancelar" HorizontalAlignment="Left" Margin="562,555,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Editar" HorizontalAlignment="Left" Margin="384,555,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Label Content="ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,80,0,0" FontSize="16" FontWeight="Bold" Height="40" Width="30"/>
         <Label Content="Nome" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="194,80,0,0" FontSize="16" FontWeight="Bold" Height="40" Width="62"/>
         <Label Content="CPF" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="475,80,0,0" FontSize="16" FontWeight="Bold" Height="40" Width="43"/>
@@ -23,7 +23,7 @@
         <TextBox Margin="518,84,286,505" />
         <TextBox Margin="772,84,32,505" />
         <Label Content="Consultar Funcionário" HorizontalAlignment="Left" Margin="318,10,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
-        <DataGrid x:Name="DgFun" AutoGenerateColumns="False" AlternatingRowBackground="#d3e0f5" AlternationCount="2" HorizontalAlignment="Left" Height="316" Margin="262,150,0,0" VerticalAlignment="Top" Width="536">
+        <DataGrid x:Name="DgFun" AutoGenerateColumns="False" AlternatingRowBackground="#d3e0f5" AlternationCount="2" HorizontalAlignment="Left" Height="316" Margin="31,150,0,0" VerticalAlignment="Top" Width="931">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding IdFuncionario}"/>
                 <DataGridTextColumn Header="NOME" Binding="{Binding NomeFuncionario}"/>
@@ -39,7 +39,7 @@
                 <DataGridTextColumn Header="EMAIL" Binding="{Binding EmailFuncionario}"/>
             </DataGrid.Columns>
         </DataGrid>
-       
-            
+
+
     </Grid>
 </Window>
