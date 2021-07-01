@@ -29,14 +29,16 @@ namespace DS_Sistelie
 
         private void Exibir_Tarefas_Loaded(object sender, RoutedEventArgs e)
         {
-            listaConsulta.Add(new ExibTaref()
+            for (int i = 0; i < 3; i++)
             {
-                DataInicio = "12/09/2020",
-                Novo = "Murilo Raskhi - Organizar Estoque",
-                EmAndamento = "Jockson Henrique - Comprar Produto",
-                Fechado = "Sabrina Satto - Gerenciar o caixa",
-                DataTermino = "Silvio Santos - Supervisionar o caixa"
-            });
+                listaConsulta.Add(new ExibTaref()
+                {
+                    DataInicio = "12/09/2020",
+                    Nome = "Murilo Raskhi",
+                    Status = "Em andamento",
+                    DataTermino = "20/09/2020"
+                });
+            }
             DataGridExibTarefas.ItemsSource = listaConsulta;
         }
 
@@ -54,5 +56,13 @@ namespace DS_Sistelie
         {
 
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            MenuInicial menuInicial = new MenuInicial();
+            menuInicial.Show();
+            this.Close();
+        }
+
     }
 }

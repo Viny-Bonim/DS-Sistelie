@@ -235,6 +235,7 @@
     <Content Include="imagensBotoes\Cancelar.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Ver cadastro.png" />
     <Resource Include="logoINICIAL.png" />
   </ItemGroup>
   <ItemGroup>

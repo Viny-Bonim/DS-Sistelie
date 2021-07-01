@@ -12,7 +12,16 @@
         <TextBox HorizontalAlignment="Left" Height="24" Margin="180,35,0,0" TextWrapping="Wrap" 
                  Text="" VerticalAlignment="Top" Width="236" FontSize="13"/>
 
-        <DataGrid Margin="74,256,74,94" x:Name="DataGridExibTarefas" />
+        <DataGrid Margin="74,256,74,94" AutoGenerateColumns="False" AlternatingRowBackground="#d3e0f5" AlternationCount="2" IsReadOnly="True"  x:Name="DataGridExibTarefas">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Data de Início" Binding="{Binding DataInicio}" />
+                <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" />
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                <DataGridTextColumn Header="Data de Término" Binding="{Binding DataTermino}" />
+            </DataGrid.Columns>
+        </DataGrid>
+            
+        
         <Label Content="Atribuir para" HorizontalAlignment="Left" Margin="562,37,0,0" 
             VerticalAlignment="Top" RenderTransformOrigin="-0.486,-7.28" 
             Background="{x:Null}" FontWeight="Bold" FontSize="13"/>
@@ -50,6 +59,9 @@
         </Button>
         <Button HorizontalAlignment="Left" Margin="698,553,0,0" VerticalAlignment="Top" Width="72" Background="#FFBF0000" Height="55" Click="Button_Click">
             <Image Height="45" Width="62" Source="imagensBotoes/Editar.png"/>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="588,553,0,0" VerticalAlignment="Top" Width="75" Height="55" Background="#FF06AEAE" Click="Button_Click_3">
+            <Image Height="45" Width="65" Source="imagensBotoes/Inicio.png"/>
         </Button>
     </Grid>
 
