@@ -29,26 +29,30 @@ namespace DS_Sistelie
 
         private void Consultar_Cliente_Loaded(object sender, RoutedEventArgs e)
         {
-            
-
-            listaConsulta.Add(new ConsulCliente()
+            List<ConsulCliente> listaConsulta = new List<ConsulCliente>();
+            for (int i = 0; i < 3; i++)
             {
-                ID = 1,
-                Cliente = "Jackson Oliveira",
-                RG = "1290280",
-                Sexo = "Masculino",
-                CPF = "123-432-234-12",
-                Endereco = "Rua Oliveira",
-                Contato = "69999870097",
-                Progresso = "Em andamento"
+                listaConsulta.Add(new ConsulCliente()
+                {
+                    ID = 1,
+                    Cliente = "Jackson Oliveira",
+                    RG = "1290280",
+                    Sexo = "Masculino",
+                    CPF = "123-432-234-12",
+                    Endereco = "Rua Oliveira",
+                    Contato = "69999870097",
+                    Progresso = "Em andamento"
 
-            });
+                });
+            }
             DataGridConsulClien.ItemsSource = listaConsulta;
         }
 
-        private void DataGridConsulClien_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ButtonSalvar_Click(object sender, RoutedEventArgs e)
         {
-
+            MenuInicial menuInicial = new MenuInicial();
+            menuInicial.Show();
+            this.Close();
         }
     }
 }

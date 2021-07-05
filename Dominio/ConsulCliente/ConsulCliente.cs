@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DS_Sistelie.Dominio.ConsulCliente
 {
-    class ConsulCliente
+    public class ConsulCliente
     {
         public int ID { get; set; }
 

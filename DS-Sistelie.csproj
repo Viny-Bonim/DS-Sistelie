@@ -101,12 +101,9 @@
     <Compile Include="ExibirVendas.xaml.cs">
       <DependentUpon>ExibirVendas.xaml</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Exibir_Tarefas.xaml.cs">
       <DependentUpon>Exibir_Tarefas.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ExibTarefas.cs" />
-=======
     <Compile Include="Funcionário.cs" />
 >>>>>>> main
     <Compile Include="MateriaPrima.cs" />
@@ -239,6 +236,7 @@
     <Content Include="imagensBotoes\Cancelar.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Ver cadastro.png" />
     <Resource Include="logoINICIAL.png" />
   </ItemGroup>
   <ItemGroup>

@@ -31,6 +31,7 @@
                     <Button x:Name="CadastrarFuncionario" Content="Cadastrar Funcionário" Height="60" FontSize="20" Margin=" 0 0 0 9" FontWeight="Bold" Background="#FF06AEAE" Click="CadastrarFuncionario_Click"/>
                     <Button x:Name="ConsultarCliente" Content="Consultar Cliente" Height="60" FontSize="20" Margin=" 0 0 0 9" FontWeight="Bold" Background="#FF06AEAE" Click="ConsultarCliente_Click"/>
                     <Button x:Name="ConsultarFuncionario" Content="Consultar Funcionario" Height="60" FontSize="20" Margin=" 0 0 0 9" FontWeight="Bold" Background="#FF06AEAE" Click="ConsultarFuncionario_Click" />
+                    <Button x:Name="ExibirTarefas" Content="Exibir Tarefas" Height="60" FontSize="20" Margin=" 0 0 0 9" FontWeight="Bold" Background="#FF06AEAE" Click="ExibirTarefas_Click"/>
                     
                 </StackPanel>
             </ScrollViewer >

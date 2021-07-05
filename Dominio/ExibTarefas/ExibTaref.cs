@@ -10,11 +10,9 @@ namespace DS_Sistelie.Dominio.ExibTarefas
     {
         public string DataInicio { get; set; }
 
-        public string Novo { get; set; }
+        public string Nome { get; set; }
 
-        public string EmAndamento { get; set; }
-
-        public string Fechado { get; set; }
+        public string Status { get; set; }
 
         public string DataTermino { get; set; }
     }

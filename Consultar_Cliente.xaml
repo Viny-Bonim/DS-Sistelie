@@ -19,15 +19,25 @@
         <TextBox HorizontalAlignment="Left" Height="30" Margin="127,41,0,0" TextWrapping="Wrap" 
                  Text="" VerticalAlignment="Top" Width="320" FontSize="15" Grid.Column="1"/>
 
-<<<<<<< HEAD
-        <DataGrid Margin="74,123,74,116" x:Name="DataGridConsulClien" Grid.ColumnSpan="2" SelectionChanged="DataGridConsulClien_SelectionChanged"/>
-=======
-        <DataGrid Margin="74,119,74,120" x:Name="DataGridConsulClien" Grid.ColumnSpan="2" SelectionChanged="DataGridConsulClien_SelectionChanged"/>
->>>>>>> main
-        <Button x:Name="ButtonSalvar" HorizontalAlignment="Left" Margin="773,540,0,0" VerticalAlignment="Top" Width="97" Background="#FF06AEAE" Height="71" Grid.Column="1">
-            <Image Height="61" Width="87" Source="imagensBotoes/Salvar.png"/>
+        <DataGrid Margin="74,119,74,120" AutoGenerateColumns="False" AlternatingRowBackground="#d3e0f5" AlternationCount="2" IsReadOnly="True" x:Name="DataGridConsulClien" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente}" />
+                <DataGridTextColumn Header="RG" Binding="{Binding RG}" />
+                <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo}" />
+                <DataGridTextColumn Header="CPF" Binding="{Binding CPF}" />
+                <DataGridTextColumn Header="Endereco" Binding="{Binding Endereco}" />
+                <DataGridTextColumn Header="Contato" Binding="{Binding Contato}" />
+                <DataGridTextColumn Header="Progresso" Binding="{Binding Progresso}" />
+                
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="ButtonSalvar" HorizontalAlignment="Left" Margin="773,540,0,0" VerticalAlignment="Top" Width="97" Background="#FF06AEAE" Height="71" Grid.Column="1" Click="ButtonSalvar_Click" RenderTransformOrigin="-0.237,0.31">
+            <Image Height="61" Width="87" Source="imagensBotoes/Inicio.png"/>
         </Button>
-        <Button x:Name="ButtonVerCadastro" HorizontalAlignment="Left" Margin="680,549,0,0" VerticalAlignment="Top" Width="77" Height="62" Background="#FF06AEAE" Grid.Column="1"/>
+        <Button x:Name="ButtonVerCadastro" HorizontalAlignment="Left" Margin="680,549,0,0" VerticalAlignment="Top" Width="77" Height="62" Background="#FF06AEAE" Grid.Column="1">
+            <Image Height="52" Width="67" Source="Ver cadastro.png"/>
+        </Button>
         <Button x:Name="ButtonExcluir" HorizontalAlignment="Left" Margin="591,549,0,0" VerticalAlignment="Top" Width="77" Background="#FFBF0000" Height="62" Grid.Column="1">
             <Image Height="52" Width="67" Source="imagensBotoes/Excluir.png"/>
         </Button>
