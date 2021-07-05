@@ -105,7 +105,6 @@
       <DependentUpon>Exibir_Tarefas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Funcionário.cs" />
->>>>>>> main
     <Compile Include="MateriaPrima.cs" />
     <Compile Include="RegistrarVenda.cs" />
     <Compile Include="RegistrarVendas.xaml.cs">
