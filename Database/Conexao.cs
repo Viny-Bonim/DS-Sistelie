@@ -15,12 +15,30 @@ namespace DS_Sistelie.Database
 
         private static string user = "root";
 
-        private static string password = "root";
+        private static string password = "vinybonim";
 
-        private static string dbname = "sistelie";
+        private static string dbname = "bd_sistelie";
 
         private static MySqlConnection connection;
 
         private static MySqlCommand command;
+
+        public Conexao()
+        {
+            try
+            {
+                connection = new MySqlConnection($"server={host};database={dbname};port={port};user={user};password={password}");
+                connection.Open();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void Close()
+        {
+            connection.Close();
+        }
     }
 }
