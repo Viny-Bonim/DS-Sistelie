@@ -12,7 +12,7 @@ namespace DS_Sistelie.Models
 
         public string TipoFornecedor { get; set; }
 
-        public DateTime DataCadastroFornecedor { get; set; }
+        public string DataCadastroFornecedor { get; set; }
 
         public string RgIe { get; set; }
 
