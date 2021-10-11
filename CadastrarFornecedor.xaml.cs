@@ -20,7 +20,7 @@ namespace DS_Sistelie
     public partial class CadastrarFornecedor : Window
     {
         bool validacao = false;
-        Fornecedor fornecedor = new Fornecedor();
+        Models.Fornecedor fornecedor = new Models.Fornecedor();
         private List<string> tipoFornecedor;
 
         public CadastrarFornecedor()

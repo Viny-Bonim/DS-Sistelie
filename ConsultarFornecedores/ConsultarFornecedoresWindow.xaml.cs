@@ -20,7 +20,7 @@ namespace DS_Sistelie.ConsultarFornecedores
     public partial class ConsultarFornecedoresWindow : Window
     {
         private List<string> ordemConsultaForncedores;
-        List<Fornecedor> ListaFornecedor = new List<Fornecedor>();
+        List<Models.Fornecedor> ListaFornecedor = new List<Models.Fornecedor>();
 
         public ConsultarFornecedoresWindow()
         {
@@ -34,7 +34,7 @@ namespace DS_Sistelie.ConsultarFornecedores
 
             for (int i = 0; i < 3; i++)
             {
-                ListaFornecedor.Add(new Fornecedor()
+                ListaFornecedor.Add(new Models.Fornecedor()
                 {
                     CodigoFornecedor = i + 1,
                     TipoFornecedor = "Pessoa Física",

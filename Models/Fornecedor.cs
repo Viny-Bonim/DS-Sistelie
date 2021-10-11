@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DS_Sistelie
+namespace DS_Sistelie.Models
 {
     class Fornecedor
     {
