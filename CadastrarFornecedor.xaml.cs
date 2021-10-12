@@ -55,7 +55,7 @@ namespace DS_Sistelie
         {
             fornecedor.CodigoFornecedor = int.Parse(txtCodigo.Text);
             fornecedor.TipoFornecedor = cmbxTipo.Text;
-            fornecedor.DataCadastroFornecedor = dtCadastro.Text;
+            //fornecedor.DataCadastroFornecedor = dtCadastro.Text.ToString("yyyy-MM-dd");
             fornecedor.RgIe = txtRGIE.Text;
             fornecedor.Cpf = txtCpf.Text;
             fornecedor.Cnpj = txtCnpj.Text;
