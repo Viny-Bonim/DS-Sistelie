@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DS_Sistelie.Interfaces;
 using DS_Sistelie.Database;
+using MySql.Data.MySqlClient;
 
 namespace DS_Sistelie.Models
 {
@@ -65,7 +66,41 @@ namespace DS_Sistelie.Models
 
         public List<Fornecedor> List()
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<Fornecedor> listForn = new List<Fornecedor>();
+
+                var query = conn.Query();
+                query.CommandText = "SELECT * FROM Fornecedor";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    listForn.Add(new Fornecedor()
+                    {
+                        Email = reader.GetString("email_forn"),
+                        TipoFornecedor = reader.GetString("tipo_forn"),
+                        DataCadastroFornecedor = reader.GetDateTime("data_cadastro_forn"),
+                        RgIe = reader.GetString("rg_ie_forn"),
+                        Cpf = reader.GetString("cpf_forn"),
+                        Cnpj = reader.GetString("cnpj_forn"),
+                        NomeFantasia = reader.GetString("nome_fantasia_forn"),
+                        RazaoSocial = reader.GetString("razao_social_forn"),
+                        Telefone = reader.GetString("telefone_forn"),
+                    });
+                }
+
+                return listForn;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public void Update(Fornecedor t)
