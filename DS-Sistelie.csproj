@@ -139,6 +139,7 @@
       <DependentUpon>ConsultarDespesasWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Despesas\Despesas.cs" />
+    <Compile Include="Despesas\DespesasDAO.cs" />
     <Compile Include="Despesas\EntradaSaidaDespesa.cs" />
     <Compile Include="Dominio\ConsulCliente\ConsulCliente.cs" />
     <Compile Include="Dominio\ExibTarefas\ExibTaref.cs" />
