@@ -10,6 +10,8 @@ namespace DS_Sistelie.Models
     {
         public int CodigoFornecedor { get; set; }
 
+        public string Email { get; set; }
+
         public string TipoFornecedor { get; set; }
 
         public DateTime DataCadastroFornecedor { get; set; }
@@ -26,8 +28,6 @@ namespace DS_Sistelie.Models
 
         public string Telefone { get; set; }
 
-        public string Email { get; set; }
-
         public string Cep { get; set; }
 
         public string Logradouro { get; set; }
@@ -39,5 +39,7 @@ namespace DS_Sistelie.Models
         public string Uf { get; set; }
 
         public string Cidade { get; set; }
+
+        public int FkEndereco { get; set; }
     }
 }

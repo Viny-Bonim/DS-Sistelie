@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DS_Sistelie.Models;
 
 namespace DS_Sistelie
 {
@@ -53,9 +54,15 @@ namespace DS_Sistelie
 
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
+            InsertTeste();
+
+            /*
+            string recebeData;
+
             fornecedor.CodigoFornecedor = int.Parse(txtCodigo.Text);
             fornecedor.TipoFornecedor = cmbxTipo.Text;
-            //fornecedor.DataCadastroFornecedor = dtCadastro.Text.ToString("yyyy-MM-dd");
+            recebeData = dtCadastro.Text;
+            fornecedor.DataCadastroFornecedor = DateTime.Parse(recebeData);
             fornecedor.RgIe = txtRGIE.Text;
             fornecedor.Cpf = txtCpf.Text;
             fornecedor.Cnpj = txtCnpj.Text;
@@ -109,8 +116,8 @@ namespace DS_Sistelie
                 $"UF: {fornecedor.Uf}\n" +
                 $"Cidade: {fornecedor.Cidade}");
                 LimparTextBox();
-            }
-
+            }  
+            */
         }
 
         private void LimparTextBox()
@@ -147,9 +154,32 @@ namespace DS_Sistelie
                 txtEmail_error.Visibility = Visibility.Collapsed;
         }
 
-        private void txtEmail_TextChanged(object sender, TextChangedEventArgs e)
+        private void InsertTeste()
         {
+            try
+            {
+                Fornecedor fornecedor = new Fornecedor();
 
+                fornecedor.Email = "jubileu@gmail.com";
+                fornecedor.TipoFornecedor = "pessoa jurídica";
+                fornecedor.DataCadastroFornecedor = DateTime.Now;
+                fornecedor.RgIe = "135509";
+                fornecedor.Cpf = "034.644.077-11";
+                fornecedor.Cnpj = "1256832444";
+                fornecedor.NomeFantasia = "Jubileu Ltda";
+                fornecedor.RazaoSocial = "Jibileu Está Estranho Hoje Ltda";
+                fornecedor.Telefone = "(69) 9 9345-8247";
+                fornecedor.FkEndereco = 1;
+
+                FornecedorDAO fornecedorDAO = new FornecedorDAO();
+                fornecedorDAO.Insert(fornecedor);
+
+                MessageBox.Show("Fornecedor cadastrado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro ao executar", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

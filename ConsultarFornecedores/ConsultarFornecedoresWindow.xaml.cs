@@ -38,7 +38,7 @@ namespace DS_Sistelie.ConsultarFornecedores
                 {
                     CodigoFornecedor = i + 1,
                     TipoFornecedor = "Pessoa Física",
-                    //DataCadastroFornecedor = "01/05/2020",
+                    DataCadastroFornecedor = DateTime.Now,
                     RgIe = "135090",
                     Cpf = "0346890225",
                     Cnpj = "135964856",
