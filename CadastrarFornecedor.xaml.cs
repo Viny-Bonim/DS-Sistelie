@@ -160,21 +160,34 @@ namespace DS_Sistelie
             {
                 Fornecedor fornecedor = new Fornecedor();
 
-                fornecedor.Email = "jubileu@gmail.com";
-                fornecedor.TipoFornecedor = "pessoa jurídica";
-                fornecedor.DataCadastroFornecedor = DateTime.Now;
-                fornecedor.RgIe = "135509";
-                fornecedor.Cpf = "034.644.077-11";
-                fornecedor.Cnpj = "1256832444";
-                fornecedor.NomeFantasia = "Jubileu Ltda";
-                fornecedor.RazaoSocial = "Jibileu Está Estranho Hoje Ltda";
-                fornecedor.Telefone = "(69) 9 9345-8247";
+                fornecedor.Email = txtEmail.Text;
+                fornecedor.TipoFornecedor = cmbxTipo.Text;
+                fornecedor.DataCadastroFornecedor = (DateTime)dtCadastro.SelectedDate;
+                fornecedor.RgIe = txtRGIE.Text;
+                fornecedor.Cpf = txtCpf.Text;
+                fornecedor.Cnpj = txtCnpj.Text;
+                fornecedor.NomeFantasia = txtNomeFantasia.Text;
+                fornecedor.RazaoSocial = txtRazaoSocial.Text;
+                fornecedor.Telefone = txtTelefone.Text;
                 fornecedor.FkEndereco = 1;
 
                 FornecedorDAO fornecedorDAO = new FornecedorDAO();
                 fornecedorDAO.Insert(fornecedor);
 
                 MessageBox.Show("Fornecedor cadastrado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                var result = MessageBox.Show("Deseja cadastrar outro Fornecedor?", "Cadastrar Novamente?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    LimparTextBox();
+                }
+                else
+                {
+                    MenuInicial menuInicial = new MenuInicial();
+                    menuInicial.Show();
+                    this.Close();
+                }
+
             }
             catch(Exception ex)
             {
