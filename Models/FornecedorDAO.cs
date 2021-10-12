@@ -10,7 +10,7 @@ namespace DS_Sistelie.Models
 {
     class FornecedorDAO : IDAO<Fornecedor>
     {
-        public static Conexao conn;
+        private static Conexao conn;
 
         public FornecedorDAO()
         {
@@ -29,7 +29,17 @@ namespace DS_Sistelie.Models
 
         public void Insert(Fornecedor t)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+            }catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public List<Fornecedor> List()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
@@ -29,6 +30,21 @@ namespace DS_Sistelie.Database
             {
                 connection = new MySqlConnection($"server={host};database={dbname};port={port};user={user};password={password}");
                 connection.Open();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public MySqlCommand Query()
+        {
+            try
+            {
+                command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
+
+                return command;
             }
             catch (Exception)
             {
