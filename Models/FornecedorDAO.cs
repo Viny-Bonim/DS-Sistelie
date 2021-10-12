@@ -31,8 +31,23 @@ namespace DS_Sistelie.Models
         {
             try
             {
+                var query = conn.Query();
+                query.CommandText = "INSERT INTO Fornecedor (email_forn, tipo_forn, data_cadastro_forn, rg_ie_forn, cpf_forn, cnpj_forn, nome_fantasia_forn, razao_social_forn, telefone_forn) " +
+                    "VALUES (@email, @tipo, @datacad, @rgie, @cpf, @cnpj, @nomefantasia, @razaosocial, @telefone)";
 
-            }catch (Exception e)
+                query.Parameters.AddWithValue("@email", t.Email);
+                query.Parameters.AddWithValue("@tipo", t.TipoFornecedor);
+                query.Parameters.AddWithValue("@datacad", t.DataCadastroFornecedor.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@rgie", t.RgIe);
+                query.Parameters.AddWithValue("@cpf", t.Cpf);
+                query.Parameters.AddWithValue("@cnpj", t.Cnpj);
+                query.Parameters.AddWithValue("@nomefantasia", t.NomeFantasia);
+                query.Parameters.AddWithValue("@razaosocial", t.RazaoSocial);
+                query.Parameters.AddWithValue("@telefone", t.Telefone);
+
+                var result = query.ExecuteNonQuery();
+            }
+            catch (Exception e)
             {
                 throw e;
             }
