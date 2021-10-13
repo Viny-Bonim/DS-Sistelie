@@ -140,7 +140,38 @@ namespace DS_Sistelie.Models
 
         public void Update(Fornecedor t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "UPDATE Fornecedor SET email_forn = @email, tipo_forn = @tipo, data_cadastro_forn = @datacad, rg_ie_forn = @rgie, cpf_forn = @cpf, cnpj_forn = @cnpj, nome_fantasia_forn = @nomefantasia, razao_social_forn = @razaosocial, telefone_forn = @telefone, cod_endereco_fk = @FkEndereco) " +
+                    "WHERE cod_forn = @CodigoFornecedor";
+
+                query.Parameters.AddWithValue("@email", t.Email);
+                query.Parameters.AddWithValue("@tipo", t.TipoFornecedor);
+                query.Parameters.AddWithValue("@datacad", t.DataCadastroFornecedor.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@rgie", t.RgIe);
+                query.Parameters.AddWithValue("@cpf", t.Cpf);
+                query.Parameters.AddWithValue("@cnpj", t.Cnpj);
+                query.Parameters.AddWithValue("@nomefantasia", t.NomeFantasia);
+                query.Parameters.AddWithValue("@razaosocial", t.RazaoSocial);
+                query.Parameters.AddWithValue("@telefone", t.Telefone);
+                query.Parameters.AddWithValue("@FkEndereco", t.FkEndereco);
+                query.Parameters.AddWithValue("@CodigoFornecedor", t.CodigoFornecedor);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)             
+                    throw new Exception("A atualização falhou!");
+                
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

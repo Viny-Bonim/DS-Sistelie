@@ -24,7 +24,7 @@ namespace DS_Sistelie
         private Fornecedor _fornecedor;
 
         bool validacao = false;
-        Models.Fornecedor fornecedor = new Models.Fornecedor();
+        
         private List<string> tipoFornecedor;
 
         public CadastrarFornecedor()
@@ -85,71 +85,59 @@ namespace DS_Sistelie
 
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         { 
-            InsertTeste();
-           
+            _fornecedor.Email = txtEmail.Text;
+            _fornecedor.TipoFornecedor = cmbxTipo.Text;
+            _fornecedor.DataCadastroFornecedor = (DateTime)dtCadastro.SelectedDate;
+            _fornecedor.RgIe = txtRGIE.Text;
+            _fornecedor.Cpf = txtCpf.Text;
+            _fornecedor.Cnpj = txtCnpj.Text;
+            _fornecedor.NomeFantasia = txtNomeFantasia.Text;
+            _fornecedor.RazaoSocial = txtRazaoSocial.Text;
+            _fornecedor.Telefone = txtTelefone.Text;
+            _fornecedor.FkEndereco = 1;
 
-            /*
-            string recebeData;
+            SaveData();
+        }
 
-            fornecedor.CodigoFornecedor = int.Parse(txtCodigo.Text);
-            fornecedor.TipoFornecedor = cmbxTipo.Text;
-            recebeData = dtCadastro.Text;
-            fornecedor.DataCadastroFornecedor = DateTime.Parse(recebeData);
-            fornecedor.RgIe = txtRGIE.Text;
-            fornecedor.Cpf = txtCpf.Text;
-            fornecedor.Cnpj = txtCnpj.Text;
-            fornecedor.NomeFantasia = txtNomeFantasia.Text;
-            fornecedor.RazaoSocial = txtRazaoSocial.Text;
-            fornecedor.Telefone = txtTelefone.Text;
-            fornecedor.Email = txtEmail.Text;
-            fornecedor.Cep = txtCEP.Text;
-            fornecedor.Logradouro = txtLogradouro.Text;
-            fornecedor.Numero = txtNumero.Text;
-            fornecedor.Pais = txtPais.Text;
-            fornecedor.Uf = txtUF.Text;
-            fornecedor.Cidade = txtCidade.Text;
-
-            if (fornecedor.CodigoFornecedor.Equals("") || fornecedor.TipoFornecedor.Equals("")
-                || fornecedor.DataCadastroFornecedor.Equals("")
-                || fornecedor.RgIe.Equals("") || fornecedor.Cpf.Equals("") || fornecedor.Cnpj.Equals("")
-                || fornecedor.NomeFantasia.Equals("")
-                || fornecedor.RazaoSocial.Equals("") || fornecedor.Telefone.Equals("")
-                || fornecedor.Email.Equals("") || fornecedor.Cep.Equals("")
-                || fornecedor.Logradouro.Equals("") || fornecedor.Numero.Equals("")
-                || fornecedor.Pais.Equals("") || fornecedor.Uf.Equals("")
-                || fornecedor.Cidade.Equals(""))
+        private void SaveData()
+        {
+            try
             {
+                var dao = new FornecedorDAO();
+                var text = "atualizado";
+                
+                if (_fornecedor.CodigoFornecedor == 0)
+                {
+                    dao.Insert(_fornecedor);
+                    text = "cadastrado";
+                }
+                else
+                {
+                    dao.Update(_fornecedor);
+                }
+                MessageBox.Show($"Fornecedor {text} com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                CloseFormVerify();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro ao executar", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
-                MessageBox.Show("Preencha todos os campos com *");
-                validacao = false;
+        private void CloseFormVerify()
+        {
+            var result = MessageBox.Show("Deseja cadastrar outro Fornecedor?", "Cadastrar Novamente?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                LimparTextBox();
             }
             else
             {
-                validacao = true;
+                MenuInicial menuInicial = new MenuInicial();
+                menuInicial.Show();
+                this.Close();
             }
-
-            if (validacao == true)
-            {
-                MessageBox.Show("Fornecedor cadastrado com sucesso!\n" +
-                $"Código: {fornecedor.CodigoFornecedor}\n" +
-                $"Tipo: {fornecedor.TipoFornecedor}\n" +
-                $"Data do Cadastro: {fornecedor.DataCadastroFornecedor}\n" +
-                $"RG/IE: {fornecedor.RgIe}\n" +
-                $"CPF: {fornecedor.Cpf}\n" +
-                $"CNPJ: {fornecedor.Cnpj}\n" +
-                $"Nome Fantasia: {fornecedor.NomeFantasia}\n" +
-                $"Razão Social: {fornecedor.RazaoSocial}\n" +
-                $"Telefone: {fornecedor.Telefone}\n" +
-                $"E-mail: {fornecedor.Email}\n" +
-                $"CEP: {fornecedor.Cep}\n" +
-                $"Logradouro: {fornecedor.Logradouro}\n" +
-                $"Número: {fornecedor.Numero}\n" +
-                $"País: {fornecedor.Pais}\n" +
-                $"UF: {fornecedor.Uf}\n" +
-                $"Cidade: {fornecedor.Cidade}");
-                LimparTextBox();
-            }  
-            */
         }
 
         private void LimparTextBox()
@@ -187,45 +175,5 @@ namespace DS_Sistelie
                 txtEmail_error.Visibility = Visibility.Collapsed;
         }
 
-        private void InsertTeste()
-        {
-            try
-            {
-                Fornecedor fornecedor = new Fornecedor();
-
-                fornecedor.Email = txtEmail.Text;
-                fornecedor.TipoFornecedor = cmbxTipo.Text;
-                fornecedor.DataCadastroFornecedor = (DateTime)dtCadastro.SelectedDate;
-                fornecedor.RgIe = txtRGIE.Text;
-                fornecedor.Cpf = txtCpf.Text;
-                fornecedor.Cnpj = txtCnpj.Text;
-                fornecedor.NomeFantasia = txtNomeFantasia.Text;
-                fornecedor.RazaoSocial = txtRazaoSocial.Text;
-                fornecedor.Telefone = txtTelefone.Text;
-                fornecedor.FkEndereco = 1;
-
-                FornecedorDAO fornecedorDAO = new FornecedorDAO();
-                fornecedorDAO.Insert(fornecedor);
-
-                MessageBox.Show("Fornecedor cadastrado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
-                var result = MessageBox.Show("Deseja cadastrar outro Fornecedor?", "Cadastrar Novamente?", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-                if (result == MessageBoxResult.Yes)
-                {
-                    LimparTextBox();
-                }
-                else
-                {
-                    MenuInicial menuInicial = new MenuInicial();
-                    menuInicial.Show();
-                    this.Close();
-                }
-
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro ao executar", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
     }
 }
