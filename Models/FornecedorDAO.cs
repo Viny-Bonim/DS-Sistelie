@@ -34,11 +34,6 @@ namespace DS_Sistelie.Models
 
                 MySqlDataReader reader = query.ExecuteReader();
 
-                if (!reader.HasRows)
-                {
-                    throw new Exception("O registro não foi encontrado!");
-                }
-
                 var fornecedor = new Fornecedor();
 
                 while (reader.Read())

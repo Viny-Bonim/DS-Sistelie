@@ -59,17 +59,10 @@ namespace DS_Sistelie.ConsultarFornecedores
         {
             var fornecedorSelecionado = DataGridConsultarFornecedor.SelectedItem as Fornecedor;
 
-            try
-            {
-                var dao = new FornecedorDAO();
-                var forne = dao.GetById(fornecedorSelecionado.CodigoFornecedor);
-                MessageBox.Show(forne.RazaoSocial + forne.Telefone);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            
+            var windowforne = new CadastrarFornecedor(fornecedorSelecionado.CodigoFornecedor);
+            windowforne.ShowDialog();
+            LoadListForne();
+            this.Close();
         }
     }
 }

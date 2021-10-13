@@ -20,6 +20,9 @@ namespace DS_Sistelie
     /// </summary>
     public partial class CadastrarFornecedor : Window
     {
+        private int _id;
+        private Fornecedor _fornecedor;
+
         bool validacao = false;
         Models.Fornecedor fornecedor = new Models.Fornecedor();
         private List<string> tipoFornecedor;
@@ -30,20 +33,48 @@ namespace DS_Sistelie
             Loaded += CadastrarFornecedor_Loaded;
         }
 
+        public CadastrarFornecedor(int id)
+        {
+            _id = id;
+            InitializeComponent();
+            Loaded += CadastrarFornecedor_Loaded;
+        }
+
         private void CadastrarFornecedor_Loaded(object sender, RoutedEventArgs e)
         {
             tipoFornecedor = new List<string>();
-
             tipoFornecedor.Add("Pessoa Física");
             tipoFornecedor.Add("Pessoa Jurídica");
-
             cmbxTipo.ItemsSource = tipoFornecedor;
+
+
+            _fornecedor = new Fornecedor();
+            try
+            {
+                var dao = new FornecedorDAO();
+                _fornecedor = dao.GetById(_id);
+
+                txtCodigo.Text = _fornecedor.CodigoFornecedor.ToString();
+                cmbxTipo.Text = _fornecedor.TipoFornecedor;
+                dtCadastro.SelectedDate = _fornecedor.DataCadastroFornecedor;
+                txtRGIE.Text = _fornecedor.RgIe;
+                txtCpf.Text = _fornecedor.Cpf;
+                txtCnpj.Text = _fornecedor.Cnpj;
+                txtNomeFantasia.Text = _fornecedor.NomeFantasia;
+                txtRazaoSocial.Text = _fornecedor.RazaoSocial;
+                txtTelefone.Text = _fornecedor.Telefone;
+                txtEmail.Text = _fornecedor.Email;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }              
         }
 
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Deseja Cancelar o Cadastro desse Fornecedor?", "Cadastrar Fornecedor", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show("Deseja Cancelar e Voltar ao Menu Inicial?", "Cadastrar Fornecedor", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if(result == MessageBoxResult.Yes)
             {
                 MenuInicial menuInicial = new MenuInicial();
