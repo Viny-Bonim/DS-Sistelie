@@ -5,6 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DS_Sistelie.ConsultarFornecedores"
         mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         Title="Consultar Fornecedores" Height="700" Width="1000" Background="#b5b5b5" 
         MinWidth="1000" MinHeight="630" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
@@ -21,9 +28,9 @@
 
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
             <Label Content="Código" FontSize="19" FontWeight="Bold" Margin="10,10,411,5" FontFamily="Corbel"/>
-            <Label Content="Razão Social" FontSize="19" FontFamily="Corbel" FontWeight="Bold" Margin="10 3 5 5" />
-            <Label Content="Nome Fantasia" FontSize="19" FontFamily="Corbel" FontWeight="Bold" Margin="10 5 5 5"/>
-            <Label Content="Ordenar por:" FontSize="19" FontFamily="Corbel" FontWeight="Bold" Margin="60 30 5 5"/>
+            <Label Content="Razão Social" FontSize="19" FontFamily="Corbel" FontWeight="Bold" Margin="10 15 356 5" />
+            <Label Content="Nome Fantasia" FontSize="19" FontFamily="Corbel" FontWeight="Bold" Margin="10 12 5 5"/>
+            <Label Content="Ordenar por:" FontSize="19" FontFamily="Corbel" FontWeight="Bold" Margin="60 35 5 5"/>
             <Label Content="Fornecedores totais:" FontSize="19" FontFamily="Corbel" FontWeight="Bold" Margin="60 30 5 5"/>
         </StackPanel>
 
@@ -40,7 +47,7 @@
             <TextBox x:Name="txtConsultarNomeFantasia" Margin="170 10 10 5" Background="White" FontSize="19"/>
             <GridSplitter HorizontalAlignment="Stretch" Height="5" Margin="0 12 0 0"/>
             <ComboBox x:Name="cmbxFiltroConsultaFornecedores" Margin="190 17 100 50" FontSize="20"/>
-            <TextBox x:Name="txtFornecedoresTotais" Text="3" Margin="260 -14 100 5" Background="White" FontSize="19" IsEnabled="False"/>
+            <TextBox x:Name="txtFornecedoresTotais" Text="3" Margin="260 -16 100 5" Background="White" FontSize="19" IsEnabled="False"/>
             <GridSplitter HorizontalAlignment="Stretch" Height="5" Margin="0 3 -490 0"/>
         </StackPanel>
 
@@ -58,11 +65,11 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="0" >
-            <Label Content="Data" FontSize="19"  FontFamily="Corbel" FontWeight="Bold" Margin="10 5 4 5"/>
-            <Label Content="CPF" FontSize="19"  FontFamily="Corbel" FontWeight="Bold" Margin="10 8 4 5"/>
-            <Label Content="CNPJ" FontSize="19"  FontFamily="Corbel" FontWeight="Bold" Margin="10 8 4 5"/>
-            <Label Content="Cidade" FontSize="19"  FontFamily="Corbel" FontWeight="Bold" Margin="10 5 4 5"/>
-            <Label Content="UF" FontSize="19" FontFamily="Corbel" FontWeight="Bold" Margin="10 10 4 5"/>
+            <Label Content="Data" FontSize="19"  FontFamily="Corbel" FontWeight="Bold" Margin="10 10 4 5"/>
+            <Label Content="CPF" FontSize="19"  FontFamily="Corbel" FontWeight="Bold" Margin="10 10 4 5"/>
+            <Label Content="CNPJ" FontSize="19"  FontFamily="Corbel" FontWeight="Bold" Margin="10 18 4 5"/>
+            <Label Content="Cidade" FontSize="19"  FontFamily="Corbel" FontWeight="Bold" Margin="10 14 4 5"/>
+            <Label Content="UF" FontSize="19" FontFamily="Corbel" FontWeight="Bold" Margin="10 15 4 5"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="0">
