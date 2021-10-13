@@ -49,26 +49,10 @@ namespace DS_Sistelie
 
 
             _fornecedor = new Fornecedor();
-            try
+            if (_id > 0)
             {
-                var dao = new FornecedorDAO();
-                _fornecedor = dao.GetById(_id);
-
-                txtCodigo.Text = _fornecedor.CodigoFornecedor.ToString();
-                cmbxTipo.Text = _fornecedor.TipoFornecedor;
-                dtCadastro.SelectedDate = _fornecedor.DataCadastroFornecedor;
-                txtRGIE.Text = _fornecedor.RgIe;
-                txtCpf.Text = _fornecedor.Cpf;
-                txtCnpj.Text = _fornecedor.Cnpj;
-                txtNomeFantasia.Text = _fornecedor.NomeFantasia;
-                txtRazaoSocial.Text = _fornecedor.RazaoSocial;
-                txtTelefone.Text = _fornecedor.Telefone;
-                txtEmail.Text = _fornecedor.Email;
+                FillForm();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-            }              
         }
 
 
@@ -124,18 +108,51 @@ namespace DS_Sistelie
             }
         }
 
+        private void FillForm()
+        {
+            try
+            {
+                var dao = new FornecedorDAO();
+                _fornecedor = dao.GetById(_id);
+
+                txtCodigo.Text = _fornecedor.CodigoFornecedor.ToString();
+                cmbxTipo.Text = _fornecedor.TipoFornecedor;
+                dtCadastro.SelectedDate = _fornecedor.DataCadastroFornecedor;
+                txtRGIE.Text = _fornecedor.RgIe;
+                txtCpf.Text = _fornecedor.Cpf;
+                txtCnpj.Text = _fornecedor.Cnpj;
+                txtNomeFantasia.Text = _fornecedor.NomeFantasia;
+                txtRazaoSocial.Text = _fornecedor.RazaoSocial;
+                txtTelefone.Text = _fornecedor.Telefone;
+                txtEmail.Text = _fornecedor.Email;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
         private void CloseFormVerify()
         {
-            var result = MessageBox.Show("Deseja cadastrar outro Fornecedor?", "Cadastrar Novamente?", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-            if (result == MessageBoxResult.Yes)
+            if (_fornecedor.CodigoFornecedor == 0)
             {
-                LimparTextBox();
+                var result = MessageBox.Show("Deseja cadastrar outro Fornecedor?", "Cadastrar Novamente?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    LimparTextBox();
+                }
+                else
+                {
+                    ConsultarFornecedores.ConsultarFornecedoresWindow consulForn = new ConsultarFornecedores.ConsultarFornecedoresWindow();
+                    consulForn.Show();
+                    this.Close();
+                }
             }
             else
             {
-                MenuInicial menuInicial = new MenuInicial();
-                menuInicial.Show();
+                ConsultarFornecedores.ConsultarFornecedoresWindow consulForn = new ConsultarFornecedores.ConsultarFornecedoresWindow();
+                consulForn.Show();
                 this.Close();
             }
         }

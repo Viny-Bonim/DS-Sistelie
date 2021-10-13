@@ -20,7 +20,28 @@ namespace DS_Sistelie.Models
 
         public void Delete(Fornecedor t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "DELETE FROM Fornecedor WHERE cod_forn = @id";
+
+                query.Parameters.AddWithValue("@id", t.CodigoFornecedor);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    throw new Exception("O fornecedor não foi excluído corretamente, por favor tente novamente!");
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public Fornecedor GetById(int id)
@@ -33,6 +54,9 @@ namespace DS_Sistelie.Models
                 query.Parameters.AddWithValue("@id", id);
 
                 MySqlDataReader reader = query.ExecuteReader();
+
+                if (!reader.HasRows)
+                    throw new Exception("Nenhum registro foi encontrado!");
 
                 var fornecedor = new Fornecedor();
 

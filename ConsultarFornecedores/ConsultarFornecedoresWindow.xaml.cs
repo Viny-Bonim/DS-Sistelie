@@ -64,5 +64,27 @@ namespace DS_Sistelie.ConsultarFornecedores
             LoadListForne();
             this.Close();
         }
+
+        private void Button_Delete_Click(object sender, RoutedEventArgs e)
+        {
+            var fornecedorSelecionado = DataGridConsultarFornecedor.SelectedItem as Fornecedor;
+
+            var result = MessageBox.Show($"Deseja realmente excluir o fornecedor: {fornecedorSelecionado.NomeFantasia}", "Excluir Fornecedor?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new FornecedorDAO();
+                    dao.Delete(fornecedorSelecionado);
+                    LoadListForne();
+                    MessageBox.Show("Fornecedor Excluído com sucesso");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
