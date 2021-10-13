@@ -106,7 +106,7 @@
                     Background="#bf0000" FontWeight="Bold" Foreground="White" Click="btnExcluirFornecedor_Click">
                 <StackPanel>
                     <Image Source="/imagensBotoes/Excluir.png" Width="30" Margin="2 3 0 0"/>
-                    <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold">Excluir</TextBlock>
+                    <TextBlock Margin="0 -1 1 0" FontSize="16" FontWeight="Bold">Excluir</TextBlock>
                 </StackPanel>
             </Button>
         </StackPanel>
@@ -121,7 +121,7 @@
             </Button>
         </StackPanel>
 
-        <DataGrid x:Name="DataGridConsultarFornecedor" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="10 45 50 10" 
+        <DataGrid x:Name="DataGridConsultarFornecedor" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="10 58 30 7" 
                   IsReadOnly="True" AutoGenerateColumns="False" AlternatingRowBackground="#d3e0f5" AlternationCount="2" 
                   FontFamily="Corbel" SelectionChanged="DataGridConsultarFornecedor_SelectionChanged">
           
@@ -136,19 +136,35 @@
                 <DataGridTextColumn Header="Razão Social" FontSize="17" Binding="{Binding RazaoSocial, ConverterCulture='pt-BR'}"/>
                 <DataGridTextColumn Header="Telefone" FontSize="17" Binding="{Binding Telefone, ConverterCulture='pt-BR'}"/>
                 <DataGridTextColumn Header="E-mail" FontSize="17" Binding="{Binding Email, ConverterCulture='pt-BR'}"/>
-                <DataGridTextColumn Header="CEP" FontSize="17" Binding="{Binding Cep, ConverterCulture='pt-BR'}"/>
+
+                <DataGridTemplateColumn Header="Ações">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource MaterialDesignIconForegroundButton}" 
+                                        Content="{materialDesign:PackIcon Eye}"
+                                        ToolTip="Visualizar Registro" Margin="0 0 5 0"/>
+                                <Button Style="{StaticResource MaterialDesignIconForegroundButton}" 
+                                        Content="{materialDesign:PackIcon Delete}"
+                                        ToolTip="Excluir Registro"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!--<DataGridTextColumn Header="CEP" FontSize="17" Binding="{Binding Cep, ConverterCulture='pt-BR'}"/>
                 <DataGridTextColumn Header="Logradouro" FontSize="17" Binding="{Binding Logradouro, ConverterCulture='pt-BR'}"/>
                 <DataGridTextColumn Header="Número" FontSize="17" Binding="{Binding Numero, ConverterCulture='pt-BR'}"/>
                 <DataGridTextColumn Header="País" FontSize="17" Binding="{Binding Pais, ConverterCulture='pt-BR'}"/>
                 <DataGridTextColumn Header="UF" FontSize="17" Binding="{Binding Uf, ConverterCulture='pt-BR'}"/>
-                <DataGridTextColumn Header="Cidade" FontSize="17" Binding="{Binding Cidade, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Cidade" FontSize="17" Binding="{Binding Cidade, ConverterCulture='pt-BR'}"/>-->
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Grid.Column="3" Grid.Row="1">
+        <!--<StackPanel Grid.Column="3" Grid.Row="1">
             <RadioButton x:Name="rdbtConsultarFornecedores1" GroupName="rdbtConsultarFornecedores" Margin="206 73 0 0"/>
             <RadioButton x:Name="rdbtConsultarFornecedores2"  GroupName="rdbtConsultarFornecedores" Margin="206 10 0 0"/>
             <RadioButton x:Name="rdbtConsultarFornecedores3"  GroupName="rdbtConsultarFornecedores" Margin="206 10 0 0"/>
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
 </Window>

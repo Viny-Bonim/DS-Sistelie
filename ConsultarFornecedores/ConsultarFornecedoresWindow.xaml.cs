@@ -71,47 +71,47 @@ namespace DS_Sistelie.ConsultarFornecedores
 
         private void btnEditarFornecedor_Click(object sender, RoutedEventArgs e)
         {
-            if (rdbtConsultarFornecedores1.IsChecked == false && rdbtConsultarFornecedores2.IsChecked == false
-                && rdbtConsultarFornecedores3.IsChecked == false)
-            {
-                MessageBox.Show("Selecione um Fornecedor para Editar!");
-            }
-            else
-            {
-                if (rdbtConsultarFornecedores1.IsChecked == true)
-                {
-                    CadastrarFornecedor cadastrarFornecedor = new CadastrarFornecedor();
-                    cadastrarFornecedor.Show();
-                    this.Close();
-                }
+            //if (rdbtConsultarFornecedores1.IsChecked == false && rdbtConsultarFornecedores2.IsChecked == false
+            //    && rdbtConsultarFornecedores3.IsChecked == false)
+            //{
+            //    MessageBox.Show("Selecione um Fornecedor para Editar!");
+            //}
+            //else
+            //{
+            //    if (rdbtConsultarFornecedores1.IsChecked == true)
+            //    {
+            //        CadastrarFornecedor cadastrarFornecedor = new CadastrarFornecedor();
+            //        cadastrarFornecedor.Show();
+            //        this.Close();
+            //    }
 
-                if (rdbtConsultarFornecedores2.IsChecked == true)
-                {
-                    CadastrarFornecedor cadastrarFornecedor = new CadastrarFornecedor();
-                    cadastrarFornecedor.Show();
-                    this.Close();
-                }
+            //    if (rdbtConsultarFornecedores2.IsChecked == true)
+            //    {
+            //        CadastrarFornecedor cadastrarFornecedor = new CadastrarFornecedor();
+            //        cadastrarFornecedor.Show();
+            //        this.Close();
+            //    }
 
-                if (rdbtConsultarFornecedores3.IsChecked == true)
-                {
-                    CadastrarFornecedor cadastrarFornecedor = new CadastrarFornecedor();
-                    cadastrarFornecedor.Show();
-                    this.Close();
-                }
-            }       
+            //    if (rdbtConsultarFornecedores3.IsChecked == true)
+            //    {
+            //        CadastrarFornecedor cadastrarFornecedor = new CadastrarFornecedor();
+            //        cadastrarFornecedor.Show();
+            //        this.Close();
+            //    }
+            //}       
         }
 
         private void btnExcluirFornecedor_Click(object sender, RoutedEventArgs e)
         {
-            if (rdbtConsultarFornecedores1.IsChecked == false && rdbtConsultarFornecedores2.IsChecked == false
-                && rdbtConsultarFornecedores3.IsChecked == false)
-            {
-                MessageBox.Show("Selecione um Fornecedor para Excluir!");
-            }
-            else
-            {
-                MessageBox.Show("Fornecedor Excluído com Sucesso!");
-            }
+            //if (rdbtConsultarFornecedores1.IsChecked == false && rdbtConsultarFornecedores2.IsChecked == false
+            //    && rdbtConsultarFornecedores3.IsChecked == false)
+            //{
+            //    MessageBox.Show("Selecione um Fornecedor para Excluir!");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Fornecedor Excluído com Sucesso!");
+            //}
         }
 
         private void DataGridConsultarFornecedor_SelectionChanged(object sender, SelectionChangedEventArgs e)

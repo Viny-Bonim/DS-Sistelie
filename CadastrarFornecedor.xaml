@@ -25,36 +25,36 @@
             <Label Content="Código*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 20 5 5"/>
             <Label Content="Tipo*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 20 5 5"/>
             <Label Content="Data do Cadastro*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 20 5 5"/>
-            <Label Content="RG/IE*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 20 5 5"/>
-            <Label Content="CPF" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 16 5 5"/>
-            <Label Content="CNJP" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 20 5 5"/>
-            <Label Content="Nome Fantasia*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 15 5 5"/>
-            <Label Content="Razão Social*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 20 5 5"/>
-            <Label Content="Telefone*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 20 5 5"/>
-            <Label Content="E-mail*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 22 5 5"/>
+            <Label Content="RG/IE*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 23 5 5"/>
+            <Label Content="CPF" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 18 5 5"/>
+            <Label Content="CNJP" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 18 5 5"/>
+            <Label Content="Nome Fantasia*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 23 5 5"/>
+            <Label Content="Razão Social*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 30 5 5"/>
+            <Label Content="Telefone*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 25 5 5"/>
+            <Label Content="E-mail*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 18 5 5"/>
         </StackPanel>
 
         <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2">
-            <TextBox x:Name="txtCodigo" Margin="110 22 180 5" Background="White" FontSize="20" IsEnabled="False">1</TextBox>
-            <ComboBox x:Name="cmbxTipo" Margin="80 22 120 5" FontSize="20"/>
-            <DatePicker x:Name="dtCadastro" Margin="200 22 5 5" Background="White" FontSize="20"/>
-            <TextBox x:Name="txtRGIE" Margin="110 22 5 5" Background="White" FontSize="20"/>
-            <wpfTool:MaskedTextBox x:Name="txtCpf" Mask="000\.000\.000-00" Margin="80 20 5 5" Background="White" FontSize="21"/>
+            <TextBox x:Name="txtCodigo" Margin="110 20 180 5" Background="White" FontSize="20" IsEnabled="False">1</TextBox>
+            <ComboBox x:Name="cmbxTipo" Margin="80 14 120 5" FontSize="20"/>
+            <DatePicker x:Name="dtCadastro" Margin="190 18 5 5" Background="White" FontSize="20"/>
+            <TextBox x:Name="txtRGIE" Margin="110 18 5 5" Background="White" FontSize="20"/>
+            <wpfTool:MaskedTextBox x:Name="txtCpf" Mask="000\.000\.000-00" Margin="80 15 5 5" Background="White" FontSize="21"/>
             <wpfTool:MaskedTextBox x:Name="txtCnpj" Mask="00\.000\.000/0000-00" Margin="90 20 5 5" Background="White" FontSize="21"/>
             <TextBox x:Name="txtNomeFantasia" Margin="180 25 5 5" Background="White" FontSize="20"/>
             <TextBox x:Name="txtRazaoSocial" Margin="160 25 5 5" Background="White" FontSize="20"/>
             <wpfTool:MaskedTextBox Mask="(00) 0 0000-0000" x:Name="txtTelefone" Margin="110 25 5 5" Background="White" FontSize="20"/>
-            <TextBox x:Name="txtEmail" Margin="110 25 5 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtEmail_PreviewLostKeyboardFocus"/>
+            <TextBox x:Name="txtEmail" Margin="110 20 5 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtEmail_PreviewLostKeyboardFocus"/>
             <TextBlock x:Name="txtEmail_error" Text="E-mail inválido" Foreground="Red" FontWeight="Bold" Margin="15 -5 0 0" FontSize="14" Visibility="Collapsed"/>
         </StackPanel>
 
         <StackPanel Grid.Column="2" Grid.Row="0">
             <Label Content="CEP*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="50 23 5 5"/>
-            <Label Content="Logradouro*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="50 20 5 5"/>
-            <Label Content="Número*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="50 20 5 5"/>
-            <Label Content="País*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="50 20 5 5"/>
-            <Label Content="UF*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="50 20 5 5"/>
-            <Label Content="Cidade*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="50 20 5 5"/>
+            <Label Content="Logradouro*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="50 22 5 5"/>
+            <Label Content="Número*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="50 31 5 5"/>
+            <Label Content="País*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="50 31 5 5"/>
+            <Label Content="UF*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="50 33 5 5"/>
+            <Label Content="Cidade*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="50 26 5 5"/>
             
             <GridSplitter HorizontalAlignment="Left" Height="6" Margin="-340,0,-228,0" VerticalAlignment="Top" Width="713" RenderTransformOrigin="0.5,0.5">
                 <GridSplitter.RenderTransform>
@@ -86,7 +86,7 @@
                     Background="#bf0000" FontWeight="Bold" Click="btnCancelar_Click" Foreground="White">
                 <StackPanel>
                     <Image Source="/imagensBotoes/Cancelar.png" Width="50" Margin="8 5 5 0"/>
-                    <TextBlock FontSize="20" Margin="10 0 5 0">Cancelar</TextBlock>
+                    <TextBlock FontSize="18" Margin="0 0 -2 0" Width="70"><Run Text="Cancelar"/></TextBlock>
                 </StackPanel>
             </Button>
         </StackPanel>
@@ -96,7 +96,7 @@
                     Background="#FF06AEAE" FontWeight="Bold" Click="btnSalvar_Click" Foreground="White">
                 <StackPanel>
                     <Image Source="/imagensBotoes/Salvar.png" Width="50" Margin="7 5 5 1"/>
-                    <TextBlock FontSize="20" Margin="10 0 5 25"><Run Text="Salvar"/></TextBlock>
+                    <TextBlock FontSize="18" Margin="10 0 5 25"><Run Text="Salvar"/></TextBlock>
                 </StackPanel>
             </Button>
         </StackPanel>
