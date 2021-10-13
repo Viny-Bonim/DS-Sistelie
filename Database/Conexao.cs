@@ -16,7 +16,7 @@ namespace DS_Sistelie.Database
 
         private static string user = "root";
 
-        private static string password = "vinybonim";
+        private static string password = "hiago";
 
         private static string dbname = "bd_sistelie";
 

@@ -7,23 +7,27 @@
         mc:Ignorable="d"
         Title="Consultar Funcionario" Height="650" Width="1000" ResizeMode="NoResize">
     <Grid Background="#B5B5B5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="89*"/>
+            <ColumnDefinition Width="408*"/>
+        </Grid.ColumnDefinitions>
 
-        <Button x:Name="EditarFuncio" FontFamily="Corbel" Margin="334,493,502,28"  Background="#bf0000" FontWeight="Bold" Foreground="White" Click="EditarFuncio_Click" RenderTransformOrigin="0.5,0.5"/>
-        <Button x:Name="Cancelar" Width="160" Height="100" HorizontalAlignment="Center" Margin="518,493,316,28" Background="#FFBB0707" Click="Cancelar_Click"/>
-        <Image Source="/imagensBotoes/Cancelar.png" Margin="566,501,358,68" Width="70" RenderTransformOrigin="0.5,0.5"/>
-        <Image Source="/imagensBotoes/Editar.png" Margin="372,501,537,68"/>
-        <Label Content="Cancelar" HorizontalAlignment="Left" Margin="562,555,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Label Content="Editar" HorizontalAlignment="Left" Margin="384,555,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="EditarFuncio" FontFamily="Corbel" Margin="156,493,502,28"  Background="#bf0000" FontWeight="Bold" Foreground="White" Click="EditarFuncio_Click" RenderTransformOrigin="0.5,0.5" Height="Auto" Grid.Column="1"/>
+        <Button x:Name="Cancelar" Width="160" Height="100" HorizontalAlignment="Center" Margin="340,493,316,28" Background="#FFBB0707" Click="Cancelar_Click" Grid.Column="1"/>
+        <Image Source="/imagensBotoes/Cancelar.png" Margin="388,501,358,68" Width="70" RenderTransformOrigin="0.5,0.5" Grid.Column="1"/>
+        <Image Source="/imagensBotoes/Editar.png" Margin="194,501,537,68" Grid.Column="1"/>
+        <Label Content="Cancelar" HorizontalAlignment="Left" Margin="384,555,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="Editar" HorizontalAlignment="Left" Margin="206,555,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
         <Label Content="ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,80,0,0" FontSize="16" FontWeight="Bold" Height="40" Width="30"/>
-        <Label Content="Nome" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="194,80,0,0" FontSize="16" FontWeight="Bold" Height="40" Width="62"/>
-        <Label Content="CPF" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="475,80,0,0" FontSize="16" FontWeight="Bold" Height="40" Width="43"/>
-        <Label Content="RG" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="736,80,0,0" FontSize="16" FontWeight="Bold" Height="40" Width="36"/>
-        <TextBox Margin="61,80,816,505" IsEnabled="False" Text="1" FontSize="20" FontWeight="Bold"/>
-        <TextBox Margin="262,84,543,505" />
-        <TextBox Margin="518,84,286,505" />
-        <TextBox Margin="772,84,32,505" />
-        <Label Content="Consultar Funcionário" HorizontalAlignment="Left" Margin="318,10,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
-        <DataGrid x:Name="DgFun" AutoGenerateColumns="False" AlternatingRowBackground="#d3e0f5" AlternationCount="2" HorizontalAlignment="Left" Height="316" Margin="31,150,0,0" VerticalAlignment="Top" Width="931">
+        <Label Content="Nome" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,80,0,0" FontSize="16" FontWeight="Bold" Height="40" Width="62" Grid.Column="1"/>
+        <Label Content="CPF" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="297,80,0,0" FontSize="16" FontWeight="Bold" Height="40" Width="43" Grid.Column="1"/>
+        <Label Content="RG" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="558,80,0,0" FontSize="16" FontWeight="Bold" Height="40" Width="36" Grid.Column="1"/>
+        <TextBox Margin="61,80,0,505" IsEnabled="False" Text="1" FontSize="20" FontWeight="Bold"/>
+        <TextBox Margin="84,84,543,505" Grid.Column="1" />
+        <TextBox Margin="340,84,286,505" Grid.Column="1" />
+        <TextBox Margin="594,84,32,505" Grid.Column="1" />
+        <Label Content="Consultar Funcionário" HorizontalAlignment="Left" Margin="140,10,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Grid.Column="1"/>
+        <DataGrid x:Name="DgFun" AutoGenerateColumns="False" AlternatingRowBackground="#d3e0f5" AlternationCount="2" HorizontalAlignment="Left" Height="316" Margin="31,150,0,0" VerticalAlignment="Top" Width="931" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding IdFuncionario}"/>
                 <DataGridTextColumn Header="NOME" Binding="{Binding NomeFuncionario}"/>
