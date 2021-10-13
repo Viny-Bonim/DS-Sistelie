@@ -28,7 +28,7 @@ namespace DS_Sistelie.Models
             try
             {
                 var query = conn.Query();
-                query.CommandText = "SELECT * FROM Fornecedor WHERE cod_forn = @id";
+                query.CommandText = "SELECT* FROM Fornecedor WHERE cod_forn = @id";
 
                 query.Parameters.AddWithValue("@id", id);
 
@@ -52,9 +52,9 @@ namespace DS_Sistelie.Models
 
                 return fornecedor;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
             }
             finally
             {
@@ -143,8 +143,8 @@ namespace DS_Sistelie.Models
             try
             {
                 var query = conn.Query();
-                query.CommandText = "UPDATE Fornecedor SET email_forn = @email, tipo_forn = @tipo, data_cadastro_forn = @datacad, rg_ie_forn = @rgie, cpf_forn = @cpf, cnpj_forn = @cnpj, nome_fantasia_forn = @nomefantasia, razao_social_forn = @razaosocial, telefone_forn = @telefone, cod_endereco_fk = @FkEndereco) " +
-                    "WHERE cod_forn = @CodigoFornecedor";
+                query.CommandText = "UPDATE Fornecedor SET email_forn = @email, tipo_forn = @tipo, data_cadastro_forn = @datacad, rg_ie_forn = @rgie, cpf_forn = @cpf, cnpj_forn = @cnpj, nome_fantasia_forn = @nomefantasia, razao_social_forn = @razaosocial, telefone_forn = @telefone, cod_endereco_fk = @FkEndereco " +
+                   "WHERE cod_forn = @id";
 
                 query.Parameters.AddWithValue("@email", t.Email);
                 query.Parameters.AddWithValue("@tipo", t.TipoFornecedor);
@@ -156,13 +156,13 @@ namespace DS_Sistelie.Models
                 query.Parameters.AddWithValue("@razaosocial", t.RazaoSocial);
                 query.Parameters.AddWithValue("@telefone", t.Telefone);
                 query.Parameters.AddWithValue("@FkEndereco", t.FkEndereco);
-                query.Parameters.AddWithValue("@CodigoFornecedor", t.CodigoFornecedor);
+                query.Parameters.AddWithValue("@id", t.CodigoFornecedor);
 
                 var result = query.ExecuteNonQuery();
 
-                if (result == 0)             
-                    throw new Exception("A atualização falhou!");
-                
+                if (result == 0)
+                    throw new Exception("Atualização do registro não foi realizada.");
+
             }
             catch (Exception e)
             {
