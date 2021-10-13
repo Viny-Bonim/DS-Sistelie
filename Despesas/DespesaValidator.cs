@@ -15,7 +15,7 @@ namespace DS_Sistelie.Despesas
             RuleFor(x => x.dataDespesa).NotEmpty().WithMessage("O campo DATA DA DESPESA é de preenchimento obrigatório!\n");
             RuleFor(x => x.Fkcaixa).NotEmpty().WithMessage("O campo CÓDIGO DO CAIXA é de preenchimento obrigatório!\n");
             RuleFor(x => x.Fkfuncionario).NotEmpty().WithMessage("O campo CÓDIGO DO FUNCIONÁRIO é de preenchimento obrigatório!\n");
-            RuleFor(x => x.DescricaoDespesa).NotEmpty().WithMessage("O campo DESCR~IÇÃO DA DESPESA é de preenchimento obrigatório!\n");
+            RuleFor(x => x.DescricaoDespesa).NotEmpty().WithMessage("O campo DESCRIÇÃO DA DESPESA é de preenchimento obrigatório!\n");
             RuleFor(x => x.GrupoDespesa).NotEmpty().WithMessage("O campo GRUPO DA DESPESA é de preenchimento obrigatório!\n");
         }
     }

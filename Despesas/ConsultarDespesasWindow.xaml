@@ -7,6 +7,13 @@
         xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         d:DataContext="{d:DesignInstance local:ConsultarDespesasWindow}"
         Title="Consultar Despesas" Height="700" Width="1000" Background="#b5b5b5" 
         MinWidth="1000" MinHeight="630" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
@@ -40,13 +47,7 @@
             <ComboBox x:Name="cmbxOrdenarConsultaDespesa" Margin="195 4 130 0" FontSize="20"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Grid.Row="0">
-            <TextBox x:Name="txtTotalDespesas" Padding="0 0 0 3" FontFamily="Corbel" Margin="240 4 120 5" Background="White" FontSize="20" IsEnabled="False">3</TextBox>
-            <RadioButton x:Name="rdbtConsultarDespesas1" Margin="441 44 0 0"/>
-            <RadioButton x:Name="rdbtConsultarDespesas2" Margin="441 10 0 0"/>
-            <RadioButton x:Name="rdbtConsultarDespesas3" Margin="441 10 0 0"/>
-        </StackPanel>
-
+        
         <DataGrid x:Name="DataGridConsultarDespesas" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Margin="10 48 50 10" 
                   IsReadOnly="True" AutoGenerateColumns="False" AlternatingRowBackground="#d3e0f5" AlternationCount="2" 
                   FontFamily="Corbel" FontSize="17">
@@ -57,8 +58,25 @@
                 <DataGridTextColumn Header="Valor da Despesa" FontSize="17" Binding="{Binding ValorDespesa, ConverterCulture='pt-BR', StringFormat=C}"/>
                 <DataGridTextColumn Header="Data da Despesa" FontSize="17" Binding="{Binding dataDespesa, ConverterCulture='pt-BR'}"/>
                 <DataGridTextColumn Header="Grupo de Despesa" FontSize="17" Binding="{Binding GrupoDespesa, ConverterCulture='pt-BR'}"/>
+
+                <DataGridTemplateColumn Header="Ações">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource MaterialDesignIconForegroundButton}" 
+                                        Content="{materialDesign:PackIcon Eye}"
+                                        ToolTip="Visualizar Registro" Margin="0 0 5 0" Click="Button_UpdateDesp_Click"/>
+                                <Button Style="{StaticResource MaterialDesignIconForegroundButton}" 
+                                        Content="{materialDesign:PackIcon Delete}"
+                                        ToolTip="Excluir Registro" Click="Button_DeleteDesp_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
             </DataGrid.Columns>
         </DataGrid>
+        
         <GridSplitter HorizontalAlignment="Left" Height="1003" Margin="488,-150,0,-182" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
             <GridSplitter.RenderTransform>
                 <TransformGroup>
@@ -84,27 +102,11 @@
         </DataGrid>
 
         <StackPanel Grid.Column="1" Grid.Row="1">
-            <Button x:Name="btnEditarDespesa" Width="80" FontFamily="Corbel" Height="65" Margin="380 40 0 0"  
-                    Background="#bf0000" FontWeight="Bold" Foreground="White" Click="btnEditarDespesa_Click">
-                <StackPanel>
-                    <Image Source="/imagensBotoes/Editar.png" Width="35" Margin="2 3 0 0"/>
-                    <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold">Editar</TextBlock>
-                </StackPanel>
-            </Button>
-
-            <Button x:Name="btnExcluirDespesa" Width="80" FontFamily="Corbel" Height="65" Margin="380 30 0 0"  
-                    Background="#bf0000" FontWeight="Bold" Foreground="White" Click="btnExcluirDespesa_Click">
-                <StackPanel>
-                    <Image Source="/imagensBotoes/Excluir.png" Width="30" Margin="2 3 0 0"/>
-                    <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold">Excluir</TextBlock>
-                </StackPanel>
-            </Button>
-
-            <Button x:Name="btnInicioConsultarDespesa" FontFamily="Corbel" Width="80" Height="65" Margin="380 30 0 20"  
+            <Button x:Name="btnInicioConsultarDespesa" FontFamily="Corbel" Width="100" Height="85" Margin="350 213 0 20"  
                     Background="#FF06AEAE" FontWeight="Bold" Foreground="White" Click="btnInicioConsultarDespesa_Click">
                 <StackPanel>
-                    <Image Source="/imagensBotoes/Inicio.png" Width="39" Margin="2 3 0 0"/>
-                    <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold">Início</TextBlock>
+                    <Image Source="/imagensBotoes/Inicio.png" Width="60" Margin="2 -10 0 0"/>
+                    <TextBlock Margin="10 -7 1 -10" FontSize="20" FontWeight="Bold">Início</TextBlock>
                 </StackPanel>
             </Button>
         </StackPanel>

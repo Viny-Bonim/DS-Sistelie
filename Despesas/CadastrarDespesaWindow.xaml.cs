@@ -22,7 +22,7 @@ namespace DS_Sistelie.Despesas
         private int _id;
         private Despesas _despesa;
 
-        Despesas despesas = new Despesas();
+        //Despesas despesas = new Despesas();
 
         private List<string> grupoDespesa;
 
@@ -49,6 +49,12 @@ namespace DS_Sistelie.Despesas
             grupoDespesa.Add("Despesa Variável");
 
             cmbxGrupoDespesa.ItemsSource = grupoDespesa;
+
+            _despesa = new Despesas();
+            if (_id > 0)
+            {
+                FillForm();
+            }
         }
 
         private void btnCancelarDespesa_Click(object sender, RoutedEventArgs e)
@@ -64,47 +70,116 @@ namespace DS_Sistelie.Despesas
 
         private void btnSalvarDespesa_Click(object sender, RoutedEventArgs e)
         {
-            _despesa.ValorDespesa = double.Parse(txtValorDespesa.Text);
             _despesa.DescricaoDespesa = txtDescricaoDespesa.Text;
             _despesa.GrupoDespesa = cmbxGrupoDespesa.Text;
             _despesa.Fkcaixa = 1;
             _despesa.Fkfuncionario = 1;
 
+            if (double.TryParse(txtValorDespesa.Text, out double valorDesp))
+                _despesa.ValorDespesa = valorDesp;
+
             if (dtpkDataDespesa.SelectedDate != null)
                 _despesa.dataDespesa = (DateTime)dtpkDataDespesa.SelectedDate;
 
+            SaveData();     
+        }
 
-            /*
-            if (txtValorDespesa.Text == "" || dtpkDataDespesa.Text == ""
-                || dtpkDataDespesa.Text == "" || cmbxGrupoDespesa.Text == ""
-                || txtCodigoFornecedorDespesa.Text == "" || txtDescricaoDespesa.Text == "")
-            {
-                MessageBox.Show("Preencha todos os campos com *");
-            }
-            else
-            {
-                despesas.ValorDespesa = double.Parse(txtValorDespesa.Text);
-                despesas.dataDespesa = dtpkDataDespesa.Text;
-                despesas.CodigoFornecedorCadDespesa = int.Parse(txtCodigoFornecedorDespesa.Text);
-                despesas.DescricaoDespesa = txtDescricaoDespesa.Text;
-                despesas.IdDespesa = int.Parse(txtIdDespesa.Text);
-                despesas.GrupoDespesa = cmbxGrupoDespesa.Text;
+        private bool Validate()
+        {
+            var validator = new DespesaValidator();
+            var result = validator.Validate(_despesa);
 
-                MessageBox.Show("Despesa cadastrada com sucesso!\n" +
-                    $"Valor da Despesa: {despesas.ValorDespesa}\n" +
-                    $"Data de Cadastro: {despesas.dataDespesa}\n" +
-                    $"Código do Forncedor: {despesas.CodigoFornecedorCadDespesa}\n" +
-                    $"Descrição da Despesa: {despesas.DescricaoDespesa}\n" +
-                    $"ID da Despesa: {despesas.IdDespesa}\n" +
-                    $"Grupo da Despesa: {despesas.GrupoDespesa}");
-                
-                LimparTextBox();
+            if (!result.IsValid)
+            {
+                string errors = null;
+                var count = 1;
+
+                foreach (var failure in result.Errors)
+                {
+                    errors += $"{count++} - {failure.ErrorMessage}\n";
+                }
+
+                MessageBox.Show(errors, "Validação de Dados", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            */
+
+            return result.IsValid;
+        }
+
+        private void SaveData()
+        {
+            try
+            {
+                if (Validate())
+                {
+                    var dao = new DespesasDAO();
+                    var text = "atualizada";
+
+                    if (_despesa.IdDespesa == 0)
+                    {
+                        dao.Insert(_despesa);
+                        text = "cadastrada";
+                    }
+                    else
+                        dao.Update(_despesa);
+
+                    MessageBox.Show($"A Despesa foi {text} com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    CloseFormVerify();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
 
-        
+        private void FillForm()
+        {
+            try
+            {
+                var dao = new DespesasDAO();
+                _despesa = dao.GetById(_id);
+
+                txtIdDespesa.Text = _despesa.IdDespesa.ToString();
+                txtValorDespesa.Text = _despesa.ValorDespesa.ToString();
+                dtpkDataDespesa.SelectedDate = _despesa.dataDespesa;
+                txtCodigoCaixaDespesa.Text = _despesa.Fkcaixa.ToString();
+                txtCodigoFuncionarioDespesa.Text = _despesa.Fkfuncionario.ToString();
+                txtDescricaoDespesa.Text = _despesa.DescricaoDespesa;
+                cmbxGrupoDespesa.Text = _despesa.GrupoDespesa;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void CloseFormVerify()
+        {
+            if (_despesa.IdDespesa == 0)
+            {
+                var result = MessageBox.Show("Deseja cadastrar outra Despesa?", "Cadastrar Novamente?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    LimparTextBox();
+                }
+                else
+                {
+                    ConsultarDespesasWindow consulDesp = new ConsultarDespesasWindow();
+                    consulDesp.Show();
+                    this.Close();
+                }
+            }
+            else
+            {
+                ConsultarDespesasWindow consulDesp = new ConsultarDespesasWindow();
+                consulDesp.Show();
+                this.Close();
+            }
+        }
+
+
         public static bool LetrasEVirgulas(string s)
         {
             foreach (char c in s)
@@ -143,16 +218,37 @@ namespace DS_Sistelie.Despesas
             }
         }
 
-        private void txtCodigoFornecedorDespesa_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        private void txtCodigoCaixaDespesa_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            
-            string codigo_fornecedor = txtCodigoFornecedorDespesa.Text.Trim();
+            //Comentado porque txtCaixaDespesa está com valor automático, não é necessário inserir nada
+
+            /*
+            string codigo_fornecedor = txtCodigoCaixaDespesa.Text.Trim();
 
             if (SemLetras(codigo_fornecedor) == false)
             {
                 e.Handled = true;
                 MessageBox.Show("Preencha apenas com números!");
-                txtCodigoFornecedorDespesa.Focus();
+                txtCodigoCaixaDespesa.Focus();
+                verifica_txtbox = false;
+            }
+            else
+            {
+                verifica_txtbox = true;
+            }
+            */
+        }
+
+        private void txtCodigoFuncionarioDespesa_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+
+            string codigo_fornecedor = txtCodigoFuncionarioDespesa.Text.Trim();
+
+            if (SemLetras(codigo_fornecedor) == false)
+            {
+                e.Handled = true;
+                MessageBox.Show("Preencha apenas com números!");
+                txtCodigoFuncionarioDespesa.Focus();
                 verifica_txtbox = false;
             }
             else
@@ -167,7 +263,8 @@ namespace DS_Sistelie.Despesas
             dtpkDataDespesa.Text = "";
             dtpkDataDespesa.Text = "";
             cmbxGrupoDespesa.Text = "";
-            txtCodigoFornecedorDespesa.Text = "";
+            txtCodigoCaixaDespesa.Text = "";
+            txtCodigoFuncionarioDespesa.Text = "";
             txtDescricaoDespesa.Text = "";
         }
     }

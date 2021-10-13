@@ -34,8 +34,8 @@
         <StackPanel>
             <TextBox x:Name="txtValorDespesa" Margin="245 22 40 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtValorDespesa_PreviewLostKeyboardFocus"/>
             <DatePicker x:Name="dtpkDataDespesa" Margin="245 25 40 5" Background="White" FontSize="20"/>
-            <TextBox x:Name="txtCodigoCaixaDespesa" Margin="245 25 40 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtCodigoCaixaDespesa_PreviewLostKeyboardFocus"/>
-            <TextBox x:Name="txtCodigoFuncionarioDespesa" Margin="245 23 40 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtCodigoFuncionarioDespesa_PreviewLostKeyboardFocus"/>
+            <TextBox x:Name="txtCodigoCaixaDespesa" Text="1" IsEnabled="False" Margin="245 25 40 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtCodigoCaixaDespesa_PreviewLostKeyboardFocus"/>
+            <TextBox x:Name="txtCodigoFuncionarioDespesa" Text="1" IsEnabled="False" Margin="245 23 40 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtCodigoFuncionarioDespesa_PreviewLostKeyboardFocus"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="0">

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using LiveCharts;
 using LiveCharts.Wpf;
+using DS_Sistelie.Models;
 
 namespace DS_Sistelie.Despesas
 {
@@ -41,34 +42,20 @@ namespace DS_Sistelie.Despesas
 
         private void ConsultarDespesasWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            /*ComboBox de ordenar conulta de despesas*/
-            ordenarDespesa = new List<string>();
+            //Inserindo os dados na tabela através do banco de dados
+            LoadListDesp();
 
+            
+            //ComboBox de ordenar conulta de despesas
+            ordenarDespesa = new List<string>();
             ordenarDespesa.Add("ID");
             ordenarDespesa.Add("Código do Fornecedor");
             ordenarDespesa.Add("Valor da Despesa");
             ordenarDespesa.Add("Data da Despesa");
-
             cmbxOrdenarConsultaDespesa.ItemsSource = ordenarDespesa;
+            
 
-
-            /*DataGrid de depesas*/
-            for (int i = 0; i < 3; i++)
-            {
-                ListaDespesas.Add(new Despesas()
-                {
-                    IdDespesa = i + 1,
-                    //CodigoFornecedorCadDespesa = i + 2,
-                    DescricaoDespesa = "Compra de Papel Colorset para convite preto e amarelo",
-                    ValorDespesa = 15.25 + i,
-                    //dataDespesa = "01/05/2021",
-                    GrupoDespesa = "Despesa Variável"
-                });
-            }
-            DataGridConsultarDespesas.ItemsSource = ListaDespesas;
-
-
-            /*DataGrid de entrada e saída de despesa*/
+            //DataGrid de entrada e saída de despesa
             for (int i = 0; i < 3; i++)
             {
                 ListaEntradaSaidaDespesas.Add(new EntradaSaidaDespesa()
@@ -82,53 +69,21 @@ namespace DS_Sistelie.Despesas
                 });
             }
             DataGridEntradaSaidaDespesas.ItemsSource = ListaEntradaSaidaDespesas;
-
         }
 
-        private void btnEditarDespesa_Click(object sender, RoutedEventArgs e)
+        private void LoadListDesp()
         {
-            if (rdbtConsultarDespesas1.IsChecked == false && rdbtConsultarDespesas2.IsChecked == false
-                && rdbtConsultarDespesas3.IsChecked == false)
+            try
             {
-                MessageBox.Show("Selecione uma Despesa para Editar!");
+                var dao = new DespesasDAO();
+                DataGridConsultarDespesas.ItemsSource = dao.List();
             }
-            else
+            catch (Exception ex)
             {
-                if (rdbtConsultarDespesas1.IsChecked == true)
-                {
-                    CadastrarDespesaWindow cadastrarDespesa = new CadastrarDespesaWindow();
-                    cadastrarDespesa.Show();
-                    this.Close();
-                }
-
-                if (rdbtConsultarDespesas2.IsChecked == true)
-                {
-                    CadastrarDespesaWindow cadastrarDespesa = new CadastrarDespesaWindow();
-                    cadastrarDespesa.Show();
-                    this.Close();
-                }
-
-                if (rdbtConsultarDespesas3.IsChecked == true)
-                {
-                    CadastrarDespesaWindow cadastrarDespesa = new CadastrarDespesaWindow();
-                    cadastrarDespesa.Show();
-                    this.Close();
-                }
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
-        private void btnExcluirDespesa_Click(object sender, RoutedEventArgs e)
-        {
-            if (rdbtConsultarDespesas1.IsChecked == false && rdbtConsultarDespesas2.IsChecked == false
-                && rdbtConsultarDespesas3.IsChecked == false)
-            {
-                MessageBox.Show("Selecione uma Despesa para Excluir!");
-            }
-            else
-            {
-                MessageBox.Show("Despesa Excluída com Sucesso!");
-            }
-        }
 
         private void btnInicioConsultarDespesa_Click(object sender, RoutedEventArgs e)
         {
@@ -147,6 +102,39 @@ namespace DS_Sistelie.Despesas
 
             var selectedSeries = (PieSeries)chartpoint.SeriesView;
             selectedSeries.PushOut = 8;
+        }
+
+        private void Button_UpdateDesp_Click(object sender, RoutedEventArgs e)
+        {
+            var despesaSelecionada = DataGridConsultarDespesas.SelectedItem as Despesas;
+
+            var windowdesp = new CadastrarDespesaWindow(despesaSelecionada.IdDespesa);
+            windowdesp.ShowDialog();
+            LoadListDesp();
+            this.Close();
+        }
+
+        private void Button_DeleteDesp_Click(object sender, RoutedEventArgs e)
+        {
+            var despesaSelecionada = DataGridConsultarDespesas.SelectedItem as Despesas;
+
+            var result = MessageBox.Show($"Deseja realmente excluir a Despesa: {despesaSelecionada.DescricaoDespesa}, datada de: {despesaSelecionada.dataDespesa} e " +
+                $"com o valor de R${despesaSelecionada.ValorDespesa}", "Excluir Despesa?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new DespesasDAO();
+                    dao.Delete(despesaSelecionada);
+                    LoadListDesp();
+                    MessageBox.Show("Despesa Excluída com sucesso");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
