@@ -10,14 +10,16 @@ namespace DS_Sistelie.Despesas
     {
         public int IdDespesa { get; set; }
 
-        public int CodigoFornecedorCadDespesa { get; set; }
+        public double ValorDespesa { get; set; }
+
+        public DateTime dataDespesa { get; set; }
 
         public string DescricaoDespesa { get; set; }
 
-        public double ValorDespesa { get; set; }
-
-        public string dataDespesa { get; set; }
-
         public string GrupoDespesa { get; set; }
+
+        public int Fkcaixa { get; set; }
+
+        public int Fkfuncionario { get; set; }
     }
 }
