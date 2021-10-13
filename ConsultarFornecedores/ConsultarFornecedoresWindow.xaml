@@ -93,7 +93,7 @@
             </GridSplitter>
         </StackPanel>
 
-        <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
+        <!--<StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
             <Button x:Name="btnEditarFornecedor" Width="80" FontFamily="Corbel" Height="65" Margin="40 -130 20 0"  
                     Background="#bf0000" FontWeight="Bold" Foreground="White" Click="btnEditarFornecedor_Click">
                 <StackPanel>
@@ -109,22 +109,22 @@
                     <TextBlock Margin="0 -1 1 0" FontSize="16" FontWeight="Bold">Excluir</TextBlock>
                 </StackPanel>
             </Button>
-        </StackPanel>
+        </StackPanel>-->
 
-        <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Bottom">
-            <Button x:Name="btnInicioFornecedor" FontFamily="Corbel" Width="80" Height="65" Margin="0 0 0 20"  
+        <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Center">
+            <Button x:Name="btnInicioFornecedor" FontFamily="Corbel" Width="110" Height="100" Margin="20 0 0 -20"  
                     Background="#FF06AEAE" FontWeight="Bold" Foreground="White" Click="btnInicioFornecedor_Click">
                 <StackPanel>
-                    <Image Source="/imagensBotoes/Inicio.png" Width="39" Margin="2 3 0 0"/>
-                    <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold">Início</TextBlock>
+                    <Image Source="/imagensBotoes/Inicio.png" Width="80" Margin="2 -5 0 0" Height="73"/>
+                    <TextBlock Margin="18 0 1 0" FontSize="22" FontWeight="Bold">Início</TextBlock>
                 </StackPanel>
             </Button>
         </StackPanel>
 
         <DataGrid x:Name="DataGridConsultarFornecedor" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="10 58 30 7" 
                   IsReadOnly="True" AutoGenerateColumns="False" AlternatingRowBackground="#d3e0f5" AlternationCount="2" 
-                  FontFamily="Corbel" SelectionChanged="DataGridConsultarFornecedor_SelectionChanged">
-          
+                  FontFamily="Corbel">
+
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" FontSize="17" Binding="{Binding CodigoFornecedor, ConverterCulture='pt-BR'}"/>
                 <DataGridTextColumn Header="Categoria" FontSize="17" Binding="{Binding TipoFornecedor, ConverterCulture='pt-BR'}"/>
