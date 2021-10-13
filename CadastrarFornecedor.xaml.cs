@@ -71,7 +71,6 @@ namespace DS_Sistelie
         { 
             _fornecedor.Email = txtEmail.Text;
             _fornecedor.TipoFornecedor = cmbxTipo.Text;
-            _fornecedor.DataCadastroFornecedor = (DateTime)dtCadastro.SelectedDate;
             _fornecedor.RgIe = txtRGIE.Text;
             _fornecedor.Cpf = txtCpf.Text;
             _fornecedor.Cnpj = txtCnpj.Text;
@@ -80,33 +79,60 @@ namespace DS_Sistelie
             _fornecedor.Telefone = txtTelefone.Text;
             _fornecedor.FkEndereco = 1;
 
+            if (dtCadastro.SelectedDate != null)
+                _fornecedor.DataCadastroFornecedor = (DateTime)dtCadastro.SelectedDate;
+
             SaveData();
+        }
+
+        private bool Validate()
+        {
+            var validator = new FornecedorValidator();
+            var result = validator.Validate(_fornecedor);
+
+            if (!result.IsValid)
+            {
+                string errors = null;
+                var count = 1;
+
+                foreach (var failure in result.Errors)
+                {
+                    errors += $"{count++} - {failure.ErrorMessage}\n";
+                }
+
+                MessageBox.Show(errors, "Validação de Dados", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
+            return result.IsValid;
         }
 
         private void SaveData()
         {
             try
             {
-                var dao = new FornecedorDAO();
-                var text = "atualizado";
-                
-                if (_fornecedor.CodigoFornecedor == 0)
+                if (Validate())
                 {
-                    dao.Insert(_fornecedor);
-                    text = "cadastrado";
+                    var dao = new FornecedorDAO();
+                    var text = "atualizado";
+
+                    if (_fornecedor.CodigoFornecedor == 0)
+                    {
+                        dao.Insert(_fornecedor);
+                        text = "cadastrado";
+                    }
+                    else
+                        dao.Update(_fornecedor);
+
+                    MessageBox.Show($"O Fornecedor foi {text} com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    CloseFormVerify();
                 }
-                else
-                {
-                    dao.Update(_fornecedor);
-                }
-                MessageBox.Show($"Fornecedor {text} com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
-                CloseFormVerify();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Erro ao executar", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
         private void FillForm()
         {

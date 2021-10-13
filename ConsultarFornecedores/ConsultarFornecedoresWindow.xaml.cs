@@ -78,7 +78,7 @@ namespace DS_Sistelie.ConsultarFornecedores
                     var dao = new FornecedorDAO();
                     dao.Delete(fornecedorSelecionado);
                     LoadListForne();
-                    MessageBox.Show("Fornecedor Excluído com sucesso");
+                    MessageBox.Show("Fornecedor Excluído com sucesso"); 
                 }
             }
             catch (Exception ex)
