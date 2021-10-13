@@ -58,10 +58,10 @@ namespace DS_Sistelie.Despesas
                 ListaDespesas.Add(new Despesas()
                 {
                     IdDespesa = i + 1,
-                    CodigoFornecedorCadDespesa = i + 2,
+                    //CodigoFornecedorCadDespesa = i + 2,
                     DescricaoDespesa = "Compra de Papel Colorset para convite preto e amarelo",
                     ValorDespesa = 15.25 + i,
-                    dataDespesa = "01/05/2021",
+                    //dataDespesa = "01/05/2021",
                     GrupoDespesa = "Despesa Variável"
                 });
             }
