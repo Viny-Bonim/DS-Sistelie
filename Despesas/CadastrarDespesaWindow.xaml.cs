@@ -19,6 +19,9 @@ namespace DS_Sistelie.Despesas
     /// </summary>
     public partial class CadastrarDespesaWindow : Window
     {
+        private int _id;
+        private Despesas _despesa;
+
         Despesas despesas = new Despesas();
 
         private List<string> grupoDespesa;
@@ -27,6 +30,13 @@ namespace DS_Sistelie.Despesas
 
         public CadastrarDespesaWindow()
         {
+            InitializeComponent();
+            Loaded += CadastrarDespesaWindow_Loaded;
+        }
+
+        public CadastrarDespesaWindow(int id)
+        {
+            _id = id;
             InitializeComponent();
             Loaded += CadastrarDespesaWindow_Loaded;
         }
@@ -54,7 +64,17 @@ namespace DS_Sistelie.Despesas
 
         private void btnSalvarDespesa_Click(object sender, RoutedEventArgs e)
         {
+            _despesa.ValorDespesa = double.Parse(txtValorDespesa.Text);
+            _despesa.DescricaoDespesa = txtDescricaoDespesa.Text;
+            _despesa.GrupoDespesa = cmbxGrupoDespesa.Text;
+            _despesa.Fkcaixa = 1;
+            _despesa.Fkfuncionario = 1;
 
+            if (dtpkDataDespesa.SelectedDate != null)
+                _despesa.dataDespesa = (DateTime)dtpkDataDespesa.SelectedDate;
+
+
+            /*
             if (txtValorDespesa.Text == "" || dtpkDataDespesa.Text == ""
                 || dtpkDataDespesa.Text == "" || cmbxGrupoDespesa.Text == ""
                 || txtCodigoFornecedorDespesa.Text == "" || txtDescricaoDespesa.Text == "")
@@ -80,6 +100,7 @@ namespace DS_Sistelie.Despesas
                 
                 LimparTextBox();
             }
+            */
         }
 
 
