@@ -25,7 +25,46 @@ namespace DS_Sistelie.Models
 
         public Fornecedor GetById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "SELECT * FROM Fornecedor WHERE cod_forn = @id";
+
+                query.Parameters.AddWithValue("@id", id);
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                if (!reader.HasRows)
+                {
+                    throw new Exception("O registro não foi encontrado!");
+                }
+
+                var fornecedor = new Fornecedor();
+
+                while (reader.Read())
+                {
+                    fornecedor.CodigoFornecedor = reader.GetInt32("cod_forn");
+                    fornecedor.Email = reader.GetString("email_forn");
+                    fornecedor.TipoFornecedor = reader.GetString("tipo_forn");
+                    fornecedor.DataCadastroFornecedor = reader.GetDateTime("data_cadastro_forn");
+                    fornecedor.RgIe = reader.GetString("rg_ie_forn");
+                    fornecedor.Cpf = reader.GetString("cpf_forn");
+                    fornecedor.Cnpj = reader.GetString("cnpj_forn");
+                    fornecedor.NomeFantasia = reader.GetString("nome_fantasia_forn");
+                    fornecedor.RazaoSocial = reader.GetString("razao_social_forn");
+                    fornecedor.Telefone = reader.GetString("telefone_forn");
+                }
+
+                return fornecedor;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Query();
+            }
         }
 
         public void Insert(Fornecedor t)

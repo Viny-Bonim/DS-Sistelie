@@ -54,5 +54,22 @@ namespace DS_Sistelie.ConsultarFornecedores
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void Button_Update_Click(object sender, RoutedEventArgs e)
+        {
+            var fornecedorSelecionado = DataGridConsultarFornecedor.SelectedItem as Fornecedor;
+
+            try
+            {
+                var dao = new FornecedorDAO();
+                var forne = dao.GetById(fornecedorSelecionado.CodigoFornecedor);
+                MessageBox.Show(forne.RazaoSocial + forne.Telefone);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
+        }
     }
 }
