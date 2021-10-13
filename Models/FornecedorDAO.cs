@@ -79,6 +79,7 @@ namespace DS_Sistelie.Models
                 {
                     listForn.Add(new Fornecedor()
                     {
+                        CodigoFornecedor = reader.GetInt32("cod_forn"),
                         Email = reader.GetString("email_forn"),
                         TipoFornecedor = reader.GetString("tipo_forn"),
                         DataCadastroFornecedor = reader.GetDateTime("data_cadastro_forn"),

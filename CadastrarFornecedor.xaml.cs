@@ -53,8 +53,9 @@ namespace DS_Sistelie
         }
 
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
-        {
+        { 
             InsertTeste();
+           
 
             /*
             string recebeData;
@@ -149,6 +150,7 @@ namespace DS_Sistelie
                 e.Handled = true;
                 txtEmail_error.Visibility = Visibility.Visible;
                 txtEmail.Focus();
+                validacao = true;
             }
             else
                 txtEmail_error.Visibility = Visibility.Collapsed;

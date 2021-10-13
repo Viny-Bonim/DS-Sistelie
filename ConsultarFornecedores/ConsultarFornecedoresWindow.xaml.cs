@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DS_Sistelie.Models;
 
 namespace DS_Sistelie.ConsultarFornecedores
 {
@@ -30,8 +31,9 @@ namespace DS_Sistelie.ConsultarFornecedores
 
         private void ConsultarFornecedoresWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            LoadListForne();
 
-
+            /*
             for (int i = 0; i < 3; i++)
             {
                 ListaFornecedor.Add(new Models.Fornecedor()
@@ -55,6 +57,7 @@ namespace DS_Sistelie.ConsultarFornecedores
                 });
             }
             DataGridConsultarFornecedor.ItemsSource = ListaFornecedor;
+            */
         } 
 
           
@@ -114,6 +117,19 @@ namespace DS_Sistelie.ConsultarFornecedores
         private void DataGridConsultarFornecedor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void LoadListForne()
+        {
+            try
+            {
+                var dao = new FornecedorDAO();
+                DataGridConsultarFornecedor.ItemsSource = dao.List();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
