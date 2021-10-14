@@ -1,4 +1,10 @@
-﻿namespace DS_Sistelie
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DS_Sistelie
 {
     public class Venda
     {
@@ -13,8 +19,6 @@
         public string ValorDesconto { get; set; }
         public string ValorTotal { get; set; }
         public string Nomecliente { get; set; }
-
-
 
 
     }

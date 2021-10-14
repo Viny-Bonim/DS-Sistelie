@@ -94,15 +94,17 @@ email_forn varchar(150),
 tipo_forn varchar(50) not null,
 data_cadastro_forn date not null,
 rg_ie_forn varchar(30) not null,
-cpf_cnpj_forn varchar(30) not null,
+cpf_forn varchar(30),
+cnpj_forn varchar(30),
 nome_fantasia_forn varchar(100),
 razao_social_forn varchar(200),
 telefone_forn varchar(30),
 cod_endereco_fk int not null,
 foreign key (cod_endereco_fk) references Endereco(cod_endereco)
 );
-insert into Fornecedor values (null, 'fornece123@gmail.com', 'pessoa jurídica', '2021-07-20', 8954059433344234, 123234859485, 'papelaria ia ia', 'papelaria ia ia', 999865743, 1);
+insert into Fornecedor values (null, 'fornece123@gmail.com', 'pessoa jurídica', '2021-07-20', 8954059433344234, 123234859485, 125896356, 'papelaria ia ia', 'papelaria ia ia', 999865743, 1);
 
+select * from Fornecedor;
 
 create table Cliente (
 cod_clien int not null primary key auto_increment,
@@ -398,17 +400,17 @@ select * from Despesa;
 #PROCEDIMENTO DA TABELA FORNECEDOR:
 
 delimiter $$
-create procedure InserirFornecedor (email varchar(150), tipo varchar(50), data_de_cadastro date, rg_ie varchar(30), cpf_cnpj varchar(30), nome_fantasia varchar(100), 
+create procedure InserirFornecedor (email varchar(150), tipo varchar(50), data_de_cadastro date, rg_ie varchar(30), cpf varchar(30), cnpj varchar(30), nome_fantasia varchar(100), 
 razao_social varchar(200), telefone varchar(30), endereco int)
 begin
-declare verificaCpfCnpj varchar(200);
+declare verificaCpf varchar(200);
 declare verificaRgIe varchar(200);
-set verificaCpfCnpj = (select cpf_cnpj_forn from Fornecedor where (cpf_cnpj_forn = cpf_cnpj));
+set verificaCpf = (select cpf_forn from Fornecedor where (cpf_forn = cpf));
 set verificaRgIe = (select rg_ie_forn from Fornecedor where (rg_ie_forn = rg_ie));
 
 if (verificaRgIe is null) then 
-	if (verificaCpfCnpj is null) then
-		insert into Fornecedor values (null, email, tipo, data_de_cadastro, rg_ie, cpf_cnpj, nome_fantasia, razao_social, telefone, endereco);
+	if (verificaCpf is null) then
+		insert into Fornecedor values (null, email, tipo, data_de_cadastro, rg_ie, cpf, cnpj, nome_fantasia, razao_social, telefone, endereco);
 		select concat('Fornecedor Cadastrado com Sucesso!') as Confirmacao;
     else
 		select concat('O CNPJ/CPF informado, já está cadastrado!') as Alerta;
@@ -418,7 +420,7 @@ else
 end if;
 end;
 $$ delimiter ;
-call InserirFornecedor ('forncedor1@gmail.com', 'Pessoa física', '2018-05-25', '135854', '03368902244', 'Papelaria Tem de Tudo', 'Tem de Tudo Ltda', '69993498771', '1');
+call InserirFornecedor ('forncedor1@gmail.com', 'Pessoa física', '2018-05-25', '135854', '03368902244', 123234859485, 'Papelaria Tem de Tudo', 'Tem de Tudo Ltda', '69993498771', '1');
 select * from fornecedor;
 
 ############################################################################################################################################################################################
@@ -482,85 +484,6 @@ select * from MateriaPrima;
 
 ############################################################################################################################################################################################
 
-#POCEDIMENTO DA TABELA FORNECEMATERIAPRIMA:
-
-delimiter $$
-create procedure InserirForneceMateriaPrima (fornecedor int, materiaPrima int)
-begin
-declare verificaforne int;
-declare verificaMatePrima int;
-set verificaforne = (select cod_forn from Fornecedor where (cod_forn = fornecedor));
-set verificaMatePrima = (select cod_cad_mat_prima from MateriaPrima where (cod_cad_mat_prima = materiaPrima));
-
-if(verificaforne is not null) then
-	if(verificaMatePrima is not null) then
-		insert into ForneceMateriaPrima values (null, fornecedor, materiaPrima);
-        select concat('ForneceMateriaPrima inserida com sucesso!') as Confirmacao;
-	else
-		select concat('Materia-Prima informada não existe!') as Alerta;
-    end if;
-else
-	select concat('Fornecedor informado não existe!') as Alerta;
-end if;
-end;
-$$ delimiter ;
-call InserirForneceMateriaPrima (1, 1);
-select * from ForneceMateriaPrima;
-
-############################################################################################################################################################################################
-
-#PROCEDIMENTO DA TABELA FABRICAR:
-
-delimiter $$
-create procedure InserirFabricar (custo double, produto int)
-begin
-declare verificaProduto int;
-set verificaProduto = (select cod_produto from produto where (cod_produto = produto));
-
-if (custo > 0) then
-	if (verificaProduto is not null) then
-		insert into Fabricar values (null, custo, produto);
-        select concat('Fabricar inserido com sucesso!') as Confirmacao;
-	else
-		select concat('O produto informado não existe') as Alerta;
-	end if;
-else
-	select concat('O custo deve ser MAIOR que 0') as Alerta;
-end if;
-end;
-$$ delimiter ;
-call InserirFabricar (150, 1);
-select * from fabricar;
-
-############################################################################################################################################################################################
-
-#PROCEDIMENTO DA TABELA MatériaPrimaFabricar:
-
-delimiter $$
-create procedure InserirMateriaPrimaFabricar (quantidade int, refer_matPrima int, refer_fabricar int)
-begin
-declare verificaMatPrima int;
-declare verificaFabricar int;
-set verificaMatPrima = (select cod_cad_mat_prima from materiaprima where (cod_cad_mat_prima = refer_matPrima));
-set verificaFabricar = (select cod_fabricar from fabricar where (cod_fabricar = refer_fabricar));
-
-if (verificaMatPrima is not null) then
-	if (verificaFabricar is not null) then
-		insert into MateriaPrimaFabricar values (null, quantidade, refer_matPrima, refer_fabricar);
-        select concat('MateriaPrimaFabricar cadastrado com sucesso!') as Confirmacao;
-	else
-		 select concat('O código de FABRICAR informado não existe!') as Alerta;
-	end if;
-else
-	select concat('O código de MATÉRIA-PRIMA informado não existe!') as Alerta;
-end if;
-end;
-$$ delimiter ;
-call InserirMateriaPrimaFabricar (10, 1, 1);
-select * from MateriaPrimaFabricar;
-
-############################################################################################################################################################################################
-
 #PROCEDIMENTO DA TABELA PEDIDO:
 
 delimiter $$ 
@@ -617,6 +540,57 @@ select * from Venda;
 
 ############################################################################################################################################################################################
 
+#PROCEDIMENTO DA TABELA FABRICAR:
+
+delimiter $$
+create procedure InserirFabricar (custo double, produto int)
+begin
+declare verificaProduto int;
+set verificaProduto = (select cod_produto from produto where (cod_produto = produto));
+
+if (custo > 0) then
+	if (verificaProduto is not null) then
+		insert into Fabricar values (null, custo, produto);
+        select concat('Fabricar inserido com sucesso!') as Confirmacao;
+	else
+		select concat('O produto informado não existe') as Alerta;
+	end if;
+else
+	select concat('O custo deve ser MAIOR que 0') as Alerta;
+end if;
+end;
+$$ delimiter ;
+call InserirFabricar (150, 1);
+select * from fabricar;
+
+############################################################################################################################################################################################
+
+#PROCEDIMENTO DA TABELA MatériaPrimaFabricar:
+
+delimiter $$
+create procedure InserirMateriaPrimaFabricar (quantidade int, refer_matPrima int, refer_fabricar int)
+begin
+declare verificaMatPrima int;
+declare verificaFabricar int;
+set verificaMatPrima = (select cod_cad_mat_prima from materiaprima where (cod_cad_mat_prima = refer_matPrima));
+set verificaFabricar = (select cod_fabricar from fabricar where (cod_fabricar = refer_fabricar));
+
+if (verificaMatPrima is not null) then
+	if (verificaFabricar is not null) then
+		insert into MateriaPrimaFabricar values (null, quantidade, refer_matPrima, refer_fabricar);
+        select concat('MateriaPrimaFabricar cadastrado com sucesso!') as Confirmacao;
+	else
+		 select concat('O código de FABRICAR informado não existe!') as Alerta;
+	end if;
+else
+	select concat('O código de MATÉRIA-PRIMA informado não existe!') as Alerta;
+end if;
+end;
+$$ delimiter ;
+call InserirMateriaPrimaFabricar (10, 1, 1);
+select * from MateriaPrimaFabricar;
+
+############################################################################################################################################################################################
 #PROCEDIMENTO DA TABELA VendaProduto:
 
 delimiter $$
@@ -695,3 +669,29 @@ end;
 $$ delimiter ;
 call RegistrarLogin ('Gabriel Estevam', '12345678', '2');
 select * from login;
+
+############################################################################################################################################################################################
+
+#PROCEDIMENTO DA TABELA FORNECEMATERIAPRIMA:
+delimiter $$
+create procedure InserirForneceMateriaPrima (fornecedor int, materiaPrima int)
+begin
+declare verificaforne int;
+declare verificaMatePrima int;
+set verificaforne = (select cod_forn from Fornecedor where (cod_forn = fornecedor));
+set verificaMatePrima = (select cod_cad_mat_prima from MateriaPrima where (cod_cad_mat_prima = materiaPrima));
+
+if(verificaforne is not null) then
+	if(verificaMatePrima is not null) then
+		insert into ForneceMateriaPrima values (null, fornecedor, materiaPrima);
+        select concat('ForneceMateriaPrima inserida com sucesso!') as Confirmacao;
+	else
+		select concat('Materia-Prima informada não existe!') as Alerta;
+    end if;
+else
+	select concat('Fornecedor informado não existe!') as Alerta;
+end if;
+end;
+$$ delimiter ;
+call InserirForneceMateriaPrima (1, 1);
+select * from ForneceMateriaPrima;

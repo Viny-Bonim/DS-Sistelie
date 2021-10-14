@@ -172,7 +172,8 @@
     <Compile Include="Models\Fornecedor.cs" />
     <Compile Include="Models\FornecedorDAO.cs" />
     <Compile Include="Models\FornecedorValidator.cs" />
-    <Compile Include="RegistrarVenda.cs" />
+    <Compile Include="Models\RegistrarVenda.cs" />
+    <Compile Include="Models\RegistrarVendaDAO.cs" />
     <Compile Include="RegistrarVendas.xaml.cs">
       <DependentUpon>RegistrarVendas.xaml</DependentUpon>
     </Compile>
