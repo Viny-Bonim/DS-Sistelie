@@ -90,15 +90,7 @@ namespace DS_Sistelie.Models
         public void Insert(Fornecedor t)
         {
             try
-            {
-                /*
-                    PROCEDURE `InserirFornecedor`(email varchar(150), tipo varchar(50), data_de_cadastro date, rg_ie varchar(30),
-                    cpf varchar(30), cnpj varchar(30), nome_fantasia varchar(100), 
-                    razao_social varchar(200), telefone varchar(30), endereco int)
-                 */
-
-
-
+            {  
                 var query = conn.Query();
 
                 //query.CommandText = "INSERT INTO Fornecedor (email_forn, tipo_forn, data_cadastro_forn, rg_ie_forn, cpf_forn, cnpj_forn, nome_fantasia_forn, razao_social_forn, telefone_forn, cod_endereco_fk) " +

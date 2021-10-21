@@ -88,9 +88,17 @@ namespace DS_Sistelie.Despesas
         {
             try
             {
+                /*
+                 PROCEDURE `InserirDespesa`(valor double, dataDesp date, descricao varchar(500), grupo varchar(30), 
+                 codigo_do_caixa int, codigo_do_funcionario int)
+                 */
+
                 var query = conn.Query();
-                query.CommandText = "INSERT INTO Despesa (valor_desp, data_desp, descricao_desp, grupo_desp, cod_caixa_fk, cod_func_fk) " +
-                    "VALUES (@valor, @data, @descricao, @grupo, @Fkcaixa, @Fkfuncionario)";
+
+                //query.CommandText = "INSERT INTO Despesa (valor_desp, data_desp, descricao_desp, grupo_desp, cod_caixa_fk, cod_func_fk) " +
+                //  "VALUES (@valor, @data, @descricao, @grupo, @Fkcaixa, @Fkfuncionario)";
+
+                query.CommandText = "CALL InserirDespesa(@valor, @data, @descricao, @grupo, @Fkcaixa, @Fkfuncionario)";
 
                 query.Parameters.AddWithValue("@valor", t.ValorDespesa);
                 query.Parameters.AddWithValue("@data", t.dataDespesa?.ToString("yyyy-MM-dd"));
@@ -99,11 +107,15 @@ namespace DS_Sistelie.Despesas
                 query.Parameters.AddWithValue("@Fkcaixa", t.Fkcaixa);
                 query.Parameters.AddWithValue("@Fkfuncionario", t.Fkfuncionario);
 
-                var result = query.ExecuteNonQuery();
+                //var result = query.ExecuteNonQuery();
+                MySqlDataReader reader = query.ExecuteReader();
 
-                if (result == 0)
+                while (reader.Read())
                 {
-                    throw new Exception("O fornecedor não foi cadastrado, por favor tente novamente!");
+                    if (reader.GetName(0).Equals("Alerta"))
+                    {
+                        throw new Exception(reader.GetString("Alerta"));
+                    }
                 }
             }
             catch (Exception e)
