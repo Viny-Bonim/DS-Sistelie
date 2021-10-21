@@ -91,9 +91,20 @@ namespace DS_Sistelie.Models
         {
             try
             {
+                /*
+                    PROCEDURE `InserirFornecedor`(email varchar(150), tipo varchar(50), data_de_cadastro date, rg_ie varchar(30),
+                    cpf varchar(30), cnpj varchar(30), nome_fantasia varchar(100), 
+                    razao_social varchar(200), telefone varchar(30), endereco int)
+                 */
+
+
+
                 var query = conn.Query();
-                query.CommandText = "INSERT INTO Fornecedor (email_forn, tipo_forn, data_cadastro_forn, rg_ie_forn, cpf_forn, cnpj_forn, nome_fantasia_forn, razao_social_forn, telefone_forn, cod_endereco_fk) " +
-                    "VALUES (@email, @tipo, @datacad, @rgie, @cpf, @cnpj, @nomefantasia, @razaosocial, @telefone, @FkEndereco)";
+
+                //query.CommandText = "INSERT INTO Fornecedor (email_forn, tipo_forn, data_cadastro_forn, rg_ie_forn, cpf_forn, cnpj_forn, nome_fantasia_forn, razao_social_forn, telefone_forn, cod_endereco_fk) " +
+                //  "VALUES (@email, @tipo, @datacad, @rgie, @cpf, @cnpj, @nomefantasia, @razaosocial, @telefone, @FkEndereco)";
+
+                query.CommandText = "CALL InserirFornecedor(@email, @tipo, @datacad, @rgie, @cpf, @cnpj, @nomefantasia, @razaosocial, @telefone, @FkEndereco)";
 
                 query.Parameters.AddWithValue("@email", t.Email);
                 query.Parameters.AddWithValue("@tipo", t.TipoFornecedor);
@@ -106,12 +117,16 @@ namespace DS_Sistelie.Models
                 query.Parameters.AddWithValue("@telefone", t.Telefone);
                 query.Parameters.AddWithValue("@FkEndereco", t.FkEndereco);
 
-                var result = query.ExecuteNonQuery();
+                //var result = query.ExecuteNonQuery();
+                MySqlDataReader reader = query.ExecuteReader();
 
-                if(result == 0)
+                while (reader.Read())
                 {
-                    throw new Exception("O fornecedor não foi cadastrado, por favor tente novamente!");
-                }
+                    if (reader.GetName(0).Equals("Alerta"))
+                    {
+                        throw new Exception(reader.GetString("Alerta"));
+                    }
+                }          
             }
             catch (Exception e)
             {
