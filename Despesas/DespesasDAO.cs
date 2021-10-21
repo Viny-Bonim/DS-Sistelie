@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DS_Sistelie.Interfaces;
 using DS_Sistelie.Database;
 using MySql.Data.MySqlClient;
+using DS_Sistelie.Helpers;
 
 namespace DS_Sistelie.Despesas
 {
@@ -92,7 +93,7 @@ namespace DS_Sistelie.Despesas
                     "VALUES (@valor, @data, @descricao, @grupo, @Fkcaixa, @Fkfuncionario)";
 
                 query.Parameters.AddWithValue("@valor", t.ValorDespesa);
-                query.Parameters.AddWithValue("@data", t.dataDespesa.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@data", t.dataDespesa?.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@descricao", t.DescricaoDespesa);
                 query.Parameters.AddWithValue("@grupo", t.GrupoDespesa);
                 query.Parameters.AddWithValue("@Fkcaixa", t.Fkcaixa);
@@ -131,10 +132,10 @@ namespace DS_Sistelie.Despesas
                     listDesp.Add(new Despesas()
                     {
                         IdDespesa = reader.GetInt32("cod_desp"),
-                        ValorDespesa = reader.GetDouble("valor_desp"),
-                        dataDespesa = reader.GetDateTime("data_desp"),
-                        DescricaoDespesa = reader.GetString("descricao_desp"),
-                        GrupoDespesa = reader.GetString("grupo_desp"),
+                        ValorDespesa = DAOHelper.GetDouble(reader, "valor_desp"),
+                        dataDespesa = DAOHelper.GetDateTime(reader, "data_desp"),
+                        DescricaoDespesa = DAOHelper.GetString(reader, "descricao_desp"),
+                        GrupoDespesa = DAOHelper.GetString(reader, "grupo_desp"),
                         Fkcaixa = reader.GetInt32("cod_caixa_fk"),
                         Fkfuncionario = reader.GetInt32("cod_func_fk")
                     });

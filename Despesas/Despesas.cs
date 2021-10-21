@@ -12,7 +12,7 @@ namespace DS_Sistelie.Despesas
 
         public double ValorDespesa { get; set; }
 
-        public DateTime dataDespesa { get; set; }
+        public DateTime? dataDespesa { get; set; }
 
         public string DescricaoDespesa { get; set; }
 

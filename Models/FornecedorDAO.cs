@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DS_Sistelie.Interfaces;
 using DS_Sistelie.Database;
 using MySql.Data.MySqlClient;
+using DS_Sistelie.Helpers;
 
 namespace DS_Sistelie.Models
 {
@@ -96,7 +97,7 @@ namespace DS_Sistelie.Models
 
                 query.Parameters.AddWithValue("@email", t.Email);
                 query.Parameters.AddWithValue("@tipo", t.TipoFornecedor);
-                query.Parameters.AddWithValue("@datacad", t.DataCadastroFornecedor.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@datacad", t.DataCadastroFornecedor?.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@rgie", t.RgIe);
                 query.Parameters.AddWithValue("@cpf", t.Cpf);
                 query.Parameters.AddWithValue("@cnpj", t.Cnpj);
@@ -138,15 +139,15 @@ namespace DS_Sistelie.Models
                     listForn.Add(new Fornecedor()
                     {
                         CodigoFornecedor = reader.GetInt32("cod_forn"),
-                        Email = reader.GetString("email_forn"),
-                        TipoFornecedor = reader.GetString("tipo_forn"),
-                        DataCadastroFornecedor = reader.GetDateTime("data_cadastro_forn"),
-                        RgIe = reader.GetString("rg_ie_forn"),
-                        Cpf = reader.GetString("cpf_forn"),
-                        Cnpj = reader.GetString("cnpj_forn"),
-                        NomeFantasia = reader.GetString("nome_fantasia_forn"),
-                        RazaoSocial = reader.GetString("razao_social_forn"),
-                        Telefone = reader.GetString("telefone_forn"),
+                        Email = DAOHelper.GetString(reader, "email_forn"),
+                        TipoFornecedor = DAOHelper.GetString(reader, "tipo_forn"),
+                        DataCadastroFornecedor = DAOHelper.GetDateTime(reader, "data_cadastro_forn"),
+                        RgIe = DAOHelper.GetString(reader, "rg_ie_forn"),
+                        Cpf = DAOHelper.GetString(reader, "cpf_forn"),
+                        Cnpj = DAOHelper.GetString(reader, "cnpj_forn"),
+                        NomeFantasia = DAOHelper.GetString(reader, "nome_fantasia_forn"),
+                        RazaoSocial = DAOHelper.GetString(reader, "razao_social_forn"),
+                        Telefone = DAOHelper.GetString(reader, "telefone_forn"),
                     });
                 }
 
@@ -172,7 +173,7 @@ namespace DS_Sistelie.Models
 
                 query.Parameters.AddWithValue("@email", t.Email);
                 query.Parameters.AddWithValue("@tipo", t.TipoFornecedor);
-                query.Parameters.AddWithValue("@datacad", t.DataCadastroFornecedor.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@datacad", t.DataCadastroFornecedor?.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@rgie", t.RgIe);
                 query.Parameters.AddWithValue("@cpf", t.Cpf);
                 query.Parameters.AddWithValue("@cnpj", t.Cnpj);

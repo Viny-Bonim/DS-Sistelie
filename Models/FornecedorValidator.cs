@@ -17,10 +17,10 @@ namespace DS_Sistelie.Models
 
             RuleFor(x => x.RgIe).NotEmpty().WithMessage("O campo RG/IE é de preenchimento obrigatório!\n");
 
-            RuleFor(x => x.Cpf).NotEqual("___.___.___-__").WithMessage("O campo 'CPF' é de preenchimento obrigatório!\n");
+            //RuleFor(x => x.Cpf).NotEqual("___.___.___-__").WithMessage("O campo 'CPF' é de preenchimento obrigatório!\n");
             RuleFor(x => x.Cpf).Must(ValidaCPF).WithMessage("CPF inválido\n");
 
-            RuleFor(x => x.Cnpj).NotEqual("__.___.___/____-__").WithMessage("O campo 'CNPJ' é de preenchimento obrigatório!\n");
+            //RuleFor(x => x.Cnpj).NotEqual("__.___.___/____-__").WithMessage("O campo 'CNPJ' é de preenchimento obrigatório!\n");
             RuleFor(x => x.Cnpj).Must(ValidaCNPJ).WithMessage("CNPJ inválido\n");
 
             RuleFor(x => x.NomeFantasia).NotEmpty().WithMessage("O campo NOME FANTASIA é de preenchimento obrigatório!\n");
