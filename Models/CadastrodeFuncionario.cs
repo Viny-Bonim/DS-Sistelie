@@ -17,7 +17,7 @@ namespace DS_Sistelie.Models
         public string RendaFamiliar { get; set; }
         public float Endereço { get; set; }
 
-        public var End = new Endereço();
+        public Endereço End = new Endereço();
         public float Email { get; set; }
     }
 }
