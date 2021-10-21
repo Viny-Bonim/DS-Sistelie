@@ -88,11 +88,6 @@ namespace DS_Sistelie.Despesas
         {
             try
             {
-                /*
-                 PROCEDURE `InserirDespesa`(valor double, dataDesp date, descricao varchar(500), grupo varchar(30), 
-                 codigo_do_caixa int, codigo_do_funcionario int)
-                 */
-
                 var query = conn.Query();
 
                 //query.CommandText = "INSERT INTO Despesa (valor_desp, data_desp, descricao_desp, grupo_desp, cod_caixa_fk, cod_func_fk) " +
