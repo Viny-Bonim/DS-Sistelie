@@ -8,6 +8,8 @@ namespace DS_Sistelie.Models
 {
     class Endereço
     {
+        public int IdEnd { get; set; }
+
         public string Cep { get; set; }
 
         public string Bairro { get; set; }

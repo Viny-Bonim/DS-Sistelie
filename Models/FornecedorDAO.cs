@@ -50,7 +50,7 @@ namespace DS_Sistelie.Models
             try
             {
                 var query = conn.Query();
-                query.CommandText = "SELECT* FROM Fornecedor WHERE cod_forn = @id";
+                query.CommandText = "SELECT * FROM Fornecedor LEFT JOIN Endereco ON cod_endereco = cod_endereco_fk WHERE cod_forn = @id"; ;
 
                 query.Parameters.AddWithValue("@id", id);
 
@@ -73,6 +73,19 @@ namespace DS_Sistelie.Models
                     fornecedor.NomeFantasia = reader.GetString("nome_fantasia_forn");
                     fornecedor.RazaoSocial = reader.GetString("razao_social_forn");
                     fornecedor.Telefone = reader.GetString("telefone_forn");
+
+                    if (!DAOHelper.IsNull(reader, "cod_endereco_fk"))
+                        fornecedor.Endereco = new Endereço()
+                        {
+                            IdEnd = reader.GetInt32("cod_endereco"),
+                            Cep = reader.GetString("cep"),
+                            Bairro = reader.GetString("bairro"),
+                            Logradouro = reader.GetString("logradouro"),
+                            Numero = reader.GetString("numero"),
+                            Pais = reader.GetString("pais"),
+                            Uf = reader.GetString("uf"),
+                            Cidade = reader.GetString("cidade"),
+                        };
                 }
 
                 return fornecedor;
@@ -96,7 +109,7 @@ namespace DS_Sistelie.Models
                 //query.CommandText = "INSERT INTO Fornecedor (email_forn, tipo_forn, data_cadastro_forn, rg_ie_forn, cpf_forn, cnpj_forn, nome_fantasia_forn, razao_social_forn, telefone_forn, cod_endereco_fk) " +
                 //  "VALUES (@email, @tipo, @datacad, @rgie, @cpf, @cnpj, @nomefantasia, @razaosocial, @telefone, @FkEndereco)";
 
-                query.CommandText = "CALL InserirFornecedor(@email, @tipo, @datacad, @rgie, @cpf, @cnpj, @nomefantasia, @razaosocial, @telefone, @FkEndereco)";
+                query.CommandText = "CALL InserirFornecedor(@email, @tipo, @datacad, @rgie, @cpf, @cnpj, @nomefantasia, @razaosocial, @telefone)";
 
                 query.Parameters.AddWithValue("@email", t.Email);
                 query.Parameters.AddWithValue("@tipo", t.TipoFornecedor);
@@ -107,7 +120,6 @@ namespace DS_Sistelie.Models
                 query.Parameters.AddWithValue("@nomefantasia", t.NomeFantasia);
                 query.Parameters.AddWithValue("@razaosocial", t.RazaoSocial);
                 query.Parameters.AddWithValue("@telefone", t.Telefone);
-                query.Parameters.AddWithValue("@FkEndereco", t.FkEndereco);
 
                 //var result = query.ExecuteNonQuery();
                 MySqlDataReader reader = query.ExecuteReader();
@@ -137,7 +149,7 @@ namespace DS_Sistelie.Models
                 List<Fornecedor> listForn = new List<Fornecedor>();
 
                 var query = conn.Query();
-                query.CommandText = "SELECT * FROM Fornecedor";
+                query.CommandText = "SELECT* FROM Fornecedor LEFT JOIN Endereco ON cod_endereco = cod_endereco_fk";
 
                 MySqlDataReader reader = query.ExecuteReader();
 
@@ -155,6 +167,18 @@ namespace DS_Sistelie.Models
                         NomeFantasia = DAOHelper.GetString(reader, "nome_fantasia_forn"),
                         RazaoSocial = DAOHelper.GetString(reader, "razao_social_forn"),
                         Telefone = DAOHelper.GetString(reader, "telefone_forn"),
+
+                        Endereco = DAOHelper.IsNull(reader, "cod_endereco_fk") ? null : new Endereço() 
+                        { 
+                            IdEnd = reader.GetInt32("cod_endereco"),
+                            Cep = reader.GetString("cep"),
+                            Bairro = reader.GetString("bairro"),
+                            Logradouro = reader.GetString("logradouro"),
+                            Numero = reader.GetString("numero"),
+                            Pais = reader.GetString("pais"),
+                            Uf = reader.GetString("uf"),
+                            Cidade = reader.GetString("cidade"),
+                        }
                     });
                 }
 
@@ -175,8 +199,10 @@ namespace DS_Sistelie.Models
             try
             {
                 var query = conn.Query();
-                query.CommandText = "UPDATE Fornecedor SET email_forn = @email, tipo_forn = @tipo, data_cadastro_forn = @datacad, rg_ie_forn = @rgie, cpf_forn = @cpf, cnpj_forn = @cnpj, nome_fantasia_forn = @nomefantasia, razao_social_forn = @razaosocial, telefone_forn = @telefone, cod_endereco_fk = @FkEndereco " +
-                   "WHERE cod_forn = @id";
+                query.CommandText = "UPDATE Fornecedor SET email_forn = @email, tipo_forn = @tipo, data_cadastro_forn = @datacad, " +
+                    "rg_ie_forn = @rgie, cpf_forn = @cpf, cnpj_forn = @cnpj, nome_fantasia_forn = @nomefantasia, " +
+                    "razao_social_forn = @razaosocial, telefone_forn = @telefone, cod_endereco_fk = @Endereco, " +
+                    "WHERE cod_forn = @id";
 
                 query.Parameters.AddWithValue("@email", t.Email);
                 query.Parameters.AddWithValue("@tipo", t.TipoFornecedor);
@@ -187,7 +213,7 @@ namespace DS_Sistelie.Models
                 query.Parameters.AddWithValue("@nomefantasia", t.NomeFantasia);
                 query.Parameters.AddWithValue("@razaosocial", t.RazaoSocial);
                 query.Parameters.AddWithValue("@telefone", t.Telefone);
-                query.Parameters.AddWithValue("@FkEndereco", t.FkEndereco);
+                query.Parameters.AddWithValue("@Endereco", t.Endereco.IdEnd);
                 query.Parameters.AddWithValue("@id", t.CodigoFornecedor);
 
                 var result = query.ExecuteNonQuery();

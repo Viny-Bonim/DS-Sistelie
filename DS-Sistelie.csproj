@@ -169,6 +169,8 @@
     <Compile Include="Models\CadastrodeFuncionario_DAO.cs" />
     <Compile Include="Models\ConsultadeFuncionario.cs" />
     <Compile Include="Models\ConsultadeFuncionario_DAO.cs" />
+    <Compile Include="Models\EnderecoDAO.cs" />
+    <Compile Include="Models\EnderecoValidator.cs" />
     <Compile Include="Models\Endereço.cs" />
     <Compile Include="Models\Fornecedor.cs" />
     <Compile Include="Models\FornecedorDAO.cs" />

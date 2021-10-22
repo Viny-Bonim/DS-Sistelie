@@ -44,5 +44,10 @@ namespace DS_Sistelie.Helpers
 
             return date;
         }
+
+        public static bool IsNull(MySqlDataReader reader, string column_name)
+        {
+            return reader.IsDBNull(reader.GetOrdinal(column_name));
+        }
     }
 }

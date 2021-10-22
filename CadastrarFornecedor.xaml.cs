@@ -22,6 +22,7 @@ namespace DS_Sistelie
     {
         private int _id;
         private Fornecedor _fornecedor;
+        private Endereço _endereco;
 
         bool validacao = false;
         
@@ -48,7 +49,6 @@ namespace DS_Sistelie
             cmbxTipo.ItemsSource = tipoFornecedor;
 
 
-            _fornecedor = new Fornecedor();
             if (_id > 0)
             {
                 FillForm();
@@ -68,21 +68,50 @@ namespace DS_Sistelie
         }
 
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
-        { 
-            _fornecedor.Email = txtEmail.Text;
-            _fornecedor.TipoFornecedor = cmbxTipo.Text;
-            _fornecedor.RgIe = txtRGIE.Text;
-            _fornecedor.Cpf = txtCpf.Text;
-            _fornecedor.Cnpj = txtCnpj.Text;
-            _fornecedor.NomeFantasia = txtNomeFantasia.Text;
-            _fornecedor.RazaoSocial = txtRazaoSocial.Text;
-            _fornecedor.Telefone = txtTelefone.Text;
-            _fornecedor.FkEndereco = 1;
+        {
+            try
+            {
+                //Inserindo dados da tabela endereço
+                if (txtCEP.Text != null)
+                    _endereco.Cep = txtCEP.Text;
 
-            if (dtCadastro.SelectedDate != null)
-                _fornecedor.DataCadastroFornecedor = (DateTime)dtCadastro.SelectedDate;
+                if (txtBairro.Text != null)
+                    _endereco.Bairro = txtBairro.Text;
 
-            SaveData();
+                if (txtLogradouro.Text != null)
+                    _endereco.Logradouro = txtLogradouro.Text;
+
+                if (txtNumero.Text != null)
+                    _endereco.Numero = txtNumero.Text;
+
+                if (txtPais.Text != null)
+                    _endereco.Pais = txtPais.Text;
+
+                if (txtUF.Text != null)
+                    _endereco.Uf = txtUF.Text;
+
+                if (txtCidade.Text != null)
+                    _endereco.Cidade = txtCidade.Text;
+
+                //inserindo dados da tabela Fornecedor
+                _fornecedor.Email = txtEmail.Text;
+                _fornecedor.TipoFornecedor = cmbxTipo.Text;
+                _fornecedor.RgIe = txtRGIE.Text;
+                _fornecedor.Cpf = txtCpf.Text;
+                _fornecedor.Cnpj = txtCnpj.Text;
+                _fornecedor.NomeFantasia = txtNomeFantasia.Text;
+                _fornecedor.RazaoSocial = txtRazaoSocial.Text;
+                _fornecedor.Telefone = txtTelefone.Text;
+                if (dtCadastro.SelectedDate != null)
+                    _fornecedor.DataCadastroFornecedor = (DateTime)dtCadastro.SelectedDate;
+
+
+                SaveData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private bool Validate()
@@ -106,6 +135,7 @@ namespace DS_Sistelie
             return result.IsValid;
         }
 
+      
         private void SaveData()
         {
             try
@@ -141,6 +171,7 @@ namespace DS_Sistelie
                 var dao = new FornecedorDAO();
                 _fornecedor = dao.GetById(_id);
 
+                // Pegando informações da tabela Fornecedor
                 txtCodigo.Text = _fornecedor.CodigoFornecedor.ToString();
                 cmbxTipo.Text = _fornecedor.TipoFornecedor;
                 dtCadastro.SelectedDate = _fornecedor.DataCadastroFornecedor;
@@ -151,6 +182,15 @@ namespace DS_Sistelie
                 txtRazaoSocial.Text = _fornecedor.RazaoSocial;
                 txtTelefone.Text = _fornecedor.Telefone;
                 txtEmail.Text = _fornecedor.Email;
+
+                // Pegando informações da tabela Endereco
+                txtCEP.Text = _endereco.Cep;
+                txtBairro.Text = _endereco.Bairro;
+                txtLogradouro.Text = _endereco.Logradouro;
+                txtNumero.Text = _endereco.Numero;
+                txtPais.Text = _endereco.Pais;
+                txtUF.Text = _endereco.Uf;
+                txtCidade.Text = _endereco.Cidade;
             }
             catch (Exception ex)
             {
@@ -217,6 +257,5 @@ namespace DS_Sistelie
             else
                 txtEmail_error.Visibility = Visibility.Collapsed;
         }
-
     }
 }
