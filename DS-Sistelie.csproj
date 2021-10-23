@@ -171,7 +171,7 @@
     <Compile Include="Models\ConsultadeFuncionario_DAO.cs" />
     <Compile Include="Models\EnderecoDAO.cs" />
     <Compile Include="Models\EnderecoValidator.cs" />
-    <Compile Include="Models\Endereço.cs" />
+    <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\Fornecedor.cs" />
     <Compile Include="Models\FornecedorDAO.cs" />
     <Compile Include="Models\FornecedorValidator.cs" />

@@ -8,7 +8,7 @@ using FluentValidation;
 
 namespace DS_Sistelie.Models
 {
-    class EnderecoValidator : AbstractValidator<Endereço>
+    class EnderecoValidator : AbstractValidator<Endereco>
     {
 
         public EnderecoValidator()
@@ -21,8 +21,6 @@ namespace DS_Sistelie.Models
             RuleFor(x => x.Logradouro).NotEmpty().WithMessage("O campo LOGRADOURO é de preenchimento obrigatório!\n");
 
             RuleFor(x => x.Numero).NotEmpty().WithMessage("O campo NÚMERO é de preenchimento obrigatório!\n");
-
-            RuleFor(x => x.Pais).NotEmpty().WithMessage("O campo PAÍS é de preenchimento obrigatório!\n");
 
             RuleFor(x => x.Uf).NotEmpty().WithMessage("O campo UF é de preenchimento obrigatório!\n");
             

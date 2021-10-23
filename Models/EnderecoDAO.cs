@@ -9,7 +9,7 @@ using DS_Sistelie.Interfaces;
 
 namespace DS_Sistelie.Models
 {
-    class EnderecoDAO : IDAO<Endereço>
+    class EnderecoDAO : IDAO<Endereco>
     {
         private static Conexao conn;
 
@@ -18,29 +18,28 @@ namespace DS_Sistelie.Models
             conn = new Conexao();
         }
 
-        public void Delete(Endereço t)
+        public void Delete(Endereco t)
         {
             throw new NotImplementedException();
         }
 
-        public Endereço GetById(int id)
+        public Endereco GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void Insert(Endereço t)
+        public void Insert(Endereco t)
         {
             try
             {
                 var query = conn.Query();
 
-                query.CommandText = "CALL InserirEndereco(@cep, @bairro, @logradouro, @numero, @pais, @uf, @cidade)";
+                query.CommandText = "CALL InserirEndereco(@cep, @bairro, @logradouro, @numero, @uf, @cidade)";
 
                 query.Parameters.AddWithValue("@cep", t.Cep);
                 query.Parameters.AddWithValue("@bairro", t.Bairro);
                 query.Parameters.AddWithValue("@logradouro", t.Logradouro);
                 query.Parameters.AddWithValue("@numero", t.Numero);
-                query.Parameters.AddWithValue("@pais", t.Pais);
                 query.Parameters.AddWithValue("@uf", t.Uf);
                 query.Parameters.AddWithValue("@cidade", t.Cidade);
 
@@ -65,11 +64,11 @@ namespace DS_Sistelie.Models
             }
         }
 
-        public List<Endereço> List()
+        public List<Endereco> List()
         {
             try
             {
-                List<Endereço> list = new List<Endereço>();
+                List<Endereco> list = new List<Endereco>();
 
                 var query = conn.Query();
                 query.CommandText = "SELECT * FROM Endereco";
@@ -78,14 +77,13 @@ namespace DS_Sistelie.Models
 
                 while (reader.Read())
                 {
-                    list.Add(new Endereço()
+                    list.Add(new Endereco()
                     {
                         IdEnd = reader.GetInt32("cod_endereco"),
                         Cep = reader.GetString("cep"),
                         Bairro = reader.GetString("bairro"),
                         Logradouro = reader.GetString("logradouro"),
                         Numero = reader.GetString("numero"),
-                        Pais = reader.GetString("pais"),
                         Uf = reader.GetString("uf"),
                         Cidade = reader.GetString("cidade"),
                     });
@@ -103,7 +101,7 @@ namespace DS_Sistelie.Models
             }
         }
 
-        public void Update(Endereço t)
+        public void Update(Endereco t)
         {
             throw new NotImplementedException();
         }
