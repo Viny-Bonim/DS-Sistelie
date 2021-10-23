@@ -22,7 +22,7 @@ namespace DS_Sistelie
     {
         private int _id;
         private Fornecedor _fornecedor;
-        private Endereço _endereco;
+        private Endereco _endereco;
 
         bool validacao = false;
         
@@ -84,11 +84,8 @@ namespace DS_Sistelie
                 if (txtNumero.Text != null)
                     _endereco.Numero = txtNumero.Text;
 
-                if (txtPais.Text != null)
-                    _endereco.Pais = txtPais.Text;
-
-                if (txtUF.Text != null)
-                    _endereco.Uf = txtUF.Text;
+                if (cbxUF.Text != null)
+                    _endereco.Uf = cbxUF.Text;
 
                 if (txtCidade.Text != null)
                     _endereco.Cidade = txtCidade.Text;
@@ -188,8 +185,7 @@ namespace DS_Sistelie
                 txtBairro.Text = _endereco.Bairro;
                 txtLogradouro.Text = _endereco.Logradouro;
                 txtNumero.Text = _endereco.Numero;
-                txtPais.Text = _endereco.Pais;
-                txtUF.Text = _endereco.Uf;
+                cbxUF.Text = _endereco.Uf;
                 txtCidade.Text = _endereco.Cidade;
             }
             catch (Exception ex)
@@ -238,8 +234,7 @@ namespace DS_Sistelie
             txtCEP.Text = "";
             txtLogradouro.Text = "";
             txtNumero.Text = "";
-            txtPais.Text = "";
-            txtUF.Text = "";
+            cbxUF.Text = "";
             txtCidade.Text = "";
         }
 

@@ -75,14 +75,13 @@ namespace DS_Sistelie.Models
                     fornecedor.Telefone = reader.GetString("telefone_forn");
 
                     if (!DAOHelper.IsNull(reader, "cod_endereco_fk"))
-                        fornecedor.Endereco = new Endereço()
+                        fornecedor.Endereco = new Endereco()
                         {
                             IdEnd = reader.GetInt32("cod_endereco"),
                             Cep = reader.GetString("cep"),
                             Bairro = reader.GetString("bairro"),
                             Logradouro = reader.GetString("logradouro"),
                             Numero = reader.GetString("numero"),
-                            Pais = reader.GetString("pais"),
                             Uf = reader.GetString("uf"),
                             Cidade = reader.GetString("cidade"),
                         };
@@ -168,14 +167,13 @@ namespace DS_Sistelie.Models
                         RazaoSocial = DAOHelper.GetString(reader, "razao_social_forn"),
                         Telefone = DAOHelper.GetString(reader, "telefone_forn"),
 
-                        Endereco = DAOHelper.IsNull(reader, "cod_endereco_fk") ? null : new Endereço() 
+                        Endereco = DAOHelper.IsNull(reader, "cod_endereco_fk") ? null : new Endereco() 
                         { 
                             IdEnd = reader.GetInt32("cod_endereco"),
                             Cep = reader.GetString("cep"),
                             Bairro = reader.GetString("bairro"),
                             Logradouro = reader.GetString("logradouro"),
                             Numero = reader.GetString("numero"),
-                            Pais = reader.GetString("pais"),
                             Uf = reader.GetString("uf"),
                             Cidade = reader.GetString("cidade"),
                         }
