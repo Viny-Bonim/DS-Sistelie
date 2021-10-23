@@ -12,12 +12,12 @@ namespace DS_Sistelie.Database
     {
         private static string host = "localhost";
 
-        private static string port = "3306";
+        private static string port = "3308";
 
         private static string user = "root";
 
         private static string password = "vinybonim";
-
+         
         private static string dbname = "bd_sistelie";
 
         private static MySqlConnection connection;

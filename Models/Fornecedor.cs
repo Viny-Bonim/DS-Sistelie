@@ -28,6 +28,6 @@ namespace DS_Sistelie.Models
 
         public string Telefone { get; set; }
 
-        public Endereço Endereco { get; set; }
+        public Endereço Endereco { get; set; } = new Endereço();
     }
 }
