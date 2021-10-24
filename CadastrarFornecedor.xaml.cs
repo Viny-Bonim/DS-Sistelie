@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DS_Sistelie.Models;
+using DS_Sistelie.Helpers;
 
 namespace DS_Sistelie
 {
@@ -22,8 +23,6 @@ namespace DS_Sistelie
     {
         private int _id;
         private Fornecedor _fornecedor;
-        private Endereco _endereco;
-
         bool validacao = false;
         
         private List<string> tipoFornecedor;
@@ -48,6 +47,7 @@ namespace DS_Sistelie
             tipoFornecedor.Add("Pessoa Jurídica");
             cmbxTipo.ItemsSource = tipoFornecedor;
 
+            LoadComboBoxEstados();
 
             if (_id > 0)
             {
@@ -71,25 +71,6 @@ namespace DS_Sistelie
         {
             try
             {
-                //Inserindo dados da tabela endereço
-                if (txtCEP.Text != null)
-                    _endereco.Cep = txtCEP.Text;
-
-                if (txtBairro.Text != null)
-                    _endereco.Bairro = txtBairro.Text;
-
-                if (txtLogradouro.Text != null)
-                    _endereco.Logradouro = txtLogradouro.Text;
-
-                if (txtNumero.Text != null)
-                    _endereco.Numero = txtNumero.Text;
-
-                if (cbxUF.Text != null)
-                    _endereco.Uf = cbxUF.Text;
-
-                if (txtCidade.Text != null)
-                    _endereco.Cidade = txtCidade.Text;
-
                 //inserindo dados da tabela Fornecedor
                 _fornecedor.Email = txtEmail.Text;
                 _fornecedor.TipoFornecedor = cmbxTipo.Text;
@@ -102,6 +83,21 @@ namespace DS_Sistelie
                 if (dtCadastro.SelectedDate != null)
                     _fornecedor.DataCadastroFornecedor = (DateTime)dtCadastro.SelectedDate;
 
+
+                //Inserindo dados da tabela endereço
+                _fornecedor.Endereco = new Endereco();
+
+                _fornecedor.Endereco.Cep = txtCEP.Text;
+                _fornecedor.Endereco.Bairro = txtBairro.Text;
+                _fornecedor.Endereco.Logradouro = txtLogradouro.Text;
+
+                if (int.TryParse(txtNumero.Text, out int numero))
+                    _fornecedor.Endereco.Numero = numero;
+
+                if (cbxUF.SelectedItem != null)
+                    _fornecedor.Endereco.Uf = cbxUF.SelectedItem as string;
+
+                _fornecedor.Endereco.Cidade = txtCidade.Text;
 
                 SaveData();
             }
@@ -180,13 +176,20 @@ namespace DS_Sistelie
                 txtTelefone.Text = _fornecedor.Telefone;
                 txtEmail.Text = _fornecedor.Email;
 
-                // Pegando informações da tabela Endereco
-                txtCEP.Text = _endereco.Cep;
-                txtBairro.Text = _endereco.Bairro;
-                txtLogradouro.Text = _endereco.Logradouro;
-                txtNumero.Text = _endereco.Numero;
-                cbxUF.Text = _endereco.Uf;
-                txtCidade.Text = _endereco.Cidade;
+
+                // Pegando informações da tabela Fornecedor
+                if (_fornecedor.Endereco != null)
+                {
+                    txtCEP.Text = _fornecedor.Endereco.Cep;
+                    txtBairro.Text = _fornecedor.Endereco.Bairro;
+                    txtLogradouro.Text = _fornecedor.Endereco.Logradouro;
+                    txtNumero.Text = _fornecedor.Endereco.Numero.ToString();
+                    cbxUF.Text = _fornecedor.Endereco.Uf;
+                    txtCidade.Text = _fornecedor.Endereco.Cidade;
+
+                    cbxUF.SelectedValue = _fornecedor.Endereco.Uf;
+                }
+
             }
             catch (Exception ex)
             {
@@ -216,6 +219,18 @@ namespace DS_Sistelie
                 ConsultarFornecedores.ConsultarFornecedoresWindow consulForn = new ConsultarFornecedores.ConsultarFornecedoresWindow();
                 consulForn.Show();
                 this.Close();
+            }
+        }
+
+        private void LoadComboBoxEstados()
+        {
+            try
+            {
+                cbxUF.ItemsSource = Estado.List();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

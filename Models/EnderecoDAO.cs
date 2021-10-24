@@ -3,38 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
 using DS_Sistelie.Database;
 using DS_Sistelie.Interfaces;
 
 namespace DS_Sistelie.Models
 {
-    class EnderecoDAO : IDAO<Endereco>
+    class EnderecoDAO
     {
-        private static Conexao conn;
+        private static Conexao conn = new Conexao();
 
-        public EnderecoDAO()
-        {
-            conn = new Conexao();
-        }
-
-        public void Delete(Endereco t)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Endereco GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Insert(Endereco t)
+        public long Insert(Endereco t)
         {
             try
             {
                 var query = conn.Query();
 
-                query.CommandText = "CALL InserirEndereco(@cep, @bairro, @logradouro, @numero, @uf, @cidade)";
+                query.CommandText = "INSERT INTO Endereco (cep, bairro, logradouro, numero, uf, cidade) " +
+                    "VALUES (@cep, @bairro, @logradouro, @numero, @uf, @cidade)";
 
                 query.Parameters.AddWithValue("@cep", t.Cep);
                 query.Parameters.AddWithValue("@bairro", t.Bairro);
@@ -43,67 +28,49 @@ namespace DS_Sistelie.Models
                 query.Parameters.AddWithValue("@uf", t.Uf);
                 query.Parameters.AddWithValue("@cidade", t.Cidade);
 
-                //var result = query.ExecuteNonQuery();
-                MySqlDataReader reader = query.ExecuteReader();
+                var result = query.ExecuteNonQuery();
 
-                while (reader.Read())
+                if (result == 0)
                 {
-                    if (reader.GetName(0).Equals("Alerta"))
-                    {
-                        throw new Exception(reader.GetString("Alerta"));
-                    }
+                    throw new Exception("Erro ao salvar informações do endereço. Revise e tente novamente.");
                 }
+
+                return query.LastInsertedId;
             }
             catch (Exception e)
             {
                 throw e;
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        public List<Endereco> List()
-        {
-            try
-            {
-                List<Endereco> list = new List<Endereco>();
-
-                var query = conn.Query();
-                query.CommandText = "SELECT * FROM Endereco";
-
-                MySqlDataReader reader = query.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    list.Add(new Endereco()
-                    {
-                        IdEnd = reader.GetInt32("cod_endereco"),
-                        Cep = reader.GetString("cep"),
-                        Bairro = reader.GetString("bairro"),
-                        Logradouro = reader.GetString("logradouro"),
-                        Numero = reader.GetString("numero"),
-                        Uf = reader.GetString("uf"),
-                        Cidade = reader.GetString("cidade"),
-                    });
-                }
-
-                return list;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-            finally
-            {
-                conn.Close();
             }
         }
 
         public void Update(Endereco t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conn.Query();
+
+                query.CommandText = "UPDATE Endereco SET cep = @cep, bairro = @bairro, logradouro = @logradouro, numero = @numero, uf = @uf, cidade = @cidade " +
+                    "WHERE cod_endereco = @id";
+
+                query.Parameters.AddWithValue("@cep", t.Cep);
+                query.Parameters.AddWithValue("@bairro", t.Bairro);
+                query.Parameters.AddWithValue("@logradouro", t.Logradouro);
+                query.Parameters.AddWithValue("@numero", t.Numero);
+                query.Parameters.AddWithValue("@uf", t.Uf);
+                query.Parameters.AddWithValue("@cidade", t.Cidade);
+                query.Parameters.AddWithValue("@id", t.IdEnd);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    throw new Exception("Erro ao atualizar informações do endereço. Revise e tente novamente.");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

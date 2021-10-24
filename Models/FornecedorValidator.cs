@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using FluentValidation;
 
@@ -32,6 +33,18 @@ namespace DS_Sistelie.Models
             RuleFor(x => x.Telefone).NotEqual("(__) _ ____-____").WithMessage("O campo 'TELEFONE' é de preenchimento obrigatório!\n");
 
             RuleFor(x => x.Email).NotEmpty().WithMessage("O campo EMAIL é de preenchimento obrigatório!");
+
+            RuleFor(x => x.Endereco.Cep).NotEqual("_____-___").WithMessage("O campo 'CEP' é de preenchimento obrigatório!\n");
+
+            RuleFor(x => x.Endereco.Logradouro).NotEmpty().WithMessage("O campo LOGRADOURO é de preenchimento obrigatório!\n");
+
+            RuleFor(x => x.Endereco.Bairro).NotEmpty().WithMessage("O campo BAIRRO é de preenchimento obrigatório!\n");
+
+            RuleFor(x => x.Endereco.Numero).NotEmpty().WithMessage("O campo NÚMERO é de preenchimento obrigatório!\n");
+
+            RuleFor(x => x.Endereco.Uf).NotEmpty().WithMessage("O campo UF é de preenchimento obrigatório!\n");
+
+            RuleFor(x => x.Endereco.Cidade).NotEmpty().WithMessage("O campo CIDADE é de preenchimento obrigatório!");
         }
 
         public static bool ValidaCPF(string vrCPF)

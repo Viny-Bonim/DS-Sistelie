@@ -16,7 +16,7 @@ namespace DS_Sistelie.Models
 
         public string Logradouro { get; set; }
 
-        public string Numero { get; set; }
+        public int Numero { get; set; }
 
         public string Uf { get; set; }
 
