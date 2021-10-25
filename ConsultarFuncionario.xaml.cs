@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DS_Sistelie.Models;
 
 namespace DS_Sistelie
 {
@@ -19,7 +20,7 @@ namespace DS_Sistelie
     /// </summary>
     public partial class ConsultarFuncionario : Window
     {
-        List<Funcionário> ListaF = new List<Funcionário>();
+        List<Funcionario> ListaF = new List<Funcionario>();
         public ConsultarFuncionario()
         {
             InitializeComponent();
@@ -30,31 +31,21 @@ namespace DS_Sistelie
         {
             for (int i = 0; i < 3; i++)
             {
-                ListaF.Add(new Funcionário()
+                ListaF.Add(new Funcionario()
                 {
-                    IdFuncionario = i + 1,
+                    IdFunc = i + 1,
 
-                    NomeFuncionario = "Hiago Benitez",
+                    Nome = "Hiago Benitez",
 
-                    CpfFuncionario = 01002003044,
+                    CPF = "01002003044",
                     
-                    RgFuncionario = "001122",
+                    RG = "001122",
 
-                    NascimentoFuncionario = "23/10/20",
+                    data_nas = DateTime.Now,
 
-                    SexoFuncionario = "Masculino",
-
-                    RendaFuncionario = 20.000,
-
-                    BairroFuncionario = "Bela Vista",
-
-                    RuaFuncionario = "Rua sem Fim",
-
-                    NumeroFuncionario = 1411,
-
-                    CidadeFuncionario = "Ji-Paraná",
+                    Sexo = "Masculino",
                     
-                    EmailFuncionario = "xxxxxx@gmil.com"
+                    Email = "xxxxxx@gmil.com"
                 });
                 
             }

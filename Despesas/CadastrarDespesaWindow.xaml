@@ -21,8 +21,8 @@
         <StackPanel Grid.Column="0" Grid.Row="0">
             <Label Content="Insira o valor da despesa*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 23 5 5"/>
             <Label Content="Insira a data da despesa*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 32 5 5"/>
-            <Label Content="Código do Caixa*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 27 5 5"/>
-            <Label Content="Código do Funcionário*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 27 5 5"/>
+            <Label Content="Caixa*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 27 5 5"/>
+            <Label Content="Funcionário*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 27 5 5"/>
             <Label Content="Insira a descrição da despesa*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 37 5 5"/>
         </StackPanel>
 
@@ -34,12 +34,12 @@
         <StackPanel>
             <TextBox x:Name="txtValorDespesa" Margin="245 22 40 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtValorDespesa_PreviewLostKeyboardFocus"/>
             <DatePicker x:Name="dtpkDataDespesa" Margin="245 25 40 5" Background="White" FontSize="20"/>
-            <TextBox x:Name="txtCodigoCaixaDespesa" Text="1" IsEnabled="False" Margin="245 25 40 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtCodigoCaixaDespesa_PreviewLostKeyboardFocus"/>
-            <TextBox x:Name="txtCodigoFuncionarioDespesa" Text="1" IsEnabled="False" Margin="245 23 40 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtCodigoFuncionarioDespesa_PreviewLostKeyboardFocus"/>
+            <ComboBox x:Name="cbxCaixaDespesa" DisplayMemberPath="MesCaixa" SelectedValuePath="IdCaixa" Margin="185 25 40 5" Background="White" FontSize="20"/>
+            <ComboBox x:Name="cbxFuncionarioDespesa" DisplayMemberPath="Nome" SelectedValuePath="IdFunc" Margin="185 23 40 5" Background="White" FontSize="20"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="0">
-            <TextBox x:Name="txtIdDespesa" Margin="135 110 110 5" Background="White" FontSize="20" IsEnabled="False">1</TextBox>
+            <TextBox x:Name="txtIdDespesa" Margin="135 110 110 5" Background="White" FontSize="20" IsEnabled="False">Código</TextBox>
             <GridSplitter HorizontalAlignment="Stretch" Height="5" RenderTransformOrigin="0.5,0.5" Margin="-375,0,41,0">
                 <GridSplitter.RenderTransform>
                     <TransformGroup>

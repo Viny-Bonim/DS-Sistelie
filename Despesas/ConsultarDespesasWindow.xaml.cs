@@ -22,9 +22,7 @@ namespace DS_Sistelie.Despesas
     /// </summary>
     public partial class ConsultarDespesasWindow : Window
     {
-        private List<string> ordenarDespesa;
-
-        List<Despesas> ListaDespesas = new List<Despesas>();
+        private List<Despesas> _despesaList = new List<Despesas>();
 
         List<EntradaSaidaDespesa> ListaEntradaSaidaDespesas = new List<EntradaSaidaDespesa>();
 
@@ -45,15 +43,6 @@ namespace DS_Sistelie.Despesas
             //Inserindo os dados na tabela através do banco de dados
             LoadListDesp();
 
-            
-            //ComboBox de ordenar conulta de despesas
-            ordenarDespesa = new List<string>();
-            ordenarDespesa.Add("ID");
-            ordenarDespesa.Add("Código do Fornecedor");
-            ordenarDespesa.Add("Valor da Despesa");
-            ordenarDespesa.Add("Data da Despesa");
-            cmbxOrdenarConsultaDespesa.ItemsSource = ordenarDespesa;
-            
 
             //DataGrid de entrada e saída de despesa
             for (int i = 0; i < 3; i++)
@@ -75,8 +64,8 @@ namespace DS_Sistelie.Despesas
         {
             try
             {
-                var dao = new DespesasDAO();
-                DataGridConsultarDespesas.ItemsSource = dao.List();
+                _despesaList = new DespesasDAO().List();
+                DataGridConsultarDespesas.ItemsSource = _despesaList;
             }
             catch (Exception ex)
             {
@@ -135,6 +124,14 @@ namespace DS_Sistelie.Despesas
             {
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void btnPesquisarDespesa_Click(object sender, RoutedEventArgs e)
+        {
+            var text = txtOrdenarConsultaDespesa.Text;
+
+            var filteredList = _despesaList.Where(i => i.DescricaoDespesa.ToLower().Contains(text));
+            DataGridConsultarDespesas.ItemsSource = filteredList;
         }
     }
 }

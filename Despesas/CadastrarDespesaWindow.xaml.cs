@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DS_Sistelie.Models;
 
 namespace DS_Sistelie.Despesas
 {
@@ -49,6 +50,8 @@ namespace DS_Sistelie.Despesas
             grupoDespesa.Add("Despesa Variável");
 
             cmbxGrupoDespesa.ItemsSource = grupoDespesa;
+
+            LoadCbxFuncCaixa();
 
             _despesa = new Despesas();
             if (_id > 0)
@@ -143,8 +146,8 @@ namespace DS_Sistelie.Despesas
                 txtIdDespesa.Text = _despesa.IdDespesa.ToString();
                 txtValorDespesa.Text = _despesa.ValorDespesa.ToString();
                 dtpkDataDespesa.SelectedDate = _despesa.dataDespesa;
-                txtCodigoCaixaDespesa.Text = _despesa.Fkcaixa.ToString();
-                txtCodigoFuncionarioDespesa.Text = _despesa.Fkfuncionario.ToString();
+                cbxCaixaDespesa.Text = _despesa.Fkcaixa.ToString();
+                cbxFuncionarioDespesa.Text = _despesa.Fkfuncionario.ToString();
                 txtDescricaoDespesa.Text = _despesa.DescricaoDespesa;
                 cmbxGrupoDespesa.Text = _despesa.GrupoDespesa;
             }
@@ -218,42 +221,16 @@ namespace DS_Sistelie.Despesas
             }
         }
 
-        private void txtCodigoCaixaDespesa_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        private void LoadCbxFuncCaixa()
         {
-            //Comentado porque txtCaixaDespesa está com valor automático, não é necessário inserir nada
-
-            /*
-            string codigo_fornecedor = txtCodigoCaixaDespesa.Text.Trim();
-
-            if (SemLetras(codigo_fornecedor) == false)
+            try
             {
-                e.Handled = true;
-                MessageBox.Show("Preencha apenas com números!");
-                txtCodigoCaixaDespesa.Focus();
-                verifica_txtbox = false;
+                cbxCaixaDespesa.ItemsSource = new CaixaDAO().List();
+                cbxFuncionarioDespesa.ItemsSource = new FuncionarioDAO().List();
             }
-            else
+            catch (Exception ex)
             {
-                verifica_txtbox = true;
-            }
-            */
-        }
 
-        private void txtCodigoFuncionarioDespesa_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-
-            string codigo_fornecedor = txtCodigoFuncionarioDespesa.Text.Trim();
-
-            if (SemLetras(codigo_fornecedor) == false)
-            {
-                e.Handled = true;
-                MessageBox.Show("Preencha apenas com números!");
-                txtCodigoFuncionarioDespesa.Focus();
-                verifica_txtbox = false;
-            }
-            else
-            {
-                verifica_txtbox = true;
             }
         }
 
@@ -263,8 +240,8 @@ namespace DS_Sistelie.Despesas
             dtpkDataDespesa.Text = "";
             dtpkDataDespesa.Text = "";
             cmbxGrupoDespesa.Text = "";
-            txtCodigoCaixaDespesa.Text = "";
-            txtCodigoFuncionarioDespesa.Text = "";
+            cbxCaixaDespesa.Text = "";
+            cbxFuncionarioDespesa.Text = "";
             txtDescricaoDespesa.Text = "";
         }
     }

@@ -64,14 +64,13 @@ namespace DS_Sistelie.Despesas
                 while (reader.Read())
                 {
                     despesas.IdDespesa = reader.GetInt32("cod_desp");
-                    despesas.ValorDespesa = reader.GetDouble("valor_desp");
-                    despesas.dataDespesa = reader.GetDateTime("data_desp");
-                    despesas.DescricaoDespesa = reader.GetString("descricao_desp");
-                    despesas.GrupoDespesa = reader.GetString("grupo_desp");
+                    despesas.ValorDespesa = DAOHelper.GetDouble(reader, "valor_desp");
+                    despesas.dataDespesa = DAOHelper.GetDateTime(reader, "data_desp");
+                    despesas.DescricaoDespesa = DAOHelper.GetString(reader, "descricao_desp");
+                    despesas.GrupoDespesa = DAOHelper.GetString(reader, "grupo_desp");
                     despesas.Fkcaixa = reader.GetInt32("cod_caixa_fk");
                     despesas.Fkfuncionario = reader.GetInt32("cod_func_fk");
                 }
-
                 return despesas;
             }
             catch (Exception e)
