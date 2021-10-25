@@ -32,7 +32,7 @@ namespace DS_Sistelie.Models
 
             RuleFor(x => x.Telefone).NotEqual("(__) _ ____-____").WithMessage("O campo 'TELEFONE' é de preenchimento obrigatório!\n");
 
-            RuleFor(x => x.Email).NotEmpty().WithMessage("O campo EMAIL é de preenchimento obrigatório!");
+            RuleFor(x => x.Email).NotEmpty().WithMessage("O campo EMAIL é de preenchimento obrigatório!\n");
 
             RuleFor(x => x.Endereco.Cep).NotEqual("_____-___").WithMessage("O campo 'CEP' é de preenchimento obrigatório!\n");
 
