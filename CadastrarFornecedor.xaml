@@ -38,7 +38,7 @@
             <TextBox x:Name="txtCodigo" Margin="110 20 180 5" Background="White" FontSize="20" IsEnabled="False">Código</TextBox>
             <ComboBox x:Name="cmbxTipo" Margin="80 14 120 5" FontSize="20"/>
             <DatePicker x:Name="dtCadastro" Margin="190 18 5 5" Background="White" FontSize="20"/>
-            <TextBox x:Name="txtRGIE" Margin="110 18 5 5" Background="White" FontSize="20"/>
+            <TextBox x:Name="txtRGIE" Margin="110 18 5 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtRGIE_PreviewLostKeyboardFocus"/>
             <wpfTool:MaskedTextBox x:Name="txtCpf" Mask="000\.000\.000-00" Margin="80 15 5 5" Background="White" FontSize="21"/>
             <wpfTool:MaskedTextBox x:Name="txtCnpj" Mask="00\.000\.000/0000-00" Margin="90 20 5 5" Background="White" FontSize="21"/>
             <TextBox x:Name="txtNomeFantasia" Margin="180 25 5 5" Background="White" FontSize="20"/>
@@ -71,7 +71,7 @@
         <StackPanel Grid.Column="3" Grid.Row="0" Grid.RowSpan="2">
             <wpfTool:MaskedTextBox Mask="00000-000" x:Name="txtCEP" Margin="1 22 50 5" Background="White" FontSize="20"/>
             <TextBox x:Name="txtLogradouro" Margin="1 20 50 5" Background="White" FontSize="20"/>
-            <TextBox x:Name="txtNumero" Margin="1 27 50 5" Background="White" FontSize="20"/>
+            <TextBox x:Name="txtNumero" Margin="1 27 50 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtNumero_PreviewLostKeyboardFocus"/>
             <TextBox x:Name="txtBairro" Margin="1 28 50 5" Background="White" FontSize="20"/>
             <ComboBox x:Name="cbxUF" Margin="1 26 50 5" Background="White" FontSize="20"/>
             <TextBox x:Name="txtCidade" Margin="1 24 50 5" Background="White" FontSize="20"/>

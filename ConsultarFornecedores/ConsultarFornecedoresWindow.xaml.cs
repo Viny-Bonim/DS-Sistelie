@@ -20,7 +20,7 @@ namespace DS_Sistelie.ConsultarFornecedores
     /// </summary>
     public partial class ConsultarFornecedoresWindow : Window
     {
-        List<Models.Fornecedor> ListaFornecedor = new List<Models.Fornecedor>();
+        private List<Fornecedor> _fornecedorList = new List<Fornecedor>();
 
         public ConsultarFornecedoresWindow()
         {
@@ -46,8 +46,11 @@ namespace DS_Sistelie.ConsultarFornecedores
         {
             try
             {
-                var dao = new FornecedorDAO();
-                DataGridConsultarFornecedor.ItemsSource = dao.List();
+                _fornecedorList = new FornecedorDAO().List();
+                DataGridConsultarFornecedor.ItemsSource = _fornecedorList;
+
+                //var dao = new FornecedorDAO();
+                //DataGridConsultarFornecedor.ItemsSource = dao.List();
             }
             catch (Exception ex)
             {
@@ -85,6 +88,14 @@ namespace DS_Sistelie.ConsultarFornecedores
             {
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void btnPesquisarFornecedor_Click(object sender, RoutedEventArgs e)
+        {
+            var text = txtConsultarFornecedor.Text;
+
+            var filteredList = _fornecedorList.Where(i => i.NomeFantasia.ToLower().Contains(text));
+            DataGridConsultarFornecedor.ItemsSource = filteredList;
         }
     }
 }

@@ -269,5 +269,39 @@ namespace DS_Sistelie
             else
                 txtEmail_error.Visibility = Visibility.Collapsed;
         }
+
+        public static bool SemLetras(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!Char.IsDigit(c))
+                    return false;
+            }
+            return true;
+        }
+
+        private void txtNumero_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            string numero = txtNumero.Text.Trim();
+
+            if (SemLetras(numero) == false)
+            {
+                e.Handled = true;
+                MessageBox.Show("NÚMERO de endereço inválido. Por favor verifique!", "Informação Inválida", MessageBoxButton.OK, MessageBoxImage.Warning);
+                txtNumero.Focus();
+            }
+        }
+
+        private void txtRGIE_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            string rgie = txtRGIE.Text.Trim();
+
+            if (SemLetras(rgie) == false)
+            {
+                e.Handled = true;
+                MessageBox.Show("A informação fornecida no campo: 'RG/IE' é inválida. Por favor verifique!", "Informação Inválida", MessageBoxButton.OK, MessageBoxImage.Warning);
+                txtRGIE.Focus();
+            }
+        }
     }
 }

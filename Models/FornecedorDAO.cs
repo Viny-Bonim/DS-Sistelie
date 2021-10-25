@@ -160,7 +160,7 @@ namespace DS_Sistelie.Models
                 List<Fornecedor> listForn = new List<Fornecedor>();
 
                 var query = conn.Query();
-                query.CommandText = "SELECT * FROM Fornecedor";
+                query.CommandText = "SELECT * FROM Fornecedor LEFT JOIN Endereco ON cod_endereco = cod_endereco_fk";
 
                 MySqlDataReader reader = query.ExecuteReader();
 
@@ -178,6 +178,17 @@ namespace DS_Sistelie.Models
                         NomeFantasia = DAOHelper.GetString(reader, "nome_fantasia_forn"),
                         RazaoSocial = DAOHelper.GetString(reader, "razao_social_forn"),
                         Telefone = DAOHelper.GetString(reader, "telefone_forn"),
+
+                        Endereco = DAOHelper.IsNull(reader, "cod_endereco_fk") ? null : new Endereco() 
+                        { 
+                            IdEnd = reader.GetInt32("cod_endereco"),
+                            Cep = reader.GetString("cep"),
+                            Bairro = reader.GetString("bairro"),
+                            Logradouro = reader.GetString("logradouro"),
+                            Numero = reader.GetInt32("numero"),
+                            Uf = reader.GetString("uf"),
+                            Cidade = reader.GetString("cidade") 
+                        }
                     });
                 }
 
