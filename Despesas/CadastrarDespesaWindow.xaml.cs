@@ -75,14 +75,18 @@ namespace DS_Sistelie.Despesas
         {
             _despesa.DescricaoDespesa = txtDescricaoDespesa.Text;
             _despesa.GrupoDespesa = cmbxGrupoDespesa.Text;
-            _despesa.Fkcaixa = 1;
-            _despesa.Fkfuncionario = 1;
 
             if (double.TryParse(txtValorDespesa.Text, out double valorDesp))
                 _despesa.ValorDespesa = valorDesp;
 
             if (dtpkDataDespesa.SelectedDate != null)
                 _despesa.dataDespesa = (DateTime)dtpkDataDespesa.SelectedDate;
+
+            if (cbxCaixaDespesa.SelectedItem != null)
+                _despesa.Caixa = cbxCaixaDespesa.SelectedItem as Caixa;
+
+            if (cbxFuncionarioDespesa.SelectedItem != null)
+                _despesa.Funcionario = cbxFuncionarioDespesa.SelectedItem as Funcionario;
 
             SaveData();     
         }
@@ -146,10 +150,15 @@ namespace DS_Sistelie.Despesas
                 txtIdDespesa.Text = _despesa.IdDespesa.ToString();
                 txtValorDespesa.Text = _despesa.ValorDespesa.ToString();
                 dtpkDataDespesa.SelectedDate = _despesa.dataDespesa;
-                cbxCaixaDespesa.Text = _despesa.Fkcaixa.ToString();
-                cbxFuncionarioDespesa.Text = _despesa.Fkfuncionario.ToString();
                 txtDescricaoDespesa.Text = _despesa.DescricaoDespesa;
                 cmbxGrupoDespesa.Text = _despesa.GrupoDespesa;
+
+                if(_despesa.Caixa != null)
+                    cbxCaixaDespesa.SelectedValue = _despesa.Caixa.IdCaixa;
+
+                if (_despesa.Funcionario != null)
+                    cbxFuncionarioDespesa.SelectedValue = _despesa.Funcionario.IdFunc;
+                
             }
             catch (Exception ex)
             {

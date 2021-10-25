@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DS_Sistelie.Models
 {
-    class Endereco
+    public class Endereco
     {
         public int IdEnd { get; set; }
 

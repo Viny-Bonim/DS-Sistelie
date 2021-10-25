@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DS_Sistelie.Models
 {
-    class Funcionario
+    public class Funcionario
     {
         public int IdFunc { get; set; }
 

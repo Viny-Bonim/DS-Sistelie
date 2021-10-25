@@ -53,10 +53,9 @@
                 <DataGridTextColumn Header="Valor da Despesa" FontSize="17" Binding="{Binding ValorDespesa, ConverterCulture='pt-BR', StringFormat=C}"/>
                 <DataGridTextColumn Header="Data da Despesa" FontSize="17" Binding="{Binding dataDespesa, ConverterCulture='pt-BR'}"/>
                 <DataGridTextColumn Header="Grupo de Despesa" FontSize="17" Binding="{Binding GrupoDespesa, ConverterCulture='pt-BR'}"/>
-
-                <!--<DataGridTextColumn Header="Mês" FontSize="17" Binding="{Binding Caixa.Mes, ConverterCulture='pt-BR'}"/>
-                <DataGridTextColumn Header="Ano" FontSize="17" Binding="{Binding Caixa.ano, ConverterCulture='pt-BR'}"/>
-                <DataGridTextColumn Header="Funcionário" FontSize="17" Binding="{Binding Funcionario.Nome, ConverterCulture='pt-BR'}"/>-->
+                <DataGridTextColumn Header="Mês" FontSize="17" Binding="{Binding Caixa.MesCaixa, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Ano" FontSize="17" Binding="{Binding Caixa.AnoCaixa, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Funcionário" FontSize="17" Binding="{Binding Funcionario.Nome, ConverterCulture='pt-BR'}"/>
 
                 <DataGridTemplateColumn Header="Ações">
                     <DataGridTemplateColumn.CellTemplate>
@@ -112,11 +111,9 @@
 
         <lvc:PieChart LegendLocation="Bottom" DataClick="Chart_OnDataClick" Hoverable="True" DataTooltip="{x:Null}" Margin="0,10,86,15" Grid.Row="1">
             <lvc:PieChart.Series>
-                <lvc:PieSeries Title="Internet" Values="15.25" DataLabels="True"
+                <lvc:PieSeries Title="Despesas Fixas" Values="50" DataLabels="True"
                                LabelPoint="{Binding PointLabel}"/>
-                <lvc:PieSeries Title="Água" Values="16.25" DataLabels="True" 
-                               LabelPoint="{Binding PointLabel}"/>
-                <lvc:PieSeries Title="Energia" Values="17.25" DataLabels="True" 
+                <lvc:PieSeries Title="Despesas Variáveis" Values="50" DataLabels="True" 
                                LabelPoint="{Binding PointLabel}"/>
             </lvc:PieChart.Series>
         </lvc:PieChart>

@@ -49,6 +49,10 @@ namespace DS_Sistelie.Models
                     list.Add(new Caixa()
                     {
                         IdCaixa = reader.GetInt32("cod_caixa"),
+                        SaldoInicial = reader.GetDouble("saldo_inicial_caixa"),
+                        EntradaCaixa = reader.GetDouble("entrada_caixa"),
+                        SaidaCaixa = reader.GetDouble("saida_caixa"),
+                        SaldoFinal = reader.GetDouble("saldo_final"),
                         AnoCaixa = reader.GetString("ano_caixa"),
                         MesCaixa = reader.GetString("mes_caixa")
                     });

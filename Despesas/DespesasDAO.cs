@@ -7,6 +7,7 @@ using DS_Sistelie.Interfaces;
 using DS_Sistelie.Database;
 using MySql.Data.MySqlClient;
 using DS_Sistelie.Helpers;
+using DS_Sistelie.Models;
 
 namespace DS_Sistelie.Despesas
 {
@@ -50,7 +51,10 @@ namespace DS_Sistelie.Despesas
             try
             {
                 var query = conn.Query();
-                query.CommandText = "SELECT * FROM Despesa WHERE cod_desp  = @id";
+                query.CommandText = "SELECT * FROM Despesa " +
+                                                "LEFT JOIN Caixa ON cod_caixa = cod_caixa_fk " +
+                                                "LEFT JOIN Funcionario ON cod_func = cod_func_fk " +
+                                                "WHERE cod_desp = @id";
 
                 query.Parameters.AddWithValue("@id", id);
 
@@ -68,8 +72,25 @@ namespace DS_Sistelie.Despesas
                     despesas.dataDespesa = DAOHelper.GetDateTime(reader, "data_desp");
                     despesas.DescricaoDespesa = DAOHelper.GetString(reader, "descricao_desp");
                     despesas.GrupoDespesa = DAOHelper.GetString(reader, "grupo_desp");
-                    despesas.Fkcaixa = reader.GetInt32("cod_caixa_fk");
-                    despesas.Fkfuncionario = reader.GetInt32("cod_func_fk");
+
+
+                    //pegando dados do caixa
+                    if (!DAOHelper.IsNull(reader, "cod_caixa_fk"))
+                        despesas.Caixa = new Caixa()
+                        {
+                            IdCaixa = reader.GetInt32("cod_caixa"),
+                            MesCaixa = reader.GetString("mes_caixa"),
+                            AnoCaixa = reader.GetString("ano_caixa")
+                        };
+
+
+                    //pegando dados do funcionário
+                    if (!DAOHelper.IsNull(reader, "cod_func_fk"))
+                        despesas.Funcionario = new Funcionario()
+                        {
+                            IdFunc = reader.GetInt32("cod_func"),
+                            Nome = reader.GetString("nome")
+                        };
                 }
                 return despesas;
             }
@@ -98,8 +119,8 @@ namespace DS_Sistelie.Despesas
                 query.Parameters.AddWithValue("@data", t.dataDespesa?.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@descricao", t.DescricaoDespesa);
                 query.Parameters.AddWithValue("@grupo", t.GrupoDespesa);
-                query.Parameters.AddWithValue("@Fkcaixa", t.Fkcaixa);
-                query.Parameters.AddWithValue("@Fkfuncionario", t.Fkfuncionario);
+                query.Parameters.AddWithValue("@Fkcaixa", t.Caixa.IdCaixa);
+                query.Parameters.AddWithValue("@Fkfuncionario", t.Funcionario.IdFunc);
 
                 //var result = query.ExecuteNonQuery();
                 MySqlDataReader reader = query.ExecuteReader();
@@ -129,7 +150,7 @@ namespace DS_Sistelie.Despesas
                 List<Despesas> listDesp = new List<Despesas>();
 
                 var query = conn.Query();
-                query.CommandText = "SELECT * FROM Despesa";
+                query.CommandText = "SELECT * FROM Despesa LEFT JOIN Caixa ON cod_caixa = cod_caixa_fk LEFT JOIN Funcionario ON cod_func = cod_func_fk WHERE cod_desp = @id";
 
                 MySqlDataReader reader = query.ExecuteReader();
 
@@ -142,8 +163,19 @@ namespace DS_Sistelie.Despesas
                         dataDespesa = DAOHelper.GetDateTime(reader, "data_desp"),
                         DescricaoDespesa = DAOHelper.GetString(reader, "descricao_desp"),
                         GrupoDespesa = DAOHelper.GetString(reader, "grupo_desp"),
-                        Fkcaixa = reader.GetInt32("cod_caixa_fk"),
-                        Fkfuncionario = reader.GetInt32("cod_func_fk")
+
+                        Caixa = DAOHelper.IsNull(reader, "cod_caixa_fk") ? null : new Caixa()
+                        {
+                            IdCaixa = reader.GetInt32("cod_caixa"),
+                            MesCaixa = reader.GetString("mes_caixa"),
+                            AnoCaixa = reader.GetString("ano_caixa")
+                        },
+
+                        Funcionario = DAOHelper.IsNull(reader, "cod_func_fk") ? null : new Funcionario()
+                        {
+                            IdFunc = reader.GetInt32("cod_func"),
+                            Nome = reader.GetString("nome")
+                        }
                     });
                 }              
 
@@ -164,13 +196,16 @@ namespace DS_Sistelie.Despesas
             try
             {
                 var query = conn.Query();
-                query.CommandText = "UPDATE Despesa SET valor_desp = @valor, data_desp = @data, descricao_desp = @descricao, grupo_desp = @grupo " +
+                query.CommandText = "UPDATE Despesa SET valor_desp = @valor, data_desp = @data, descricao_desp = @descricao, grupo_desp = @grupo, " +
+                    "cod_caixa_fk = @caixa, cod_func_fk = @funcionario " +
                    "WHERE cod_desp = @id";
                 
                 query.Parameters.AddWithValue("@valor", t.ValorDespesa);
                 query.Parameters.AddWithValue("@data", t.dataDespesa);
                 query.Parameters.AddWithValue("@descricao", t.DescricaoDespesa);
                 query.Parameters.AddWithValue("@grupo", t.GrupoDespesa);
+                query.Parameters.AddWithValue("@caixa", t.Caixa.IdCaixa);
+                query.Parameters.AddWithValue("@funcionario", t.Funcionario.IdFunc);
                 query.Parameters.AddWithValue("@id", t.IdDespesa);
 
                 var result = query.ExecuteNonQuery();

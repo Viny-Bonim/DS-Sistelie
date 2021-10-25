@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DS_Sistelie.Models;
 
 namespace DS_Sistelie.Despesas
 {
@@ -18,8 +19,8 @@ namespace DS_Sistelie.Despesas
 
         public string GrupoDespesa { get; set; }
 
-        public int Fkcaixa { get; set; }
+        public Caixa Caixa { get; set; }
 
-        public int Fkfuncionario { get; set; }
+        public Funcionario Funcionario { get; set; }
     }
 }

@@ -87,7 +87,7 @@
                 <DataGridTextColumn Header="Logradouro" FontSize="17" Binding="{Binding Endereco.Logradouro, ConverterCulture='pt-BR'}"/>
                 <DataGridTextColumn Header="Número" FontSize="17" Binding="{Binding Endereco.Numero, ConverterCulture='pt-BR'}"/>
                 <DataGridTextColumn Header="Bairro" FontSize="17" Binding="{Binding Endereco.Bairro, ConverterCulture='pt-BR'}"/>
-                <DataGridTextColumn Header="UF" FontSize="17" Binding="{Binding Endereco.Uf, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Estado" FontSize="17" Binding="{Binding Endereco.Uf, ConverterCulture='pt-BR'}"/>
                 <DataGridTextColumn Header="Cidade" FontSize="17" Binding="{Binding Endereco.Cidade, ConverterCulture='pt-BR'}"/>
 
                 <DataGridTemplateColumn Header="Ações">

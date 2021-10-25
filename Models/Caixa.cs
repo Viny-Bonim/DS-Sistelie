@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DS_Sistelie.Models
 {
-    class Caixa
+    public class Caixa
     {
         public int IdCaixa { get; set; }
 
