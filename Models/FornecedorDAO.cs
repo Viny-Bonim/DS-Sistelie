@@ -110,11 +110,11 @@ namespace DS_Sistelie.Models
 
                 var query = conn.Query();
 
-                query.CommandText = "INSERT INTO Fornecedor (email_forn, tipo_forn, data_cadastro_forn, rg_ie_forn, cpf_forn, cnpj_forn, nome_fantasia_forn, razao_social_forn, telefone_forn, cod_endereco_fk) " +
-                    "VALUES (@email, @tipo, @datacad, @rgie, @cpf, @cnpj, @nomefantasia, @razaosocial, @telefone, @enderecoId)";
+                //query.CommandText = "INSERT INTO Fornecedor (email_forn, tipo_forn, data_cadastro_forn, rg_ie_forn, cpf_forn, cnpj_forn, nome_fantasia_forn, razao_social_forn, telefone_forn, cod_endereco_fk) " +
+                //    "VALUES (@email, @tipo, @datacad, @rgie, @cpf, @cnpj, @nomefantasia, @razaosocial, @telefone, @enderecoId)";
 
 
-                //query.CommandText = "CALL InserirFornecedor(@email, @tipo, @datacad, @rgie, @cpf, @cnpj, @nomefantasia, @razaosocial, @telefone, @enderecoId)";
+                query.CommandText = "CALL InserirFornecedor(@email, @tipo, @datacad, @rgie, @cpf, @cnpj, @nomefantasia, @razaosocial, @telefone, @enderecoId)";
 
                 query.Parameters.AddWithValue("@email", t.Email);
                 query.Parameters.AddWithValue("@tipo", t.TipoFornecedor);
@@ -127,21 +127,21 @@ namespace DS_Sistelie.Models
                 query.Parameters.AddWithValue("@telefone", t.Telefone);
                 query.Parameters.AddWithValue("@enderecoId", enderecoId);
 
-                var result = query.ExecuteNonQuery();
+                //var result = query.ExecuteNonQuery();
 
-                if (result == 0)
-                    throw new Exception("O registro não foi inserido. Verifique e tente novamente");
+                //if (result == 0)
+                //   throw new Exception("O registro não foi inserido. Verifique e tente novamente");
 
-                //MySqlDataReader reader = query.ExecuteReader();
+                MySqlDataReader reader = query.ExecuteReader();
 
-                /*
+                
                 while (reader.Read())
                 {
                     if (reader.GetName(0).Equals("Alerta"))
                     {
                         throw new Exception(reader.GetString("Alerta"));
                     }
-                }  */
+                }  
             }
             catch (Exception e)
             {
