@@ -42,6 +42,8 @@ namespace DS_Sistelie
 
         private void CadastrarFornecedor_Loaded(object sender, RoutedEventArgs e)
         {
+            _fornecedor = new Fornecedor();
+            
             tipoFornecedor = new List<string>();
             tipoFornecedor.Add("Pessoa Física");
             tipoFornecedor.Add("Pessoa Jurídica");
@@ -230,7 +232,7 @@ namespace DS_Sistelie
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                
             }
         }
 
