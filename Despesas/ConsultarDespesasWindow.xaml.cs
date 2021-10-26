@@ -42,8 +42,9 @@ namespace DS_Sistelie.Despesas
         {
             //Inserindo os dados na tabela através do banco de dados
             LoadListDesp();
+            LoadListEntradaSaida();
 
-
+            /*
             //DataGrid de entrada e saída de despesa
             for (int i = 0; i < 3; i++)
             {
@@ -57,7 +58,7 @@ namespace DS_Sistelie.Despesas
                     Final = "Déficit"
                 });
             }
-            DataGridEntradaSaidaDespesas.ItemsSource = ListaEntradaSaidaDespesas;
+            DataGridEntradaSaidaDespesas.ItemsSource = ListaEntradaSaidaDespesas;*/
         }
 
         private void LoadListDesp()
@@ -73,6 +74,19 @@ namespace DS_Sistelie.Despesas
             }
         }
 
+
+        private void LoadListEntradaSaida()
+        {
+            try
+            {
+                _despesaList = new DespesasDAO().List();
+                DataGridEntradaSaidaDespesas.ItemsSource = _despesaList;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
         private void btnInicioConsultarDespesa_Click(object sender, RoutedEventArgs e)
         {

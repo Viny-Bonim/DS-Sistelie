@@ -79,8 +79,12 @@ namespace DS_Sistelie.Despesas
                         despesas.Caixa = new Caixa()
                         {
                             IdCaixa = reader.GetInt32("cod_caixa"),
-                            MesCaixa = reader.GetString("mes_caixa"),
-                            AnoCaixa = reader.GetString("ano_caixa")
+                            SaldoInicial = reader.GetDouble("saldo_inicial_caixa"),
+                            EntradaCaixa = reader.GetDouble("entrada_caixa"),
+                            SaidaCaixa = reader.GetDouble("saida_caixa"),
+                            SaldoFinal = reader.GetDouble("saldo_final"),
+                            AnoCaixa = reader.GetString("ano_caixa"),
+                            MesCaixa = reader.GetString("mes_caixa")
                         };
 
                     
@@ -169,8 +173,12 @@ namespace DS_Sistelie.Despesas
                         Caixa = DAOHelper.IsNull(reader, "cod_caixa_fk") ? null : new Caixa()
                         {
                             IdCaixa = reader.GetInt32("cod_caixa"),
-                            MesCaixa = reader.GetString("mes_caixa"),
-                            AnoCaixa = reader.GetString("ano_caixa")
+                            SaldoInicial = reader.GetDouble("saldo_inicial_caixa"),
+                            EntradaCaixa = reader.GetDouble("entrada_caixa"),
+                            SaidaCaixa = reader.GetDouble("saida_caixa"),
+                            SaldoFinal = reader.GetDouble("saldo_final"),
+                            AnoCaixa = reader.GetString("ano_caixa"),
+                            MesCaixa = reader.GetString("mes_caixa")
                         },
                         
                         Funcionario = DAOHelper.IsNull(reader, "cod_func_fk") ? null : new Funcionario()

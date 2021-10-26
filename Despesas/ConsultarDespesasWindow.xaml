@@ -90,12 +90,11 @@
                   IsReadOnly="True" AutoGenerateColumns="False" AlternatingRowBackground="#d3e0f5" AlternationCount="2" 
                   FontFamily="Corbel" FontSize="20">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Ano" FontSize="17" Binding="{Binding Ano, ConverterCulture='pt-BR'}"/>
-                <DataGridTextColumn Header="Mês" FontSize="17" Binding="{Binding Mes, ConverterCulture='pt-BR'}"/>
-                <DataGridTextColumn Header="Entrada Total" FontSize="17" Binding="{Binding Entrada, ConverterCulture='pt-BR'}"/>
-                <DataGridTextColumn Header="Saída Total" FontSize="17" Binding="{Binding Saida, ConverterCulture='pt-BR'}"/>
-                <DataGridTextColumn Header="Saldo Final" FontSize="17" Binding="{Binding Saldo, ConverterCulture='pt-BR'}"/>
-                <DataGridTextColumn Header="Situação" FontSize="17" Binding="{Binding Final, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Ano" FontSize="17" Binding="{Binding Caixa.AnoCaixa, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Mês" FontSize="17" Binding="{Binding Caixa.MesCaixa, ConverterCulture='pt-BR'}"/>
+                <DataGridTextColumn Header="Entrada Total" FontSize="17" Binding="{Binding Caixa.EntradaCaixa, ConverterCulture='pt-BR', StringFormat=C}"/>
+                <DataGridTextColumn Header="Saída Total" FontSize="17" Binding="{Binding Caixa.SaidaCaixa, ConverterCulture='pt-BR', StringFormat=C}"/>
+                <DataGridTextColumn Header="Saldo Final" FontSize="17" Binding="{Binding Caixa.SaldoFinal, ConverterCulture='pt-BR', StringFormat=C}"/>
             </DataGrid.Columns>
         </DataGrid>
 
