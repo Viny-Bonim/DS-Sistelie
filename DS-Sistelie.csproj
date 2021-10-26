@@ -180,6 +180,7 @@
     <Compile Include="Models\FuncionarioDAO.cs" />
     <Compile Include="Models\RegistrarVenda.cs" />
     <Compile Include="Models\RegistrarVendaDAO.cs" />
+    <Compile Include="Models\Tarefa.cs" />
     <Compile Include="RegistrarVendas.xaml.cs">
       <DependentUpon>RegistrarVendas.xaml</DependentUpon>
     </Compile>

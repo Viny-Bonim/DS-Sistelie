@@ -150,7 +150,10 @@ namespace DS_Sistelie.Despesas
                 List<Despesas> listDesp = new List<Despesas>();
 
                 var query = conn.Query();
-                query.CommandText = "SELECT * FROM Despesa LEFT JOIN Caixa ON cod_caixa = cod_caixa_fk LEFT JOIN Funcionario ON cod_func = cod_func_fk WHERE cod_desp = @id";
+                query.CommandText = "SELECT * FROM Despesa " +
+                                                "LEFT JOIN Caixa ON cod_caixa = cod_caixa_fk " +
+                                                "LEFT JOIN Funcionario ON cod_func = cod_func_fk " +
+                                                "WHERE cod_desp = @id";
 
                 MySqlDataReader reader = query.ExecuteReader();
 
@@ -170,7 +173,7 @@ namespace DS_Sistelie.Despesas
                             MesCaixa = reader.GetString("mes_caixa"),
                             AnoCaixa = reader.GetString("ano_caixa")
                         },
-
+                        
                         Funcionario = DAOHelper.IsNull(reader, "cod_func_fk") ? null : new Funcionario()
                         {
                             IdFunc = reader.GetInt32("cod_func"),

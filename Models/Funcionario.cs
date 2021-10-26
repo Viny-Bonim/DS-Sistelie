@@ -25,5 +25,7 @@ namespace DS_Sistelie.Models
         public string Email { get; set; }
 
         public Endereco Endereco = new Endereco();
+
+        public Tarefa Tarefa = new Tarefa();
     }
 }
