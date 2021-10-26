@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DS_Sistelie.Database;
 using DS_Sistelie.Interfaces;
+using MySql.Data.MySqlClient;
 
 namespace DS_Sistelie.Models
 {
@@ -19,7 +20,10 @@ namespace DS_Sistelie.Models
                 var query = conn.Query();
 
                 query.CommandText = "INSERT INTO Endereco (cep, bairro, logradouro, numero, uf, cidade) " +
-                    "VALUES (@cep, @bairro, @logradouro, @numero, @uf, @cidade)";
+                                    "VALUES (@cep, @bairro, @logradouro, @numero, @uf, @cidade)";
+
+
+                //query.CommandText = "CALL InserirEndereco(@cep, @bairro, @logradouro, @numero, @uf, @cidade)";
 
                 query.Parameters.AddWithValue("@cep", t.Cep);
                 query.Parameters.AddWithValue("@bairro", t.Bairro);
@@ -34,6 +38,17 @@ namespace DS_Sistelie.Models
                 {
                     throw new Exception("Erro ao salvar informações do endereço. Revise e tente novamente.");
                 }
+
+                //var result = query.ExecuteNonQuery();
+                //MySqlDataReader reader = query.ExecuteReader();
+
+                //while (reader.Read())
+                //{
+                //    if (reader.GetName(0).Equals("Alerta"))
+                //    {
+                //        throw new Exception(reader.GetString("Alerta"));
+                //    }
+                //}
 
                 return query.LastInsertedId;
             }
