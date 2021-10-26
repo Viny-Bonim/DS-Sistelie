@@ -23,6 +23,7 @@ namespace DS_Sistelie.Despesas
     public partial class ConsultarDespesasWindow : Window
     {
         private List<Despesas> _despesaList = new List<Despesas>();
+        private List<Caixa> _entradaSaidaList = new List<Caixa>();
 
         List<EntradaSaidaDespesa> ListaEntradaSaidaDespesas = new List<EntradaSaidaDespesa>();
 
@@ -79,8 +80,8 @@ namespace DS_Sistelie.Despesas
         {
             try
             {
-                _despesaList = new DespesasDAO().List();
-                DataGridEntradaSaidaDespesas.ItemsSource = _despesaList;
+                _entradaSaidaList = new CaixaDAO().List();
+                DataGridEntradaSaidaDespesas.ItemsSource = _entradaSaidaList;
             }
             catch (Exception ex)
             {
