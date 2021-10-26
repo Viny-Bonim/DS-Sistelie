@@ -10,9 +10,11 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LiveCharts;
 using LiveCharts.Wpf;
+using LiveCharts.Defaults;
 using DS_Sistelie.Models;
 
 namespace DS_Sistelie.Despesas
@@ -25,41 +27,32 @@ namespace DS_Sistelie.Despesas
         private List<Despesas> _despesaList = new List<Despesas>();
         private List<Caixa> _entradaSaidaList = new List<Caixa>();
 
-        List<EntradaSaidaDespesa> ListaEntradaSaidaDespesas = new List<EntradaSaidaDespesa>();
-
         public ConsultarDespesasWindow()
         {
             InitializeComponent();
             Loaded += ConsultarDespesasWindow_Loaded;
 
-            PointLabel = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+            //PointLabel = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
 
-            DataContext = this;
+            //DataContext = this;
         }
 
-        public Func<ChartPoint, string> PointLabel { get; set; }
+        //public Func<ChartPoint, string> PointLabel { get; set; }
 
         private void ConsultarDespesasWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            //Inserindo os dados na tabela através do banco de dados
+            //Inserindo os dados na tabela de consulta de despesas
+            //através do banco de dados
             LoadListDesp();
-            LoadListEntradaSaida();
 
-            /*
-            //DataGrid de entrada e saída de despesa
-            for (int i = 0; i < 3; i++)
-            {
-                ListaEntradaSaidaDespesas.Add(new EntradaSaidaDespesa()
-                {
-                    Ano = i + 2019,
-                    Mes = "Outubro",
-                    Entrada = 1500.00,
-                    Saida = 8000,
-                    Saldo = 1500 - 8000,
-                    Final = "Déficit"
-                });
-            }
-            DataGridEntradaSaidaDespesas.ItemsSource = ListaEntradaSaidaDespesas;*/
+
+            //Inserindo os dados no gráfico de pizza
+            LoadChart();
+
+
+            //Inserindo os dados na tabela de entrada e saída
+            //através do banco de dados
+            LoadListEntradaSaida();
         }
 
         private void LoadListDesp()
@@ -71,7 +64,7 @@ namespace DS_Sistelie.Despesas
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                
             }
         }
 
@@ -85,7 +78,19 @@ namespace DS_Sistelie.Despesas
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                
+            }
+        }
+
+        private void LoadChart()
+        {
+            try
+            {
+                pieChart.Series = new DespesasDAO().DadosGrafico();
+            }
+            catch (Exception ex)
+            {
+               
             }
         }
 
@@ -96,17 +101,18 @@ namespace DS_Sistelie.Despesas
             this.Close();
         }
 
+        /*
         private void Chart_OnDataClick(object sender, ChartPoint chartpoint)
         {
-            var chart = (LiveCharts.Wpf.PieChart)chartpoint.ChartView;
-
+          
             //limpa a fatia selecionada.
             foreach (PieSeries series in chart.Series)
                 series.PushOut = 0;
 
             var selectedSeries = (PieSeries)chartpoint.SeriesView;
             selectedSeries.PushOut = 8;
-        }
+        }  var chart = (LiveCharts.Wpf.PieChart)chartpoint.ChartView;
+        */
 
         private void Button_UpdateDesp_Click(object sender, RoutedEventArgs e)
         {

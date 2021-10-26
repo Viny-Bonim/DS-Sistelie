@@ -8,6 +8,9 @@ using DS_Sistelie.Database;
 using MySql.Data.MySqlClient;
 using DS_Sistelie.Helpers;
 using DS_Sistelie.Models;
+using LiveCharts;
+using LiveCharts.Wpf;
+using LiveCharts.Defaults;
 
 namespace DS_Sistelie.Despesas
 {
@@ -18,6 +21,47 @@ namespace DS_Sistelie.Despesas
         public DespesasDAO()
         {
             conn = new Conexao();
+        }
+
+        public SeriesCollection DadosGrafico()
+        {
+            try
+            {
+                SeriesCollection series = new SeriesCollection();
+
+                Func<ChartPoint, string> labelPoint = chartPoint =>
+                string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+
+                var query = conn.Query();
+
+                query.CommandText =
+                    "SELECT 'Despesas Variáveis' AS _title, SUM(IF(grupo_desp = 'Despesa Variável', 1, 0)) AS _value FROM Despesa " +
+                    "UNION ALL " +
+                    "SELECT 'Despesas Fixas' AS _title, SUM(IF(grupo_desp = 'Despesa Fixa', 1, 0)) AS _value FROM Despesa";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    series.Add(new PieSeries
+                    {
+                        Title = reader.GetString("_title"),
+                        Values = new ChartValues<ObservableValue> { new ObservableValue(reader.GetInt32("_value")) },
+                        DataLabels = true,
+                        LabelPoint = labelPoint
+                    });
+                }
+
+                return series;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+
+            }
         }
 
         public void Delete(Despesas t)
