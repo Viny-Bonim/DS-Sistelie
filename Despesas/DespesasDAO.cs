@@ -52,8 +52,8 @@ namespace DS_Sistelie.Despesas
             {
                 var query = conn.Query();
                 query.CommandText = "SELECT * FROM Despesa " +
-                                                "LEFT JOIN Caixa ON cod_caixa = cod_caixa_fk " +
                                                 "LEFT JOIN Funcionario ON cod_func = cod_func_fk " +
+                                                "LEFT JOIN Caixa ON cod_caixa = cod_caixa_fk " +
                                                 "WHERE cod_desp = @id";
 
                 query.Parameters.AddWithValue("@id", id);
@@ -83,7 +83,7 @@ namespace DS_Sistelie.Despesas
                             AnoCaixa = reader.GetString("ano_caixa")
                         };
 
-
+                    
                     //pegando dados do funcionário
                     if (!DAOHelper.IsNull(reader, "cod_func_fk"))
                         despesas.Funcionario = new Funcionario()
@@ -151,9 +151,8 @@ namespace DS_Sistelie.Despesas
 
                 var query = conn.Query();
                 query.CommandText = "SELECT * FROM Despesa " +
-                                                "LEFT JOIN Caixa ON cod_caixa = cod_caixa_fk " +
                                                 "LEFT JOIN Funcionario ON cod_func = cod_func_fk " +
-                                                "WHERE cod_desp = @id";
+                                                "LEFT JOIN Caixa ON cod_caixa = cod_caixa_fk ";
 
                 MySqlDataReader reader = query.ExecuteReader();
 

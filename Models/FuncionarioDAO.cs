@@ -41,10 +41,14 @@ namespace DS_Sistelie.Models
                 List<Funcionario> list = new List<Funcionario>();
 
                 var query = conn.Query();
-                query.CommandText = "SELECT * FROM Funcionario " +
+                query.CommandText = "SELECT * FROM Funcionario ";
+                    
+                    
+                    
+                                                    /* +
                                                 "LEFT JOIN endereco ON cod_endereco = cod_endereco_fk " +
                                                 "LEFT JOIN Tarefa ON cod_tare = cod_tare_fk " +
-                                                "WHERE cod_func = @id";
+                                                "WHERE cod_func = @id";*/
 
                 MySqlDataReader reader = query.ExecuteReader();
 
@@ -53,7 +57,12 @@ namespace DS_Sistelie.Models
                     list.Add(new Funcionario()
                     {
                         IdFunc = reader.GetInt32("cod_func"),
-                        Nome = reader.GetString("nome"),
+                        Nome = reader.GetString("nome")
+
+
+
+
+                        /*
                         CPF = reader.GetString("cpf"),
                         RG = reader.GetString("rg"),
                         data_nas = reader.GetDateTime("data_nasc_func"),
@@ -79,7 +88,12 @@ namespace DS_Sistelie.Models
                             DataInicio = reader.GetDateTime("datainicio_tare"),
                             DataTermino = reader.GetDateTime("datatermi_tare"),
                             DescricaoTarefa = reader.GetString("descricao_tare")
-                        }
+                        }*/
+
+
+
+
+
                     });
                 }
 
