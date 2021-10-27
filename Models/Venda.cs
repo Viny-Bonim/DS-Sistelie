@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace DS_Sistelie.Models
 {
-    public class RegistrarVenda
+    public class Venda
     {
         public int Codigovenda { get; set; }
 
-        public DateTime DataVenda { get; set; }
-        public string Datavenda { get; internal set; }
+        public DateTime? DataVenda { get; set; }
+
         public string Formapagamento { get; set; }
 
         public string Nomecliente { get; set; }

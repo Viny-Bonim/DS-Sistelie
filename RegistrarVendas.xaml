@@ -18,10 +18,10 @@
         <ComboBox x:Name="ComboNomeCliente" HorizontalAlignment="Left" Margin="28,159,0,0" VerticalAlignment="Top" Width="280" Height="28" FontSize="20" FontFamily="Arial" SelectionChanged="ComboBox_SelectionChanged"/>
         <ComboBox x:Name="ComboNomeVendedor" HorizontalAlignment="Left" Margin="357,159,0,0" VerticalAlignment="Top" Width="280" Height="28" FontSize="20" FontFamily="Arial" SelectionChanged="ComboBox_SelectionChanged"/>
         <Label Content="Nome do(a) Vendedor(a)*" HorizontalAlignment="Left" Margin="357,121,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
-        <Button x:Name="btnSalvar" HorizontalAlignment="Left" Margin="849,0,0,565" VerticalAlignment="Bottom" Width="100" Height="85" FontWeight="Bold" FontSize="17" VerticalContentAlignment="Bottom" Background="#FF06AEAE" Click="btnSalvar_Click">
+        <Button x:Name="btnSalvar" HorizontalAlignment="Left" Margin="849,0,0,565" VerticalAlignment="Bottom" Width="125" Height="85" FontWeight="Bold" FontSize="17" VerticalContentAlignment="Bottom" Background="#FF06AEAE" Click="btnSalvar_Click">
             <StackPanel>
                 <Image Source="imagensBotoes/Salvar.png" Width="50" Margin="7 5 5 1"/>
-                <TextBlock FontSize="17" Margin="10 0 5 25" Foreground="White"><Run Text="S" TextDecorations="Underline"/><Run Text="alvar"/></TextBlock>
+                <TextBlock FontSize="17" Margin="10 0 5 25" Foreground="White"><Run Text="S"/><Run Text="alvar"/></TextBlock>
             </StackPanel>
         </Button>
         <GridSplitter HorizontalAlignment="Left" Height="992" Margin="493,-296,0,0" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
@@ -72,11 +72,11 @@
         <TextBox x:Name="TxtQuantidade" HorizontalAlignment="Left" Height="28" Margin="362,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontSize="20" FontFamily="Arial" TextChanged="TxtQuantidade_TextChanged"/>
         <TextBox x:Name="TxtValorUnidade" HorizontalAlignment="Left" Height="28" Margin="532,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" FontSize="20" FontFamily="Arial" TextChanged="TxtValorUnidade_TextChanged"/>
         <TextBox x:Name="TxtUnidadedeVenda" HorizontalAlignment="Left" Height="28" Margin="726,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" FontSize="20" FontFamily="Arial" TextChanged="TxtUnidadedeVenda_TextChanged"/>
-        <Button x:Name="btnInserirRegistro" Height="65" Margin="409,320,440,320"  
+        <Button x:Name="btnInserirRegistro" Height="65" Margin="409,320,440,0"  
             Background="#FF06AEAE" FontWeight="Bold" Foreground="White" Click="btnInserirRegistro_Click" VerticalAlignment="Top" MaxWidth="80" MaxHeight="65" MinWidth="80" MinHeight="65">
             <StackPanel>
-                <Image Source="imagensBotoes/Editar.png" Width="35" Margin="2 3 0 0"/>
-                <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold" Text="Inserir"/>
+                <Image Source="imagensBotoes/Editar.png" Width="36" Margin="2 3 0 0" Height="39"/>
+                <TextBlock Margin="3 -1 1 0" FontSize="14" FontWeight="Bold" Text="Inserir" Height="25"/>
             </StackPanel>
         </Button>
         <TextBox x:Name="TxtValorTotalVenda" HorizontalAlignment="Left" Height="28" Margin="734,661,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" IsEnabled="False" FontSize="20" TextChanged="TxtCodigo_TextChanged"/>
@@ -97,7 +97,7 @@
                 <TextBlock Margin="3 -1 1 0" FontSize="16" FontWeight="Bold"><Run Text="Excluir"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnNovaVenda" HorizontalAlignment="Left" Margin="702,0,0,565" VerticalAlignment="Bottom" Width="100" Height="85" FontWeight="Bold" FontSize="17" VerticalContentAlignment="Bottom" Background="#FF06AEAE" Click="btnNovaVenda_Click">
+        <Button x:Name="btnNovaVenda" HorizontalAlignment="Left" Margin="702,0,0,565" VerticalAlignment="Bottom" Width="126" Height="85" FontWeight="Bold" FontSize="17" VerticalContentAlignment="Bottom" Background="#FF06AEAE" Click="btnNovaVenda_Click">
             <StackPanel>
                 <Image Source="imagensBotoes/Novo.png" Width="50" Margin="7 5 5 1"/>
                 <TextBlock FontSize="14" Margin="10 0 5 25" Text="Nova Venda" Foreground="White"/>

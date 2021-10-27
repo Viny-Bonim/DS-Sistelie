@@ -1,4 +1,5 @@
 ﻿using DS_Sistelie.Models;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,8 +12,8 @@ namespace DS_Sistelie
     public partial class RegistrarVendas : Window
     {
         bool validacao = false;
-        RegistrarVenda registrarVenda = new RegistrarVenda();
-        Venda venda = new Venda();
+        private int _Codigovenda;
+        private Venda _venda;
         private List<string> Nomecliente;
         private List<string> Formapagamento;
         private List<string> Nomevendedor;
@@ -22,8 +23,17 @@ namespace DS_Sistelie
             Loaded += RegistrarVendas_Loaded;
         }
 
+        public RegistrarVendas(int Codigovenda)
+        {
+            _Codigovenda = Codigovenda;
+            InitializeComponent();
+            Loaded += RegistrarVendas_Loaded;
+        }
+
         private void RegistrarVendas_Loaded(object sender, RoutedEventArgs e)
         {
+            _venda = new Venda();
+
             Nomecliente = new List<string>();
             Nomecliente.Add("Carolaine Aparecida de Souza Barros");
             Nomecliente.Add("Gabriel André Estevam Gross");
@@ -44,7 +54,7 @@ namespace DS_Sistelie
             List<Venda> listaVendas = new List<Venda>();
             listaVendas.Add(new Venda()
             {
-                Id = 1,
+                Codigovenda = 1,
                 DescricaoVenda = TxtDescricaoVenda.Text,
                 UnidadeVenda = TxtUnidadedeVenda.Text,
                 Quantidade = TxtQuantidade.Text,
@@ -81,21 +91,21 @@ namespace DS_Sistelie
 
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
-            registrarVenda.Datavenda = DataVenda.Text;
-            registrarVenda.Formapagamento = ComboFormaPagamento.Text;
-            registrarVenda.Nomecliente = ComboNomeCliente.Text;
-            registrarVenda.Nomevendedor = ComboNomeVendedor.Text;
-            registrarVenda.DescricaoVenda = TxtDescricaoVenda.Text;
-            registrarVenda.Quantidade = TxtQuantidade.Text;
-            registrarVenda.UnidadeVenda = TxtUnidadedeVenda.Text;
+            if (DataVenda.SelectedDate != null)
+                _venda.DataVenda = (DateTime)DataVenda.SelectedDate;
+            _venda.Formapagamento = ComboFormaPagamento.Text;
+            _venda.Nomecliente = ComboNomeCliente.Text;
+            _venda.Nomevendedor = ComboNomeVendedor.Text;
+            _venda.DescricaoVenda = TxtDescricaoVenda.Text;
+            _venda.UnidadeVenda = TxtUnidadedeVenda.Text;
 
-            if (registrarVenda.Datavenda.Equals("")
-                || registrarVenda.Formapagamento.Equals("")
-                || registrarVenda.Nomecliente.Equals("")
-                || registrarVenda.Nomevendedor.Equals("")
-                || registrarVenda.DescricaoVenda.Equals("")
-                || registrarVenda.Quantidade.Equals("")
-                || registrarVenda.UnidadeVenda.Equals(""))
+            if (_venda.DataVenda.Equals("")
+                || _venda.Formapagamento.Equals("")
+                || _venda.Nomecliente.Equals("")
+                || _venda.Nomevendedor.Equals("")
+                || _venda.DescricaoVenda.Equals("")
+                || _venda.Quantidade.Equals("")
+                || _venda.UnidadeVenda.Equals(""))
 
             {
                 MessageBox.Show("Preencha todos os campos com *");
@@ -110,13 +120,13 @@ namespace DS_Sistelie
             if (validacao == true)
             {
                 MessageBox.Show("Registro salvo com sucesso!\n" +
-                $"Data: {registrarVenda.Datavenda}\n" +
-                $"Forma de pagamento: {registrarVenda.Formapagamento}\n" +
-                $"Nome do(a) Cliente: {registrarVenda.Nomecliente}\n" +
-                $"Nome do(a) vendedor(a): {registrarVenda.Nomevendedor}\n" +
-                $"Descrição: {registrarVenda.DescricaoVenda}\n" +
-                $"Quantidade: {registrarVenda.Quantidade}\n" +
-                $"Unidade de venda: {registrarVenda.UnidadeVenda}");
+                $"Data: {_venda.DataVenda}\n" +
+                $"Forma de pagamento: {_venda.Formapagamento}\n" +
+                $"Nome do(a) Cliente: {_venda.Nomecliente}\n" +
+                $"Nome do(a) vendedor(a): {_venda.Nomevendedor}\n" +
+                $"Descrição: {_venda.DescricaoVenda}\n" +
+                $"Quantidade: {_venda.Quantidade}\n" +
+                $"Unidade de venda: {_venda.UnidadeVenda}");
             }
 
 
@@ -131,7 +141,7 @@ namespace DS_Sistelie
                 List<Venda> listaVendas = new List<Venda>();
                 listaVendas.Add(new Venda()
                 {
-                  Id = 1,
+                  Codigovenda = 1,
                   DescricaoVenda = "",
                   UnidadeVenda = "",
                   Quantidade = "",
@@ -149,7 +159,7 @@ namespace DS_Sistelie
             List<Venda> listaVendas = new List<Venda>();
             listaVendas.Add(new Venda()
             {
-                Id = 1,
+                Codigovenda = 1,
                 DescricaoVenda = TxtDescricaoVenda.Text,
                 UnidadeVenda = TxtUnidadedeVenda.Text,
                 Quantidade = TxtQuantidade.Text,
