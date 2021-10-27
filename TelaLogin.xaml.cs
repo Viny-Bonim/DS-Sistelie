@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using DS_Sistelie.Database;
+using DS_Sistelie.Models;
 
 namespace DS_Sistelie
 {
@@ -41,12 +42,31 @@ namespace DS_Sistelie
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Login_Click(object sender, RoutedEventArgs e)
         {
+            string usuario = txtUsuario.Text;
+            string senha = txtSenha.Password.ToString();
+
+            if (Login.LoginUsuario(usuario, senha))
+            {
+                var main = new MenuInicial();
+                main.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Usuario e/ou senha incorretos! Tente novamente", "Autorização negada", MessageBoxButton.OK, MessageBoxImage.Warning);
+                _ = txtUsuario.Focus();
+            }
+
+
+
+
+            /*
             bool validacao = false;
 
-            string usuario = txtusuario.Text;
-            string senha = txtsenha.Text;
+            string usuario = txtUsuario.Text;
+            string senha = txtSenha.Password.ToString();
 
             if(usuario.Equals("") || senha.Equals(""))
             {
@@ -64,17 +84,12 @@ namespace DS_Sistelie
                 menu_inicial.Show();
                 this.Close();
             }
+            */
         }
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
         }
-
-        private void txtEmail_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
     }
 }

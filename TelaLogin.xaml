@@ -6,47 +6,59 @@
         xmlns:local="clr-namespace:DS_Sistelie"
         mc:Ignorable="d"
         
-        WindowStartupLocation="CenterScreen" 
-        FontFamily="Corbel" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         
-        Title="Login" Height="350" Width="600">
+        Title="Login" Height="390" Width="600">
     <Grid Background="#b5b5b5">
         <StackPanel >
-            <Label Foreground="#FF06AEAE" Margin="0 45 0 0" FontSize="35" HorizontalContentAlignment="Center">
+            <Label Foreground="#FF06AEAE" Margin="0 20 0 0" FontSize="35" HorizontalContentAlignment="Center">
                 Login
             </Label>
 
         </StackPanel>
 
         <StackPanel>
-            <Label Foreground="#FF06AEAE" Margin="0 65 0 0" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="25">
-                ____________________________________________________________________
+            <Label Foreground="#FF06AEAE" Margin="0 45 0 0" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="25">
+                __________________________________________________________________________
             </Label>
         </StackPanel>
 
         <StackPanel Margin="0,100,0,0" Width="242">
-            <Label>
+            <Label Margin="0 -15 0 0">
                 Digite o usuario
             </Label>
-            <TextBox x:Name="txtusuario" Cursor="IBeam">
-
-            </TextBox>
-            <Label>
+            <TextBox
+                x:Name="txtUsuario"
+                materialDesign:HintAssist.Hint="Usuario"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Margin="0 3 0 0"/>
+            
+            <Label Margin="0 15 0 0">
                 Digite a senha
             </Label>
-            <TextBox x:Name="txtsenha" Cursor="IBeam">
-
-            </TextBox>
-            <CheckBox Margin="0 4 0 0">
-                Lembrar usuario?
-            </CheckBox>
+            <PasswordBox 
+                x:Name="txtSenha"
+                materialDesign:HintAssist.Hint="Senha"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                Margin="0 3 0 0"/>
         </StackPanel>
 
         <StackPanel Margin="70,350,560,189"/>
 
         <StackPanel Margin="0,210,0,0">
-            <Button Background="#FF06AEAE" Height="30" Cursor="Hand" Margin="130 0 130 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Click="Button_Click">
+            <Button Background="#FF06AEAE" Height="30" Cursor="Hand" Margin="130 70 130 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Click="Button_Login_Click">
                 Login
             </Button>
             <TextBlock HorizontalAlignment="Center" Margin="170 0 0 0">
