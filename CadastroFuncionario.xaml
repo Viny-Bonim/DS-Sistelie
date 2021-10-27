@@ -4,82 +4,82 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DS_Sistelie"
+        xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
         mc:Ignorable="d"
-        Title="Cadastro Funcionario" Height="650" Width="1000" ResizeMode="NoResize">
+        Title="Cadastro Funcionario" Height="690" Width="1000" ResizeMode="NoResize">
     <Grid Background="#B5B5B5">
- 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <StackPanel Height="90" Margin="0 0 0 30" VerticalAlignment="Top" Orientation="Horizontal">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="345"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Height="90" Margin="0 0 0 30" Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" Orientation="Horizontal">
             <Label Margin="0 33 0 0">
                 ID
 
             </Label>
-            <TextBox TextWrapping="Wrap" Width="183" Margin="0,36,0,30" IsEnabled="False"/>      
+            <TextBox TextWrapping="Wrap" x:Name="txtCodigo" FontSize="17" Background="White" Width="183" Margin="8,28,0,30" IsEnabled="False">
+                Código
+            </TextBox>
         </StackPanel>
-
-        <StackPanel Height="90" Margin="0 66 0 30" VerticalAlignment="Top" Orientation="Horizontal">
+        
+        
+        <StackPanel Height="90" Margin="0 66 0 30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" VerticalAlignment="Top" Orientation="Horizontal">
             <Label Margin="0 33 0 0">
                 Nome*
             </Label>
 
 
-            <TextBox x:Name="txtNome" Margin="0 36 0 30" Width="230">
+            <TextBox x:Name="txtNome" FontSize="17" Background="White" Margin="0 30 0 30" Height="30" Width="230">
 
             </TextBox>
 
         </StackPanel>
 
-        <StackPanel Height="90" Margin="0 132 0 0" VerticalAlignment="Top" Orientation="Horizontal">
+        <StackPanel Height="90" Margin="0 132 0 0" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Top" Orientation="Horizontal">
             <Label Margin="0 33 0 0">
                 CPF*
             </Label>
 
-            <TextBox x:Name="txtCpf" Margin="0 36 0 30" Width="230">
-
-            </TextBox>
+            <wpfTool:MaskedTextBox x:Name="txtCpf" Mask="000\.000\.000-00" Margin="10 30 55 30" Background="White" FontSize="21"/>
         </StackPanel>
 
-        <StackPanel Height="90" Margin="0 198 0 0" VerticalAlignment="Top" Orientation="Horizontal">
+        <StackPanel Height="90" Margin="0 198 0 0" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Top" Orientation="Horizontal">
             <Label Margin="0 33 0 0">
                 RG*
             </Label>
 
-            <TextBox x:Name="txtRg" Margin="0 36 0 30" Width="230">
+            <TextBox x:Name="txtRg" Background="White" FontSize="17" Margin="10 30 0 30" Width="230" PreviewLostKeyboardFocus="txtRg_PreviewLostKeyboardFocus">
 
             </TextBox>
         </StackPanel>
 
-        <StackPanel Height="90" Margin="0 264 0 0" VerticalAlignment="Top" Orientation="Horizontal">
+        <StackPanel Height="90" Margin="0 264 0 0" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Top" Orientation="Horizontal">
             <Label Margin="0 33 0 0">
                 Nascimento*
             </Label>
 
-            <DatePicker VerticalAlignment="Center" x:Name="PickNascimento">
+            <DatePicker VerticalAlignment="Center" Background="White" FontSize="15" Width="150" x:Name="PickNascimento">
 
             </DatePicker>
         </StackPanel>
 
-        <StackPanel x:Name="BOX" Height="90" Margin="0 330 0 0"  Orientation="Horizontal">
-            <Label Content="Sexo*" Margin="0,-70,0,117"/>
-
+        <StackPanel x:Name="BOX" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Height="120" Margin="0 -200 0 0"  Orientation="Horizontal">
+            <Label Content="Sexo*" Margin="0,34,0,0"/>
+            <ComboBox Grid.ColumnSpan="2" Margin="0,32,0,56" Background="White" FontSize="15" x:Name="CbSexo" Width="120" HorizontalAlignment="Center"/>
         </StackPanel>
 
-        <StackPanel Height="90" Margin="0 396 0 0" VerticalAlignment="Top" Orientation="Horizontal">
-            <Label Margin="0 33 0 0">
-                Renda familiar*
-            </Label>
-
-            <TextBox x:Name="txtRenda" Margin="0 36 0 30" Width="150">
-
-            </TextBox>
-        </StackPanel>
-
-        <StackPanel Height="90" Margin="0 465 0 0" VerticalAlignment="Top" Orientation="Horizontal">
+        <StackPanel Height="90" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0 465 0 0" VerticalAlignment="Top" Orientation="Horizontal">
             <Label Margin="0 33 0 0">
                 Bairro*
             </Label>
 
-            <TextBox x:Name="txtBairro" Margin="0 36 0 30" Width="100" TextChanged="txtBairro_TextChanged">
+            <TextBox x:Name="txtBairro" Background="White" FontSize="17" Margin="0 30 0 30" Width="100">
 
             </TextBox>
 
@@ -87,7 +87,7 @@
                 Rua*
             </Label>
 
-            <TextBox x:Name="txtRua" Margin="0 36 0 30" Width="150">
+            <TextBox x:Name="txtRua" Background="White" FontSize="17" Margin="0 30 0 30" Width="150">
 
             </TextBox>
 
@@ -95,17 +95,17 @@
                 Nº*
             </Label>
 
-            <TextBox x:Name="txtNumero" Margin="0 36 0 30" Width="70">
+            <TextBox x:Name="txtNumero" Background="White" FontSize="17" Margin="0 30 0 30" Width="70" PreviewLostKeyboardFocus="txtNumero_PreviewLostKeyboardFocus">
 
             </TextBox>
         </StackPanel>
 
-        <StackPanel Height="90" Margin="0 528 0 0" VerticalAlignment="Top" Orientation="Horizontal">
+        <StackPanel Height="90" Margin="0 528 0 0" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Top" Orientation="Horizontal">
             <Label Margin="0 33 0 0">
                 Cidade*
             </Label>
 
-            <TextBox x:Name="txtCidade" Margin="0 36 0 30" Width="130">
+            <TextBox x:Name="txtCidade" Background="White" FontSize="17" Margin="0 30 0 30" Width="130">
 
             </TextBox>
 
@@ -113,29 +113,33 @@
                 Email*
             </Label>
 
-            <TextBox x:Name="txtEmail" Margin="0 36 0 30" Width="230" TextChanged="txtEmail_TextChanged_1">
+            <TextBox x:Name="txtEmail" Background="White" FontSize="17" Margin="0 30 0 30" Width="230" PreviewLostKeyboardFocus="txtEmail_PreviewLostKeyboardFocus">
 
             </TextBox>
+
         </StackPanel>
-        <StackPanel Margin="238,589,392,-43">
+        <StackPanel Margin="238,589,392,-43" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Left" x:Name="txtEmail_error" Text="E-mail inválido" Foreground="Red" FontWeight="Bold" Margin="0 00 0 0" FontSize="14" Height="38" Visibility="Collapsed"/>
         </StackPanel>
 
-        <StackPanel Margin="700 415 0 0"/>
+        <StackPanel Margin="0 0 0 0" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2">
+            <Label Margin="4 265 0 0">ID</Label>
+            <wpfTool:MaskedTextBox Mask="00000-000" x:Name="txtCEP" Margin="50 -27 300 0" Background="White" FontSize="20"/>
+        </StackPanel>
 
-        <StackPanel Margin="700 515 0 15"/>
-        <Button x:Name="Cancelar" Width="160" Height="100" HorizontalAlignment="Center" Margin="812,404,20,115" Background="#FFBB0707" Click="Cancelar_Click">
-            <StackPanel>
-                <Image Source="/imagensBotoes/Cancelar.png" Margin="0 10 0 5" Height="50" Width="70"></Image>
-                <TextBlock Margin="0 0 0 10" HorizontalAlignment="Center">Cancelar</TextBlock>
-            </StackPanel>
-        </Button>
-        <Button x:Name="Salvar" Width="200" Height="90" HorizontalAlignment="Center" Margin="772,519,20,10" Background="#FF06AEAE" Click="Salvar_Click">
-            <StackPanel>
-                <Image Source="/imagensBotoes/Salvar.png" Margin="0 5 0 5" Height="50" Width="70"></Image>
-                <TextBlock Margin="0 0 0 10" HorizontalAlignment="Center">Salvar</TextBlock>
-            </StackPanel>
-        </Button>
-        <ComboBox FontSize="17" x:Name="CbSexo" Margin="64,363,808,228" Width="120" HorizontalAlignment="Center" SelectionChanged="CbSexo_SelectionChanged"/>
-    </Grid>
+        <StackPanel Margin="0 0 0 0" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Button x:Name="Cancelar" Width="160" Height="100" HorizontalAlignment="Left" Margin="72,148,20,15" Background="#FFBB0707" Click="Cancelar_Click">
+                <StackPanel>
+                    <Image Source="/imagensBotoes/Cancelar.png" Margin="0 10 0 5" Height="50" Width="70"></Image>
+                    <TextBlock Margin="0 0 0 10" Foreground="White" HorizontalAlignment="Center">Cancelar</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="Salvar" Width="200" Height="90" HorizontalAlignment="Center" Margin="272,-112,20,10" Background="#FF06AEAE" Click="Salvar_Click">
+                <StackPanel>
+                    <Image Source="/imagensBotoes/Salvar.png" Margin="0 5 0 5" Height="50" Width="70"></Image>
+                    <TextBlock Margin="0 0 0 10" Foreground="White" HorizontalAlignment="Center">Salvar</TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        </Grid>
 </Window>

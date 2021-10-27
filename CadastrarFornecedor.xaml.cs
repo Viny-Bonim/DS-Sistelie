@@ -129,7 +129,6 @@ namespace DS_Sistelie
 
             return result.IsValid;
         }
-
       
         private void SaveData()
         {
@@ -158,7 +157,6 @@ namespace DS_Sistelie
             }
         }
 
-
         private void FillForm()
         {
             try
@@ -179,7 +177,7 @@ namespace DS_Sistelie
                 txtEmail.Text = _fornecedor.Email;
 
 
-                // Pegando informações da tabela Fornecedor
+                // Pegando informações da tabela Endereco
                 if (_fornecedor.Endereco != null)
                 {
                     txtCEP.Text = _fornecedor.Endereco.Cep;

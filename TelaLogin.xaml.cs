@@ -58,38 +58,6 @@ namespace DS_Sistelie
                 MessageBox.Show("Usuario e/ou senha incorretos! Tente novamente", "Autorização negada", MessageBoxButton.OK, MessageBoxImage.Warning);
                 _ = txtUsuario.Focus();
             }
-
-
-
-
-            /*
-            bool validacao = false;
-
-            string usuario = txtUsuario.Text;
-            string senha = txtSenha.Password.ToString();
-
-            if(usuario.Equals("") || senha.Equals(""))
-            {
-                MessageBox.Show("Verifique se os campos estão preenchidos!");
-                validacao = true;
-            }
-            else
-            {
-                validacao = false;
-            }
-
-            if (validacao == false)
-            {
-                MenuInicial menu_inicial = new MenuInicial();
-                menu_inicial.Show();
-                this.Close();
-            }
-            */
-        }
-        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
-        {
-            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
-            e.Handled = true;
         }
     }
 }

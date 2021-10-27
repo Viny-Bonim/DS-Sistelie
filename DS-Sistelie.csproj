@@ -181,6 +181,7 @@
     <Compile Include="Models\FornecedorValidator.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\FuncionarioDAO.cs" />
+    <Compile Include="Models\FuncionarioValidator.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\LoginDAO.cs" />
     <Compile Include="Models\RegistrarVenda.cs" />

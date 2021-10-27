@@ -61,11 +61,8 @@
             <Button Background="#FF06AEAE" Height="30" Cursor="Hand" Margin="130 70 130 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Click="Button_Login_Click">
                 Login
             </Button>
-            <TextBlock HorizontalAlignment="Center" Margin="170 0 0 0">
-                Quer se cadastrar?
-                <Hyperlink x:Name="Hyperlink1" Foreground="Salmon" NavigateUri="https://youtu.be/dQw4w9WgXcQ" RequestNavigate="Hyperlink_RequestNavigate">       
-                    Clique aqui.
-                </Hyperlink>
+            <TextBlock HorizontalAlignment="Center" Margin="170 7 0 0">
+                Quer se cadastrar? Clique aqui.
             </TextBlock>
         </StackPanel>
     </Grid>

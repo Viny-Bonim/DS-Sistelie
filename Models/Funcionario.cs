@@ -16,7 +16,7 @@ namespace DS_Sistelie.Models
 
         public string RG { get; set; }
 
-        public DateTime data_nas { get; set; }
+        public DateTime? data_nas { get; set; }
 
         public string Sexo { get; set; }
 
@@ -25,7 +25,5 @@ namespace DS_Sistelie.Models
         public string Email { get; set; }
 
         public Endereco Endereco = new Endereco();
-
-        public Tarefa Tarefa = new Tarefa();
     }
 }

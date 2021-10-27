@@ -21,7 +21,28 @@ namespace DS_Sistelie.Models
 
         public void Delete(Funcionario t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "DELETE FROM Funcionario WHERE cod_func = @id";
+
+                query.Parameters.AddWithValue("@id", t.IdFunc);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    throw new Exception("O fornecedor não foi excluído corretamente, por favor tente novamente!");
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public Funcionario GetById(int id)
@@ -31,7 +52,34 @@ namespace DS_Sistelie.Models
 
         public void Insert(Funcionario t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var id_end = new EnderecoDAO().Insert(t.Endereco);
+
+                var query = conn.Query();
+                query.CommandText = "INSERT INTO funcionario (nome, cpf, rg, data_nasc_func, sexo, telefone, email, cod_endereco_fk) " +
+                                    "VALUES (@nome, @cpf, @rg, @nacimento, @sexo, @telefone, @email, @id_end)";
+
+                query.Parameters.AddWithValue("@nome", t.Nome);
+                query.Parameters.AddWithValue("@cpf", t.CPF);
+                query.Parameters.AddWithValue("@rg", t.RG);
+                query.Parameters.AddWithValue("@nacimento", t.data_nas?.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@sexo", t.Sexo);
+                query.Parameters.AddWithValue("@telefone", t.Telefone);
+                query.Parameters.AddWithValue("@email", t.Email);
+                query.Parameters.AddWithValue("@id_end", id_end);
+
+                var result = query.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public List<Funcionario> List()
@@ -41,14 +89,9 @@ namespace DS_Sistelie.Models
                 List<Funcionario> list = new List<Funcionario>();
 
                 var query = conn.Query();
-                query.CommandText = "SELECT * FROM Funcionario ";
-                    
-                    
-                    
-                                                    /* +
+                query.CommandText = "SELECT * FROM Funcionario " +
                                                 "LEFT JOIN endereco ON cod_endereco = cod_endereco_fk " +
-                                                "LEFT JOIN Tarefa ON cod_tare = cod_tare_fk " +
-                                                "WHERE cod_func = @id";*/
+                                                "WHERE cod_func = @id";
 
                 MySqlDataReader reader = query.ExecuteReader();
 
@@ -57,12 +100,7 @@ namespace DS_Sistelie.Models
                     list.Add(new Funcionario()
                     {
                         IdFunc = reader.GetInt32("cod_func"),
-                        Nome = reader.GetString("nome")
-
-
-
-
-                        /*
+                        Nome = reader.GetString("nome"),
                         CPF = reader.GetString("cpf"),
                         RG = reader.GetString("rg"),
                         data_nas = reader.GetDateTime("data_nasc_func"),
@@ -78,22 +116,7 @@ namespace DS_Sistelie.Models
                             Numero = reader.GetInt32("numero"),
                             Uf = reader.GetString("uf"),
                             Cidade = reader.GetString("cidade")
-                        },
-
-                        Tarefa = DAOHelper.IsNull(reader, "cod_tare_fk") ? null : new Tarefa()
-                        {
-                            IdTarefa = reader.GetInt32("cod_endereco"),
-                            TipoTarefa = reader.GetString("tipo_tare"),
-                            ResponsavelTarefa = reader.GetString("responsavel_tare"),
-                            DataInicio = reader.GetDateTime("datainicio_tare"),
-                            DataTermino = reader.GetDateTime("datatermi_tare"),
-                            DescricaoTarefa = reader.GetString("descricao_tare")
-                        }*/
-
-
-
-
-
+                        }
                     });
                 }
 
@@ -111,7 +134,47 @@ namespace DS_Sistelie.Models
 
         public void Update(Funcionario t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                long enderecoId = t.Endereco.IdEnd;
+                var endDao = new EnderecoDAO();
+
+                if (enderecoId > 0)
+                    endDao.Update(t.Endereco);
+                else
+                    enderecoId = endDao.Insert(t.Endereco);
+
+                var query = conn.Query();
+                query.CommandText = "UPDATE Funcionario SET nome = @nomeFunc, cpf = @cpfFunc, rg = @rgFunc, " +
+                    "data_nasc_func = @dataNascFunc, sexo = @sexoFunc, telefone = @telefoneFunc, email = @emailFunc, " +
+                    "cod_endereco_fk = @enderecoId " +
+                    "WHERE cod_func = @id";
+
+
+                query.Parameters.AddWithValue("@nomeFunc", t.Nome);
+                query.Parameters.AddWithValue("@cpf", t.CPF);
+                query.Parameters.AddWithValue("@rg", t.RG);
+                query.Parameters.AddWithValue("@dataNascFunc", t.data_nas?.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@sexoFunc", t.Sexo);
+                query.Parameters.AddWithValue("@telefoneFunc", t.Telefone);
+                query.Parameters.AddWithValue("@email", t.Email);
+                query.Parameters.AddWithValue("@enderecoId", enderecoId);
+                query.Parameters.AddWithValue("@id", t.IdFunc);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                    throw new Exception("Atualização do registro não foi realizada.");
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }
