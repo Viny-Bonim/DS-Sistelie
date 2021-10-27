@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DS_Sistelie.Views;
 
 namespace DS_Sistelie
 {
@@ -119,6 +120,13 @@ namespace DS_Sistelie
         {
             Exibir_Tarefas exibirtar = new Exibir_Tarefas();
             exibirtar.Show();
+            this.Close();
+        }
+
+        private void RegistrarCaixa_Click(object sender, RoutedEventArgs e)
+        {
+            InserirCaixaWindow inserirCaixa = new InserirCaixaWindow();
+            inserirCaixa.Show();
             this.Close();
         }
     }

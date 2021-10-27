@@ -163,12 +163,14 @@
     </Compile>
     <Compile Include="Helpers\DAOHelper.cs" />
     <Compile Include="Helpers\Estado.cs" />
+    <Compile Include="Helpers\Mes.cs" />
     <Compile Include="Interfaces\IDAO.cs" />
     <Compile Include="MateriaPrima.cs" />
     <Compile Include="Models\CadastrodeFuncionario.cs" />
     <Compile Include="Models\CadastrodeFuncionario_DAO.cs" />
     <Compile Include="Models\Caixa.cs" />
     <Compile Include="Models\CaixaDAO.cs" />
+    <Compile Include="Models\CaixaValidator.cs" />
     <Compile Include="Models\ConsultadeFuncionario.cs" />
     <Compile Include="Models\ConsultadeFuncionario_DAO.cs" />
     <Compile Include="Models\EnderecoDAO.cs" />
@@ -189,6 +191,9 @@
     </Compile>
     <Compile Include="Validacao.cs" />
     <Compile Include="Venda.cs" />
+    <Compile Include="Views\InserirCaixaWindow.xaml.cs">
+      <DependentUpon>InserirCaixaWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="CadastrarCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -270,6 +275,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MenuInicial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InserirCaixaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

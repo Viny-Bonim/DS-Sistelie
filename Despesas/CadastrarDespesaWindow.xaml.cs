@@ -139,7 +139,6 @@ namespace DS_Sistelie.Despesas
             }
         }
 
-
         private void FillForm()
         {
             try
@@ -190,7 +189,6 @@ namespace DS_Sistelie.Despesas
                 this.Close();
             }
         }
-
 
         public static bool LetrasEVirgulas(string s)
         {

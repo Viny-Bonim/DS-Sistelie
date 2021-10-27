@@ -1,0 +1,77 @@
+﻿<Window x:Class="DS_Sistelie.Views.InserirCaixaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DS_Sistelie.Views"
+        xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+        mc:Ignorable="d"
+        Title="InserirCaixaWindow" Height="540" Width="900" Background="#b5b5b5" 
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="330"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+            <Label Content="Mês correspondente*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 23 5 5"/>
+            <Label Content="Ano correspondente*" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 60 5 5"/>
+            <Label Content="Saldo Inicial" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 60 5 5"/>
+            <Label Content="Entrada" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 60 5 5"/>
+            <Label Content="Saída" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="10 70 5 5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <Label Content="Saldo Final" FontSize="20" FontFamily="Corbel" FontWeight="Bold" Margin="150 140 5 5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.RowSpan="2">
+            <ComboBox x:Name="cbxMesCaixa" Margin="245 22 40 5" Background="White" FontSize="20" />
+            <wpfTool:MaskedTextBox x:Name="txtAnoCaixa" Mask="0000" Margin="245 60 40 5" Background="White" FontSize="20"/>
+            <TextBox x:Name="txtSaldoInicialCaixa" Margin="185 60 40 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtSaldoInicialCaixa_PreviewLostKeyboardFocus"/>
+            <TextBox x:Name="txtEntradaCaixa" Margin="185 60 40 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtEntradaCaixa_PreviewLostKeyboardFocus"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <TextBox x:Name="txtSaldoFinalCaixa" Margin="135 175 110 5" Background="White" FontSize="20" IsEnabled="False">Saldo Final</TextBox>
+            <GridSplitter HorizontalAlignment="Stretch" Height="5" RenderTransformOrigin="0.5,0.5" Margin="-375,0,41,0">
+                <GridSplitter.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-89.863"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </GridSplitter.RenderTransform>
+            </GridSplitter>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <TextBox x:Name="txtSaidaCaixa" FontFamily="Corbel" Margin="185 90 40 5" Background="White" FontSize="20" PreviewLostKeyboardFocus="txtSaidaCaixa_PreviewLostKeyboardFocus"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <Button x:Name="btnSalvarCaixa" FontFamily="Corbel" Width="100" Height="85" Margin="0 70 -250 0"  
+                    Background="#FF06AEAE" FontWeight="Bold" Foreground="White" Click="btnSalvarCaixa_Click">
+                <StackPanel>
+                    <Image Source="/imagensBotoes/Salvar.png" Width="50" Margin="7 5 5 1"/>
+                    <TextBlock FontSize="19" Margin="10 0 5 25"><Run Text="Salvar"/></TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="btnCancelarCaixa" FontFamily="Corbel" Width="100" Height="85" Margin="0 -85 200 0"  
+                    Background="#bf0000" FontWeight="Bold" Foreground="White" Click="btnCancelarCaixa_Click">
+                <StackPanel>
+                    <Image Source="/imagensBotoes/Cancelar.png" Width="50" Margin="7 5 5 1"/>
+                    <TextBlock FontSize="18" Margin="0 0 0 25" Width="75"><Run Text="Cancelar"/></TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

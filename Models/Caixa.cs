@@ -21,7 +21,5 @@ namespace DS_Sistelie.Models
         public string MesCaixa { get; set; }
 
         public string AnoCaixa { get; set; }
-
-        public Funcionario Funcionario { get; set; }
     }
 }

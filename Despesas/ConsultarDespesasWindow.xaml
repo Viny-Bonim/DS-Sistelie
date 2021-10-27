@@ -96,6 +96,21 @@
                 <DataGridTextColumn Header="Entrada Total" FontSize="17" Binding="{Binding EntradaCaixa, ConverterCulture='pt-BR', StringFormat=C}"/>
                 <DataGridTextColumn Header="Saída Total" FontSize="17" Binding="{Binding SaidaCaixa, ConverterCulture='pt-BR', StringFormat=C}"/>
                 <DataGridTextColumn Header="Saldo Final" FontSize="17" Binding="{Binding SaldoFinal, ConverterCulture='pt-BR', StringFormat=C}"/>
+
+                <DataGridTemplateColumn Header="Ações">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource MaterialDesignIconForegroundButton}" 
+                                        Content="{materialDesign:PackIcon Eye}"
+                                        ToolTip="Visualizar Registro" Margin="0 0 5 0" Click="Button_UpdateCaixa_Click"/>
+                                <Button Style="{StaticResource MaterialDesignIconForegroundButton}" 
+                                        Content="{materialDesign:PackIcon Delete}"
+                                        ToolTip="Excluir Registro" Click="Button_DeleteCaixa_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 

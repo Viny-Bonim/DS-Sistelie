@@ -16,6 +16,7 @@ using LiveCharts;
 using LiveCharts.Wpf;
 using LiveCharts.Defaults;
 using DS_Sistelie.Models;
+using DS_Sistelie.Views;
 
 namespace DS_Sistelie.Despesas
 {
@@ -31,13 +32,7 @@ namespace DS_Sistelie.Despesas
         {
             InitializeComponent();
             Loaded += ConsultarDespesasWindow_Loaded;
-
-            //PointLabel = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
-
-            //DataContext = this;
         }
-
-        //public Func<ChartPoint, string> PointLabel { get; set; }
 
         private void ConsultarDespesasWindow_Loaded(object sender, RoutedEventArgs e)
         {
@@ -67,7 +62,6 @@ namespace DS_Sistelie.Despesas
                 
             }
         }
-
 
         private void LoadListEntradaSaida()
         {
@@ -100,19 +94,6 @@ namespace DS_Sistelie.Despesas
             menuInicial.Show();
             this.Close();
         }
-
-        /*
-        private void Chart_OnDataClick(object sender, ChartPoint chartpoint)
-        {
-          
-            //limpa a fatia selecionada.
-            foreach (PieSeries series in chart.Series)
-                series.PushOut = 0;
-
-            var selectedSeries = (PieSeries)chartpoint.SeriesView;
-            selectedSeries.PushOut = 8;
-        }  var chart = (LiveCharts.Wpf.PieChart)chartpoint.ChartView;
-        */
 
         private void Button_UpdateDesp_Click(object sender, RoutedEventArgs e)
         {
@@ -153,6 +134,39 @@ namespace DS_Sistelie.Despesas
 
             var filteredList = _despesaList.Where(i => i.DescricaoDespesa.ToLower().Contains(text));
             DataGridConsultarDespesas.ItemsSource = filteredList;
+        }
+
+        private void Button_UpdateCaixa_Click(object sender, RoutedEventArgs e)
+        {
+            var caixaSelecionado = DataGridEntradaSaidaDespesas.SelectedItem as Caixa;
+
+            var windowcaixa = new InserirCaixaWindow(caixaSelecionado.IdCaixa);
+            windowcaixa.ShowDialog();
+            LoadListDesp();
+            this.Close();
+        }
+
+        private void Button_DeleteCaixa_Click(object sender, RoutedEventArgs e)
+        {
+            var caixaSelecionado = DataGridEntradaSaidaDespesas.SelectedItem as Caixa;
+
+            var result = MessageBox.Show($"Deseja realmente excluir o Caixa do mês de: {caixaSelecionado.MesCaixa}, do ano: {caixaSelecionado.AnoCaixa} " +
+                $"", "Excluir Despesa?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new CaixaDAO();
+                    dao.Delete(caixaSelecionado);
+                    LoadListEntradaSaida();
+                    MessageBox.Show("Caixa Excluído com sucesso");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
