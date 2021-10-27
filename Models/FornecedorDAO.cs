@@ -65,27 +65,27 @@ namespace DS_Sistelie.Models
 
                 while (reader.Read())
                 {
-                    fornecedor.CodigoFornecedor = reader.GetInt32("cod_forn");
-                    fornecedor.Email = reader.GetString("email_forn");
-                    fornecedor.TipoFornecedor = reader.GetString("tipo_forn");
-                    fornecedor.DataCadastroFornecedor = reader.GetDateTime("data_cadastro_forn");
-                    fornecedor.RgIe = reader.GetString("rg_ie_forn");
-                    fornecedor.Cpf = reader.GetString("cpf_forn");
-                    fornecedor.Cnpj = reader.GetString("cnpj_forn");
-                    fornecedor.NomeFantasia = reader.GetString("nome_fantasia_forn");
-                    fornecedor.RazaoSocial = reader.GetString("razao_social_forn");
-                    fornecedor.Telefone = reader.GetString("telefone_forn");
+                    fornecedor.CodigoFornecedor = DAOHelper.GetInt(reader, "cod_forn");
+                    fornecedor.Email = DAOHelper.GetString(reader, "email_forn");
+                    fornecedor.TipoFornecedor = DAOHelper.GetString(reader, "tipo_forn");
+                    fornecedor.DataCadastroFornecedor = DAOHelper.GetDateTime(reader, "data_cadastro_forn");
+                    fornecedor.RgIe = DAOHelper.GetString(reader, "rg_ie_forn");
+                    fornecedor.Cpf = DAOHelper.GetString(reader, "cpf_forn");
+                    fornecedor.Cnpj = DAOHelper.GetString(reader, "cnpj_forn");
+                    fornecedor.NomeFantasia = DAOHelper.GetString(reader, "nome_fantasia_forn");
+                    fornecedor.RazaoSocial = DAOHelper.GetString(reader, "razao_social_forn");
+                    fornecedor.Telefone = DAOHelper.GetString(reader, "telefone_forn");
 
                     if (!DAOHelper.IsNull(reader, "cod_endereco_fk"))
                         fornecedor.Endereco = new Endereco()
                         {
-                            IdEnd = reader.GetInt32("cod_endereco"),
-                            Cep = reader.GetString("cep"),
-                            Bairro = reader.GetString("bairro"),
-                            Logradouro = reader.GetString("logradouro"),
-                            Numero = reader.GetInt32("numero"),
-                            Uf = reader.GetString("uf"),
-                            Cidade = reader.GetString("cidade")
+                            IdEnd = DAOHelper.GetInt(reader, "cod_endereco"),
+                            Cep = DAOHelper.GetString(reader, "cep"),
+                            Bairro = DAOHelper.GetString(reader, "bairro"),
+                            Logradouro = DAOHelper.GetString(reader, "logradouro"),
+                            Numero = DAOHelper.GetInt(reader, "numero"),
+                            Uf = DAOHelper.GetString(reader, "uf"),
+                            Cidade = DAOHelper.GetString(reader, "cidade")
                         };
                 }
 
@@ -168,7 +168,7 @@ namespace DS_Sistelie.Models
                 {
                     listForn.Add(new Fornecedor()
                     {
-                        CodigoFornecedor = reader.GetInt32("cod_forn"),
+                        CodigoFornecedor = DAOHelper.GetInt(reader, "cod_forn"),
                         Email = DAOHelper.GetString(reader, "email_forn"),
                         TipoFornecedor = DAOHelper.GetString(reader, "tipo_forn"),
                         DataCadastroFornecedor = DAOHelper.GetDateTime(reader, "data_cadastro_forn"),
@@ -181,13 +181,13 @@ namespace DS_Sistelie.Models
 
                         Endereco = DAOHelper.IsNull(reader, "cod_endereco_fk") ? null : new Endereco() 
                         { 
-                            IdEnd = reader.GetInt32("cod_endereco"),
-                            Cep = reader.GetString("cep"),
-                            Bairro = reader.GetString("bairro"),
-                            Logradouro = reader.GetString("logradouro"),
-                            Numero = reader.GetInt32("numero"),
-                            Uf = reader.GetString("uf"),
-                            Cidade = reader.GetString("cidade") 
+                            IdEnd = DAOHelper.GetInt(reader, "cod_endereco"),
+                            Cep = DAOHelper.GetString(reader, "cep"),
+                            Bairro = DAOHelper.GetString(reader, "bairro"),
+                            Logradouro = DAOHelper.GetString(reader, "logradouro"),
+                            Numero = DAOHelper.GetInt(reader, "numero"),
+                            Uf = DAOHelper.GetString(reader, "uf"),
+                            Cidade = DAOHelper.GetString(reader, "cidade") 
                         }
                     });
                 }

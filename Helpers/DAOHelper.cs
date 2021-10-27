@@ -33,6 +33,18 @@ namespace DS_Sistelie.Helpers
             return value;
         }
 
+        public static int GetInt(MySqlDataReader reader, string column_name)
+        {
+            int value = 0;
+
+            if (!reader.IsDBNull(reader.GetOrdinal(column_name)))
+            {
+                value = reader.GetInt32(column_name);
+            }
+
+            return value;
+        }
+
         public static DateTime? GetDateTime(MySqlDataReader reader, string column_name)
         {
             DateTime? date = null;
