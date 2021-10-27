@@ -183,8 +183,8 @@
     <Compile Include="Models\FuncionarioDAO.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\LoginDAO.cs" />
-    <Compile Include="Models\RegistrarVenda.cs" />
-    <Compile Include="Models\RegistrarVendaDAO.cs" />
+    <Compile Include="Models\Venda.cs" />
+    <Compile Include="Models\VendaDAO.cs" />
     <Compile Include="Models\Tarefa.cs" />
     <Compile Include="RegistrarVendas.xaml.cs">
       <DependentUpon>RegistrarVendas.xaml</DependentUpon>
@@ -193,7 +193,6 @@
       <DependentUpon>SaidaMateriaPrima.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validacao.cs" />
-    <Compile Include="Venda.cs" />
     <Compile Include="Views\InserirCaixaWindow.xaml.cs">
       <DependentUpon>InserirCaixaWindow.xaml</DependentUpon>
     </Compile>

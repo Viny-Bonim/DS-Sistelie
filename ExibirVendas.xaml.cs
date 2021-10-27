@@ -20,9 +20,7 @@ namespace DS_Sistelie
     /// </summary>
     public partial class ExibirVendas : Window
     {
-        bool validacao = false;
-        RegistrarVenda registrarVenda = new RegistrarVenda();
-        Venda venda = new Venda();
+        
         private List<string> Nomecliente;
         
         public ExibirVendas()
@@ -41,39 +39,11 @@ namespace DS_Sistelie
             Nomecliente.Add("Viny Bonim Scaldelai");
             ComboNomeCliente.ItemsSource = Nomecliente;
 
-            List<Venda> listaVendas = new List<Venda>();
-            for (int i = 0; i < 3; i++)
-            {
-                
-                listaVendas.Add(new Venda()
-                {
-                    Codigo = i +1,
-                    DescricaoVenda = "Convite de Casamento em papel colorset de Fulano e Fulano de tal" + i,
-                    Data = "29/06/2021" + i,
-                    Nomecliente = "Messi" + i,
-                    Quantidade = "10" + i,
-                    FormaPagamento = "À viste" + i,
-                    ValorDesconto = "R$ 2,00" +i,
-                    ValorTotal = "R$ 28,00" + i
-                }); 
-                
-            }
-            DataGridVendas.ItemsSource = listaVendas;
-
         }
 
         private void btnExcluirRegistror_Click(object sender, RoutedEventArgs e)
         {
-            if (Radio1.IsChecked == false && Radio2.IsChecked == false && Radio3.IsChecked == false)
-            {
-                MessageBox.Show("Selecione uma venda para ser excluída!");
-            }
-            else
-            {
-
-                MessageBox.Show("Venda excluída com sucesso!");
-
-            }
+            
             
         }
 
@@ -92,33 +62,8 @@ namespace DS_Sistelie
         
         private void btnEditarVenda_Click(object sender, RoutedEventArgs e)
         {
-            if (Radio1.IsChecked == false && Radio2.IsChecked == false && Radio3.IsChecked == false)
-            {
-                MessageBox.Show("Selecione uma Venda para editar!");
-            }
-            else
-            {
-                if (Radio1.IsChecked == true)
-                {
-                    RegistrarVendas registrarVendas = new RegistrarVendas();
-                    registrarVendas.Show();
-                    this.Close();
-                }
-
-                if (Radio2.IsChecked == true)
-                {
-                    RegistrarVendas registrarVendas = new RegistrarVendas();
-                    registrarVendas.Show();
-                    this.Close();
-                }
-
-                if (Radio3.IsChecked == true)
-                {
-                    RegistrarVendas registrarVendas = new RegistrarVendas();
-                    registrarVendas.Show();
-                    this.Close();
-                }
-            }
+            
+            
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

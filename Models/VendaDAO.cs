@@ -9,16 +9,16 @@ using MySql.Data.MySqlClient;
 
 namespace DS_Sistelie.Models
 {
-    class RegistrarVendaDAO : IDAO<RegistrarVenda>
+    class VendaDAO : IDAO<Venda>
     {
         private static Conexao conn;
 
-        public RegistrarVendaDAO()
+        public VendaDAO()
         {
             conn = new Conexao();
         }
  
-        public void Insert(RegistrarVenda t)
+        public void Insert(Venda t)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace DS_Sistelie.Models
 
                 query.Parameters.AddWithValue("@unidadevenda", t.UnidadeVenda);
                 query.Parameters.AddWithValue("@valordesconto", t.Valordesconto);
-                query.Parameters.AddWithValue("@datavenda", t.DataVenda.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@datavenda", t.DataVenda?.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@valorunidade", t.ValorUnidade);
                 query.Parameters.AddWithValue("@formapagamento", t.Formapagamento);
                 query.Parameters.AddWithValue("@nomecliente", t.Nomecliente);
@@ -61,11 +61,11 @@ namespace DS_Sistelie.Models
         }
 
  
-        public List<RegistrarVenda> List()
+        public List<Venda> List()
         {
             try
             {
-                List<RegistrarVenda> listForn = new List<RegistrarVenda>();
+                List<Venda> listForn = new List<Venda>();
 
                 var query = conn.Query();
                 query.CommandText = "SELECT * FROM Venda";
@@ -74,7 +74,7 @@ namespace DS_Sistelie.Models
 
                 while (reader.Read())
                 {
-                    listForn.Add(new RegistrarVenda()
+                    listForn.Add(new Venda()
                     {
                         Codigovenda = reader.GetInt32("cod_venda"),
                         UnidadeVenda = reader.GetString("unidade_venda"),
@@ -103,7 +103,7 @@ namespace DS_Sistelie.Models
         }
 
 
-        public void Update(RegistrarVenda t)
+        public void Update(Venda t)
         {
             try
             {
@@ -113,7 +113,7 @@ namespace DS_Sistelie.Models
                 query.Parameters.AddWithValue("@id", t.Codigovenda);
                 query.Parameters.AddWithValue("@unidadevenda", t.UnidadeVenda);
                 query.Parameters.AddWithValue("@valordesconto", t.Valordesconto);
-                query.Parameters.AddWithValue("@datavenda", t.DataVenda.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@datavenda", t.DataVenda?.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@valorunidade", t.ValorUnidade);
                 query.Parameters.AddWithValue("@formapagamento", t.Formapagamento);
                 query.Parameters.AddWithValue("@nomecliente", t.Nomecliente);
@@ -143,7 +143,7 @@ namespace DS_Sistelie.Models
             }
         }
 
-        public void Delete(RegistrarVenda t)
+        public void Delete(Venda t)
         {
             try
             {
@@ -170,7 +170,7 @@ namespace DS_Sistelie.Models
         }
 
 
-        public RegistrarVenda GetById(int id)
+        public Venda GetById(int id)
         {
             try
             {
@@ -184,7 +184,7 @@ namespace DS_Sistelie.Models
                 if (!reader.HasRows)
                     throw new Exception("Nenhum registro foi encontrado!");
 
-                var registrarvenda = new RegistrarVenda();
+                var registrarvenda = new Venda();
 
                 while (reader.Read())
                 {
